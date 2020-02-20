@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* include CSS for prism toolbar */
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+/* check node_modules/prismjs/themes/ for the available themes */
+@import "~prismjs/themes/prism-tomorrow";
+
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+:root {
+  --ion-font-family: "Muli", sans-serif;
+  font-family: "Muli", sans-serif;
+}

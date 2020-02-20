@@ -1,0 +1,26 @@
+<app-header></app-header>
+<ion-content>
+  <ion-grid fixed no-padding>
+    <ion-row>
+      <ion-col class="ion-padding" size="12" sizeMd="9" pushMd="3">
+        <div class="list" *ngFor="let link of links$ | from: '/blog/' | async">
+          <ion-card-header>
+            <ion-card-subtitle >{{
+              link.subtitle
+            }}</ion-card-subtitle>
+            <a  [href]="link.route"><ion-card-title>{{
+              link.title
+            }}</ion-card-title></a>
+          </ion-card-header>
+          <ion-card-content>
+            <p >{{ link.description }}</p>
+            <ion-chip class="ion-no-border" fill="clear" color="dark" *ngFor="let tag of link.tags">
+              <ion-label>{{ tag }}</ion-label>
+            </ion-chip>
+          </ion-card-content>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-footer></app-footer>
