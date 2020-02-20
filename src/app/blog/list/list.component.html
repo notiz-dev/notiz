@@ -15,9 +15,11 @@
           </ion-card-header>
           <ion-card-content>
             <p >{{ link.description }}</p>
-            <ion-chip class="ion-no-border" fill="clear" color="dark" *ngFor="let tag of link.tags">
-              <ion-label>{{ tag }}</ion-label>
-            </ion-chip>
+            <a *ngFor="let tag of link.tags" [href]="'/tags/' + tag">
+              <ion-chip class="ion-no-border" fill="clear" color="dark" >
+                <ion-label>{{ tag }}</ion-label>
+              </ion-chip>
+            </a>
           </ion-card-content>
         </div>
 

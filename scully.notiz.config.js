@@ -9,5 +9,11 @@ exports.config = {
         folder: "./blog"
       }
     },
+    '/tags/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: "./tags"
+      }
+    },
   }
 };

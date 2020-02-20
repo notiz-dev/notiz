@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { FooterComponent } from './footer/footer.component';
 import { CardStackComponent } from './card-stack/card-stack.component';
 
+
 @NgModule({
     declarations: [ThemeSwitcherComponent, HeaderComponent, FooterComponent, CardStackComponent],
     imports: [ CommonModule, IonicModule ],
