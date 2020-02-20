@@ -10,3 +10,44 @@
   --ion-font-family: "Muli", sans-serif;
   font-family: "Muli", sans-serif;
 }
+
+
+body.dark {
+  .cta.secondary {
+    --background: var(--ion-background-color);
+    box-shadow:  20px 20px 60px #090909, 
+    -20px -20px 60px #1b1b1b;
+  }
+}
+
+
+body:not(.dark) {
+  .cta.secondary {
+    --background: var(--ion-background-color);
+    box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
+  }
+}
+
+.cta {
+  --background: var(--gradient);
+
+  --padding-top: 0.2em;
+  --padding-start: 1.2em;
+  --padding-end: 1.2em;
+  --padding-bottom: 0.2em;
+  height: 3.4em;
+  font-size: 22px;
+}
+
+.cta.secondary {
+  --color: var(--ion-color-secondary);
+  --border-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+    color: var(--gradient)
+}
