@@ -1,19 +1,19 @@
 exports.config = {
-  projectRoot: "./src",
-  projectName: "notiz",
+  projectRoot: './src',
+  projectName: 'notiz',
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: "./blog"
+        folder: './content/blog'
       }
     },
     '/tags/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: "./tags"
+        folder: './content/tags'
       }
-    },
+    }
   }
 };
