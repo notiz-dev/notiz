@@ -14,11 +14,16 @@ const routes: Routes = [
       import('./pages/tags/tags.module').then(m => m.TagsModule)
   },
   {
-    path: '**',
+    path: '404',
     loadChildren: () =>
       import('./pages/page-not-found/page-not-found.module').then(
         m => m.PageNotFoundModule
       )
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full'
   }
 ];
 
