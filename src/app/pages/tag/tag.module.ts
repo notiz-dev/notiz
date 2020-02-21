@@ -1,24 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { TagsRoutingModule } from './tags-routing.module';
-import { TagsComponent } from './tags.component';
 import { IonicModule } from '@ionic/angular';
 
 import { PipesModule } from '@pipes/pipes.module';
 import { ComponentsModule } from '@components/components.module';
-import { TagModule } from '@pages/tag/tag.module';
+import { TagComponent } from './tag.component';
 
 @NgModule({
-  declarations: [TagsComponent],
+  declarations: [TagComponent],
   imports: [
     CommonModule,
-    TagsRoutingModule,
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    PipesModule,
-    TagModule
+    PipesModule
   ]
 })
-export class TagsModule {}
+export class TagModule {}
