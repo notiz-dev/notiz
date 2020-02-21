@@ -29,6 +29,7 @@ body:not(.dark) {
 }
 
 .cta {
+  border-radius: 50px;
   --background: var(--gradient);
 
   --padding-top: 0.2em;

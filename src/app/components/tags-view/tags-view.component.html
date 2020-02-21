@@ -1,0 +1,5 @@
+<a *ngFor="let tag of tagCounts$ | async" [href]="tag.tag.route">
+  <ion-chip>
+    <ion-label>{{ tag.tag.title }} {{ tag.count }}</ion-label>
+  </ion-chip>
+</a>

@@ -5,11 +5,7 @@
       <ion-col class="ion-padding" size="12" sizeMd="9" pushMd="3">
         <h2>Tags</h2>
 
-        <a  *ngFor="let link of links$ | from: '/tags/' | async " [href]="link.route">
-            <ion-chip color="primary" >
-                <ion-label>{{link.title}}</ion-label>
-            </ion-chip>
-        </a>
+       <app-tags-view></app-tags-view>
       </ion-col>
     </ion-row>
   </ion-grid>

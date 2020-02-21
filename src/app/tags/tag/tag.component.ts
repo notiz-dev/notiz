@@ -24,7 +24,7 @@ export class TagComponent implements OnInit {
       switchMap(page =>
         blogs$.pipe(
           map(blogs =>
-            blogs.filter(blog => blog.tags.some(t => t === page.slug))
+            blogs.filter(blog => blog.tags.some(t => t === page.title))
           )
         )
       )
