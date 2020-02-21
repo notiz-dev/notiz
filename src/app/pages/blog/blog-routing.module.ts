@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { BlogPostComponent } from '@pages/blog-post/blog-post.component';
 import { BlogComponent } from './blog.component';
-import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
-  { path: '', component: ListComponent },
+  { path: '', component: BlogComponent },
   {
     path: ':slug',
-    component: BlogComponent
+    component: BlogPostComponent
   },
   {
     path: '**',
-    component: BlogComponent
+    component: BlogPostComponent
   }
 ];
 

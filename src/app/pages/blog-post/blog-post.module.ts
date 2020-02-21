@@ -1,23 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { BlogPostComponent } from './blog-post.component';
 import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '@pipes/pipes.module';
 import { ComponentsModule } from '@components/components.module';
-import { BlogRoutingModule } from './blog-routing.module';
-import { BlogComponent } from './blog.component';
-import { BlogPostModule } from '@pages/blog-post/blog-post.module';
 
 @NgModule({
-  declarations: [BlogComponent],
+  declarations: [BlogPostComponent],
   imports: [
     CommonModule,
-    BlogRoutingModule,
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    PipesModule,
-    BlogPostModule
+    PipesModule
   ]
 })
-export class BlogModule {}
+export class BlogPostModule {}
