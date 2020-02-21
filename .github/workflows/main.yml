@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+    - release/*
+
+jobs:
+  firebase-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@master
+      with:
+        node-version: '12.x'
+    - run: npm install
+    - run: npm run scully:build
+    - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
