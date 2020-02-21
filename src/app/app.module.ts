@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { IonicModule } from '@ionic/angular';
-import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [AppComponent],

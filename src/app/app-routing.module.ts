@@ -5,16 +5,18 @@ const routes: Routes = [
   { path: '', redirectTo: 'blog', pathMatch: 'full' },
   {
     path: 'blog',
-    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+    loadChildren: () =>
+      import('./pages/blog/blog.module').then(m => m.BlogModule)
   },
   {
     path: 'tags',
-    loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule)
+    loadChildren: () =>
+      import('./pages/tags/tags.module').then(m => m.TagsModule)
   },
   {
     path: '**',
     loadChildren: () =>
-      import('./page-not-found/page-not-found.module').then(
+      import('./pages/page-not-found/page-not-found.module').then(
         m => m.PageNotFoundModule
       )
   }
