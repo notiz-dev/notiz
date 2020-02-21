@@ -8,12 +8,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
-
   links$: Observable<ScullyRoute[]> = this.scully.available$;
 
-  constructor(private scully: ScullyRoutesService) { }
+  constructor(private scully: ScullyRoutesService) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

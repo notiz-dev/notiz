@@ -9,4 +9,4 @@ const routes: Routes = [{ path: '', component: PageNotFoundComponent }];
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PageNotFoundRoutingModule { }
+export class PageNotFoundRoutingModule {}

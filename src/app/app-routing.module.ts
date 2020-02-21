@@ -1,20 +1,20 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: "", redirectTo: 'blog', pathMatch: 'full'},
+  { path: '', redirectTo: 'blog', pathMatch: 'full' },
   {
-    path: "blog",
-    loadChildren: () => import("./blog/blog.module").then(m => m.BlogModule)
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
   },
   {
-    path: "tags",
-    loadChildren: () => import("./tags/tags.module").then(m => m.TagsModule)
+    path: 'tags',
+    loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule)
   },
   {
-    path: "**",
+    path: '**',
     loadChildren: () =>
-      import("./page-not-found/page-not-found.module").then(
+      import('./page-not-found/page-not-found.module').then(
         m => m.PageNotFoundModule
       )
   }

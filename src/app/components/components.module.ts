@@ -7,11 +7,22 @@ import { FooterComponent } from './footer/footer.component';
 import { CardStackComponent } from './card-stack/card-stack.component';
 import { TagsViewComponent } from './tags-view/tags-view.component';
 
-
 @NgModule({
-    declarations: [ThemeSwitcherComponent, HeaderComponent, FooterComponent, CardStackComponent, TagsViewComponent],
-    imports: [ CommonModule, IonicModule ],
-    exports: [ThemeSwitcherComponent, HeaderComponent,FooterComponent, CardStackComponent,TagsViewComponent],
-    providers: [],
+  declarations: [
+    ThemeSwitcherComponent,
+    HeaderComponent,
+    FooterComponent,
+    CardStackComponent,
+    TagsViewComponent
+  ],
+  imports: [CommonModule, IonicModule],
+  exports: [
+    ThemeSwitcherComponent,
+    HeaderComponent,
+    FooterComponent,
+    CardStackComponent,
+    TagsViewComponent
+  ],
+  providers: []
 })
 export class ComponentsModule {}

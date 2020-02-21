@@ -3,19 +3,19 @@ import {
   OnInit,
   ViewEncapsulation,
   AfterViewChecked
-} from "@angular/core";
-import { ActivatedRoute, Router, ROUTES } from "@angular/router";
-import { HighlightService } from "../services/highlight.service";
-import { SeoService } from "../services/seo.service";
-import { ScullyRoutesService } from "@scullyio/ng-lib";
-import { first, tap } from "rxjs/operators";
+} from '@angular/core';
+import { ActivatedRoute, Router, ROUTES } from '@angular/router';
+import { HighlightService } from '../services/highlight.service';
+import { SeoService } from '../services/seo.service';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { first, tap } from 'rxjs/operators';
 
 declare var ng: any;
 
 @Component({
-  selector: "app-blog",
-  templateUrl: "./blog.component.html",
-  styleUrls: ["./blog.component.css"],
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css'],
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated
 })

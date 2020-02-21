@@ -52,7 +52,7 @@ export class TagsViewComponent implements OnInit {
             )
           )
         )
-      ),
+      )
       // map(weighted => weighted.sort((a, b) => a.tag.title > b.tag.title ? -1 : 1)) sorting not necessary?
     );
   }

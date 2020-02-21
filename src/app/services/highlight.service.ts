@@ -1,7 +1,7 @@
-import {Injectable, Inject} from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
-import {PLATFORM_ID} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 import 'clipboard';
 import 'prismjs';
@@ -17,7 +17,7 @@ import 'prismjs/components/prism-typescript';
 
 declare var Prism: any;
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class HighlightService {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
