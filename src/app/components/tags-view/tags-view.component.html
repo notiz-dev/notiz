@@ -1,5 +1,7 @@
-<a *ngFor="let tag of tagCounts$ | async" [href]="tag.tag.route">
-  <ion-chip>
-    <ion-label>{{ tag.tag.title }} {{ tag.count }}</ion-label>
+<a *ngFor="let tag of weighted$ | async" [href]="tag.tag.route">
+  <ion-chip
+    [ngClass]="{ big: tag.weight > 20,  small: tag.weight < 5 }"
+  >
+    <ion-label>{{ tag.tag.title }}</ion-label>
   </ion-chip>
 </a>

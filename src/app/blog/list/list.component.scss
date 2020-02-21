@@ -5,22 +5,6 @@ ion-col {
   --background: rgba(0, 0, 0, 0);
   box-shadow: none;
   padding-bottom: 48px;
-  border-bottom: 1px solid var(--ion-color-dark);
-}
-::ng-deep {
-  body.dark {
-    ion-chip {
-      background: #121212;
-      box-shadow: 5px 5px 14px #0f0f0f, -5px -5px 14px #151515;
-    }
-  }
-
-  body:not(.dark) {
-    ion-chip {
-      background: #ffffff;
-      box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
-    }
-  }
 }
 
 ion-card-title {
