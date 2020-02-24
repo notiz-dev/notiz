@@ -9,6 +9,12 @@ exports.config = {
         folder: './content/blog'
       }
     },
+    '/authors/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/authors'
+      }
+    },
     '/tags/:slug': {
       type: 'contentFolder',
       slug: {
