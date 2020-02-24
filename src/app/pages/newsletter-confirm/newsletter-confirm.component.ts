@@ -15,8 +15,8 @@ export class NewsletterConfirmComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
-    const userId = this.route.snapshot.paramMap.get('userId');
-    this.confirmSubscription(userId);
+    const uuid = this.route.snapshot.queryParamMap.get('uuid');
+    this.confirmSubscription(uuid);
   }
 
   confirmSubscription(uuid: string) {

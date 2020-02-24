@@ -14,7 +14,7 @@ const routes: Routes = [
       import('./pages/tags/tags.module').then(m => m.TagsModule)
   },
   {
-    path: 'confirm-subscription/:userId',
+    path: 'confirm-subscription',
     loadChildren: () =>
       import('./pages/newsletter-confirm/newsletter-confirm.module').then(
         m => m.NewsletterConfirmModule
