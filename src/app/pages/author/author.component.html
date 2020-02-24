@@ -1,0 +1,33 @@
+<app-header></app-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-card *ngIf="author$ | async as author" class="ion-text-center">
+          <img *ngIf="author.img" [src]="author.img" [alt]="author.tilte">
+          <ion-card-header>
+            <ion-card-title>{{author.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <scully-content></scully-content>
+
+            <ion-buttons class="ion-float-end">
+              <ion-button *ngIf="author.github" href="https://github.com/{{author.github}}" fill="clear" shape="round">
+                <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+              </ion-button>
+              <ion-button *ngIf="author.twitter" href="https://twitter.com/{{author.twitter}}" fill="clear"
+                shape="round">
+                <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+              </ion-button>
+              <ion-button *ngIf="author.website" [href]="author.website" fill="clear" shape="round">
+                <ion-icon slot="icon-only" name="rocket"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

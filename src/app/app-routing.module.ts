@@ -9,6 +9,11 @@ const routes: Routes = [
       import('./pages/blog/blog.module').then(m => m.BlogModule)
   },
   {
+    path: 'authors',
+    loadChildren: () =>
+      import('./pages/authors/authors.module').then(m => m.AuthorsModule)
+  },
+  {
     path: 'tags',
     loadChildren: () =>
       import('./pages/tags/tags.module').then(m => m.TagsModule)
