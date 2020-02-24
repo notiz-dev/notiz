@@ -14,6 +14,13 @@ const routes: Routes = [
       import('./pages/tags/tags.module').then(m => m.TagsModule)
   },
   {
+    path: 'confirm-subscription/:userId',
+    loadChildren: () =>
+      import('./pages/newsletter-confirm/newsletter-confirm.module').then(
+        m => m.NewsletterConfirmModule
+      )
+  },
+  {
     path: '404',
     loadChildren: () =>
       import('./pages/page-not-found/page-not-found.module').then(
