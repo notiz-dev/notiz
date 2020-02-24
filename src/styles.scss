@@ -14,7 +14,7 @@
 body.dark {
   .cta.secondary {
     --background: var(--ion-background-color);
-    box-shadow: 20px 20px 60px #090909, -20px -20px 60px #1b1b1b;
+    --box-shadow: 20px 20px 60px #090909, -20px -20px 60px #1b1b1b;
   }
   ion-chip {
     background: var(--ion-background-color);
@@ -25,7 +25,7 @@ body.dark {
 body:not(.dark) {
   .cta.secondary {
     --background: var(--ion-background-color);
-    box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
+    --box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
   }
   ion-chip {
     background: #ffffff;

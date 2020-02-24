@@ -40,7 +40,7 @@
   </ion-grid>
 
 
-  <app-card-stack class="ion-margin">
+  <app-card-stack>
     <ion-card *ngFor="let link of links$ | from: '/blog/' | async | slice: 1:6">
       <ion-card-header>
         <ion-card-subtitle>{{

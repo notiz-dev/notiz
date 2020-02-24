@@ -1,7 +1,7 @@
-ion-grid {
+:host {
   background: var(--ion-color-primary);
+  display: block;
 }
-
 .posts {
   position: relative;
   display: flex;
