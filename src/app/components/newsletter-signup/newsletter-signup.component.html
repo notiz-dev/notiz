@@ -1,0 +1,13 @@
+<div>
+  <h4>Newsletter</h4>
+  <p>Sign up to receive updates on our latest posts.</p>
+  <form [formGroup]="newsletterSignup" (ngSubmit)="signupNewsletter()">
+    <ion-item>
+      <ion-label position="floating">Email address</ion-label>
+      <ion-input required formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-button class="signup" type="submit" shape="round">
+      <ion-icon slot="icon-only" name="paper-plane"></ion-icon>
+    </ion-button>
+  </form>
+</div>
