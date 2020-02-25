@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'https://notiz.dev',
+  title: 'notiz',
+  description: 'notiz blog',
+  featureImage: 'assets/img/featured.png',
+  keywords: ['notiz', 'notiz.dev']
 };
 
 /*

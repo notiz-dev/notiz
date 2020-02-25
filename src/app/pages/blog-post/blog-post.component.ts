@@ -6,8 +6,9 @@ import {
 } from '@angular/core';
 import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { first, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-blog-post',
@@ -17,6 +18,7 @@ import { first, tap } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
+  post$: Observable<ScullyRoute>;
   constructor(
     private scully: ScullyRoutesService,
     private highlightService: HighlightService,
@@ -24,15 +26,15 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit() {
-    this.scully
-      .getCurrent()
+    this.post$ = this.scully.getCurrent();
+    this.post$
       .pipe(
         first(),
-        tap(route =>
+        tap(post =>
           this.seo.generateTags({
-            title: route.title,
-            description: route.description,
-            slug: route.slug
+            title: post.title,
+            description: post.description,
+            route: post.route
           })
         )
       )
