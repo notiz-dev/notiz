@@ -1,7 +1,7 @@
 <div class="ion-padding ion-margin" [ngClass]="{ featured: feature }">
   <div class="header">
     <ion-chip *ngIf="feature" class="feature-chip" color="secondary" outline="true">
-        <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
+      <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
     <h4>{{ route.subtitle }}</h4>

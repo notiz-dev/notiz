@@ -1,0 +1,10 @@
+<div>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.descriptiong }}</p>
+
+  <a *ngFor="let tag of post.tags" [href]="'/tags/' + tag">
+    <ion-chip class="ion-no-border" fill="clear" color="dark">
+      <ion-label>{{ tag }}</ion-label>
+    </ion-chip>
+  </a>
+</div>
