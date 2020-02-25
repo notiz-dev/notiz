@@ -30,16 +30,8 @@
       <ion-col size="12" class="ion-text-center">
         <h2>Latest posts</h2>
       </ion-col>
-      <ion-col size="12" size-md="4" size-lg="3" *ngFor="let authorPost of authorPosts$ | async">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-title>{{authorPost.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            Awesome content
-          </ion-card-content>
-        </ion-card>
+      <ion-col size="12" size-md="6" *ngFor="let authorPost of authorPosts$ | async">
+        <app-article [route]="authorPost"></app-article>
       </ion-col>
     </ion-row>
   </ion-grid>
