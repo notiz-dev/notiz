@@ -2,19 +2,22 @@
   <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row>
-      <ion-col class="ion-padding" size="12" sizeMd="9" pushMd="3">
+      <ion-col class="ion-padding ion-text-center" size="12" size-md="10" offset-md="1">
         <h2>{{(page$ | async)?.title}}</h2>
       </ion-col>
-      <ion-col class="ion-padding" size="12" sizeMd="9" pushMd="3">
+      <ion-col class="ion-padding" size="12" size-md="8" pushMd="3">
         <scully-content></scully-content>
       </ion-col>
 
-      <ion-card *ngFor="let post of posts$ | async">
-        <ion-card-header>
-          <ion-card-subtitle>{{post.subtilte}}</ion-card-subtitle>
-          <ion-card-title>{{post.title}}</ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <ion-col size="12" class="ion-text-center">
+        <ion-chip class="feature-chip" color="secondary" outline="true">
+          <ion-icon name="megaphone-outline"></ion-icon>
+          <ion-label>Latest posts</ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="12" size-md="6" *ngFor="let post of posts$ | async">
+        <app-article [route]="post"></app-article>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
