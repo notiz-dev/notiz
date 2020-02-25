@@ -7,4 +7,10 @@
       <ion-label>{{ tag }}</ion-label>
     </ion-chip>
   </a>
+
+  <div>
+    <a *ngFor="let author of post.authors" [href]="'/authors/' + slug(author)">
+      {{author}}
+    </a>
+  </div>
 </div>

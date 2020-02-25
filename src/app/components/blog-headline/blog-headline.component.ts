@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
+import { createSlug } from '@utils/slug';
 
 @Component({
   selector: 'app-blog-headline',
@@ -13,5 +14,9 @@ export class BlogHeadlineComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.post);
+  }
+
+  slug(author: string) {
+    return createSlug(author);
   }
 }
