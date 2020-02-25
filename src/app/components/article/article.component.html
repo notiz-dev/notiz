@@ -1,0 +1,22 @@
+<div class="ion-padding ion-margin" [ngClass]="{ featured: feature }">
+  <div class="header">
+    <ion-chip *ngIf="feature" class="feature-chip" color="secondary" outline="true">
+        <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
+      <ion-label>{{ feature }}</ion-label>
+    </ion-chip>
+    <h4>{{ route.subtitle }}</h4>
+    <h1>
+      <a [href]="route.route">
+        {{ route.title }}
+      </a>
+    </h1>
+  </div>
+  <div class="content">
+    <p>{{ route.description }}</p>
+    <a *ngFor="let tag of route.tags" [href]="'/tags/' + tag">
+      <ion-chip class="ion-no-border" fill="clear" color="dark">
+        <ion-label>{{ tag }}</ion-label>
+      </ion-chip>
+    </a>
+  </div>
+</div>

@@ -1,3 +1,29 @@
 .signup {
   --background: var(--gradient);
 }
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  ion-item {
+    width: 100%;
+  }
+}
+.cta {
+  width: 100%;
+}
+
+::ng-deep {
+  body.dark {
+    .input-wrapper {
+      ion-item {
+        border-radius: 16px;
+        background: #121212;
+        box-shadow: inset 9px 9px 17px #0b0b0b, inset -9px -9px 17px #191919;
+      }
+    }
+  }
+
+  .form-error{
+    text-align: center;
+  }
+}

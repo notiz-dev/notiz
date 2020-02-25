@@ -33,7 +33,6 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
               {
                 "input": "node_modules/@ionic/angular/css/normalize.css"
               },
@@ -63,7 +62,8 @@
               },
               {
                 "input": "src/theme/variables.scss"
-              }
+              },
+              "src/styles.scss"
             ],
             "scripts": []
           },

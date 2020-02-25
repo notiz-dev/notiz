@@ -1,13 +1,24 @@
-<div>
-  <h4>Newsletter</h4>
-  <p>Sign up to receive updates on our latest posts.</p>
-  <form [formGroup]="newsletterSignup" (ngSubmit)="signupNewsletter()">
-    <ion-item>
-      <ion-label position="floating">Email address</ion-label>
-      <ion-input required formControlName="email" type="email"></ion-input>
-    </ion-item>
-    <ion-button class="signup" type="submit" shape="round">
-      <ion-icon slot="icon-only" name="paper-plane"></ion-icon>
-    </ion-button>
-  </form>
-</div>
+<form [formGroup]="newsletterSignup" (ngSubmit)="signupNewsletter()">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" offset="1">
+        <h1>Newsletter</h1>
+        <p>Sign up to receive updates on our latest posts.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="input-wrapper" size="6" offset="1">
+        <ion-item>
+          <ion-label position="floating">Email address</ion-label>
+          <ion-input required formControlName="email" type="email"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button type="submit" class="cta" shape="round">
+          <ion-icon slot="start" name="paper-plane"></ion-icon>
+          SUBSCRIBE
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>

@@ -1,0 +1,17 @@
+a {
+  color: var(--ion-text-color);
+  cursor: pointer;
+}
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.featured {
+  a {
+    color: var(--ion-color-secondary);
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+}

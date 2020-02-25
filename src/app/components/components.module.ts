@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { FooterComponent } from './footer/footer.component';
 import { CardStackComponent } from './card-stack/card-stack.component';
 import { TagsViewComponent } from './tags-view/tags-view.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { TagsViewComponent } from './tags-view/tags-view.component';
     HeaderComponent,
     FooterComponent,
     CardStackComponent,
-    TagsViewComponent
+    TagsViewComponent,
+    ArticleComponent
   ],
   imports: [CommonModule, IonicModule],
   exports: [
@@ -21,7 +23,8 @@ import { TagsViewComponent } from './tags-view/tags-view.component';
     HeaderComponent,
     FooterComponent,
     CardStackComponent,
-    TagsViewComponent
+    TagsViewComponent,
+    ArticleComponent
   ],
   providers: []
 })

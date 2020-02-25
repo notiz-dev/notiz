@@ -1,5 +1,5 @@
 :host {
-  background: var(--ion-color-primary);
+  // background: var(--ion-color-primary);
   display: block;
 }
 .posts {
@@ -9,7 +9,7 @@
   width: 100%;
   padding-top: 44px;
   padding-bottom: 32px;
-  background: var(--ion-color-primary);
+  // background: var(--ion-color-primary);
 }
 :host {
   ::ng-deep {
@@ -18,12 +18,13 @@
         border-radius: 50px;
         flex: 1 0 auto;
         transition: all 0.2s ease;
-        --background: #242424;
         height: 288px;
         margin-right: -66px;
         max-width: 244px;
         min-width: 244px;
         padding: 16px;
+
+        box-shadow: 13px 13px 26px #101010, -13px -13px 26px #141414;
 
         ion-card-content {
           position: absolute;
@@ -51,10 +52,10 @@
   height: 288px;
   margin-right: 0px;
   top: 44px;
-  --background: var(--ion-color-primary);
   transform: none;
-  box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+  box-shadow: 13px 13px 26px #101010, -13px -13px 26px #141414;
   padding-top: 28px;
+  --background: var(--gradient);
 
   h1 {
     color: var(--ion-text-color);
