@@ -2,21 +2,30 @@
   <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row>
-      <ion-col class="ion-padding ion-text-center" size="12" size-md="10" offset-md="1">
-        <h2>{{(page$ | async)?.title}}</h2>
+      <ion-col size="12" class="ion-padding">
+        <h1>{{ (page$ | async)?.title }}</h1>
       </ion-col>
       <ion-col class="ion-padding" size="12" size-md="8" pushMd="3">
         <scully-content></scully-content>
       </ion-col>
-
-      <ion-col size="12" class="ion-text-center">
-        <ion-chip class="feature-chip" color="secondary" outline="true">
-          <ion-icon name="megaphone-outline"></ion-icon>
-          <ion-label>Latest posts</ion-label>
-        </ion-chip>
+      <ion-col size="12" class="ion-padding">
+        <app-article
+          feature="Latest Post"
+          featureIcon="megaphone-outline"
+          *ngFor="let route of tagPosts$ | async | slice: 0:1"
+          [route]="route"
+        ></app-article>
       </ion-col>
-      <ion-col size="12" size-md="6" *ngFor="let post of tagPosts$ | async">
-        <app-article [route]="post"></app-article>
+
+      <ion-col class="ion-padding" size="12" sizeMd="4"> </ion-col>
+      <ion-col class="ion-padding" size="12" sizeMd="8">
+        <h1>Latest posts for {{ (page$ | async)?.title }}</h1>
+        <app-article
+          class="list-article"
+          *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"
+          [route]="blogPost"
+        >
+        </app-article>
       </ion-col>
     </ion-row>
   </ion-grid>
