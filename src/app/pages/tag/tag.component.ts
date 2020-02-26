@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
-import { map, switchMap, filter, tap } from 'rxjs/operators';
+import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
   selector: 'app-tag',
@@ -11,23 +11,15 @@ import { map, switchMap, filter, tap } from 'rxjs/operators';
 export class TagComponent implements OnInit {
   page$: Observable<ScullyRoute> = this.scully.getCurrent();
 
-  posts$: Observable<ScullyRoute[]>;
+  tagPosts$: Observable<ScullyRoute[]>;
 
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(
+    private scully: ScullyRoutesService,
+    private scullyContent: ScullyContentService
+  ) {}
 
   ngOnInit(): void {
-    const blogs$ = this.scully.available$.pipe(
-      map(pages => pages.filter(p => p.route.startsWith('/blog/')))
-    );
-
-    this.posts$ = this.page$.pipe(
-      switchMap(page =>
-        blogs$.pipe(
-          map(blogs =>
-            blogs.filter(blog => blog.tags.some(t => t === page.title))
-          )
-        )
-      )
-    );
+    this.page$ = this.scully.getCurrent();
+    this.tagPosts$ = this.scullyContent.tagPosts(this.page$);
   }
 }

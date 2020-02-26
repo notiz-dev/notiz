@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { SeoService } from '@services/seo.service';
-import { switchMap, map, first, tap } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
+import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
   selector: 'app-author',
@@ -14,32 +15,23 @@ export class AuthorComponent implements OnInit {
 
   authorPosts$: Observable<ScullyRoute[]>;
 
-  constructor(private scully: ScullyRoutesService, private seo: SeoService) {}
+  constructor(
+    private scully: ScullyRoutesService,
+    private scullyContent: ScullyContentService,
+    private seo: SeoService
+  ) {}
 
   ngOnInit(): void {
     this.author$ = this.scully.getCurrent();
     this.author$
       .pipe(
         first(),
-        tap(console.log),
         tap(author =>
           this.seo.generateTags({ title: author.title, route: author.route })
         )
       )
       .subscribe();
 
-    const blogs$ = this.scully.available$.pipe(
-      map(pages => pages.filter(p => p.route.startsWith('/blog/')))
-    );
-
-    this.authorPosts$ = this.author$.pipe(
-      switchMap(author =>
-        blogs$.pipe(
-          map(blogs =>
-            blogs.filter(blog => blog.authors.some(t => t === author.title))
-          )
-        )
-      )
-    );
+    this.authorPosts$ = this.scullyContent.authorPosts(this.author$);
   }
 }

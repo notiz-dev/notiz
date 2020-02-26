@@ -15,7 +15,7 @@
           <ion-label>Latest posts</ion-label>
         </ion-chip>
       </ion-col>
-      <ion-col size="12" size-md="6" *ngFor="let post of posts$ | async">
+      <ion-col size="12" size-md="6" *ngFor="let post of tagPosts$ | async">
         <app-article [route]="post"></app-article>
       </ion-col>
     </ion-row>

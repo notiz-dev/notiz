@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { map, switchMap, tap, reduce } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ScullyContentService } from '@services/scully-content.service';
 
 interface TagWeight {
   tag: ScullyRoute;
@@ -17,15 +18,11 @@ export class TagsViewComponent implements OnInit {
   tags$: Observable<ScullyRoute[]>;
 
   weighted$: Observable<TagWeight[]>;
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private scullyContent: ScullyContentService) {}
 
   ngOnInit(): void {
-    const blogs$ = this.scully.available$.pipe(
-      map(routes => routes.filter(route => route.route.startsWith('/blog/')))
-    );
-    this.tags$ = this.scully.available$.pipe(
-      map(routes => routes.filter(route => route.route.startsWith('/tags/')))
-    );
+    const blogs$ = this.scullyContent.blogPosts();
+    this.tags$ = this.scullyContent.tags();
 
     const used$: Observable<number> = blogs$.pipe(
       map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b))

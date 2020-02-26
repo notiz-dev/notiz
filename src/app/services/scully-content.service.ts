@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { filter, map, tap } from 'rxjs/operators';
+import { filter, map, tap, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -34,8 +34,36 @@ export class ScullyContentService {
   }
 
   authors(): Observable<ScullyRoute[]> {
-    return filterRoute(this.scully.available$, '/authors/').pipe(
-      tap(console.log)
+    return filterRoute(this.scully.available$, '/authors/');
+  }
+
+  authorPosts(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
+    const blogPosts = this.blogPosts();
+    return author.pipe(
+      switchMap(a =>
+        blogPosts.pipe(
+          map(blogs =>
+            blogs.filter(blog => blog.authors.some(t => t === a.title))
+          )
+        )
+      )
+    );
+  }
+
+  tags(): Observable<ScullyRoute[]> {
+    return filterRoute(this.scully.available$, '/tags/').pipe(tap(console.log));
+  }
+
+  tagPosts(tag: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
+    const blogPosts = this.blogPosts();
+    return tag.pipe(
+      switchMap(page =>
+        blogPosts.pipe(
+          map(blogs =>
+            blogs.filter(blog => blog.tags.some(t => t === page.title))
+          )
+        )
+      )
     );
   }
 }
