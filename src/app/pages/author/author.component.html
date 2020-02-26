@@ -12,28 +12,15 @@
             <scully-content></scully-content>
 
             <ion-buttons class="ion-float-end">
-              <ion-button
-                *ngIf="author.github"
-                href="https://github.com/{{ author.github }}"
-                fill="clear"
-                shape="round"
-              >
+              <ion-button *ngIf="author.github" href="https://github.com/{{ author.github }}" fill="clear"
+                shape="round">
                 <ion-icon slot="icon-only" name="logo-github"></ion-icon>
               </ion-button>
-              <ion-button
-                *ngIf="author.twitter"
-                href="https://twitter.com/{{ author.twitter }}"
-                fill="clear"
-                shape="round"
-              >
+              <ion-button *ngIf="author.twitter" href="https://twitter.com/{{ author.twitter }}" fill="clear"
+                shape="round">
                 <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
               </ion-button>
-              <ion-button
-                *ngIf="author.website"
-                [href]="author.website"
-                fill="clear"
-                shape="round"
-              >
+              <ion-button *ngIf="author.website" [href]="author.website" fill="clear" shape="round">
                 <ion-icon slot="icon-only" name="rocket"></ion-icon>
               </ion-button>
             </ion-buttons>
@@ -43,11 +30,8 @@
 
     </ion-row>
   </ion-grid>
-  <app-card-stack
-    *ngIf="author$ | async as author"
-    title="Latest Articles"
-    [subtitle]="'Latest posts by ' + author.title"
-  >
+  <app-card-stack *ngIf="author$ | async as author" title="Latest Articles"
+    [subtitle]="'Latest posts by ' + author.title">
     <ion-card *ngFor="let link of authorPosts$ | async | slice: 0:5">
       <app-article [route]="link"></app-article>
     </ion-card>
@@ -62,12 +46,7 @@
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
         <h1>Recently Updated</h1>
-        <app-article
-          class="list-article"
-          [route]="link"
-          *ngFor="let link of authorPosts$ | async"
-        ></app-article>
-
+        <app-article class="list-article" [route]="link" *ngFor="let link of authorPosts$ | async"></app-article>
       </ion-col>
     </ion-row>
   </ion-grid>

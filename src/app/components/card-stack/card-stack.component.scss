@@ -33,11 +33,11 @@
       h1 {
         height: 76.8px;
       }
-      
+
       h4 {
         height: 24px;
       }
-      
+
       p {
         height: 70px;
       }
@@ -51,8 +51,8 @@
     }
   }
 
-  body:not(.dark) .posts{
-    ion-card{
+  body:not(.dark) .posts {
+    ion-card {
       --background: var(--ion-background-color);
       // --background: var(--ion-color-primary-tint);
     }
@@ -73,12 +73,13 @@
   margin-right: 28px;
   --background: var(--gradient);
 
-  h1,h4 {
+  h1,
+  h4 {
     color: #ffffff;
     text-align: justify;
   }
 
-  h1{
+  h1 {
     font-weight: 600;
   }
 }
