@@ -1,0 +1,26 @@
+ion-card {
+  border-radius: 50px;
+  padding: 16px 24px;
+}
+ion-label {
+  text-align: center;
+  width: 100%;
+  color: var(--ion-text-color);
+}
+
+ion-item-divider {
+  --padding-start: 0px;
+  --ion-border-color: transparent;
+  --background: transparent;
+}
+
+.website {
+  display: block;
+  color: var(--ion-color-secondary);
+  padding-bottom: 16px;
+}
+
+ion-avatar {
+  height: 48px;
+  width: 48px;
+}

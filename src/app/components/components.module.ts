@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CardStackComponent } from './card-stack/card-stack.component';
 import { TagsViewComponent } from './tags-view/tags-view.component';
 import { ArticleComponent } from './article/article.component';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ArticleComponent } from './article/article.component';
     FooterComponent,
     CardStackComponent,
     TagsViewComponent,
-    ArticleComponent
+    ArticleComponent,
+    AuthorComponent
   ],
   imports: [CommonModule, IonicModule],
   exports: [
@@ -24,7 +26,8 @@ import { ArticleComponent } from './article/article.component';
     FooterComponent,
     CardStackComponent,
     TagsViewComponent,
-    ArticleComponent
+    ArticleComponent,
+    AuthorComponent
   ],
   providers: []
 })

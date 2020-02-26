@@ -6,7 +6,7 @@ import { first, tap } from 'rxjs/operators';
 import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
-  selector: 'app-author',
+  selector: 'page-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })

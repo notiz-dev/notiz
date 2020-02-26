@@ -3,14 +3,16 @@
 
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" size-md="4" size-lg="3" *ngFor="let link of authors$| async">
-        <ion-card>
-          <ion-card-header>
-            <a [href]="link.route">
-              <ion-card-title>{{ link.title }}</ion-card-title>
-            </a>
-          </ion-card-header>
-        </ion-card>
+      <ion-col size="12">
+        <h1>See who's writing on notiz.dev</h1>
+      </ion-col>
+      <ion-col  class="padding64"
+        size="12"
+        size-md="6"
+        size-lg="6"
+        *ngFor="let link of authors$ | async"
+      >
+        <app-author [author]="link"></app-author>
       </ion-col>
     </ion-row>
   </ion-grid>
