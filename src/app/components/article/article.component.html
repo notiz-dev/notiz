@@ -13,7 +13,7 @@
   </div>
   <div class="content">
     <p>{{ route.description }}</p>
-    <a *ngFor="let tag of route.tags | slice : 0 : 3" [href]="'/tags/' + tag">
+    <a *ngFor="let tag of route.tags | slice : 0 : 3" [href]="'/tags/' + tag | lowercase">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>
       </ion-chip>
