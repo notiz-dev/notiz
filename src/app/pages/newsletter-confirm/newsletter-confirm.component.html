@@ -2,9 +2,9 @@
   <app-header></app-header>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" class="ion-text-center">
+      <ion-col size="12" class="ion-text-center ion-padding-top">
         <div *ngIf="!confirmed && !error">
-          <img src="assets/img/loading.svg" alt="Confirm subscription in progrees">
+          <img src="assets/img/loading.svg" alt="Confirm subscription in progress">
           <h2>Confirming subscription</h2>
         </div>
         <div *ngIf="!confirmed && error">
@@ -12,7 +12,7 @@
           <h2>Subscription could not be confirmed</h2>
         </div>
         <div *ngIf="confirmed">
-          <img src="assets/img/subscribed.svg" alt="Cubscription confirmed">
+          <img src="assets/img/subscribed.svg" alt="Subscription confirmed">
           <h2>Subscription confirmed</h2>
         </div>
       </ion-col>

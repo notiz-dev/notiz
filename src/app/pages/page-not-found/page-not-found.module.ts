@@ -5,6 +5,7 @@ import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
+import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 
 @NgModule({
   declarations: [PageNotFoundComponent],
@@ -12,7 +13,8 @@ import { ComponentsModule } from '@components/components.module';
     CommonModule,
     PageNotFoundRoutingModule,
     IonicModule,
-    ComponentsModule
+    ComponentsModule,
+    NewsletterSignupModule
   ]
 })
 export class PageNotFoundModule {}
