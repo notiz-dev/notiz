@@ -24,3 +24,11 @@ ion-avatar {
   height: 48px;
   width: 48px;
 }
+
+::ng-deep body:not(.dark) .author {
+  --background: var(--ion-background-color);
+  ion-item {
+    --background: var(--ion-background-color);
+    --border-color: var(--ion-color-primary-tint);
+  }
+}
