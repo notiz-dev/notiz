@@ -13,6 +13,12 @@ ion-button {
   font-weight: 600;
 }
 
+.logo {
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
 // ::ng-deep {
 //   body.dark {
 //     app-header {
