@@ -4,10 +4,6 @@
 .input-wrapper {
   display: flex;
   align-items: center;
-  ion-item {
-    width: 100%;
-    --inner-padding-start: 24px;
-  }
 }
 .cta {
   width: 100%;
@@ -16,6 +12,21 @@
 ion-input,
 p {
   font-size: 20px;
+}
+
+.newsletter {
+  width: 100%;
+  --inner-padding-start: 24px;
+  border: 2px solid var(--ion-background-color);
+}
+
+.newsletter.dirty {
+  border: 2px solid var(--ion-color-danger);
+
+  ion-input,
+  p {
+    color: var(--ion-color-danger);
+  }
 }
 
 ::ng-deep {

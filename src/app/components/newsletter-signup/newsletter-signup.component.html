@@ -8,15 +8,24 @@
     </ion-row>
     <ion-row>
       <ion-col class="input-wrapper" size="12" sizeMd="6" offsetMd="1">
-        <ion-item class="newsletter" lines="none">
+        <ion-item class="newsletter" [ngClass]="{'dirty': dirty}" lines="none">
           <ion-label position="floating"><p>Email Address</p></ion-label>
-          <ion-input required formControlName="email" type="email"></ion-input>
+          <ion-input
+            (ionFocus)="dirty = false"
+            required
+            formControlName="email"
+            type="email"
+          ></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12" sizeMd="4">
         <ion-button type="submit" class="cta" shape="round">
           <ion-icon *ngIf="!pending" slot="start" name="paper-plane"></ion-icon>
-          <ion-spinner *ngIf="pending" slot="start" name="bubbles"></ion-spinner>
+          <ion-spinner
+            *ngIf="pending"
+            slot="start"
+            name="bubbles"
+          ></ion-spinner>
           SUBSCRIBE
         </ion-button>
       </ion-col>

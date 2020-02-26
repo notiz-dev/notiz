@@ -12,6 +12,7 @@ import { ToastController } from '@ionic/angular';
 export class NewsletterSignupComponent implements OnInit {
   newsletterSignup: FormGroup;
   pending = false;
+  dirty = false;
 
   constructor(
     private http: HttpClient,
@@ -52,6 +53,7 @@ export class NewsletterSignupComponent implements OnInit {
         )
         .subscribe(console.log);
     }
+    this.dirty = true;
     return this.toast
       .create({
         message: 'Please enter your mail address. 📧',
