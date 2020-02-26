@@ -40,6 +40,7 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
+
     </ion-row>
   </ion-grid>
   <app-card-stack
@@ -66,6 +67,7 @@
           [route]="link"
           *ngFor="let link of authorPosts$ | async"
         ></app-article>
+
       </ion-col>
     </ion-row>
   </ion-grid>
