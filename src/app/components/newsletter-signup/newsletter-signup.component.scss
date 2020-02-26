@@ -34,7 +34,18 @@ p {
     }
   }
 
-  .form-error {
+  .form-error,
+  .form-success {
     text-align: center;
+  }
+
+  .form-error {
+    --background: var(--ion-color-danger);
+    --color: var(--ion-text-color);
+  }
+
+  .form-success {
+    --background: var(--ion-color-success);
+    --color: var(--ion-text-color);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { first } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -11,6 +11,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class NewsletterSignupComponent implements OnInit {
   newsletterSignup: FormGroup;
+  pending = false;
 
   constructor(
     private http: HttpClient,
@@ -30,17 +31,30 @@ export class NewsletterSignupComponent implements OnInit {
 
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
+      this.pending = true;
       return this.http
         .post(
           'https://notiz-dev-api.herokuapp.com/subscribe',
           this.newsletterSignup.value
         )
-        .pipe(first())
+        .pipe(
+          tap(() => (this.pending = false)),
+          tap(() => {
+            this.toast
+              .create({
+                message:
+                  'Successfully subscribed to notiz.dev. Check your email. 📮',
+                duration: 4000,
+                cssClass: 'form-success'
+              })
+              .then(_ => _.present());
+          })
+        )
         .subscribe(console.log);
     }
     return this.toast
       .create({
-        message: 'Please enter your mail address.',
+        message: 'Please enter your mail address. 📧',
         duration: 4000,
         cssClass: 'form-error'
       })
