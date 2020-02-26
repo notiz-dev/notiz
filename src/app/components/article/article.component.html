@@ -4,7 +4,7 @@
       <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
-    <h4>{{ route.subtitle }}</h4>
+    <div class="date">{{ route.updatedAt | date :'MMMM dd, yyyy' }}</div>
     <h1>
       <a [href]="route.route">
         {{ route.title }}

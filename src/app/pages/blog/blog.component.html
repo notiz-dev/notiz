@@ -5,7 +5,7 @@
     <ion-grid fixed>
       <ion-row>
         <ion-col size="12" class="ion-padding ion-margin">
-          <app-article feature="Fresh Article" featureIcon="megaphone-outline"
+          <app-article class="featured" feature="Fresh Article" featureIcon="megaphone-outline"
             *ngIf="latestBlogPost$ | async as blogPost" [route]="blogPost"></app-article>
         </ion-col>
       </ion-row>

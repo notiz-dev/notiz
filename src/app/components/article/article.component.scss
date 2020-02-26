@@ -29,14 +29,6 @@ h1 {
   text-overflow: ellipsis;
 }
 
-h4 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 p {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -44,4 +36,8 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: justify;
+}
+
+.date{
+  padding-top: 8px;
 }
