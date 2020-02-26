@@ -9,11 +9,31 @@ import { Observable } from 'rxjs';
 export class ScullyContentService {
   constructor(private scully: ScullyRoutesService) {}
 
-  blogPosts() {
-    return filterRoute(this.scully.available$, '/blog/').pipe(tap(console.log));
+  blogPosts(): Observable<ScullyRoute[]> {
+    return filterRoute(this.scully.available$, '/blog/').pipe(
+      map(posts =>
+        posts.sort((p1, p2) =>
+          new Date(p1.publishedAt) > new Date(p2.publishedAt) ? -1 : 1
+        )
+      )
+    );
   }
 
-  authors() {
+  latestBlogPost(): Observable<ScullyRoute> {
+    return this.blogPosts().pipe(map(posts => posts[0]));
+  }
+
+  lastUpdateBlogPosts() {
+    return this.blogPosts().pipe(
+      map(posts =>
+        posts.sort((p1, p2) =>
+          new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
+        )
+      )
+    );
+  }
+
+  authors(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/authors/').pipe(
       tap(console.log)
     );

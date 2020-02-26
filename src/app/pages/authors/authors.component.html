@@ -3,12 +3,7 @@
 
   <ion-grid fixed>
     <ion-row>
-      <ion-col
-        size="12"
-        size-md="4"
-        size-lg="3"
-        *ngFor="let link of links$ | from: '/authors/' | async"
-      >
+      <ion-col size="12" size-md="4" size-lg="3" *ngFor="let link of authors$| async">
         <ion-card>
           <ion-card-header>
             <a [href]="link.route">

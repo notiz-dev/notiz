@@ -19,6 +19,7 @@ import { Observable } from 'rxjs';
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
   post$: Observable<ScullyRoute>;
+
   constructor(
     private scully: ScullyRoutesService,
     private highlightService: HighlightService,

@@ -4,7 +4,6 @@ import { AuthorsComponent } from './authors.component';
 import { IonicModule } from '@ionic/angular';
 import { AuthorsRoutingModule } from './authors-routing.module';
 import { ComponentsModule } from '@components/components.module';
-import { PipesModule } from '@pipes/pipes.module';
 import { AuthorModule } from '@pages/author/author.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 
@@ -16,7 +15,6 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
     AuthorsRoutingModule,
     AuthorModule,
     ComponentsModule,
-    PipesModule,
     NewsletterSignupModule
   ]
 })

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
-import { SeoService } from 'src/app/services/seo.service';
+import { SeoService } from '@services/seo.service';
+import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
   selector: 'app-blog',
@@ -9,11 +10,19 @@ import { SeoService } from 'src/app/services/seo.service';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  links$: Observable<ScullyRoute[]> = this.scully.available$;
+  latestBlogPost$: Observable<ScullyRoute>;
+  blogPosts$: Observable<ScullyRoute[]>;
+  updateBlogPosts$: Observable<ScullyRoute[]>;
 
-  constructor(private scully: ScullyRoutesService, private seo: SeoService) {}
+  constructor(
+    private scullyContentService: ScullyContentService,
+    private seo: SeoService
+  ) {}
 
   ngOnInit() {
+    this.latestBlogPost$ = this.scullyContentService.latestBlogPost();
+    this.blogPosts$ = this.scullyContentService.blogPosts();
+    this.updateBlogPosts$ = this.scullyContentService.lastUpdateBlogPosts();
     this.seo.generateTags({ title: 'Blog overview' });
   }
 }
