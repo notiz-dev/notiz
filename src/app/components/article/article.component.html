@@ -1,4 +1,4 @@
-<div class="ion-padding ion-margin" [ngClass]="{ featured: feature }">
+<div [ngClass]="{ featured: feature }">
   <div class="header">
     <ion-chip *ngIf="feature" class="feature-chip" color="secondary" outline="true">
         <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
@@ -13,7 +13,7 @@
   </div>
   <div class="content">
     <p>{{ route.description }}</p>
-    <a *ngFor="let tag of route.tags" [href]="'/tags/' + tag">
+    <a *ngFor="let tag of route.tags | slice : 0 : 3" [href]="'/tags/' + tag">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>
       </ion-chip>

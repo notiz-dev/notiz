@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { AuthorRoutingModule } from './author-routing.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -13,7 +14,8 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
     IonicModule,
     AuthorRoutingModule,
     ComponentsModule,
-    ScullyLibModule
+    ScullyLibModule,
+    NewsletterSignupModule
   ]
 })
 export class AuthorModule {}

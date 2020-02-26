@@ -12,3 +12,20 @@ ion-title {
 ion-button {
   font-weight: 600;
 }
+
+// ::ng-deep {
+//   body.dark {
+//     app-header {
+//       ion-toolbar {
+//         --background: var(--ion-item-background);
+//       }
+//     }
+//   }
+//   body:not(.dark) {
+//     app-header {
+//       ion-toolbar {
+//         --background: var(--ion-color-primary-tint);
+//       }
+//     }
+//   }
+// }

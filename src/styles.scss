@@ -62,27 +62,26 @@ a:hover {
 
 body:not(.dark),
 body.dark {
-
-  ion-chip{
+  ion-chip {
     transition: border 200ms ease, color 200ms ease;
     padding-inline-start: 16px;
     padding-inline-end: 16px;
     font-size: 20px;
+    border: 2px solid var(--ion-background-color);
   }
   ion-chip:hover {
     font-weight: 600;
-    border: 2px solid var(--ion-color-primary);
     background-image: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: translateX(-2px);
+    border: 2px solid var(--ion-color-primary);
   }
   ion-chip.small {
     font-size: 14px;
     height: 24px;
     border-radius: 12px;
   }
-  
+
   ion-chip.big {
     font-size: 32px;
     height: 48px;
@@ -91,13 +90,12 @@ body.dark {
   }
 }
 
-
-
 a,
 h1,
 h2,
 h3,
-h4 {
+h4,
+p {
   color: var(--ion-text-color);
 }
 
@@ -108,4 +106,17 @@ ion-grid {
   --ion-grid-width-md: 100%;
   --ion-grid-width-lg: 1040px;
   --ion-grid-width-xl: 1180px;
+}
+
+.sticky-tags {
+  position: sticky;
+  top: 64px;
+}
+
+.list-article:first-of-type {
+  margin-top: 24px;
+}
+
+.list-article:not(:first-of-type) {
+  margin-top: 86px;
 }

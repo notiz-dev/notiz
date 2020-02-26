@@ -3,45 +3,72 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
-
-        <ion-card *ngIf="author$ | async as author" class="ion-text-center">
-          <img *ngIf="author.img" [src]="author.img" [alt]="author.tilte">
+        <ion-card *ngIf="author$ | async as author" class="ion-text-center">
+          <img *ngIf="author.img" [src]="author.img" [alt]="author.tilte" />
           <ion-card-header>
-            <ion-card-title>{{author.title}}</ion-card-title>
+            <ion-card-title>{{ author.title }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <scully-content></scully-content>
 
             <ion-buttons class="ion-float-end">
-              <ion-button *ngIf="author.github" href="https://github.com/{{author.github}}" fill="clear" shape="round">
+              <ion-button
+                *ngIf="author.github"
+                href="https://github.com/{{ author.github }}"
+                fill="clear"
+                shape="round"
+              >
                 <ion-icon slot="icon-only" name="logo-github"></ion-icon>
               </ion-button>
-              <ion-button *ngIf="author.twitter" href="https://twitter.com/{{author.twitter}}" fill="clear"
-                shape="round">
+              <ion-button
+                *ngIf="author.twitter"
+                href="https://twitter.com/{{ author.twitter }}"
+                fill="clear"
+                shape="round"
+              >
                 <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
               </ion-button>
-              <ion-button *ngIf="author.website" [href]="author.website" fill="clear" shape="round">
+              <ion-button
+                *ngIf="author.website"
+                [href]="author.website"
+                fill="clear"
+                shape="round"
+              >
                 <ion-icon slot="icon-only" name="rocket"></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col size="12" class="ion-text-center">
-        <h2>Latest posts</h2>
+    </ion-row>
+  </ion-grid>
+  <app-card-stack
+    *ngIf="author$ | async as author"
+    title="Latest Articles"
+    [subtitle]="'Latest posts by ' + author.title"
+  >
+    <ion-card *ngFor="let link of authorPosts$ | async | slice: 0:5">
+      <app-article [route]="link"></app-article>
+    </ion-card>
+  </app-card-stack>
+  <ion-grid fixed no-padding>
+    <ion-row>
+      <ion-col class="ion-padding" size="12" sizeMd="4">
+        <!-- <div class="sticky-tags">
+          <h1><a href="tags">Tags</a></h1>
+          <app-tags-view></app-tags-view>
+        </div> -->
       </ion-col>
-      <ion-col size="12" size-md="4" size-lg="3" *ngFor="let authorPost of authorPosts$ | async">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
-            <ion-card-title>{{authorPost.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            Awesome content
-          </ion-card-content>
-        </ion-card>
+      <ion-col class="ion-padding" size="12" sizeMd="8">
+        <h1>Recently Updated</h1>
+        <app-article
+          class="list-article"
+          [route]="link"
+          *ngFor="let link of authorPosts$ | async"
+        ></app-article>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <app-newsletter-signup></app-newsletter-signup>
   <app-footer></app-footer>
 </ion-content>

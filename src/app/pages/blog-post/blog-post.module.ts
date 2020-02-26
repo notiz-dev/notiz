@@ -5,6 +5,7 @@ import { BlogPostComponent } from './blog-post.component';
 import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '@pipes/pipes.module';
 import { ComponentsModule } from '@components/components.module';
+import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -13,7 +14,8 @@ import { ComponentsModule } from '@components/components.module';
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    NewsletterSignupModule
   ]
 })
 export class BlogPostModule {}

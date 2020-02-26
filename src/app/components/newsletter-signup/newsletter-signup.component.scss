@@ -6,24 +6,35 @@
   align-items: center;
   ion-item {
     width: 100%;
+    --inner-padding-start: 24px;
   }
 }
 .cta {
   width: 100%;
 }
 
+ion-input,
+p {
+  font-size: 20px;
+}
+
 ::ng-deep {
   body.dark {
-    .input-wrapper {
-      ion-item {
-        border-radius: 16px;
-        background: #121212;
-        box-shadow: inset 9px 9px 17px #0b0b0b, inset -9px -9px 17px #191919;
-      }
+    .newsletter {
+      border-radius: 50px;
+      --box-shadow: inset 9px 9px 17px #0b0b0b, inset -9px -9px 17px #191919;
+    }
+  }
+  body:not(.dark) {
+    .newsletter {
+      --padding-start: 24px;
+      border-radius: 50px;
+      --background: var(--ion-color-primary-tint);
+      --box-shadow: inset 11px 11px 22px #e6e6e6, inset -11px -11px 22px #ffffff;
     }
   }
 
-  .form-error{
+  .form-error {
     text-align: center;
   }
 }

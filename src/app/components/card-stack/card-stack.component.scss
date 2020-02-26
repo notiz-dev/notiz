@@ -9,35 +9,51 @@
   width: 100%;
   padding-top: 44px;
   padding-bottom: 32px;
+  padding-left: 86px;
   // background: var(--ion-color-primary);
 }
-:host {
-  ::ng-deep {
-    .posts {
-      ion-card {
-        border-radius: 50px;
-        flex: 1 0 auto;
-        transition: all 0.2s ease;
-        height: 288px;
-        margin-right: -66px;
-        max-width: 244px;
-        min-width: 244px;
-        padding: 16px;
 
-        box-shadow: 13px 13px 26px #101010, -13px -13px 26px #141414;
+::ng-deep {
+  .posts {
+    ion-card {
+      border-radius: 50px;
+      flex: 1 0 auto;
+      transition: all 0.2s ease;
+      height: 344px;
+      margin-right: -66px;
+      width: 280px;
+      padding: 16px 24px;
+    }
 
-        ion-card-content {
-          position: absolute;
-          bottom: 0;
-        }
+    app-article {
+      ion-chip {
+        box-shadow: none;
       }
-
-      ion-card:hover {
-        transform: translate(-4px, -12px);
-        margin-right: 8px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-          0 10px 10px rgba(0, 0, 0, 0.22);
+      h1 {
+        height: 76.8px;
       }
+      
+      h4 {
+        height: 24px;
+      }
+      
+      p {
+        height: 70px;
+      }
+    }
+
+    ion-card:hover {
+      transform: translate(-4px, -12px);
+      margin-right: 8px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  body:not(.dark) .posts{
+    ion-card{
+      --background: var(--ion-background-color);
+      // --background: var(--ion-color-primary-tint);
     }
   }
 }
@@ -46,18 +62,22 @@
   padding: 16px;
   border-radius: 50px;
   position: absolute;
-  left: 8px;
-  max-width: 220px;
-  min-width: 220px;
-  height: 288px;
+  right: 0px;
+  width: 240px;
+  height: 344px;
   margin-right: 0px;
   top: 44px;
   transform: none;
-  box-shadow: 13px 13px 26px #101010, -13px -13px 26px #141414;
   padding-top: 28px;
+  margin-right: 28px;
   --background: var(--gradient);
 
-  h1 {
-    color: var(--ion-text-color);
+  h1,h4 {
+    color: #ffffff;
+    text-align: justify;
+  }
+
+  h1{
+    font-weight: 600;
   }
 }

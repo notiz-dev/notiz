@@ -9,4 +9,4 @@ authors: [Gary Großgarten, Marc Stammerjohann]
 
 coming soon
 
-<ion-toolbar></ion-toolbar>
+
