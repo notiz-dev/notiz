@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { IonicModule } from '@ionic/angular';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +16,8 @@ import { IonicModule } from '@ionic/angular';
     HttpClientModule,
     AppRoutingModule,
     ScullyLibModule.forRoot({ useTranferState: true }),
-    IonicModule.forRoot({ mode: 'md' })
+    IonicModule.forRoot({ mode: 'md' }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
