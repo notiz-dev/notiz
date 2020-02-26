@@ -32,3 +32,12 @@ ion-avatar {
     --border-color: var(--ion-color-primary-tint);
   }
 }
+
+@media (max-width: 991px) {
+  ion-card {
+    padding: 16px 4px;
+  }
+  ion-card-header {
+    padding: 0;
+  }
+}

@@ -59,8 +59,8 @@
   }
 }
 
-.neu-card,.neu-card-small {
-
+.neu-card,
+.neu-card-small {
   h1,
   h4 {
     color: #ffffff;
@@ -72,7 +72,7 @@
   }
 }
 
-.neu-card{
+.neu-card {
   padding: 16px;
   border-radius: 50px;
   position: absolute;
@@ -87,11 +87,17 @@
   --background: var(--gradient);
 }
 
-.neu-card-small{
+.neu-card-small {
   padding: 16px;
   border-radius: 50px;
 
   height: 186px;
   transform: none;
   --background: var(--gradient);
+}
+
+@media (max-width: 991px) {
+  .neu-card-small {
+    margin: 16px 24px;
+  }
 }
