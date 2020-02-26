@@ -21,7 +21,8 @@
       transition: all 0.2s ease;
       height: 344px;
       margin-right: -66px;
-      width: 280px;
+      max-width: 280px;
+      min-width: 280px;
       padding: 16px 24px;
     }
 
