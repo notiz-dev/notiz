@@ -50,6 +50,16 @@ export class ScullyContentService {
     );
   }
 
+  lastUpdateAuthorPosts(author: Observable<ScullyRoute>) {
+    return this.authorPosts(author).pipe(
+      map(posts =>
+        posts.sort((p1, p2) =>
+          new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
+        )
+      )
+    );
+  }
+
   tags(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/tags/').pipe(tap(console.log));
   }

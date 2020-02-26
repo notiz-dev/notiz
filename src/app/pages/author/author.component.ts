@@ -13,7 +13,8 @@ import { ScullyContentService } from '@services/scully-content.service';
 export class AuthorComponent implements OnInit {
   author$: Observable<ScullyRoute>;
 
-  authorPosts$: Observable<ScullyRoute[]>;
+  latestAuthorPosts$: Observable<ScullyRoute[]>;
+  updatedAuthorPosts$: Observable<ScullyRoute[]>;
 
   constructor(
     private scully: ScullyRoutesService,
@@ -32,6 +33,9 @@ export class AuthorComponent implements OnInit {
       )
       .subscribe();
 
-    this.authorPosts$ = this.scullyContent.authorPosts(this.author$);
+    this.latestAuthorPosts$ = this.scullyContent.authorPosts(this.author$);
+    this.updatedAuthorPosts$ = this.scullyContent.lastUpdateAuthorPosts(
+      this.author$
+    );
   }
 }

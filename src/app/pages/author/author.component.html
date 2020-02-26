@@ -32,7 +32,7 @@
   </ion-grid>
   <app-card-stack *ngIf="author$ | async as author" title="Latest Articles"
     [subtitle]="'Latest posts by ' + author.title">
-    <ion-card *ngFor="let link of authorPosts$ | async | slice: 0:5">
+    <ion-card *ngFor="let link of latestAuthorPosts$ | async | slice: 0:5">
       <app-article [route]="link"></app-article>
     </ion-card>
   </app-card-stack>
@@ -46,7 +46,7 @@
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
         <h1>Recently Updated</h1>
-        <app-article class="list-article" [route]="link" *ngFor="let link of authorPosts$ | async"></app-article>
+        <app-article class="list-article" [route]="link" *ngFor="let link of updatedAuthorPosts$ | async"></app-article>
       </ion-col>
     </ion-row>
   </ion-grid>
