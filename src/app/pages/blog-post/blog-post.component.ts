@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.css'],
+  styleUrls: ['./blog-post.component.scss'],
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated
 })

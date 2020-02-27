@@ -1,7 +1,7 @@
 <div [ngClass]="{ featured: feature }">
   <div class="header">
     <ion-chip
-      *ngIf="feature"
+      *ngIf="feature && featureIcon"
       class="feature-chip"
       color="secondary"
       outline="true"
@@ -27,7 +27,7 @@
       </ion-chip>
     </a>
   </div>
-  <div class="ion-padding sneak-peek-wrapper" *ngIf="feature">
+  <div class="ion-padding sneak-peek-wrapper" *ngIf="peek">
     <div class="sneak-peek">
       <markdown ngPreserveWhitespaces [data]="sneakPeek | async"></markdown>
     </div>

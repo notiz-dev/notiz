@@ -14,13 +14,14 @@ export class ArticleComponent implements OnInit {
   @Input() route: ScullyRoute;
   @Input() feature: string;
   @Input() featureIcon: string;
+  @Input() peek = false;
 
   sneakPeek: Observable<string>;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    if (this.feature) {
+    if (this.peek) {
       this.sneakPeek = this.http
         .get<string>(
           `https://raw.githubusercontent.com/notiz-dev/notiz/master/content/blog/${this.route.sourceFile}`,
