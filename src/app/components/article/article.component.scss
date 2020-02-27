@@ -11,7 +11,7 @@ h1 {
 .featured {
   max-width: 844px;
   a {
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-primary);
   }
   h1 {
     font-size: 2.4rem;
@@ -39,24 +39,23 @@ p {
   text-align: justify;
 }
 
-.date{
+.date {
   padding-top: 8px;
 }
 
-.sneak-peek-wrapper{
+.sneak-peek-wrapper {
   position: relative;
   margin-top: 18px;
   padding: 16px 24px;
 }
 
-.sneak-peek{
-
+.sneak-peek {
   max-height: 246px;
   overflow: hidden;
   margin-left: 32px;
   position: relative;
 
-  markdown p{
+  markdown p {
     text-align: justify;
   }
 }
@@ -69,7 +68,6 @@ p {
   color: var(--ion-color-primary);
   position: absolute;
   font-style: italic;
-
 }
 .overlay::before {
   top: -2px;
@@ -81,18 +79,23 @@ p {
   right: -18px;
 }
 
-.overlay{
-  background-image: linear-gradient(to bottom, transparent, var(--ion-background-color));
-  position: absolute; 
-  bottom: 0; 
+.overlay {
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    var(--ion-background-color)
+  );
+  position: absolute;
+  bottom: 0;
   left: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
-  text-align: center; 
-  margin: 0; padding: 30px 0; 
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
 }
 
-.readmore{
+.readmore {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
