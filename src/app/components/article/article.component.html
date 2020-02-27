@@ -29,7 +29,7 @@
   </div>
   <div class="ion-padding sneak-peek-wrapper" *ngIf="feature">
     <div class="sneak-peek">
-      <markdown [data]="sneakPeek | async"></markdown>
+      <markdown ngPreserveWhitespaces [data]="sneakPeek | async"></markdown>
     </div>
     <div class="overlay"></div>
     <a class="readmore" [href]="route.route">
