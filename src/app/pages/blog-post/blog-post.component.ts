@@ -39,7 +39,8 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
           this.seo.generateTags({
             title: post.title,
             description: post.description,
-            route: post.route
+            route: post.route,
+            keywords: post.tags
           })
         )
       )

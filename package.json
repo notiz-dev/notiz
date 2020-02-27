@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "npm run build && npm run scully && npm run scully:serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "test": "ng test",
