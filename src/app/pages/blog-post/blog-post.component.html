@@ -3,10 +3,21 @@
   <ion-grid fixed no-padding>
     <ion-row>
       <ion-col class="ion-padding" size="11" push="1" sizeMd="9" pushMd="1">
-        <app-article feature="Article" *ngIf="post$ | async as post" [route]="post"></app-article>
+        <app-article
+          feature="Article"
+          *ngIf="post$ | async as post"
+          [route]="post"
+        ></app-article>
         <div class="padding64">
           <scully-content></scully-content>
         </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="post$ | async as post">
+      <ion-col size="12">
+        <h1>Share this post</h1>
+        <app-share [route]="post"></app-share>
       </ion-col>
     </ion-row>
   </ion-grid>
