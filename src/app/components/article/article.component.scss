@@ -8,11 +8,23 @@ h1 {
   font-size: 2rem;
 }
 
+::ng-deep body.dark {
+  .featured {
+    a {
+      color: var(--ion-color-secondary);
+    }
+  }
+}
+
+::ng-deep body:not(.dark) {
+  .featured {
+    a {
+      color: var(--ion-color-primary);
+    }
+  }
+}
 .featured {
   max-width: 844px;
-  a {
-    color: var(--ion-color-primary);
-  }
   h1 {
     font-size: 2.4rem;
   }

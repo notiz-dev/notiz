@@ -6,8 +6,15 @@
   width: fit-content;
 }
 
-a {
-  color: var(--ion-color-primary);
+::ng-deep body.dark {
+  a {
+    color: var(--ion-color-secondary);
+  }
+}
+::ng-deep body:not(.dark) {
+  a {
+    color: var(--ion-color-primary);
+  }
 }
 
 code {
@@ -18,5 +25,3 @@ h2 {
   font-size: 28px;
   font-weight: 600;
 }
-
-
