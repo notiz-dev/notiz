@@ -6,10 +6,7 @@
         <h1 *ngIf="author$ | async as author">More about the author</h1>
       </ion-col>
       <ion-col size="10" offset="1" offsetMd="0" sizeMd="6" class="padding64">
-        <app-author
-          *ngIf="author$ | async as author"
-          [author]="author"
-        ></app-author>
+        <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
       </ion-col>
       <ion-col class="description-wrapper padding64" size="10" offset="1" offsetMd="0" sizeMd="6">
         <div class="description">
@@ -18,11 +15,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-card-stack
-    *ngIf="author$ | async as author"
-    title="Latest Articles"
-    [subtitle]="'Latest posts by ' + author.title"
-  >
+  <app-card-stack *ngIf="author$ | async as author" title="Latest Articles"
+    [subtitle]="'Latest posts by ' + author.title">
     <ion-card *ngFor="let link of latestAuthorPosts$ | async | slice: 0:5">
       <app-article [route]="link"></app-article>
     </ion-card>
@@ -30,18 +24,14 @@
   <ion-grid fixed no-padding>
     <ion-row>
       <ion-col class="ion-padding" size="12" sizeMd="4">
-        <!-- <div class="sticky-tags">
+        <div class="sticky-tags">
           <h1><a href="tags">Tags</a></h1>
-          <app-tags-view></app-tags-view>
-        </div> -->
+          <app-tags-view [blogPosts]="latestAuthorPosts$" [tags]="authorTags$"></app-tags-view>
+        </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
         <h1>Recently Updated</h1>
-        <app-article
-          class="list-article"
-          [route]="link"
-          *ngFor="let link of updatedAuthorPosts$ | async"
-        ></app-article>
+        <app-article class="list-article" [route]="link" *ngFor="let link of updatedAuthorPosts$ | async"></app-article>
       </ion-col>
     </ion-row>
   </ion-grid>

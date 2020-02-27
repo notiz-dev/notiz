@@ -12,7 +12,8 @@
     </ion-grid>
   </div>
 
-  <app-card-stack class="padding64" title="Latest Articles" subtitle="Check out latest posts and featured content from notiz.dev">
+  <app-card-stack class="padding64" title="Latest Articles"
+    subtitle="Check out latest posts and featured content from notiz.dev">
     <ion-card *ngFor="let blogPost of blogPosts$ | async | slice: 1:6">
       <app-article [route]="blogPost"></app-article>
     </ion-card>
@@ -23,7 +24,7 @@
       <ion-col class="ion-padding" size="12" sizeMd="4">
         <div class="sticky-tags">
           <h1><a href="tags">Tags</a></h1>
-          <app-tags-view></app-tags-view>
+          <app-tags-view [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
         </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">

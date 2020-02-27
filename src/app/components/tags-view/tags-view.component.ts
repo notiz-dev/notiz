@@ -3,11 +3,7 @@ import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { map, switchMap, tap, reduce } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
-
-interface TagWeight {
-  tag: ScullyRoute;
-  weight: number;
-}
+import { TagWeight } from '../../types/types';
 
 @Component({
   selector: 'app-tags-view',
@@ -15,42 +11,17 @@ interface TagWeight {
   styleUrls: ['./tags-view.component.scss']
 })
 export class TagsViewComponent implements OnInit {
-  tags$: Observable<ScullyRoute[]>;
+  @Input() blogPosts: Observable<ScullyRoute[]>;
+  @Input() tags: Observable<ScullyRoute[]>;
 
-  weighted$: Observable<TagWeight[]>;
+  weightedTags$: Observable<TagWeight[]>;
+
   constructor(private scullyContent: ScullyContentService) {}
 
   ngOnInit(): void {
-    const blogs$ = this.scullyContent.blogPosts();
-    this.tags$ = this.scullyContent.tags();
-
-    const used$: Observable<number> = blogs$.pipe(
-      map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b))
-    );
-
-    this.weighted$ = blogs$.pipe(
-      switchMap(blogs =>
-        this.tags$.pipe(
-          map(tags =>
-            tags.map(tag => ({
-              tag,
-              count: blogs.filter(blog => blog.tags.some(t => t === tag.title))
-                .length
-            }))
-          ),
-          switchMap(counts =>
-            used$.pipe(
-              map(used =>
-                counts.map(count => ({
-                  tag: count.tag,
-                  weight: (count.count / used) * 100
-                }))
-              )
-            )
-          )
-        )
-      )
-      // map(weighted => weighted.sort((a, b) => a.tag.title > b.tag.title ? -1 : 1)) sorting not necessary?
+    this.weightedTags$ = this.scullyContent.weightedTags(
+      this.blogPosts,
+      this.tags
     );
   }
 }

@@ -2,18 +2,16 @@
 title: 'Test Title 4'
 subtitle: 'Whatever subtitle here'
 description: 'Guidance and walkthrough on how to build a small personal blog as an angular developer'
-published: false
+published: true
 publishedAt: 2020-01-04T23:12:09-07:00
 updatedAt: 2020-01-04T23:12:09-07:00
 tags:
   - Angular
   - scully
   - JAMstack
+  - Nestjs
 authors:
-  - 'Gary Großgarten'
   - 'Marc Stammerjohann'
-slugs:
-  - ___UNPUBLISHED___k73bzil4_scr1nea0pMGd0YykssLZKKGoAcVXqSs8
 ---
 
 Headers

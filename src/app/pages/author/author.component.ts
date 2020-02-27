@@ -15,6 +15,7 @@ export class AuthorComponent implements OnInit {
 
   latestAuthorPosts$: Observable<ScullyRoute[]>;
   updatedAuthorPosts$: Observable<ScullyRoute[]>;
+  authorTags$: Observable<ScullyRoute[]>;
 
   constructor(
     private scully: ScullyRoutesService,
@@ -37,5 +38,9 @@ export class AuthorComponent implements OnInit {
     this.updatedAuthorPosts$ = this.scullyContent.lastUpdateAuthorPosts(
       this.author$
     );
+
+    this.authorTags$ = this.scullyContent.authorTags(this.author$);
+
+    this.authorTags$.pipe(tap(console.log)).subscribe();
   }
 }

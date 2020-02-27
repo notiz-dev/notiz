@@ -13,6 +13,7 @@ export class BlogComponent implements OnInit {
   latestBlogPost$: Observable<ScullyRoute>;
   blogPosts$: Observable<ScullyRoute[]>;
   updateBlogPosts$: Observable<ScullyRoute[]>;
+  tags$: Observable<ScullyRoute[]>;
 
   constructor(
     private scullyContentService: ScullyContentService,
@@ -20,9 +21,11 @@ export class BlogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.seo.generateTags({ title: 'notiz blog' });
+
     this.latestBlogPost$ = this.scullyContentService.latestBlogPost();
     this.blogPosts$ = this.scullyContentService.blogPosts();
     this.updateBlogPosts$ = this.scullyContentService.lastUpdateBlogPosts();
-    this.seo.generateTags({ title: 'Blog overview' });
+    this.tags$ = this.scullyContentService.tags();
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { filter, map, tap, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { TagWeight } from '../types/types';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +62,25 @@ export class ScullyContentService {
   }
 
   tags(): Observable<ScullyRoute[]> {
-    return filterRoute(this.scully.available$, '/tags/').pipe(tap(console.log));
+    return filterRoute(this.scully.available$, '/tags/');
+  }
+
+  authorTags(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
+    const authorPosts$ = this.authorPosts(author);
+    const tags$ = this.tags();
+    return authorPosts$.pipe(
+      switchMap(authorPosts =>
+        tags$.pipe(
+          map(tags => {
+            return tags.filter(
+              tag =>
+                authorPosts.filter(post => post.tags.includes(tag.title))
+                  .length > 0
+            );
+          })
+        )
+      )
+    );
   }
 
   tagPosts(tag: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
@@ -71,6 +90,39 @@ export class ScullyContentService {
         blogPosts.pipe(
           map(blogs =>
             blogs.filter(blog => blog.tags.some(t => t === page.title))
+          )
+        )
+      )
+    );
+  }
+
+  weightedTags(
+    blogPosts$: Observable<ScullyRoute[]>,
+    tags$: Observable<ScullyRoute[]>
+  ): Observable<TagWeight[]> {
+    const used$: Observable<number> = blogPosts$.pipe(
+      map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b))
+    );
+
+    return blogPosts$.pipe(
+      switchMap(blogs =>
+        tags$.pipe(
+          map(tags =>
+            tags.map(tag => ({
+              tag,
+              count: blogs.filter(blog => blog.tags.some(t => t === tag.title))
+                .length
+            }))
+          ),
+          switchMap(counts =>
+            used$.pipe(
+              map(used =>
+                counts.map(count => ({
+                  tag: count.tag,
+                  weight: (count.count / used) * 100
+                }))
+              )
+            )
           )
         )
       )

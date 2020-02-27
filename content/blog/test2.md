@@ -2,18 +2,16 @@
 title: 'Test Title 2'
 subtitle: 'Whatever subtitle here'
 description: 'Guidance and walkthrough on how to build a small personal blog as an angular developer'
-published: false
+published: true
 publishedAt: 2020-01-04T23:12:09-07:00
 updatedAt: 2020-01-04T23:12:09-07:00
 tags:
   - Angular
   - scully
   - JAMstack
+  - Ionic
 authors:
   - 'Gary Großgarten'
-  - 'Marc Stammerjohann'
-slugs:
-  - ___UNPUBLISHED___k73bzikx_vwqc16qcjFLi8Bv0dCSN60UBODAB4uqv
 ---
 
 Headers
