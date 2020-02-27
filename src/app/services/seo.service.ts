@@ -10,7 +10,7 @@ export class SeoService {
 
   generateTags(config: SeoConfig = {}) {
     config.keywords
-      ? config.keywords.concat(environment.keywords)
+      ? (config.keywords = environment.keywords.concat(config.keywords))
       : (config.keywords = environment.keywords);
 
     // default values
