@@ -7,8 +7,9 @@ import {
 import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { first, tap } from 'rxjs/operators';
+import { first, tap, map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ScullyContentService } from 'src/app/services/scully-content.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -19,11 +20,14 @@ import { Observable } from 'rxjs';
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
   post$: Observable<ScullyRoute>;
+  related$: Observable<ScullyRoute[]>;
+  authors$: Observable<ScullyRoute[]>;
 
   constructor(
     private scully: ScullyRoutesService,
     private highlightService: HighlightService,
-    private seo: SeoService
+    private seo: SeoService,
+    private content: ScullyContentService
   ) {}
 
   ngOnInit() {
@@ -40,6 +44,34 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
         )
       )
       .subscribe();
+
+    this.related$ = this.content
+      .blogPosts()
+      .pipe(
+        switchMap(posts =>
+          this.post$.pipe(
+            map(post =>
+              posts.filter(p =>
+                p.tags.some(t => post.tags.some(t2 => t2 === t))
+              )
+            )
+          )
+        )
+      );
+
+    this.authors$ = this.content
+      .authors()
+      .pipe(
+        switchMap(authors =>
+          this.post$.pipe(
+            map(post =>
+              authors.filter(author =>
+                post.authors.some(a => a === author.title)
+              )
+            )
+          )
+        )
+      );
   }
 
   ngAfterViewChecked() {
