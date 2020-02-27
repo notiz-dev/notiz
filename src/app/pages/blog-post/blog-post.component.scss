@@ -5,23 +5,3 @@
   border-radius: 5px;
   width: fit-content;
 }
-
-::ng-deep body.dark {
-  a {
-    color: var(--ion-color-secondary);
-  }
-}
-::ng-deep body:not(.dark) {
-  a {
-    color: var(--ion-color-primary);
-  }
-}
-
-code {
-  // color: var(--ion-color-danger);
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: 600;
-}

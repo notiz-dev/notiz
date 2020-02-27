@@ -181,3 +181,97 @@ ion-grid {
 .padding64{
   padding-top: 64px;
 }
+
+// markdown
+
+
+.token.boolean, .token.function, .token.number {
+  color: #F38E54;
+}
+
+.token.attr-value, .token.char, .token.regex, .token.string, .token.variable {
+  color: #62f296;
+}
+.token.class-name, .token.constant, .token.property, .token.symbol {
+  color: #f2df62;
+}
+
+body.dark .post {
+  a,
+  li:before {
+    color: var(--ion-color-secondary);
+  }
+
+  h2 {
+    color: var(--ion-color-primary-tint);
+  }
+
+  pre {
+    border-radius: 16px;
+    background: var(--ion-item-background);
+    box-shadow: inset 22px 22px 44px #16171a, inset -22px -22px 44px #1e1f23;
+  }
+}
+body:not(.dark) .post {
+  a,
+  li:before {
+    color: var(--ion-color-primary);
+  }
+
+  h2 {
+    color: var(--ion-item-background);
+  }
+
+  pre {
+    border-radius: 16px;
+    background: var(--ion-color-primary-tint);
+  }
+}
+
+
+.post {
+  ul {
+    list-style: none; /* Remove default bullets */
+  }
+
+  ul li::before {
+    content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: li;
+  }
+  ol li::before {
+    content: counter(li) '. ';
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  ol li {
+    counter-increment: li;
+  }
+
+  p,
+  a {
+    font-size: 1.18rem;
+  }
+  p,
+  pre {
+    margin: 0 0 1.5rem;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 42px;
+  }
+
+  code[class*='language-'],
+  pre[class*='language-'] {
+    color: var(--ion-text-color);
+  }
+}
