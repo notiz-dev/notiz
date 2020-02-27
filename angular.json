@@ -66,7 +66,7 @@
               },
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/marked/lib/marked.js"]
           },
           "configurations": {
             "production": {
@@ -125,7 +125,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.png", "src/assets", "src/manifest.webmanifest"],
+            "assets": [
+              "src/favicon.png",
+              "src/assets",
+              "src/manifest.webmanifest"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

@@ -8,6 +8,7 @@ import { CardStackComponent } from './card-stack/card-stack.component';
 import { TagsViewComponent } from './tags-view/tags-view.component';
 import { ArticleComponent } from './article/article.component';
 import { AuthorComponent } from './author/author.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AuthorComponent } from './author/author.component';
     ArticleComponent,
     AuthorComponent
   ],
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule,MarkdownModule.forChild()],
   exports: [
     ThemeSwitcherComponent,
     HeaderComponent,
