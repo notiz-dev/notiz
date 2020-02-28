@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { SeoService } from '@services/seo.service';
-import { first, tap, switchMap } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
 import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
