@@ -1,16 +1,19 @@
 <div>
-  <h1>{{ post.title }}</h1>
-  <p>{{ post.descriptiong }}</p>
-
-  <a *ngFor="let tag of post.tags" [href]="'/tags/' + tag">
-    <ion-chip class="ion-no-border" fill="clear" color="dark">
-      <ion-label>{{ tag }}</ion-label>
-    </ion-chip>
-  </a>
-
-  <div>
-    <a *ngFor="let author of post.authors" [href]="'/authors/' + slug(author)">
-      {{author}}
+  <div class="header">
+    <div class="date">{{ post.updatedAt | date: 'MMMM dd, yyyy' }}</div>
+    <h1>{{ post.title }}</h1>
+  </div>
+  <div class="content">
+    <p>{{ post.description }}</p>
+    <a *ngFor="let tag of post.tags | slice: 0:3" [href]="'/tags/' + tag | lowercase">
+      <ion-chip class="ion-no-border" fill="clear" color="dark">
+        <ion-label>{{ tag }}</ion-label>
+      </ion-chip>
     </a>
+    <ion-button *ngIf="post.github" [href]="post.github" fill="clear" shape="round"
+      class="ion-float-end ion-text-lowercase">
+      <ion-icon slot="start" name="logo-github"></ion-icon>
+      Code
+    </ion-button>
   </div>
 </div>
