@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  height: 64px;
+  width: 100%;
+  max-width: 420px;
+  align-items: center;
+  flex: 1 auto;
+  border-radius: 32px;
+}
+
+::ng-deep body.dark app-github-url {
+  background: var(--ion-item-background);
+  border: 2px solid var(--ion-item-background);
+}
+::ng-deep body:not(.dark) app-github-url {
+  background: var(--ion-color-primary-tint);
+  border: 2px solid var(--ion-color-primary-tint);
+}
+:host:hover {
+  border: 2px solid var(--ion-color-primary);
+  cursor: pointer;
+  a {
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .arrow ion-icon {
+    color: var(--ion-color-primary);
+  }
+}
+.stamp {
+  background: var(--gradient);
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+
+  ion-icon {
+    font-size: 38px;
+  }
+}
+
+.url {
+  flex-grow: 5;
+  padding-left: 16px;
+  a {
+    font-size: 20px;
+  }
+}
+.arrow {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  ion-icon {
+    font-size: 20px;
+  }
+}
