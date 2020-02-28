@@ -31,7 +31,7 @@ export class AuthorComponent implements OnInit {
         tap(author =>
           this.seo.generateTags({
             title: author.title,
-            description: author.description,
+            description: `Overview of posts on notiz.dev by ${author.title}`,
             route: author.route,
             image: author.img,
             author: {
