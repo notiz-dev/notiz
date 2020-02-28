@@ -5,7 +5,6 @@ import { TagsRoutingModule } from './tags-routing.module';
 import { TagsComponent } from './tags.component';
 import { IonicModule } from '@ionic/angular';
 
-import { PipesModule } from '@pipes/pipes.module';
 import { ComponentsModule } from '@components/components.module';
 import { TagModule } from '@pages/tag/tag.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
@@ -18,7 +17,6 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    PipesModule,
     TagModule,
     NewsletterSignupModule
   ]
