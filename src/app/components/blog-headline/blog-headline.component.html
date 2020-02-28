@@ -9,7 +9,7 @@
   </a>
 
   <div>
-    <a *ngFor="let author of post.authors" [href]="'/authors/' + slug(author)">
+    <a *ngFor="let author of post.authors" [href]="'/authors/' + author.route">
       {{author}}
     </a>
   </div>
