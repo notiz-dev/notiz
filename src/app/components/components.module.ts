@@ -10,6 +10,7 @@ import { ArticleComponent } from './article/article.component';
 import { AuthorComponent } from './author/author.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
+import { GithubUrlComponent } from './github-url/github-url.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { ShareComponent } from './share/share.component';
     TagsViewComponent,
     ArticleComponent,
     AuthorComponent,
-    ShareComponent
+    ShareComponent,
+    GithubUrlComponent
   ],
-  imports: [CommonModule, IonicModule,MarkdownModule.forChild()],
+  imports: [CommonModule, IonicModule, MarkdownModule.forChild()],
   exports: [
     ThemeSwitcherComponent,
     HeaderComponent,
@@ -31,7 +33,8 @@ import { ShareComponent } from './share/share.component';
     TagsViewComponent,
     ArticleComponent,
     AuthorComponent,
-    ShareComponent
+    ShareComponent,
+    GithubUrlComponent
   ],
   providers: []
 })
