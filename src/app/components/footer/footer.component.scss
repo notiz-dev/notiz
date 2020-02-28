@@ -10,10 +10,7 @@ p {
 
 ion-button {
   --color: var(--ion-text-color);
-}
-
-ion-button:hover {
-  --color: var(--ion-color-primary);
+  --color-hover: var(--ion-color-primary);
 }
 
 ion-list {
