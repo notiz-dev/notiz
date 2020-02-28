@@ -12,13 +12,13 @@
 
     <ion-row>
       <ion-col size="11" offset="1" sizeMd="6">
-        <h1>{{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}</h1>
+        <h2>{{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}</h2>
       </ion-col>
       <ion-col *ngFor="let author of authors$ | async" size="11" offset="1" sizeMd="5" offsetMd="1">
         <app-author [author]="author"></app-author>
       </ion-col>
       <ion-col *ngIf="post$ | async as post" class="padding64" size="11" offset="1">
-        <h1>Share this post</h1>
+        <h2>Share this post</h2>
         <app-share [route]="post"></app-share>
       </ion-col>
     </ion-row>
