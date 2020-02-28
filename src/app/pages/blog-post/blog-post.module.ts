@@ -5,7 +5,6 @@ import { BlogPostComponent } from './blog-post.component';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
-import { BlogHeadlineModule } from '@components/blog-headline/blog-headline.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -14,8 +13,7 @@ import { BlogHeadlineModule } from '@components/blog-headline/blog-headline.modu
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    NewsletterSignupModule,
-    BlogHeadlineModule
+    NewsletterSignupModule
   ]
 })
 export class BlogPostModule {}
