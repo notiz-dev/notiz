@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
-import { MarkdownService } from 'ngx-markdown';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
