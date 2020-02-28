@@ -96,15 +96,15 @@ export class SeoService {
 
       this.meta.updateTag({
         property: `og:profile:first_name`,
-        content: config.author[0].first_name
+        content: config.author.first_name
       });
       this.meta.updateTag({
         property: `og:profile:lastname`,
-        content: config.author[0].last_name
+        content: config.author.last_name
       });
       this.meta.updateTag({
         property: `og:profile:username`,
-        content: config.author[0].username
+        content: config.author.username
       });
 
       return;
