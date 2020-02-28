@@ -101,7 +101,7 @@ export class ScullyContentService {
     tags$: Observable<ScullyRoute[]>
   ): Observable<TagWeight[]> {
     const used$: Observable<number> = blogPosts$.pipe(
-      map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b))
+      map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b,0))
     );
 
     return blogPosts$.pipe(
