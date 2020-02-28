@@ -35,13 +35,27 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
     this.post$
       .pipe(
         first(),
-        tap(post =>
-          this.seo.generateTags({
-            title: post.title,
-            description: post.description,
-            route: post.route,
-            keywords: post.tags
-          })
+        switchMap(post =>
+          this.content.authors().pipe(
+            tap(authors =>
+              this.seo.generateTags({
+                title: post.title,
+                description: post.description,
+                route: post.route,
+                keywords: post.tags,
+                article: {
+                  published_time: post.publishedAt,
+                  modified_time: post.updatedAt,
+                  tag: post.tags,
+                  author: [
+                    ...authors
+                      .filter(a => post.authors.some(a2 => a2 === a.title))
+                      .map(a => `https://notiz.dev${a.route}`)
+                  ]
+                }
+              })
+            )
+          )
         )
       )
       .subscribe();

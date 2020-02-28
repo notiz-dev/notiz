@@ -17,13 +17,14 @@ export class SeoService {
     config = {
       title: environment.title,
       description: environment.description,
-      image: environment.featureImage,
+      image: this.absoluteImageUrl(environment.featureImage),
       route: '',
       ...config
     };
 
     this.title.setTitle(config.title);
     this.meta.updateTag({ name: 'description', content: config.description });
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
     this.meta.updateTag({
       name: 'keywords',
       content: config.keywords.join(', ')
@@ -46,11 +47,72 @@ export class SeoService {
     });
     this.meta.updateTag({
       property: 'og:image',
-      content: this.absoluteImageUrl(config.image)
+      content: config.image
+    });
+    this.meta.updateTag({
+      property: 'og:image:alt',
+      content: config.description
     });
     this.meta.updateTag({
       property: 'og:site_name',
       content: 'notiz'
+    });
+    this.meta.updateTag({
+      property: 'og:locale',
+      content: 'en_US'
+    });
+
+    if (config.article) {
+      this.meta.updateTag({
+        property: 'og:type',
+        content: 'article'
+      });
+
+      this.meta.updateTag({
+        property: `og:article:published_time`,
+        content: config.article.published_time
+      });
+      this.meta.updateTag({
+        property: `og:article:modified_time`,
+        content: config.article.modified_time
+      });
+      this.meta.updateTag({
+        property: `og:article:tag`,
+        content: config.article.tag.join(', ')
+      });
+      this.meta.updateTag({
+        property: `og:article:author`,
+        content: config.article.author.join(', ')
+      });
+
+      return;
+    }
+
+    if (config.author) {
+      this.meta.updateTag({
+        property: 'og:type',
+        content: 'profile'
+      });
+
+      this.meta.updateTag({
+        property: `og:profile:first_name`,
+        content: config.author[0].first_name
+      });
+      this.meta.updateTag({
+        property: `og:profile:lastname`,
+        content: config.author[0].last_name
+      });
+      this.meta.updateTag({
+        property: `og:profile:username`,
+        content: config.author[0].username
+      });
+
+      return;
+    }
+
+    this.meta.updateTag({
+      property: 'og:type',
+      content: 'website'
     });
   }
 
@@ -64,7 +126,7 @@ export class SeoService {
     });
     this.meta.updateTag({
       name: 'twitter:image',
-      content: this.absoluteImageUrl(config.image)
+      content: config.image
     });
   }
 
@@ -79,4 +141,19 @@ export interface SeoConfig {
   image?: string;
   route?: string;
   keywords?: string[];
+  article?: SeoArticle;
+  author?: SeoProfile;
+}
+
+export interface SeoArticle {
+  published_time: string;
+  modified_time: string;
+  tag: string[];
+  author: string[];
+}
+
+export interface SeoProfile {
+  first_name: string;
+  last_name: string;
+  username: string;
 }

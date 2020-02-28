@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { SeoService } from '@services/seo.service';
-import { first, tap } from 'rxjs/operators';
+import { first, tap, switchMap } from 'rxjs/operators';
 import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
@@ -29,7 +29,20 @@ export class AuthorComponent implements OnInit {
       .pipe(
         first(),
         tap(author =>
-          this.seo.generateTags({ title: author.title, route: author.route })
+          this.seo.generateTags({
+            title: author.title,
+            description: author.description,
+            route: author.route,
+            image: author.img,
+            author: {
+              first_name: author.title.slice(0, author.title.indexOf(' ') - 1),
+              last_name: author.title.slice(
+                author.title.indexOf(' ') - 1,
+                author.title.length - 1
+              ),
+              username: author.twitter
+            }
+          })
         )
       )
       .subscribe();
