@@ -66,7 +66,9 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
         switchMap(posts =>
           this.post$.pipe(
             map(post =>
-              posts.filter(p =>
+              posts
+              .filter(p => p.route !== post.route)
+              .filter(p =>
                 p.tags.some(t => post.tags.some(t2 => t2 === t))
               )
             )
