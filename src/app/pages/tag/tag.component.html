@@ -19,7 +19,7 @@
 
       <ion-col class="ion-padding" size="12" sizeMd="4"> </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
-        <h1>Latest posts for {{ (page$ | async)?.title }}</h1>
+        <h2>Latest posts for {{ (page$ | async)?.title }}</h2>
         <app-article
           class="list-article"
           *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"

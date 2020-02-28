@@ -3,7 +3,7 @@ a {
   cursor: pointer;
 }
 
-h1 {
+h1,h2 {
   font-weight: 600;
   font-size: 2rem;
 }
@@ -34,7 +34,8 @@ h1 {
   display: block;
 }
 
-h1 {
+h1,
+h2 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

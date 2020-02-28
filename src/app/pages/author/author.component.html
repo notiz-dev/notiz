@@ -25,12 +25,12 @@
     <ion-row>
       <ion-col class="ion-padding" size="12" sizeMd="4">
         <div class="sticky-tags">
-          <h1><a href="tags">Tags</a></h1>
+          <h2><a href="tags">Tags</a></h2>
           <app-tags-view [blogPosts]="latestAuthorPosts$" [tags]="authorTags$"></app-tags-view>
         </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
-        <h1>Recently Updated</h1>
+        <h2>Recently Updated</h2>
         <app-article class="list-article" [route]="link" *ngFor="let link of updatedAuthorPosts$ | async"></app-article>
       </ion-col>
     </ion-row>

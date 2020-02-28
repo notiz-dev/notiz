@@ -10,7 +10,7 @@
         </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" sizeMd="8">
-        <h1>All Posts</h1>
+        <h2>All Posts</h2>
         <!-- TODO infinite scroll -->
         <app-article class="list-article" *ngFor="let blogPost of blogPosts$ | async" [route]="blogPost">
         </app-article>

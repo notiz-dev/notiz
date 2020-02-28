@@ -5,11 +5,16 @@
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
     <div class="date">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</div>
-    <h1>
+    <h1 *ngIf="feature">
       <a [href]="route.route">
         {{ route.title }}
       </a>
     </h1>
+    <h2 *ngIf="!feature">
+      <a [href]="route.route">
+        {{ route.title }}
+      </a>
+    </h2>
   </div>
   <div class="content">
     <p>{{ route.description }}</p>
