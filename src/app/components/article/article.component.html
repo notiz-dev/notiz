@@ -1,11 +1,6 @@
 <div [ngClass]="{ featured: feature }">
   <div class="header">
-    <ion-chip
-      *ngIf="feature && featureIcon"
-      class="feature-chip"
-      color="secondary"
-      outline="true"
-    >
+    <ion-chip *ngIf="feature && featureIcon" class="feature-chip" color="secondary" outline="true">
       <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
@@ -18,10 +13,7 @@
   </div>
   <div class="content">
     <p>{{ route.description }}</p>
-    <a
-      *ngFor="let tag of route.tags | slice: 0:3"
-      [href]="'/tags/' + tag | lowercase"
-    >
+    <a *ngFor="let tag of route.tags | slice: 0:3" [href]="'/tags/' + tag | lowercase">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>
       </ion-chip>
