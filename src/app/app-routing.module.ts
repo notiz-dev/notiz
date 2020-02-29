@@ -30,6 +30,13 @@ const routes: Routes = [
       )
   },
   {
+    path: 'unsubscribe',
+    loadChildren: () =>
+      import(
+        './pages/newsletter-unsubscribe/newsletter-unsubscribe.module'
+      ).then(m => m.NewsletterUnsubscribeModule)
+  },
+  {
     path: '404',
     loadChildren: () =>
       import('./pages/page-not-found/page-not-found.module').then(
@@ -44,7 +51,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {initialNavigation: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

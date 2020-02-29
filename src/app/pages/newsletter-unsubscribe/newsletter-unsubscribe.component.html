@@ -1,0 +1,22 @@
+<ion-content>
+  <app-header></app-header>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center ion-padding-top">
+        <div *ngIf="!unsubscribed && !error">
+          <img src="assets/img/loading.svg" alt="Unsubscribing in progress">
+          <h2>Unsubscribing</h2>
+        </div>
+        <div *ngIf="!unsubscribed && error">
+          <img src="assets/img/cancel.svg" alt="Error while unsubscribing">
+          <h2>An error occured while unsubscribing</h2>
+        </div>
+        <div *ngIf="unsubscribed">
+          <img src="assets/img/cancel.svg" alt="Unsubscribe confirmed">
+          <h2>Unsubscribe confirmed</h2>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>
