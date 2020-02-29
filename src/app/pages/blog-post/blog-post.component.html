@@ -51,7 +51,7 @@
     <ion-card *ngFor="let blogPost of related$ | async | slice: 1:6">
       <app-article [route]="blogPost"></app-article>
     </ion-card>
-    <ion-card *ngIf="(related$ | async | slice: 1:6).length < 5">
+    <ion-card *ngIf="(related$ | async | slice: 1:6)?.length < 5">
       <app-coming-soon></app-coming-soon>
     </ion-card>
   </app-card-stack>
