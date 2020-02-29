@@ -26,3 +26,7 @@ app-github-url {
 ::ng-deep body:not(.dark) .line {
   background: var(--ion-color-primary-tint);
 }
+
+code {
+  color: var(--ion-color-tertiary);
+}
