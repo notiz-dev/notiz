@@ -154,7 +154,7 @@ export class PrismaService extends PrismaClient
 
 Now we can inject the `PrismaService` into any REST controller, Graphql resolver or service to query our data model. We will inject it into a controller and create REST endpoints querying and creating `User` models.
 
-Note we are directly accessing the type-safe generated Api from the `PrismaClient`.
+Note we are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
 
 ```typescript
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
@@ -192,3 +192,5 @@ export class AppController {
 ```
 
 Now its time to continue updating your data model, generating `PrismaClient` and adding queries to your Nest application.
+
+Checkout [nestjs-prisma-starter](https://github.com/fivethree-team/nestjs-prisma-starter) to get started quickly with Nest and Prisma.
