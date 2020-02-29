@@ -21,7 +21,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
 
   unsubscribe(uuid: string) {
     this.http
-      .post('https://notiz-dev-api.herokuapp.com//unsubscribe', { uuid })
+      .post('https://notiz-dev-api.herokuapp.com/unsubscribe', { uuid })
       .pipe(first())
       .subscribe(
         () => {},
