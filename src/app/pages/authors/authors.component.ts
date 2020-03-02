@@ -18,7 +18,11 @@ export class AuthorsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.seo.generateTags({
+      title: 'Authors',
+      description: 'All authors writing on notiz.dev'
+    });
+
     this.authors$ = this.scullyContentService.authors();
-    this.seo.generateTags({ title: 'Authors' });
   }
 }

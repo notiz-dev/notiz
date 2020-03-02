@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.seo.generateTags({ title: 'notiz blog' });
+    this.seo.generateTags();
 
     this.latestBlogPost$ = this.scullyContentService.latestBlogPost();
     this.blogPosts$ = this.scullyContentService.blogPosts();

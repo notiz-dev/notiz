@@ -20,8 +20,9 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.seo.generateTags({
-      title:
-        'Blog Posts about latest Tech-Stack in Web, Backend and App Development'
+      title: 'Latest articles',
+      description:
+        'Latest articles on notiz.dev featuring Angular, Nestjs, Web Components and more'
     });
 
     this.blogPosts$ = this.scullyContentService.blogPosts();
