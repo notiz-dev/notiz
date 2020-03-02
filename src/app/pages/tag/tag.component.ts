@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
+import { SeoService } from '@services/seo.service';
+import { first, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tag',
@@ -15,11 +17,26 @@ export class TagComponent implements OnInit {
 
   constructor(
     private scully: ScullyRoutesService,
-    private scullyContent: ScullyContentService
+    private scullyContent: ScullyContentService,
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
     this.page$ = this.scully.getCurrent();
+    this.page$
+      .pipe(
+        first(),
+        tap(tag => {
+          this.seo.generateTags({
+            title: tag.title,
+            description: `All posts of ${tag.title}`,
+            route: tag.route,
+            keywords: [tag.title]
+          });
+        })
+      )
+      .subscribe();
+
     this.tagPosts$ = this.scullyContent.tagPosts(this.page$);
   }
 }
