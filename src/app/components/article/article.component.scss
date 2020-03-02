@@ -3,7 +3,8 @@ a {
   cursor: pointer;
 }
 
-h1,h2 {
+h1,
+h2 {
   font-weight: 600;
   font-size: 2rem;
 }
@@ -113,4 +114,9 @@ p {
   transform: translateX(-50%);
   left: 50%;
   bottom: -12px;
+}
+
+.banner {
+  border-radius: 12px;
+  margin: 12px 0;
 }

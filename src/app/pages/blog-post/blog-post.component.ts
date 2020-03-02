@@ -43,6 +43,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
                 description: post.description,
                 route: post.route,
                 keywords: post.tags,
+                image: post.twitterBanner,
                 article: {
                   published_time: post.publishedAt,
                   modified_time: post.updatedAt,
@@ -67,10 +68,8 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
           this.post$.pipe(
             map(post =>
               posts
-              .filter(p => p.route !== post.route)
-              .filter(p =>
-                p.tags.some(t => post.tags.some(t2 => t2 === t))
-              )
+                .filter(p => p.route !== post.route)
+                .filter(p => p.tags.some(t => post.tags.some(t2 => t2 === t)))
             )
           )
         )

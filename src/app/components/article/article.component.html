@@ -16,6 +16,7 @@
       </a>
     </h2>
   </div>
+  <img *ngIf="banner && route.banner" class="banner" [src]="route.banner" [alt]="route.title">
   <div class="content">
     <p>{{ route.description }}</p>
     <a *ngFor="let tag of route.tags | slice: 0:3" [href]="'/tags/' + tag | lowercase">
