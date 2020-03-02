@@ -218,6 +218,12 @@ body.dark .post {
     background: var(--ion-item-background);
     box-shadow: inset 22px 22px 44px #16171a, inset -22px -22px 44px #1e1f23;
   }
+
+  p {
+    code {
+      color:#ffe9cd;
+    }
+  }
 }
 body:not(.dark) .post {
   a,
@@ -233,9 +239,21 @@ body:not(.dark) .post {
     border-radius: 16px;
     background: var(--ion-color-primary-tint);
   }
+  p {
+    code {
+      background: #fff6ea;
+    }
+  }
 }
 
 .post {
+  p {
+    code {
+      padding: 0px 6px;
+      border-radius: 0.2rem;
+    }
+  }
+
   ul {
     list-style: none; /* Remove default bullets */
   }

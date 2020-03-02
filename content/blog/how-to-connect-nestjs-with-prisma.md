@@ -1,24 +1,22 @@
 ---
 title: 'How to query your database using Prisma with Nestjs'
 description: 'Learn how to setup a database with Prisma2 and query data using Nestjs'
-published: false
-publishedAt: 2020-02-27T22:12:00.000Z
-updatedAt: 2020-02-27T22:00:00.000Z
+published: true
+publishedAt: 2020-03-02T10:12:00.000Z
+updatedAt: 2020-03-02T10:12:00.000Z
 tags:
-    - Nestjs
-    - Prisma
+  - Nestjs
+  - Prisma
 authors:
-    - 'Marc Stammerjohann'
+  - 'Marc Stammerjohann'
 github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
-    nestjs/cli: 6.14.2
-    nestjs: 6.11.x
-    prisma2: 2.0.0-preview022
-    prisma/client: 2.0.0-preview022
-slugs:
-    - ___UNPUBLISHED___k759w6qs_ky1TDmFaAfDxRFcXFgk2BI1Z5GRmlide
-
+  nestjs/cli: 6.14.2
+  nestjs: 6.11.x
+  prisma2: 2.0.0-preview022
+  prisma/client: 2.0.0-preview022
 ---
+
 [Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://github.com/prisma/prisma2/blob/master/docs/supported-databases.md). [Prisma 2](https://github.com/prisma/prisma2) is currently rewritten with Rust and is [not yet production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
 
 [Nestjs](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [Graphql](https://graphql.org) backend.
@@ -156,7 +154,7 @@ export class PrismaService extends PrismaClient
 
 Now we can inject the `PrismaService` into any REST controller, Graphql resolver or service to query our data model. We will inject it into a controller and create REST endpoints querying and creating `User` models.
 
-Note we are directly accessing the type-safe generated Api from the `PrismaClient`.
+Note we are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
 
 ```typescript
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
@@ -194,3 +192,5 @@ export class AppController {
 ```
 
 Now its time to continue updating your data model, generating `PrismaClient` and adding queries to your Nest application.
+
+Checkout [nestjs-prisma-starter](https://github.com/fivethree-team/nestjs-prisma-starter) to get started quickly with Nest and Prisma.

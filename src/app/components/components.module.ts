@@ -11,6 +11,7 @@ import { AuthorComponent } from './author/author.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
 import { GithubUrlComponent } from './github-url/github-url.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,14 @@ import { GithubUrlComponent } from './github-url/github-url.component';
     ArticleComponent,
     AuthorComponent,
     ShareComponent,
-    GithubUrlComponent
+    GithubUrlComponent,
+    ComingSoonComponent
   ],
-  imports: [CommonModule, IonicModule, MarkdownModule.forChild()],
+  imports: [
+    CommonModule,
+    IonicModule,
+    MarkdownModule.forChild(),
+  ],
   exports: [
     ThemeSwitcherComponent,
     HeaderComponent,
@@ -34,7 +40,8 @@ import { GithubUrlComponent } from './github-url/github-url.component';
     ArticleComponent,
     AuthorComponent,
     ShareComponent,
-    GithubUrlComponent
+    GithubUrlComponent,
+    ComingSoonComponent
   ],
   providers: []
 })

@@ -13,7 +13,7 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    NewsletterSignupModule
+    NewsletterSignupModule,
   ]
 })
 export class BlogPostModule {}
