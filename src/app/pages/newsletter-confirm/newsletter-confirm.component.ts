@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
+import { SeoService } from '@services/seo.service';
 
 @Component({
   selector: 'app-newsletter-confirm',
@@ -12,9 +13,18 @@ export class NewsletterConfirmComponent implements OnInit {
   confirmed: boolean;
   error: boolean;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private seo: SeoService
+  ) {}
 
   ngOnInit(): void {
+    this.seo.generateTags({
+      title: 'Confirm newsletter',
+      description: 'Confirm your newsletter subscription for notiz.dev'
+    });
+
     const uuid = this.route.snapshot.queryParamMap.get('uuid');
     this.confirmSubscription(uuid);
   }
