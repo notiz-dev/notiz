@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterUnsubscribeRoutingModule } from './newsletter-unsubscribe-routing.module';
 import { NewsletterUnsubscribeComponent } from './newsletter-unsubscribe.component';
+import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 
 @NgModule({
   declarations: [NewsletterUnsubscribeComponent],
@@ -11,7 +12,8 @@ import { NewsletterUnsubscribeComponent } from './newsletter-unsubscribe.compone
     CommonModule,
     NewsletterUnsubscribeRoutingModule,
     IonicModule,
-    ComponentsModule
+    ComponentsModule,
+    NewsletterSignupModule
   ],
   exports: [NewsletterUnsubscribeComponent],
   providers: []

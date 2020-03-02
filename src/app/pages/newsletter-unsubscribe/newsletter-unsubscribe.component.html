@@ -3,20 +3,22 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" class="ion-text-center ion-padding-top">
-        <div *ngIf="!unsubscribed && !error">
-          <img src="assets/img/loading.svg" alt="Unsubscribing in progress">
-          <h2>Unsubscribing</h2>
+        <div class="empty-box" *ngIf="!unsubscribed && !error">
+          <ion-spinner name="bubbles"></ion-spinner>
         </div>
-        <div *ngIf="!unsubscribed && error">
+        <div class="empty-box" *ngIf="!unsubscribed && error">
           <img src="assets/img/cancel.svg" alt="Error while unsubscribing">
-          <h2>An error occured while unsubscribing</h2>
+          <h2>Oh no!</h2>
+          <p>Something went wrong, sorry! Please try again later.🙈</p>
         </div>
-        <div *ngIf="unsubscribed">
+        <div class="empty-box" *ngIf="unsubscribed">
           <img src="assets/img/cancel.svg" alt="Unsubscribe confirmed">
-          <h2>Unsubscribe confirmed</h2>
+          <h2>Successfully unsubscribed 😔</h2>
+          <p>We are sorry to see you go. You can re-subscribe if you feel like it.</p>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <app-newsletter-signup></app-newsletter-signup>
   <app-footer></app-footer>
 </ion-content>

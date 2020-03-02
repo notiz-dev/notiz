@@ -311,3 +311,11 @@ body:not(.dark) .post {
     color: var(--ion-color-secondary);
   }
 }
+
+.empty-box{
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
