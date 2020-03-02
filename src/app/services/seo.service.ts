@@ -117,7 +117,7 @@ export class SeoService {
   }
 
   private twitterCard(config: SeoConfig) {
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:site', content: '@notiz_dev' });
     this.meta.updateTag({ name: 'twitter:title', content: config.title });
     this.meta.updateTag({
