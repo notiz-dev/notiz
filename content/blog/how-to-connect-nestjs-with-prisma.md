@@ -1,6 +1,6 @@
 ---
 title: 'How to query your database using Prisma with Nestjs'
-description: 'Learn how to setup a database with Prisma2 and query data using Nestjs'
+description: 'Learn how to setup a database with Prisma 2 and query data using Nestjs.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
 updatedAt: 2020-03-02T10:12:00.000Z
