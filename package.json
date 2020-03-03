@@ -29,8 +29,8 @@
     "@angular/service-worker": "~9.0.2",
     "@ionic/angular": "^5.0.1",
     "@scullyio/init": "0.0.23",
-    "@scullyio/ng-lib": "0.0.18",
-    "@scullyio/scully": "0.0.75",
+    "@scullyio/ng-lib": "0.0.19",
+    "@scullyio/scully": "0.0.78",
     "ngx-markdown": "^9.0.0",
     "prismjs": "^1.19.0",
     "rxjs": "~6.5.4",
@@ -56,6 +56,7 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "prettier": "^1.19.1",
     "protractor": "~5.4.3",
+    "scully-plugin-flash-prevention": "0.0.33",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"

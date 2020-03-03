@@ -1,3 +1,5 @@
+const { getFlashPreventionPlugin } = require('scully-plugin-flash-prevention');
+
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
@@ -21,5 +23,6 @@ exports.config = {
         folder: './content/tags'
       }
     }
-  }
+  },
+  postRenderers: [getFlashPreventionPlugin()]
 };
