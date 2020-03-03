@@ -15,8 +15,8 @@ github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
   nestjs/cli: 6.14.2
   nestjs: 6.11.x
-  prisma2: 2.0.0-preview022
-  prisma/client: 2.0.0-preview022
+  prisma2: 2.0.0-preview023
+  prisma/client: 2.0.0-preview023
 ---
 
 [Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://github.com/prisma/prisma2/blob/master/docs/supported-databases.md). [Prisma 2](https://github.com/prisma/prisma2) is currently rewritten with Rust and is [not yet production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
