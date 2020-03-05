@@ -1,0 +1,6 @@
+<ol *ngIf="(breadcrumbs | async)?.length > 0 ">
+  <li *ngFor="let breadcrumb of breadcrumbs | async;let last = last">
+    <a *ngIf="!last" [href]="breadcrumb.url">{{breadcrumb.text}}</a>
+    <span *ngIf="last">{{breadcrumb.text}}</span>
+  </li>
+</ol>

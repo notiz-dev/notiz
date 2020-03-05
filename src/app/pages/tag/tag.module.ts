@@ -5,7 +5,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ComponentsModule } from '@components/components.module';
 import { TagComponent } from './tag.component';
-import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
+import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [TagComponent],
@@ -14,7 +15,8 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
     ScullyLibModule,
     IonicModule,
     ComponentsModule,
-    NewsletterSignupModule
+    NewsletterSignupModule,
+    BreadcrumbModule
   ]
 })
 export class TagModule {}

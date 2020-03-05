@@ -2,7 +2,9 @@
   <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row *ngIf="post$ | async as post">
+
       <ion-col class="padding64" size="11" offset="1" sizeXl="9" offsetXl="1">
+        <app-breadcrumb></app-breadcrumb>
         <app-article feature="Article" [route]="post" [banner]="true"></app-article>
       </ion-col>
       <ion-col *ngIf="post.github" size="11" offset="1">
