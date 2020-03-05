@@ -6,13 +6,8 @@
       <ion-col size="12">
         <h1>See who's writing on notiz.dev</h1>
       </ion-col>
-      <ion-col 
-        size="12"
-        size-md="6"
-        size-lg="6"
-        *ngFor="let link of authors$ | async"
-      >
-        <app-author  [author]="link"></app-author>
+      <ion-col size="12" size-md="6" size-lg="6" *ngFor="let link of authors$ | async">
+        <app-author [author]="link"></app-author>
       </ion-col>
     </ion-row>
   </ion-grid>
