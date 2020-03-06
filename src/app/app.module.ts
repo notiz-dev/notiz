@@ -17,8 +17,8 @@ import { MarkdownModule } from 'ngx-markdown';
     HttpClientModule,
     AppRoutingModule,
     ScullyLibModule.forRoot({
-      useTranferState: true
-      // alwaysMonitor: true
+      useTranferState: true,
+      alwaysMonitor: true
     }),
     IonicModule.forRoot({ mode: 'md' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
