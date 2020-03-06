@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { filter, map, tap, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TagWeight } from '../types/types';
 
@@ -101,7 +101,9 @@ export class ScullyContentService {
     tags$: Observable<ScullyRoute[]>
   ): Observable<TagWeight[]> {
     const used$: Observable<number> = blogPosts$.pipe(
-      map(blogs => blogs.map(blog => blog.tags.length).reduce((a, b) => a + b,0))
+      map(blogs =>
+        blogs.map(blog => blog.tags.length).reduce((a, b) => a + b, 0)
+      )
     );
 
     return blogPosts$.pipe(

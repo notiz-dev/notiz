@@ -26,11 +26,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     GithubUrlComponent,
     ComingSoonComponent
   ],
-  imports: [
-    CommonModule,
-    IonicModule,
-    MarkdownModule.forChild(),
-  ],
+  imports: [CommonModule, IonicModule, MarkdownModule.forChild()],
   exports: [
     ThemeSwitcherComponent,
     HeaderComponent,

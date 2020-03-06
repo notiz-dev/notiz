@@ -1,0 +1,15 @@
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: inline;
+  font-size: 0.9rem;
+}
+
+li + li:before {
+  padding: 8px;
+  content: '/\00a0';
+}

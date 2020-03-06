@@ -221,7 +221,7 @@ body.dark .post {
 
   p {
     code {
-      color:#ffe9cd;
+      color: #ffe9cd;
     }
   }
 }
@@ -312,10 +312,28 @@ body:not(.dark) .post {
   }
 }
 
-.empty-box{
+.empty-box {
   min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+body.dark {
+  app-breadcrumb {
+    a,
+    li + li:before {
+      color: var(--ion-color-secondary);
+    }
+  }
+}
+
+body:not(.dark) {
+  app-breadcrumb {
+    a,
+    li + li:before {
+      color: var(--ion-color-primary);
+    }
+  }
 }
