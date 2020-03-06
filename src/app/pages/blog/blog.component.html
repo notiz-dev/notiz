@@ -3,13 +3,13 @@
 
   <ion-grid fixed no-padding class="padding64">
     <ion-row>
-      <ion-col class="ion-padding" size="12" sizeMd="4">
+      <ion-col class="ion-padding" size="12" size-md="4">
         <div class="sticky-tags">
           <h1><a href="tags">Tags</a></h1>
           <app-tags-view [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
         </div>
       </ion-col>
-      <ion-col class="ion-padding" size="12" sizeMd="8">
+      <ion-col class="ion-padding" size="12" size-md="8">
         <h2>All Posts</h2>
         <!-- TODO infinite scroll -->
         <app-article class="list-article" *ngFor="let blogPost of blogPosts$ | async" [route]="blogPost">
