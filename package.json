@@ -1,6 +1,16 @@
 {
   "name": "notiz",
   "version": "0.0.0",
+  "contributors": [
+    {
+      "name": "Gary Großgarten",
+      "url": "https://notiz.dev/authors/gary-grossgarten"
+    },
+    {
+      "name": "Marc Stammerjohann",
+      "url": "https://notiz.dev/authors/marc-stammerjohann"
+    }
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -18,16 +28,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.2",
-    "@angular/common": "~9.0.2",
-    "@angular/compiler": "~9.0.2",
-    "@angular/core": "~9.0.2",
-    "@angular/forms": "~9.0.2",
-    "@angular/platform-browser": "~9.0.2",
-    "@angular/platform-browser-dynamic": "~9.0.2",
-    "@angular/router": "~9.0.2",
-    "@angular/service-worker": "~9.0.2",
-    "@ionic/angular": "^5.0.1",
+    "@angular/animations": "~9.0.5",
+    "@angular/common": "~9.0.5",
+    "@angular/compiler": "~9.0.5",
+    "@angular/core": "~9.0.5",
+    "@angular/forms": "~9.0.5",
+    "@angular/platform-browser": "~9.0.5",
+    "@angular/platform-browser-dynamic": "~9.0.5",
+    "@angular/router": "~9.0.5",
+    "@angular/service-worker": "~9.0.5",
+    "@ionic/angular": "^5.0.4",
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "0.0.18",
     "@scullyio/scully": "0.0.75",
@@ -38,12 +48,12 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.3",
-    "@angular/cli": "~9.0.3",
-    "@angular/compiler-cli": "~9.0.2",
-    "@angular/language-service": "~9.0.2",
-    "@ionic/angular-toolkit": "2.1.2",
-    "@types/jasmine": "~3.5.0",
+    "@angular-devkit/build-angular": "~0.900.5",
+    "@angular/cli": "~9.0.5",
+    "@angular/compiler-cli": "~9.0.5",
+    "@angular/language-service": "~9.0.5",
+    "@ionic/angular-toolkit": "2.2.0",
+    "@types/jasmine": "~3.5.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
@@ -57,7 +67,7 @@
     "prettier": "^1.19.1",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
+    "tslint": "~6.0.0",
     "typescript": "~3.7.5"
   }
 }

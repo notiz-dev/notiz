@@ -6,10 +6,10 @@
         <app-breadcrumb></app-breadcrumb>
         <h1 *ngIf="author$ | async as author">More about the author</h1>
       </ion-col>
-      <ion-col size="10" offset="1" offsetMd="0" sizeMd="6" class="padding64">
+      <ion-col size="10" offset="1" size-md="6" offset-md="0" class="padding64">
         <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
       </ion-col>
-      <ion-col class="description-wrapper padding64" size="10" offset="1" offsetMd="0" sizeMd="6">
+      <ion-col class="description-wrapper padding64" size="10" offset="1" size-md="6" offset-md="0">
         <div class="description">
           <scully-content></scully-content>
         </div>
@@ -27,13 +27,13 @@
   </app-card-stack>
   <ion-grid fixed no-padding>
     <ion-row>
-      <ion-col *ngIf="(authorTags$ | async)?.length > 0" class="ion-padding" size="12" sizeMd="4">
+      <ion-col *ngIf="(authorTags$ | async)?.length > 0" class="ion-padding" size="12" size-md="4">
         <div class="sticky-tags">
           <h2><a href="tags">Tags</a></h2>
           <app-tags-view [blogPosts]="latestAuthorPosts$" [tags]="authorTags$"></app-tags-view>
         </div>
       </ion-col>
-      <ion-col *ngIf="(updatedAuthorPosts$ | async)?.length > 0" class="ion-padding" size="12" sizeMd="8">
+      <ion-col *ngIf="(updatedAuthorPosts$ | async)?.length > 0" class="ion-padding" size="12" size-md="8">
         <h2>Recently Updated</h2>
         <app-article class="list-article" [route]="link" *ngFor="let link of updatedAuthorPosts$ | async"></app-article>
       </ion-col>

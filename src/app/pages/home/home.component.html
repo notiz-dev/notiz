@@ -5,53 +5,35 @@
     <ion-grid fixed>
       <ion-row>
         <ion-col size="12" class="ion-padding ion-margin">
-          <app-article
-            [peek]="true"
-            class="featured"
-            feature="Fresh Article"
-            featureIcon="megaphone-outline"
-            *ngIf="latestBlogPost$ | async as blogPost"
-            [route]="blogPost"
-          ></app-article>
+          <app-article [peek]="true" class="featured" feature="Fresh Article" featureIcon="megaphone-outline"
+            *ngIf="latestBlogPost$ | async as blogPost" [route]="blogPost"></app-article>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
 
-  <app-card-stack
-    class="padding64"
-    title="Latest Articles"
-    subtitle="Check out latest posts and featured content from notiz.dev"
-  >
+  <app-card-stack class="padding64" title="Latest Articles"
+    subtitle="Check out latest posts and featured content from notiz.dev">
     <ion-card *ngFor="let blogPost of blogPosts$ | async | slice: 1:6">
       <app-article [route]="blogPost"></app-article>
     </ion-card>
-    <ion-card
-      #emptystack
-      *ngIf="(blogPosts$ | async | slice: 1:6)?.length < 5"
-    >
+    <ion-card #emptystack *ngIf="(blogPosts$ | async | slice: 1:6)?.length < 5">
       <app-coming-soon></app-coming-soon>
     </ion-card>
   </app-card-stack>
 
   <ion-grid fixed no-padding class="padding64">
     <ion-row>
-      <ion-col class="ion-padding" size="12" sizeMd="4">
+      <ion-col class="ion-padding" size="12" size-md="4">
         <div class="sticky-tags">
           <h2><a href="tags">Tags</a></h2>
-          <app-tags-view
-            [blogPosts]="blogPosts$"
-            [tags]="tags$"
-          ></app-tags-view>
+          <app-tags-view [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
         </div>
       </ion-col>
-      <ion-col class="ion-padding" size="12" sizeMd="8">
+      <ion-col class="ion-padding" size="12" size-md="8">
         <h2>Recently Updated</h2>
-        <app-article
-          class="list-article"
-          *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"
-          [route]="blogPost"
-        >
+        <app-article class="list-article" *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"
+          [route]="blogPost">
         </app-article>
       </ion-col>
     </ion-row>
