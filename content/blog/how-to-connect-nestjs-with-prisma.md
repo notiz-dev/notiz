@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with Nestjs'
 description: 'Learn how to setup a database with Prisma 2 and query data using Nestjs.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-03-02T10:12:00.000Z
+updatedAt: 2020-03-10T16:28:00.000Z
 tags:
   - Nestjs
   - Prisma
@@ -92,6 +92,8 @@ We are creating our first database migration using the experimental Prisma Migra
 First we save a migration using `npx prisma2 migrate save --experimental`. Prisma prompst us to create the `dev.db` database and we select `Yes`. Next we provide a name for the migration, for example `user` as we just define the `User` model.
 
 Now we can apply the migration with `npx prisma2 migrate up --experimental`.
+
+> **Warning**: [Prisma Migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate#prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
 
 ## Step 6: Generate PrismaClient
 
