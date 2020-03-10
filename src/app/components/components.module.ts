@@ -12,6 +12,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
 import { GithubUrlComponent } from './github-url/github-url.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { PipesModule } from '@pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     GithubUrlComponent,
     ComingSoonComponent
   ],
-  imports: [CommonModule, IonicModule, MarkdownModule.forChild()],
+  imports: [CommonModule, PipesModule, IonicModule, MarkdownModule.forChild()],
   exports: [
     ThemeSwitcherComponent,
     HeaderComponent,

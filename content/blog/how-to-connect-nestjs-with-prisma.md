@@ -86,7 +86,7 @@ We are adding the above model to `prisma.schema` below the generator.
 
 For more complex models check out Prisma's [data modeling](https://github.com/prisma/prisma2/blob/master/docs/data-modeling.md) definition.
 
-## Step 6: Create SQLite database with Migrate
+## Step 5: Create SQLite database with Migrate
 
 We are creating our first database migration using the experimental Prisma Migrate.
 First we save a migration using `npx prisma2 migrate save --experimental`. Prisma prompst us to create the `dev.db` database and we select `Yes`. Next we provide a name for the migration, for example `user` as we just define the `User` model.
