@@ -2,8 +2,8 @@
 title: 'Deploy Nestjs with Prisma to Heroku'
 description: 'Deploy a Nestjs application with Prisma 2 to Heroku and connect to a PostgreSQL database.'
 published: true
-publishedAt: 2020-03-10T12:35:00.000Z
-updatedAt: 2020-03-10T12:35:00.000Z
+publishedAt: 2020-03-10T17:07:00.000Z
+updatedAt: 2020-03-10T17:07:00.000Z
 tags:
   - Nestjs
   - Prisma
@@ -90,9 +90,9 @@ We select a plan for our Postgres database, I will start with the **Hobby Dev - 
 
 Our database has been setup and it appears in our addon list.
 
-![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-progres-dashbp-postgres-dashboard.png)
+![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-postgres-dashboard.png)
 
-We select **Heroku Postgres** which brings us to the Postgres Dashboard. To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
+Select **Heroku Postgres** which brings us to the Postgres Dashboard. To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
 
 ![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/view-postgres-credentials.png)
 
@@ -151,6 +151,13 @@ npx prisma2 studio --experimental
 
 ![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-studio-after-migration.png)
 
-Our migration was successful 🎉! We see the empty **NationalPark** and **Country** table. Now we create two REST endpoints to query all **NationalPark**s and to create a new **NationalPark** in our Nest application.
+Our migration was successful 🎉
+We see the **NationalPark** and **Country** table was created in our database.
 
-## Prisma CRUD in Nest
+Since we have our database ready, we create two REST endpoints to query all **NationalPark**s and to create a new **NationalPark** in our Nest application.
+
+## Prisma CRUD operations in Nest
+
+Before we implement our CRUD operations in Nest, we generate a new `PrismaClient` when ever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
+
+![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-client-crud.png)
