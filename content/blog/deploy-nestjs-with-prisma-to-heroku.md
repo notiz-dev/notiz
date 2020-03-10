@@ -47,11 +47,13 @@ Choose an app name to identify your app and the name is also used as your defaul
 
 ![Create new Heroku app](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/create-new-app.png)
 
-Note: Heroku let's you to configure a custom domain in your app settings.
+> **Note**: Heroku let's you to configure a custom domain in your app settings.
 
-Alright, our heroku app is setup let's install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and we use it to deploy our Nest application to Heroku.
+Alright, our heroku app is setup.
 
 ![Deploy using Heroku Git](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/deploy-using-heroku-git.png)
+
+We install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and deploy our Nest application by pushing to Heroku git.
 
 ```bash
 heroku login
@@ -62,18 +64,93 @@ heroku git:remote -a your-app-name
 git push heroku master
 ```
 
-After pushing your current application to Heroku you should see the following output in your terminal or in the **Activity** tab of your Heroku app.
+After pushing our current application to Heroku we see the following output in our terminal or in the **Activity** tab of our Heroku app.
 
 ![First app build on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-build.png)
 
-Heroku prints **Build succeeded!** and your application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/). Our Nest app should now be successfully deployed on Heroku!? 🤔
+Heroku prints **Build succeeded!** and our application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/). Our Nest app should now be successfully deployed on Heroku!? 🤔
 
 Let's visit out app either by clicking on the link or by clicking **Open app** in the toolbar.
 
-I am seeing **Hello World!**, our Nest app is succesfully deployed to Heroku 🎉
+I am seeing **Hello World!**, the Nest app is successfully deployed to Heroku 🎉
 
 ![Hello World!](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-app-launch.png)
 
-But we are not done yet! Let's setup a PostgreSQL and query it using Prisma.
+In the next step we will setup a PostgreSQL database and use Prisma Migrate to apply our database schema.
 
-## Setup PostgreSQL and connect with Prisma
+## Setup PostgreSQL and use Prisma Migrate
+
+Navigate to **Resources** tab in Heroku and search for **Heroku Postgres** addon.
+
+![Add Heroku Postgres addon](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/add-heroku-postgres-addon.png)
+
+We select a plan for our Postgres database, I will start with the **Hobby Dev - Free** plan and click **Provision**. We can upgrade the database plan later at anytime.
+
+![Select Postgres plan](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/select-postgres-plan.png)
+
+Our database has been setup and it appears in our addon list.
+
+![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-progres-dashbp-postgres-dashboard.png)
+
+We select **Heroku Postgres** which brings us to the Postgres Dashboard. To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
+
+![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/view-postgres-credentials.png)
+
+[.env](https://github.com/prisma/prisma2/blob/master/docs/prisma-schema-file.md#using-env-files) file support is included in Prisma 2. Hence, we provide the database connection URL as the environment variable `DATABASE_URL`.
+
+```prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+```
+
+Paste the **URI** from the Heroku Postgres dashboard into the `prisma/.env` file.
+
+```
+DATABASE_URL=postgres://swdnqezdxfrehx:b3e...
+```
+
+> **WARNING**: Do not commit `.env` files into version control
+
+Right now our database is empty and has no tables. Let's use Prisma Migrate to save and apply our migrations for the following schema.
+
+```prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model NationalPark {
+  id      Int     @id @default(autoincrement())
+  name    String
+  country Country
+}
+
+model Country {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+}
+```
+
+```bash
+npx prisma2 migrate save --experimental
+
+npx prisma2 migrate up --experimental
+```
+
+We can use [Prisma Studio](https://github.com/prisma/studio) to view if our migration was successful. Run and open studio at [http://localhost:5555](http://localhost:5555).
+
+```bash
+npx prisma2 studio --experimental
+```
+
+![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-studio-after-migration.png)
+
+Our migration was successful 🎉! We see the empty **NationalPark** and **Country** table. Now we create two REST endpoints to query all **NationalPark**s and to create a new **NationalPark** in our Nest application.
+
+## Prisma CRUD in Nest
