@@ -37,7 +37,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma2 generate && npm run build",` to the **scripts** in our **package.json** which generates a new `PrismaClient` and performs the app build creating our `dist` folder.
+Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma2 generate && npm run build",` to the **scripts** in our **package.json** which generates a new `PrismaClient` and performs the app build, creating our `dist` folder.
 
 Heroku needs to know how to execute our Nest application via a `Procfile`. Create a `Procfile` in the root folder with our start script `web: npm run start:prod`. Now Heroku will install our dependencies, generate Prisma Client and build the application in the **postinstall** script and then start the application.
 
@@ -49,9 +49,9 @@ Choose an app name to identify your app and the name is also used as your defaul
 
 ![Create new Heroku app](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/create-new-app.png)
 
-> **Note**: Heroku let's you to configure a custom domain in your app settings.
+> **Note**: Heroku let's you configure a custom domain in your app settings.
 
-Alright, our heroku app is setup.
+Alright, our heroku app is set up.
 
 ![Deploy using Heroku Git](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/deploy-using-heroku-git.png)
 
@@ -70,11 +70,11 @@ After pushing our current application to Heroku, we see the following output in 
 
 ![First app build on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-build.png)
 
-Heroku prints **Build succeeded!** and our application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/). Our Nest app should now be successfully deployed on Heroku!? 🤔
+Heroku prints **Build succeeded!** and our application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/).
 
 Let's visit our app by either clicking on the link or on **Open app** in the toolbar.
 
-I am seeing **Hello World!**, the Nest app is successfully deployed to Heroku 🎉
+I am seeing **Hello World!**. The Nest app has been successfully deployed to Heroku 🎉
 
 ![Hello World!](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-app-launch.png)
 
@@ -162,7 +162,7 @@ Since we have our database ready, we create two REST endpoints to query all **Na
 
 ## Prisma CRUD operations in Nest
 
-Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` when ever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
+Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` whenever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
 
 ![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-client-crud.png)
 
@@ -200,7 +200,7 @@ getNationalParks() {
 
 ![Query all National Parks with Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-dev.png)
 
-Awesome our response includes now **Country**.
+Awesome, our response now includes **Country**.
 
 ### Create New National Park
 
@@ -239,7 +239,7 @@ async createNationalPark(@Body() nationalParkDto: NationalParkDto) {
 }
 ```
 
-When we create our national park we have two options how to create the connection to a country. If the country exists we use `connect` using the country id `country: { connect: { id: country.id } }`. Otherwise we `create` the country alongside the national park `country: { create: { name: nationalParkDto.country } }`. Let's also return the created **NationalPark** including the **Country** in our response. Our `POST` endpoint looks like this:
+When we create our national park we have two options for how to create the connection to a country. If the country exists we use `connect` using the country id `country: { connect: { id: country.id } }`. Otherwise we `create` the country alongside the national park `country: { create: { name: nationalParkDto.country } }`. Let's also return the created **NationalPark** including the **Country** in our response. Our `POST` endpoint looks like this:
 
 ```typescript
 @Post('nationalPark')
@@ -268,19 +268,19 @@ async createNationalPark(@Body() nationalParkDto: NationalParkDto) {
 }
 ```
 
-Yeah 🎉 request works locally.
+Yeah! 🎉 The request works locally.
 
 ![Create new National Park](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/new-national-park-dev.png)
 
-We are ready to push our Nest application again to Heroku to expose the two new REST endpoints.
+We are ready to push our Nest application to Heroku again to expose the two new REST endpoints.
 
-### Push to Heroku and Test new Endpoints
+### Push to Heroku and test new Endpoints
 
-Run `git push heroku master` in your Nest application and wait for the build to succeed. Also, we need to see if the environment variable `DATABASE_URL` is added to the Heroku app. Head over to the **Settings** tab and click on **Reveal Config Vars**. `DATABASE_URL` has already been added when we add the **Heroku Postgres** addon. If you like to change your database you can update the URL here.
+Run `git push heroku master` in your Nest application and wait for the build to succeed. Also, we need to see if the environment variable `DATABASE_URL` is added to the Heroku app. Head over to the **Settings** tab and click on **Reveal Config Vars**. `DATABASE_URL` has already been added when we installed the **Heroku Postgres** addon. If you like to change your database you can update the URL here.
 
 ![DATABASE_URL environment variable on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/heroku-config-vars.png)
 
-Our new endpoints have successfully deployed. Time to test it out [https://nestjs-prisma-heroku.herokuapp.com/nationalParks](https://nestjs-prisma-heroku.herokuapp.com/nationalParks).
+Our new endpoints have been successfully deployed. Time to test it out [https://nestjs-prisma-heroku.herokuapp.com/nationalParks](https://nestjs-prisma-heroku.herokuapp.com/nationalParks).
 
 ![Query all National Parks with Country on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-heroku.png)
 
