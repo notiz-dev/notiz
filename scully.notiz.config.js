@@ -1,3 +1,5 @@
+require('./projects/scully-plugin-lazy-images')
+
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
@@ -7,7 +9,8 @@ exports.config = {
       type: 'contentFolder',
       slug: {
         folder: './content/blog'
-      }
+      },
+      postRenderers: ['lazyImages']
     },
     '/authors/:slug': {
       type: 'contentFolder',
