@@ -1,13 +1,16 @@
 {
-  "name": "scully-plugin-lazy-images",
+  "name": "@notiz/scully-plugin-lazy-images",
   "version": "0.1.0",
-  "description": "",
+  "description": "scully plugin to add lazy loading for images",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "peerDependencies": {
+    "@scullyio/scully": "^0.0.78"
+  },
   "dependencies": {
     "jsdom": "^16.2.1"
   }
