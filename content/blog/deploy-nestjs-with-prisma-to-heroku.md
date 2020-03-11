@@ -10,8 +10,8 @@ tags:
   - Heroku
 authors:
   - 'Marc Stammerjohann'
-banner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/banner.svg'
-twitterBanner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/banner.png'
+banner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/banner.svg'
+twitterBanner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/banner.png'
 github: 'https://github.com/notiz-dev/deploy-nestjs-prisma-heroku'
 ---
 
@@ -47,13 +47,13 @@ Next, sign up or log into your [Heroku account](https://id.heroku.com/login). Cr
 
 Choose an app name to identify your app and the name is also used as your default api endpoint at **https://your-app-name.herokuapp.com/**. You can also choose between two regions for your app **United States** and **Europe**.
 
-![Create new Heroku app](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/create-new-app.png)
+![Create new Heroku app](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/create-new-app.png)
 
 > **Note**: Heroku let's you configure a custom domain in your app settings.
 
 Alright, our heroku app is set up.
 
-![Deploy using Heroku Git](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/deploy-using-heroku-git.png)
+![Deploy using Heroku Git](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/deploy-using-heroku-git.png)
 
 We install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and deploy our Nest application by pushing to Heroku git.
 
@@ -68,7 +68,7 @@ git push heroku master
 
 After pushing our current application to Heroku, we see the following output in our terminal or in the **Activity** tab of our Heroku app.
 
-![First app build on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-build.png)
+![First app build on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/first-build.png)
 
 Heroku prints **Build succeeded!** and our application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/).
 
@@ -76,7 +76,7 @@ Let's visit our app by either clicking on the link or on **Open app** in the too
 
 I am seeing **Hello World!**. The Nest app has been successfully deployed to Heroku 🎉
 
-![Hello World!](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-app-launch.png)
+![Hello World!](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/first-app-launch.png)
 
 In the next step we will setup a PostgreSQL database and use Prisma Migrate to apply our database schema.
 
@@ -84,19 +84,19 @@ In the next step we will setup a PostgreSQL database and use Prisma Migrate to a
 
 Navigate to **Resources** tab on Heroku and search for the **Heroku Postgres** addon.
 
-![Add Heroku Postgres addon](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/add-heroku-postgres-addon.png)
+![Add Heroku Postgres addon](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/add-heroku-postgres-addon.png)
 
 We select a plan for our Postgres database, I will start with the **Hobby Dev - Free** plan and click **Provision**. We can upgrade the database plan later at anytime.
 
-![Select Postgres plan](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/select-postgres-plan.png)
+![Select Postgres plan](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/select-postgres-plan.png)
 
 Our database has been setup and it appears in the addon list.
 
-![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-postgres-dashboard.png)
+![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/open-postgres-dashboard.png)
 
 To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select **Heroku Postgres** and switch to the **Settings** tab and **View Credentials...**. Copy the whole **URI** starting with `postgres://`.
 
-![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/view-postgres-credentials.png)
+![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/view-postgres-credentials.png)
 
 [.env](https://github.com/prisma/prisma2/blob/master/docs/prisma-schema-file.md#using-env-files) file support is included in Prisma 2. Hence, we provide the database connection URL as the environment variable `DATABASE_URL`.
 
@@ -153,7 +153,7 @@ We can use [Prisma Studio](https://github.com/prisma/studio) to view if our migr
 npx prisma2 studio --experimental
 ```
 
-![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-studio-after-migration.png)
+![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/prisma-studio-after-migration.png)
 
 Our migration was successful 🎉
 We see the **NationalPark** and **Country** table was created in our database. We can use Prisma Studio to create our test data, start creating a new **Country** and then new **NationalPark**s as they require a connection to a country.
@@ -164,7 +164,7 @@ Since we have our database ready, we create two REST endpoints to query all **Na
 
 Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` whenever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
 
-![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-client-crud.png)
+![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/prisma-client-crud.png)
 
 ### Find Many National Parks
 
@@ -187,7 +187,7 @@ export class AppController {
 
 Start the Nest app locally in dev mode `npm run start:dev` and try the request at [http://localhost:3000/nationalParks](http://localhost:3000/nationalParks).
 
-![Query all National Parks without Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-without-country-dev.png)
+![Query all National Parks without Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/query-national-parks-without-country-dev.png)
 
 I have added one national park via Prisma Studio, but we don't see the **Country** in the response. To return the countries in the national park response we [include](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#include-additionally-via-include) country in the `findMany()` query using the `include` keyword.
 
@@ -198,7 +198,7 @@ getNationalParks() {
 }
 ```
 
-![Query all National Parks with Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-dev.png)
+![Query all National Parks with Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/query-national-parks-dev.png)
 
 Awesome, our response now includes **Country**.
 
@@ -270,7 +270,7 @@ async createNationalPark(@Body() nationalParkDto: NationalParkDto) {
 
 Yeah! 🎉 The request works locally.
 
-![Create new National Park](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/new-national-park-dev.png)
+![Create new National Park](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/new-national-park-dev.png)
 
 We are ready to push our Nest application to Heroku again to expose the two new REST endpoints.
 
@@ -278,12 +278,12 @@ We are ready to push our Nest application to Heroku again to expose the two new 
 
 Run `git push heroku master` in your Nest application and wait for the build to succeed. Also, we need to see if the environment variable `DATABASE_URL` is added to the Heroku app. Head over to the **Settings** tab and click on **Reveal Config Vars**. `DATABASE_URL` has already been added when we installed the **Heroku Postgres** addon. If you like to change your database you can update the URL here.
 
-![DATABASE_URL environment variable on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/heroku-config-vars.png)
+![DATABASE_URL environment variable on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/heroku-config-vars.png)
 
 Our new endpoints have been successfully deployed. Time to test it out [https://nestjs-prisma-heroku.herokuapp.com/nationalParks](https://nestjs-prisma-heroku.herokuapp.com/nationalParks).
 
-![Query all National Parks with Country on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-heroku.png)
+![Query all National Parks with Country on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/query-national-parks-heroku.png)
 
-![Create new National Park on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/new-national-park-heroku.png)
+![Create new National Park on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/new-national-park-heroku.png)
 
 To wrap up, we have successfully deployed 🚀 our Nest application 😻 on Heroku and connected Prisma to a PostgreSQL database.
