@@ -92,7 +92,7 @@ Our database has been setup and it appears in the addon list.
 
 ![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-postgres-dashboard.png)
 
-To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select **Heroku Postgres** and switch to the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
+To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select **Heroku Postgres** and switch to the **Settings** tab and **View Credentials...**. Copy the whole **URI** starting with `postgres://`.
 
 ![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/view-postgres-credentials.png)
 
@@ -113,7 +113,7 @@ DATABASE_URL=postgres://ytodrxnfzdnxlr:005777fd...
 
 > **WARNING**: Do not commit `.env` files into version control
 
-Right now our database is empty and has no tables. Let's use Prisma Migrate to save and apply our migrations for the following schema.
+Right now our database is empty and has no tables.
 
 ```prisma
 datasource db {
@@ -137,6 +137,8 @@ model Country {
 }
 ```
 
+Let's use [Prisma Migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate) to save and apply our migrations for the following schema.
+
 ```bash
 npx prisma2 migrate save --experimental
 
@@ -152,13 +154,13 @@ npx prisma2 studio --experimental
 ![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-studio-after-migration.png)
 
 Our migration was successful 🎉
-We see the **NationalPark** and **Country** table was created in our database. We can use Prisma Studio to create our test data, start creating a new **Country** and then new **NationalPark**s as these require a connection to a country.
+We see the **NationalPark** and **Country** table was created in our database. We can use Prisma Studio to create our test data, start creating a new **Country** and then new **NationalPark**s as they require a connection to a country.
 
 Since we have our database ready, we create two REST endpoints to query all **NationalPark**s and to create a new **NationalPark** in our Nest application.
 
 ## Prisma CRUD operations in Nest
 
-Before we implement our CRUD operations in Nest, we generate a new `PrismaClient` when ever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
+Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` when ever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
 
 ![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/prisma-client-crud.png)
 
@@ -196,7 +198,7 @@ getNationalParks() {
 
 ![Query all National Parks with Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/query-national-parks-dev.png)
 
-Now our response includes **Country**.
+Awesome our response includes now **Country**.
 
 ### Create New National Park
 
@@ -217,7 +219,7 @@ createNationalPark(@Body() nationalParkDto: NationalParkDto) {
 }
 ```
 
-As we need a country `id` to connect to a national park we will `prisma.country.findOne` if this country already exist in our database. Use `async/await` to find the country as `PrismaClient` CRUD operations always return `Promise`'s.
+As we need a country `id` to connect to a national park we use `prisma.country.findOne` to see if this country already exists in our database. Use `async/await` to find the country as `PrismaClient` CRUD operations always return `Promise`'s.
 
 ```typescript
 @Post('nationalPark')
@@ -235,7 +237,7 @@ async createNationalPark(@Body() nationalParkDto: NationalParkDto) {
 }
 ```
 
-When we want to create our national park we have two options how we create the connection to the country. If the country exists we use `connect` using the country id `country: { connect: { id: country.id } }`. Otherwise we `create` the country along the national park `country: { create: { name: nationalParkDto.country } }`. Let's also return the created **NationalPark** including the **Country** in our response. Our `POST` endpoint looks like this:
+When we create our national park we have two options how to create the connection to a country. If the country exists we use `connect` using the country id `country: { connect: { id: country.id } }`. Otherwise we `create` the country alongside the national park `country: { create: { name: nationalParkDto.country } }`. Let's also return the created **NationalPark** including the **Country** in our response. Our `POST` endpoint looks like this:
 
 ```typescript
 @Post('nationalPark')
@@ -268,9 +270,9 @@ Yeah 🎉 request works locally.
 
 ![Create new National Park](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/new-national-park-dev.png)
 
-We are ready to push our Nest application again to Heroku to have access to these new REST endpoints.
+We are ready to push our Nest application again to Heroku to expose the two new REST endpoints.
 
-### Push to Heroku and test new Endpoints
+### Push to Heroku and Test new Endpoints
 
 Run `git push heroku master` in your Nest application and wait for the build to succeed. Also, we need to see if the environment variable `DATABASE_URL` is added to the Heroku app. Head over to the **Settings** tab and click on **Reveal Config Vars**. `DATABASE_URL` has already been added when we add the **Heroku Postgres** addon. If you like to change your database you can update the URL here.
 
