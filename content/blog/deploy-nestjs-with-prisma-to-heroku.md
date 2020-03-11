@@ -41,7 +41,7 @@ Heroku needs to know how to execute our Nest application via a `Procfile`. Creat
 
 ## New Heroku app and CLI
 
-Next, sign up or log into your [Heroku account](https://id.heroku.com/login). Create a new heroku app by clicking on **New** and then **Create new app**.
+Next, sign up or log into your [Heroku account](https://id.heroku.com/login). Create a new Heroku app by clicking on **New** and then **Create new app**.
 
 Choose an app name to identify your app and the name is also used as your default api endpoint at **https://your-app-name.herokuapp.com/**. You can also choose between two regions for your app **United States** and **Europe**.
 
