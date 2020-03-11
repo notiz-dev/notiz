@@ -2,8 +2,8 @@
 title: 'Deploy Nestjs with Prisma to Heroku'
 description: 'Deploy a Nestjs application with Prisma 2 to Heroku and connect to a PostgreSQL database.'
 published: true
-publishedAt: 2020-03-10T17:07:00.000Z
-updatedAt: 2020-03-10T17:07:00.000Z
+publishedAt: 2020-03-11T16:27:00.000Z
+updatedAt: 2020-03-11T16:27:00.000Z
 tags:
   - Nestjs
   - Prisma
@@ -17,11 +17,11 @@ I will show you how to deploy a Nestjs application with Prisma 2 to [Heroku](htt
 
 Check out my previous tutorial [How to query your database using Prisma with Nestjs](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) to create a `PrismaService` for your Nest application.
 
-## Prepare Nest application for Heroku
+## Preparing Nest application for Heroku
 
 Let's get started by preparing our Nest application to run on Heroku.
 
-First we will modify our `main.ts` to use the port provided by Heroku as an environment variable. CORS can also be enabled for web or mobile applications making requests to the Nest application.
+First, we modify `main.ts` to use the port provided by Heroku as an environment variable. CORS can also be enabled for web or mobile applications making requests to the Nest application.
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
@@ -35,13 +35,13 @@ async function bootstrap() {
 bootstrap();
 ```
 
-Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma2 generate && npm run build",` to the **scripts** in our **package.json** which performs the app build creating our `dist` folder.
+Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma2 generate && npm run build",` to the **scripts** in our **package.json** which generates a new `PrismaClient` and performs the app build creating our `dist` folder.
 
-Heroku needs to know how to execute our Nest application via a `Procfile`. Create a `Procfile` in the root folder with our start script `web: npm run start:prod`. Now Heroku will install our dependencies, build the application in the **postinstall** script and then start the application.
+Heroku needs to know how to execute our Nest application via a `Procfile`. Create a `Procfile` in the root folder with our start script `web: npm run start:prod`. Now Heroku will install our dependencies, generate Prisma Client and build the application in the **postinstall** script and then start the application.
 
 ## New Heroku app and CLI
 
-Next, signing up or logging into your [Heroku account](https://id.heroku.com/login). Create a new heroku app by clicking on **New** and then **Create new app**.
+Next, sign up or log into your [Heroku account](https://id.heroku.com/login). Create a new heroku app by clicking on **New** and then **Create new app**.
 
 Choose an app name to identify your app and the name is also used as your default api endpoint at **https://your-app-name.herokuapp.com/**. You can also choose between two regions for your app **United States** and **Europe**.
 
@@ -64,13 +64,13 @@ heroku git:remote -a your-app-name
 git push heroku master
 ```
 
-After pushing our current application to Heroku we see the following output in our terminal or in the **Activity** tab of our Heroku app.
+After pushing our current application to Heroku, we see the following output in our terminal or in the **Activity** tab of our Heroku app.
 
 ![First app build on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/first-build.png)
 
 Heroku prints **Build succeeded!** and our application link at the end like [https://nestjs-prisma-heroku.herokuapp.com/](https://nestjs-prisma-heroku.herokuapp.com/). Our Nest app should now be successfully deployed on Heroku!? 🤔
 
-Let's visit out app either by clicking on the link or by clicking **Open app** in the toolbar.
+Let's visit our app by either clicking on the link or on **Open app** in the toolbar.
 
 I am seeing **Hello World!**, the Nest app is successfully deployed to Heroku 🎉
 
@@ -80,7 +80,7 @@ In the next step we will setup a PostgreSQL database and use Prisma Migrate to a
 
 ## Setup PostgreSQL and use Prisma Migrate
 
-Navigate to **Resources** tab in Heroku and search for **Heroku Postgres** addon.
+Navigate to **Resources** tab on Heroku and search for the **Heroku Postgres** addon.
 
 ![Add Heroku Postgres addon](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/add-heroku-postgres-addon.png)
 
@@ -88,11 +88,11 @@ We select a plan for our Postgres database, I will start with the **Hobby Dev - 
 
 ![Select Postgres plan](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/select-postgres-plan.png)
 
-Our database has been setup and it appears in our addon list.
+Our database has been setup and it appears in the addon list.
 
 ![Open Postgres Dashboard](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/open-postgres-dashboard.png)
 
-Select **Heroku Postgres** which brings us to the Postgres Dashboard. To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
+To connect Prisma to the database, we need to provide the database connection URL found in the **Settings** of our database. Select **Heroku Postgres** and switch to the **Settings** tab and **View Credentials...** and copy the whole **URI** starting with `postgres://`.
 
 ![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/view-postgres-credentials.png)
 
@@ -108,7 +108,7 @@ datasource db {
 Paste the **URI** from the Heroku Postgres dashboard into the `prisma/.env` file.
 
 ```
-DATABASE_URL=postgres://swdnqezdxfrehx:b3e...
+DATABASE_URL=postgres://ytodrxnfzdnxlr:005777fd...
 ```
 
 > **WARNING**: Do not commit `.env` files into version control
@@ -272,7 +272,9 @@ We are ready to push our Nest application again to Heroku to have access to thes
 
 ### Push to Heroku and test new Endpoints
 
-Run `git push heroku master` in your Nest application and wait for the build to succeed.
+Run `git push heroku master` in your Nest application and wait for the build to succeed. Also, we need to see if the environment variable `DATABASE_URL` is added to the Heroku app. Head over to the **Settings** tab and click on **Reveal Config Vars**. `DATABASE_URL` has already been added when we add the **Heroku Postgres** addon. If you like to change your database you can update the URL here.
+
+![DATABASE_URL environment variable on Heroku](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/heroku-config-vars.png)
 
 Our new endpoints have successfully deployed. Time to test it out [https://nestjs-prisma-heroku.herokuapp.com/nationalParks](https://nestjs-prisma-heroku.herokuapp.com/nationalParks).
 
