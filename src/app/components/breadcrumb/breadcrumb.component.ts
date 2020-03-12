@@ -26,9 +26,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
-  constructor(private router: Router, private scully: ScullyRoutesService) {
-    // scully.getCurrent().subscribe(console.log);
-  }
+  constructor(private router: Router, private scully: ScullyRoutesService) {}
 
   ngOnInit() {
     this.scully
@@ -73,9 +71,6 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
 
     for (const route of routes) {
       url += `/${route}`;
-      console.log(url);
-
-      console.log(currentPage.route === url);
 
       if (currentPage.route === url) {
         breadcrumbs.push({
