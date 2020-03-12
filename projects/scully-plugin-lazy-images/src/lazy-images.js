@@ -5,7 +5,7 @@ const lazyImagesPlugin = async (html, route) => {
   const doc = dom.window.document;
   var imgEl = doc.getElementsByTagName('img');
 
-  // can be added when loadine="lazy" is supported in more browsers
+  // can be added when loading="lazy" is supported in more browsers
   //   for (var i = 0; i < imgEl.length; i++) {
   //     imgEl[i].setAttribute('loading', 'lazy');
   //   }
