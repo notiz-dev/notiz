@@ -34,7 +34,6 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.destroy$),
         tap(currentPage => {
-          console.log(currentPage);
           this.breadcrumbs$.next(
             this.getBreadcrumbsWithStartPage(this.router.url, currentPage)
           );
