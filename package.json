@@ -24,7 +24,8 @@
     "scully": "scully",
     "scully:build": "npm run build:prod && npm run scully && sh 404.sh",
     "scully:serve": "scully serve",
-    "blick:serve": "blick open http://localhost:4200 & ng s"
+    "blick:serve": "blick open http://localhost:4200 & ng s",
+    "optimize:images": "node optimize-images.js"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,8 @@
     "@angular/router": "~9.0.5",
     "@angular/service-worker": "~9.0.5",
     "@ionic/angular": "^5.0.4",
+    "@notiz/scully-plugin-fouc": "file:projects/scully-plugin-fouc",
+    "@notiz/scully-plugin-lazy-images": "file:projects/scully-plugin-lazy-images",
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "0.0.18",
     "@scullyio/scully": "0.0.75",
@@ -57,6 +60,10 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-svgo": "^7.1.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
