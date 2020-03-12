@@ -1,8 +1,10 @@
-require('./projects/scully-plugin-lazy-images')
+require('./projects/scully-plugin-lazy-images');
+require('./projects/scully-plugin-fouc');
 
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
+  defaultPostRenderers: ['lazyImages','fouc'],
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
@@ -10,7 +12,6 @@ exports.config = {
       slug: {
         folder: './content/blog'
       },
-      postRenderers: ['lazyImages']
     },
     '/authors/:slug': {
       type: 'contentFolder',
