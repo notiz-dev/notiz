@@ -9,8 +9,8 @@ tags:
   - Prisma
 authors:
   - 'Marc Stammerjohann'
-banner: 'https://notiz.dev/assets/img/blog/how-to-connect-nestjs-with-prisma/how-to-connect-nestjs-with-prisma.svg'
-twitterBanner: 'https://notiz.dev/assets/img/blog/how-to-connect-nestjs-with-prisma/how-to-connect-nestjs-with-prisma.png'
+banner: 'https://notiz.dev/assets/img/blog/how-to-connect-nestjs-with-prisma/optimized/how-to-connect-nestjs-with-prisma.svg'
+twitterBanner: 'https://notiz.dev/assets/img/blog/how-to-connect-nestjs-with-prisma/optimized/how-to-connect-nestjs-with-prisma.png'
 github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
   nestjs/cli: 6.14.2
