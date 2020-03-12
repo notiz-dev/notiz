@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": "^0.0.78"
+    "@scullyio/scully": "^0.0.75"
   },
   "dependencies": {
     "jsdom": "^16.2.1"
