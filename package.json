@@ -39,6 +39,8 @@
     "@angular/router": "~9.0.5",
     "@angular/service-worker": "~9.0.5",
     "@ionic/angular": "^5.0.4",
+    "@notiz/scully-plugin-fouc": "file:projects/scully-plugin-fouc",
+    "@notiz/scully-plugin-lazy-images": "file:projects/scully-plugin-lazy-images",
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "0.0.18",
     "@scullyio/scully": "0.0.75",
