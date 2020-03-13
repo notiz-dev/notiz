@@ -56,7 +56,7 @@
     "@ionic/angular-toolkit": "2.2.0",
     "@notiz/scully-plugin-fouc": "~0.1.0",
     "@notiz/scully-plugin-lazy-images": "~0.1.0",
-    "@notiz/scully-plugin-rss": "0.2.0",
+    "@notiz/scully-plugin-rss": "0.2.2",
     "@types/jasmine": "~3.5.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
