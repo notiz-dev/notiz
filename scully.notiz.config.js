@@ -6,16 +6,6 @@ exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
   defaultPostRenderers: ['lazyImages', 'fouc'],
-  rssConfig: {
-    title: 'title',
-    description: 'description',
-    feed_url: 'https://notiz.dev/feed.xml',
-    site_url: 'https://notiz.dev',
-    image_url: 'https://notiz.dev/assets/img/featured.png',
-    copyright: '2020 notiz.dev',
-    language: 'en',
-    categories: ['Web Development', 'Angular', 'node', 'Programming Blog'],
-  },
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
