@@ -1,4 +1,4 @@
 ---
-title: Nestjs
+title: NestJS
 slug: nestjs
 ---

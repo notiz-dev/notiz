@@ -1,11 +1,11 @@
 ---
-title: 'How to query your database using Prisma with Nestjs'
-description: 'Learn how to setup a database with Prisma 2 and query data using Nestjs.'
+title: 'How to query your database using Prisma with NestJS'
+description: 'Learn how to setup a database with Prisma 2 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-03-10T16:28:00.000Z
+updatedAt: 2020-03-15T22:05:00.000Z
 tags:
-  - Nestjs
+  - NestJS
   - Prisma
 authors:
   - 'Marc Stammerjohann'
@@ -21,15 +21,15 @@ versions:
 
 [Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://github.com/prisma/prisma2/blob/master/docs/supported-databases.md). [Prisma 2](https://github.com/prisma/prisma2) is currently rewritten with Rust and is [not yet production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
 
-[Nestjs](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [Graphql](https://graphql.org) backend.
+[NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [Graphql](https://graphql.org) backend.
 
-This guide shows how to setup a Nestjs application querying data from a SQLite database using Prisma 2.
+This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.
 
 ## TLDR
 
 Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or Graphql resolvers to query your data models.
 
-## Step 1: Start a new Nestjs application
+## Step 1: Start a new NestJS application
 
 Generate a new Nest application or skip to the next step if you follow along with an existing Nest project.
 
@@ -107,9 +107,9 @@ npx prisma2 generate
 
 ## Step 7: Create a Prisma service
 
-SQLite database is setup and a `User` model is defined with Prisma. Now its time to prepare our Nestjs application to query the database using `prisma-client-js`.
+SQLite database is setup and a `User` model is defined with Prisma. Now its time to prepare our NestJS application to query the database using `prisma-client-js`.
 
-We are creating a Nestjs service `prisma` which will extend the `PrismaClient` to instantiate the connection.
+We are creating a NestJS service `prisma` which will extend the `PrismaClient` to instantiate the connection.
 
 ```bash
 nest generate service prisma
