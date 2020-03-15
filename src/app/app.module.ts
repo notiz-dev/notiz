@@ -10,14 +10,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ScullyLibModule.forRoot({ useTranferState: true }),
+    ScullyLibModule.forRoot({ useTranferState: true, alwaysMonitor: true }),
     IonicModule.forRoot({ mode: 'md' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
