@@ -22,7 +22,8 @@
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
     "scully": "scully",
-    "scully:build": "npm run build:prod && npm run scully && sh 404.sh",
+    "scully:nw": "scully --nw",
+    "scully:build": "npm run build:prod && npm run scully:nw && sh 404.sh",
     "scully:serve": "scully serve",
     "blick:serve": "blick open http://localhost:4200 & ng s",
     "optimize:images": "node optimize-images.js"
