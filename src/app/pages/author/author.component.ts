@@ -53,7 +53,5 @@ export class AuthorComponent implements OnInit {
     );
 
     this.authorTags$ = this.scullyContent.authorTags(this.author$);
-
-    this.authorTags$.pipe(tap(console.log)).subscribe();
   }
 }

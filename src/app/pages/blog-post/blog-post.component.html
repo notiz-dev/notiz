@@ -1,4 +1,4 @@
-<ion-content>
+<div>
   <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row *ngIf="post$ | async as post">
@@ -67,13 +67,13 @@
     title="Related Posts"
     subtitle="Find more posts like this one."
   >
-    <ion-card *ngFor="let blogPost of related$ | async | slice: 1:6">
+    <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
       <app-article [route]="blogPost"></app-article>
     </ion-card>
-    <ion-card *ngIf="(related$ | async | slice: 1:6)?.length < 5">
+    <ion-card *ngIf="(related$ | async | slice: 0:5)?.length < 5">
       <app-coming-soon></app-coming-soon>
     </ion-card>
   </app-card-stack>
   <app-newsletter-signup class="padding64"></app-newsletter-signup>
   <app-footer></app-footer>
-</ion-content>
+</div>

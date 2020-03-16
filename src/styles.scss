@@ -11,6 +11,13 @@
   font-family: 'Muli', sans-serif;
 }
 
+body {
+  max-height: unset;
+  overflow: scroll;
+  position: relative;
+  overscroll-behavior-y: auto;
+}
+
 body.dark {
   .cta.secondary {
     --background: var(--ion-background-color);
@@ -52,6 +59,11 @@ body:not(.dark) {
 
 a {
   text-decoration: none;
+}
+
+span,
+div {
+  color: var(--ion-text-color);
 }
 
 a:hover {
@@ -335,4 +347,12 @@ body:not(.dark) {
       color: var(--ion-color-primary);
     }
   }
+}
+
+.medium-zoom-overlay {
+  background: var(--ion-background-color) !important;
+  z-index: 2;
+}
+.medium-zoom-image--opened {
+  z-index: 3;
 }

@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+**/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -48,3 +49,5 @@ Thumbs.db
 # firebase
 .firebase/
 firebase-debug.log
+
+src/assets/scully-routes.json

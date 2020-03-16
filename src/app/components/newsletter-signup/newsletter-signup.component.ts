@@ -51,7 +51,7 @@ export class NewsletterSignupComponent implements OnInit {
               .then(_ => _.present());
           })
         )
-        .subscribe(console.log);
+        .subscribe();
     }
     this.dirty = true;
     return this.toast
