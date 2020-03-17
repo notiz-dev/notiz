@@ -1,6 +1,6 @@
 ---
 title: 'Build and publish your first GitHub Action'
-description: 'Build your first GitHub Action and deploy it to the Marketplace. - Using Typescript. 💜'
+description: 'Build your first GitHub Action and deploy it to the Marketplace. - Using Typescript. 💙'
 published: true
 publishedAt: 2020-03-17T10:12:00.000Z
 updatedAt: 2020-03-17T10:12:00.000Z
@@ -14,7 +14,7 @@ github: 'https://github.com/notiz-dev/github-action-template'
 
 If you are using GitHub you most likely already heard about [GitHub Actions](https://github.com/features/actions). With GitHub Actions you can fulfill all of your CI/CD dreams right where your code lives. You do this by defining **jobs** that run a series of **Actions** - The building blocks of your repository workflows. This enables you to stay productive even when managing multiple projects at once. 👨‍💻
 
-In this short guide you will learn how to create your first GitHub Action and publish it on the [GitHub Marketplace](https://github.com/marketplace)! 💜
+In this short guide you will learn how to create your first GitHub Action and publish it on the [GitHub Marketplace](https://github.com/marketplace)! 💙
 
 ## Quickstart
 
