@@ -45,7 +45,7 @@ First, inspect index.ts:
 
 
 The template Action is a simple script that receives an input string and outputs a hello world like greeting. (E.g. input `World` ➡ output `Hello World`). 
-See how the `actions/core` api is being used to receive the value of the `my_input` input and to set the resulting string as an output. Also, the `setFailed` can be called to set the running workflow as failed and stop the execution. [API Documentation](https://www.npmjs.com/package/@actions/core)
+See how the `actions/core` api is being used to receive the value of the `my_input` input and to set the resulting string as an output. Also, `setFailed` can be called to set the running workflow as failed and stop the execution. [API Documentation](https://www.npmjs.com/package/@actions/core)
 
 Most toolkit and CI/CD operations involve async operations so your `run` function will most likely be async.
 
@@ -169,7 +169,7 @@ Check if all requirements are checked and proceed to file the release.
 
  
 Enter a **tag** and **release** title. Optionally specify a release description before clicking **Publish release**. 
-> To make it easy for users to always use the latest release of your Action you can tag the newly created version with > a `release` tag. Next time you release a version you can move the `release` tag from the previous to the latest version.
+> To make it easy for users to always use the latest release of your Action you can tag the newly created version with a `release` tag. Next time you release a version you can move the `release` tag from the previous to the latest version.
 
 ## Using your Action
 
