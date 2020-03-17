@@ -159,7 +159,7 @@ Hit the **release** tab of your repository to create a new version of your Actio
 
 ![create release](assets/img/blog/build-and-publish-your-first-github-action/optimized/create_release.png)
 
-Click on **Create a new release** and select **Publish this Action to the GitHub Marketplace**
+Click on **Create a new release** and select **Publish this Action to the GitHub Marketplace**.
 
 ![publish to marketplace](assets/img/blog/build-and-publish-your-first-github-action/optimized/publish.png)
 
