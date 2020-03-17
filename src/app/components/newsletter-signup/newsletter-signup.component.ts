@@ -57,7 +57,7 @@ export class NewsletterSignupComponent implements OnInit {
     return this.toast
       .create({
         message: 'Please enter your mail address. 📧',
-        duration: 4000,
+        duration: 40000,
         cssClass: 'form-error'
       })
       .then(_ => _.present());
