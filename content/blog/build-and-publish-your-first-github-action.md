@@ -1,6 +1,6 @@
 ---
 title: 'Build and publish your first GitHub Action'
-description: 'Build your first GitHub Action and deploy it to the Marketplace. - Using Typescript. 💙'
+description: 'Build your first GitHub Action and deploy it to the Marketplace - Using Typescript 💙'
 published: true
 publishedAt: 2020-03-17T10:12:00.000Z
 updatedAt: 2020-03-17T10:12:00.000Z
@@ -18,7 +18,7 @@ In this short guide you will learn how to create your first GitHub Action and pu
 
 ## Quickstart
 
-To get started quickly, you can initialize your Action repository by generating it from [GitHub Action Template](https://github.com/notiz-dev/github-action-template). For the sake of simplicity this repository is a minimized version of the official [typescript action template](https://github.com/actions/typescript-action). You are free to choose which starter you want to use. The steps to build and release your Action will essentially remain the same.
+To get started quickly, you can initialize your own Action repository by generating it from [GitHub Action Template](https://github.com/notiz-dev/github-action-template). For the sake of simplicity this repository is a minimized version of the official [typescript action template](https://github.com/actions/typescript-action). You are free to choose which starter you want to use. The steps to build and release your Action will essentially remain the same.
 
 Visit [GitHub Action Template](https://github.com/notiz-dev/github-action-template) and click on **[Use this template](https://github.com/notiz-dev/github-action-template/generate)**.
 
@@ -34,12 +34,11 @@ Next clone your newly created repository and open it with your favorite IDE.
 
 Install all dependencies by running `npm i`. 
 
-Great! Everything is set up!🚀
-In the next section of this guide you'll get an overview of the most important files.
+Great! Everything is set up! 🚀 In the next section of this guide you'll get an overview of the most important files.
 
 ## Template Overview
 
-First, inspect index.ts:
+First, inspect `index.ts`:
 
 ![main project files](assets/img/blog/build-and-publish-your-first-github-action/optimized/overview.png)
 
@@ -53,15 +52,14 @@ Most toolkit and CI/CD operations involve async operations so your `run` functio
 import * as core from '@actions/core';
 
 async function run() {
-  try{
+  try {
     await asyncFunction();
-  }catch(err){
+  } catch (err) {
     core.setFailed(err.message);
   }
 }
 
 run();
-
 ```
 
 Second, see `action.yml` in the root of your project.
@@ -78,8 +76,8 @@ runs:
   using: 'node12'
   main: 'dist/index.js'
 branding:
-  color: "yellow"
-  icon: "bell"  
+  color: 'yellow'
+  icon: 'bell'
 ```
 
 The `action.yml` file defines some metadata that is mandatory to run and publish your Action on GitHub. 
@@ -91,7 +89,7 @@ For more information on the configuration of your Action see [Metadata syntax fo
 Lastly, you'll find a workflow file under `.github/workflows/test.yml`.
 
 ```yaml
-name: "test"
+name: 'test'
 on: # rebuild any PRs and main branch changes
   pull_request:
   push:
@@ -131,7 +129,7 @@ As you can see in the image above, the `log action output` step successfully ech
 
 Next, the fun part! 🙋 
 
-Implement your own Typescript code in `src/index.ts`. Just remember to update the `action.yml` and test workflow before pushing your changes. You can obviously do everything you want here. Feel free to install other libraries via npm.
+Implement your own Typescript code in `src/index.ts`. Just remember to update the `action.yml` and the test workflow `.github/workflows/test.yml` before pushing your changes. You can obviously do everything you want here. Feel free to install other libraries via npm.
 
 To build changes to your Typescript code run:
 
