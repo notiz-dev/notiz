@@ -12,7 +12,7 @@ authors:
 github: 'https://github.com/notiz-dev/github-action-template'
 ---
 
-If you are using GitHub you most likely heard already about [GitHub Actions](https://github.com/features/actions). With GitHub Actions you can fulfill all of your CI/CD dreams right where your code lives. You do this by defining **jobs** that run a series of **Actions** - The building blocks of your repository workflows. This enables you to stay productive even when managing multiple projects at once. 👨‍💻
+If you are using GitHub you most likely already heard about [GitHub Actions](https://github.com/features/actions). With GitHub Actions you can fulfill all of your CI/CD dreams right where your code lives. You do this by defining **jobs** that run a series of **Actions** - The building blocks of your repository workflows. This enables you to stay productive even when managing multiple projects at once. 👨‍💻
 
 In this short guide you will learn how to create your first GitHub Action and publish it on the [GitHub Marketplace](https://github.com/marketplace)! 💙
 
