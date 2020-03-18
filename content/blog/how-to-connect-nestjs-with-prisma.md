@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with NestJS'
 description: 'Learn how to setup a database with Prisma 2 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-03-15T22:05:00.000Z
+updatedAt: 2020-03-18T23:44:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -19,13 +19,13 @@ versions:
 
 [Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://github.com/prisma/prisma2/blob/master/docs/supported-databases.md). [Prisma 2](https://github.com/prisma/prisma2) is currently rewritten with Rust and is [not yet production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
 
-[NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [Graphql](https://graphql.org) backend.
+[NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [GraphQL](https://graphql.org) backend.
 
 This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.
 
 ## TLDR
 
-Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or Graphql resolvers to query your data models.
+Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or GraphQL resolvers to query your data models.
 
 ## Step 1: Start a new NestJS application
 
@@ -154,7 +154,7 @@ export class PrismaService extends PrismaClient
 
 ## Step 8: Query data model
 
-Now we can inject the `PrismaService` into any REST controller, Graphql resolver or service to query our data model. We will inject it into a controller and create REST endpoints querying and creating `User` models.
+Now we can inject the `PrismaService` into any REST controller, GraphQL resolver or service to query our data model. We will inject it into a controller and create REST endpoints querying and creating `User` models.
 
 Note we are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
 
