@@ -25,7 +25,9 @@
     "scully:build": "npm run build:prod && npm run scully && sh 404.sh",
     "scully:serve": "scully serve",
     "blick:serve": "blick open http://localhost:4200 & ng s",
-    "optimize:images": "node optimize-images.js"
+    "optimize:images": "node optimize-images.js",
+    "build:image-template": "ng build image-template --prod --output-hashing none && npm run package:image-template",
+    "package:image-template": "cat ./dist/image-template/{runtime,polyfills,main}-es5.js > projects/image-template/dist/image-template.js && ls -lah projects/image-template/dist/image-template.js && cp dist/image-template/styles.css projects/image-template/dist"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +35,7 @@
     "@angular/common": "~9.0.6",
     "@angular/compiler": "~9.0.6",
     "@angular/core": "~9.0.6",
+    "@angular/elements": "^9.0.6",
     "@angular/forms": "~9.0.6",
     "@angular/platform-browser": "~9.0.6",
     "@angular/platform-browser-dynamic": "~9.0.6",
@@ -42,6 +45,7 @@
     "@scullyio/init": "0.0.23",
     "@scullyio/ng-lib": "0.0.18",
     "@scullyio/scully": "0.0.75",
+    "document-register-element": "^1.7.2",
     "ngx-markdown": "^9.0.0",
     "prismjs": "^1.19.0",
     "rxjs": "~6.5.4",
