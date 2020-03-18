@@ -182,6 +182,127 @@
           }
         }
       }
+    },
+    "image-template": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/image-template",
+      "sourceRoot": "projects/image-template/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/image-template",
+            "index": "projects/image-template/src/index.html",
+            "main": "projects/image-template/src/main.ts",
+            "polyfills": "projects/image-template/src/polyfills.ts",
+            "tsConfig": "projects/image-template/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/image-template/src/favicon.ico",
+              "projects/image-template/src/assets"
+            ],
+            "styles": [
+              "projects/image-template/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/image-template/src/environments/environment.ts",
+                  "with": "projects/image-template/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "image-template:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "image-template:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "image-template:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/image-template/src/test.ts",
+            "polyfills": "projects/image-template/src/polyfills.ts",
+            "tsConfig": "projects/image-template/tsconfig.spec.json",
+            "karmaConfig": "projects/image-template/karma.conf.js",
+            "assets": [
+              "projects/image-template/src/favicon.ico",
+              "projects/image-template/src/assets"
+            ],
+            "styles": [
+              "projects/image-template/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/image-template/tsconfig.app.json",
+              "projects/image-template/tsconfig.spec.json",
+              "projects/image-template/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/image-template/e2e/protractor.conf.js",
+            "devServerTarget": "image-template:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "image-template:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "notiz"

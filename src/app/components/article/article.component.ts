@@ -14,7 +14,7 @@ export class ArticleComponent implements OnInit {
   @Input() feature: string;
   @Input() featureIcon: string;
   @Input() peek = false;
-  @Input() banner = false;
+
 
   sneakPeek: Observable<string>;
 

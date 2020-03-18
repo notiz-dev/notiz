@@ -356,3 +356,15 @@ body:not(.dark) {
 .medium-zoom-image--opened {
   z-index: 3;
 }
+blockquote{
+  position: relative;
+}
+blockquote::before {
+  content: '';
+  background: var(--gradient);
+  width: 8px;
+  position: absolute;
+  height: 100%;
+  left: -18px;
+  border-radius: 4px;
+}

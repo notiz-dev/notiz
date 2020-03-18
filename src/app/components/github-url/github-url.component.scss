@@ -2,7 +2,7 @@
   display: flex;
   height: 64px;
   width: 100%;
-  max-width: 420px;
+  max-width: 320px;
   align-items: center;
   flex: 1 auto;
   border-radius: 32px;
@@ -31,7 +31,7 @@
 }
 .stamp {
   background: var(--gradient);
-  flex-grow: 1;
+  flex-grow: 2;
   height: 100%;
   display: flex;
   align-items: center;
