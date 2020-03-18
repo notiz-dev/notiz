@@ -19,6 +19,7 @@ const sizes = [
 
 const bannerGeneratorPlugin = async (html, route) => {
   try {
+    const outDir = './dist/static/assets/banners';
     const template = readFileSync(
       resolve('./projects/image-template/dist/template.html')
     ).toString();
@@ -45,23 +46,22 @@ const bannerGeneratorPlugin = async (html, route) => {
       image.setAttribute('height', size.height);
       document.body.append(image);
       writeFileSyncRecursive(
-        `./src/assets/banners/${route.route}/index.html`,
+        `${outDir}/${route.route}/index.html`,
         dom.serialize()
       );
       copyFileSync(
         resolve('./projects/image-template/dist/styles.css'),
-        resolve(`./src/assets/banners/${route.route}/styles.css`)
+        resolve(`${outDir}/${route.route}/styles.css`)
       );
       copyFileSync(
         resolve('./projects/image-template/dist/image-template.js'),
-        resolve(`./src/assets/banners/${route.route}/image-template.js`)
+        resolve(`${outDir}/${route.route}/image-template.js`)
       );
       await generateImage(route, size);
     }
-
-    unlinkSync(`./src/assets/banners/${route.route}/index.html`);
-    unlinkSync(`./src/assets/banners/${route.route}/styles.css`);
-    unlinkSync(`./src/assets/banners/${route.route}/image-template.js`);
+    unlinkSync(`${outDir}/${route.route}/index.html`);
+    unlinkSync(`${outDir}/${route.route}/styles.css`);
+    unlinkSync(`${outDir}/${route.route}/image-template.js`);
   } catch (err) {
     console.error(err.message);
   }

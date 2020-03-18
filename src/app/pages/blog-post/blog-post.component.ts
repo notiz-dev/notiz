@@ -43,7 +43,8 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
                 description: post.description,
                 route: post.route,
                 keywords: post.tags,
-                image: post.twitterBanner,
+                twitter_image: `https://notiz.dev/assets/banners${post.route}/twitter.png`,
+                og_image: `https://notiz.dev/assets/banners${post.route}/og.png`,
                 article: {
                   published_time: post.publishedAt,
                   modified_time: post.updatedAt,

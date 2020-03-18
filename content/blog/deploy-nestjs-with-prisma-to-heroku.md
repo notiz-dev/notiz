@@ -10,8 +10,6 @@ tags:
   - Heroku
 authors:
   - 'Marc Stammerjohann'
-banner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/banner.svg'
-twitterBanner: 'https://notiz.dev/assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/banner.png'
 github: 'https://github.com/notiz-dev/deploy-nestjs-prisma-heroku'
 ---
 

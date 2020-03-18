@@ -47,7 +47,7 @@ export class SeoService {
     });
     this.meta.updateTag({
       property: 'og:image',
-      content: config.image
+      content: config.og_image || config.image
     });
     this.meta.updateTag({
       property: 'og:image:alt',
@@ -129,7 +129,7 @@ export class SeoService {
     });
     this.meta.updateTag({
       name: 'twitter:image',
-      content: config.image
+      content: config.twitter_image || config.image
     });
   }
 
@@ -142,6 +142,8 @@ export interface SeoConfig {
   title?: string;
   description?: string;
   image?: string;
+  og_image?: string;
+  twitter_image?: string;
   route?: string;
   keywords?: string[];
   article?: SeoArticle;
