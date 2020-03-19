@@ -11,7 +11,7 @@ authors:
   - 'Marc Stammerjohann'
 ---
 
-Here is a quick tip how to install multiple [Node.js](https://nodejs.org/en/) versions (10, 12, 13 etc.) and how to switch between them for your applications.
+Here is a quick tip on how to install multiple [Node.js](https://nodejs.org/en/) versions (10, 12, 13 etc.) and how to switch between them for your applications.
 
 ## Installing Node via Homebrew
 
@@ -53,6 +53,6 @@ alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
 alias node10='export PATH="/usr/local/opt/node@10/bin:$PATH"'
 ```
 
-Now to switch between the node versions enter an alias `node10` in your terminal. Verify with `node -v` that you are using now the correct node version.
+Now, to switch between the node versions, enter an alias `node10` in your terminal. Execute `node -v` to verify that you are now using the correct node version.
 
-> Note: Alias **only** change the Node version in the used terminal instance
+> Note: Alias **only** changes the Node version in the used terminal instance
