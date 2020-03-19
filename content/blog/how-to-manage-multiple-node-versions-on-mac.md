@@ -1,6 +1,6 @@
 ---
-title: 'How to manage multiple Node.js versions on Mac'
-description: 'How to manage multiple Node.js versions on Mac using homebrew.'
+title: 'How to manage multiple Node.js versions on Mac OS X'
+description: 'How to manage multiple Node.js versions on Mac OS X using homebrew.'
 published: true
 publishedAt: 2020-03-19T18:13:00.000Z
 updatedAt: 2020-03-19T18:13:00.000Z
@@ -11,7 +11,7 @@ authors:
   - 'Marc Stammerjohann'
 ---
 
-Here is a quick tip on how to install multiple [Node.js](https://nodejs.org/en/) versions (10, 12, 13 etc.) and how to switch between them for your applications.
+Here is a quick tip on how to install multiple [Node.js](https://nodejs.org/en/) versions (10, 12, 13 etc.) on Mac OS X and how to switch between them for your applications.
 
 ## Installing Node via Homebrew
 
