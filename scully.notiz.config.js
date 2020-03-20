@@ -3,6 +3,7 @@ require('@notiz/scully-plugin-fouc');
 require('@notiz/scully-plugin-rss');
 require('@notiz/scully-plugin-medium-zoom');
 require('./projects/banner-generator');
+require('./projects/amp');
 
 exports.config = {
   projectRoot: './src',
@@ -15,7 +16,14 @@ exports.config = {
       slug: {
         folder: './content/blog'
       },
-      postRenderers: ['lazyImages', 'fouc', 'rss','mediumZoom','bannerGenerator']
+      postRenderers: [
+        'amp',
+        'lazyImages',
+        'fouc',
+        'rss',
+        'mediumZoom',
+        'bannerGenerator',
+      ]
     },
     '/authors/:slug': {
       type: 'contentFolder',
