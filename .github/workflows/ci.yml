@@ -15,4 +15,5 @@ jobs:
         node-version: '12.x'
     - run: npm i
     - run: cd projects/banner-generator && npm i
+    - run: cd projects/amp && npm i
     - run: npm run scully:build

@@ -17,6 +17,7 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: cd projects/banner-generator && npm i
+    - run: cd projects/amp && npm i
     - run: npm run scully:build
     - uses: w9jds/firebase-action@master
       with:
