@@ -83,7 +83,7 @@ model Actor {
 
 ### Graphql Type
 
-We are creating for each database model a TypeScript class to expose them in our GraphQL schema. Create a `movie.model.ts` and a `actor.model.ts` with the same properties from our database:
+Create for each database model a TypeScript class to expose them in our GraphQL schema. Create a `movie.model.ts` and a `actor.model.ts` with the same properties from our database:
 
 ```typescript
 export class Movie {
