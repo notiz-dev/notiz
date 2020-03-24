@@ -226,5 +226,80 @@ query Movies {
 
 ## GraphQL plugin
 
-...
-Reducing boilerplate code of the decorators
+Nest 7 provides a new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin) to reduce the boilerplate of decorators for our **models**, **inputs**, **args** and **entity** files. Enable the plugin by adding `compilerOptions` to `nest-cli.json`:
+
+```json
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "plugins": ["@nestjs/graphql/plugin"]
+  }
+}
+```
+
+Let's clean up the boilerplate of our models. Before the plugin the models look like this:
+
+```typescript
+@ObjectType()
+export class Movie {
+  @Field(type => Int)
+  id: number;
+
+  @Field(type => Date)
+  releaseDate: Date;
+
+  @Field()
+  title: string;
+
+  @Field(type => [Actor])
+  stars: Actor[];
+
+  @Field(type => Float, { nullable: true })
+  rating?: number;
+}
+
+@ObjectType()
+export class Actor {
+  @Field(type => Int)
+  id: number;
+
+  @Field()
+  firstname: string;
+
+  @Field()
+  lastname: string;
+}
+```
+
+With the plugin and the removing the extra boilerplate the models look like this:
+
+```typescript
+@ObjectType()
+export class Movie {
+  @Field(type => Int)
+  id: number;
+
+  releaseDate: Date;
+
+  title: string;
+
+  @Field(type => [Actor])
+  stars: Actor[];
+
+  rating?: number;
+}
+
+@ObjectType()
+export class Actor {
+  @Field(type => Int)
+  id: number;
+
+  firstname: string;
+
+  lastname: string;
+}
+```
+
+We can add `@Field` to any property to override the documentation and also the inferred type.
+For example `number` is inferred as the GraphQL type `Float` here we can use `@Field(type => Int)` to change this to a `Int` type.
