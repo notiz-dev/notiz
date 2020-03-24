@@ -238,6 +238,19 @@ Nest 7 provides a new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers
 }
 ```
 
+The plugin automatically handles the decorators for the files with the suffix `['.input.ts', '.args.ts', '.entity.ts', '.model.ts']`. If you like to use custome suffixes add those to the plugins option:
+
+```json
+"plugins": [
+  {
+    "name": "@nestjs/graphql/plugin",
+    "options": {
+      "typeFileNameSuffix": [".input.ts", ".model.ts"]
+    }
+  }
+]
+```
+
 Let's clean up the boilerplate of our models. Before the plugin the models look like this:
 
 ```typescript
