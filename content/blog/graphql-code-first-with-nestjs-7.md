@@ -1,6 +1,6 @@
 ---
 title: 'GraphQL code first approach with NestJS 7'
-description: 'Create a GraphQL API using code first approach with NestJS 7'
+description: 'Create a GraphQL API using code first approach with NestJS 7.'
 published: true
 publishedAt: 2020-03-15T09:11:00.000Z
 updatedAt: 2020-03-15T09:11:00.000Z
@@ -32,7 +32,7 @@ npm i --save apollo-server-fastify
 
 Import the `GraphQLModule` into your `AppModule`.
 
-```typscript
+```ts
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
