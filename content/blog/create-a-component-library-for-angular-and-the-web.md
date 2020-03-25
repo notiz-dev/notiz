@@ -12,7 +12,7 @@ authors:
 github: 'https://github.com/notiz-dev/design'
 ---
 
-Reuse your **Angular components** almost everywhere with [Angular Elements](https://angular.io/guide/elements) <ion-icon src="assets/stack/web-components.svg"></ion-icon>.
+Reuse your **Angular components** almost everywhere - with [Angular Elements](https://angular.io/guide/elements) <ion-icon src="assets/stack/web-components.svg"></ion-icon>.
 
 In this guide you'll learn how to
 * Scaffold a reusable component library.
