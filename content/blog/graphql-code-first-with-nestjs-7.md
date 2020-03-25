@@ -57,29 +57,19 @@ To configure the GraphQL endpoint we use `GqlModuleOptions` which are passed to 
 
 There are two options for `autoSchemaFile` providing a **path** for the schema generation or `true` for generating the schema in memory.
 
-If we start now the Nest application `npm run start:dev` we will see an error **Query root type must be provided** 🚨. No problem, to remove this error we are creating our first resolver class which will be picked up for the schema generation.
+## GraphlQL Code First approach
 
-## Code first approach
+A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Queries](https://graphql.org/learn/queries/). The schema grows in size and complexity for each new query, mutation and type. GraphQL [**Code First**](https://www.youtube.com/watch?v=OloBAdNCnyQ) enables us to automatically generate a GraphQL schema using TypeScript and decorators. This helps us focus on writing `.ts` files and we don't need to write the GraphlQL schema ourselfs.
 
-In this example we are using [Prisma 2](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) and a SQLite database for storing our data. Our database schema contains the `Movie` and `Actor` models:
+`@nestjs/graphql` provides all decorators to generate our schema. Here are a few decorators and there usage:
 
-```prisma
-model Movie {
-  id          Int      @id @default(autoincrement())
-  releaseDate DateTime
-  title       String
-  stars       Actor[]
-  rating      Float?
-
-  @@unique([releaseDate, title])
-}
-
-model Actor {
-  id        Int    @id @default(autoincrement())
-  firstname String
-  lastname  String
-}
-```
+- `@ObjectType()` generate class as [Type](https://graphql.org/learn/schema/#type-system)
+- `@Field()` generate a class property as a [Field](https://graphql.org/learn/schema/#object-types-and-fields)
+- `@InputType()` generate class as [Input](https://graphql.org/learn/schema/#input-types)
+- `@Args` generate method params as [Arguments](https://graphql.org/learn/schema/#arguments)
+- `@Query()` generate method as [Query](https://graphql.org/learn/schema/#the-query-and-mutation-types)
+- `@Mutation()` generate method as [Mutation](https://graphql.org/learn/schema/#the-query-and-mutation-types)
+- `@ResolveField` resolve
 
 ### Graphql Type
 
