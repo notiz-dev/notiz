@@ -37,6 +37,11 @@ const routes: Routes = [
       ).then(m => m.NewsletterUnsubscribeModule)
   },
   {
+    path: 'legal',
+    loadChildren: () =>
+      import('./pages/legal/legal.module').then(m => m.LegalModule)
+  },
+  {
     path: '404',
     loadChildren: () =>
       import('./pages/page-not-found/page-not-found.module').then(

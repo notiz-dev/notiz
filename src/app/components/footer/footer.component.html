@@ -1,6 +1,6 @@
 <ion-grid fixed no-padding>
   <ion-row>
-    <ion-col size="12" size-md="6" class="ion-padding">
+    <ion-col size="12" size-md="6" offset-md="3" size-xl="4" offset-xl="0" class="ion-padding">
       <ion-list>
         <ion-item-divider>
           <ion-label class="ion-text-left">about</ion-label>
@@ -10,7 +10,7 @@
         </p>
       </ion-list>
     </ion-col>
-    <ion-col size="6" size-md="3" class="ion-padding">
+    <ion-col size="6" size-md="4" size-xl="2" class="ion-padding">
       <ion-list lines="none">
         <ion-item-divider>
           <ion-label>notiz.dev</ion-label>
@@ -31,7 +31,7 @@
         </ion-button>
       </ion-list>
     </ion-col>
-    <ion-col size="6" size-md="3" class="ion-padding">
+    <ion-col size="6" size-md="4" size-xl="2" class="ion-padding">
       <ion-list lines="none">
         <ion-item-divider>
           <ion-label>more</ion-label>
@@ -47,6 +47,21 @@
         <ion-button href="tags" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
           <ion-icon slot="start" name="bookmarks"></ion-icon>
           tags
+        </ion-button>
+      </ion-list>
+    </ion-col>
+    <ion-col size="6" size-md="4" size-xl="2" class="ion-padding">
+      <ion-list lines="none">
+        <ion-item-divider>
+          <ion-label>legal</ion-label>
+        </ion-item-divider>
+        <ion-button href="legal/impressum" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="information"></ion-icon>
+          impressum
+        </ion-button>
+        <ion-button href="legal/privacy-policy" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="shield-checkmark"></ion-icon>
+          privacy policy
         </ion-button>
       </ion-list>
     </ion-col>
