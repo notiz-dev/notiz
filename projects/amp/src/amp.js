@@ -23,6 +23,7 @@ const ampPlugin = async (html, route) => {
       original.window.document.querySelectorAll('meta')
     ).filter(meta => meta.name !== 'viewport' && !meta.getAttribute('charset') && !meta.getAttribute('description'));
     metaTags.forEach(tag => document.head.append(tag));
+    metaTags.forEach(tag => original.window.document.head.append(tag));
     const link = original.window.document.createElement('link');
     link.setAttribute('rel', 'amphtml');
     link.setAttribute('href', `https://notiz.dev${route.route}`);
