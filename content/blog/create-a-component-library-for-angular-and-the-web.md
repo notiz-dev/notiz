@@ -35,7 +35,7 @@ Next, run:
 ```bash
 ng g library components
 ```
-This step will generate a new **library** under `./projects/components` and add an example component. The library can already be shared to and used in all your Angular applications without further configuration. 💆
+This step will generate a new **library** under `./projects/components` and add an example component. The library is ready to be shared and used in all of your Angular applications without further configuration. 💆
 
 Perform an initial build of the component library by running: 
 
@@ -120,7 +120,7 @@ export class AppModule {
 
 Remove `zone.js` (optional):
 
-> Removing `zone.js` is probably a good idea. Read more about it [In this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
+> Removing `zone.js` is probably a good idea. Read more about it [in this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
 
 
 ```typescript
