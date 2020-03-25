@@ -21,13 +21,23 @@ const ampPlugin = async (html, route) => {
     document.title = route.data.title;
     const metaTags = Array.from(
       original.window.document.querySelectorAll('meta')
-    ).filter(meta => meta.name !== 'viewport' && !meta.getAttribute('charset') && !meta.getAttribute('description'));
-    metaTags.forEach(tag => document.head.append(tag));
-    metaTags.forEach(tag => original.window.document.head.append(tag));
+    ).filter(
+      meta =>
+        meta.name !== 'viewport' &&
+        !meta.getAttribute('charset') &&
+        !meta.getAttribute('description')
+    );
+    metaTags.forEach(tag => {
+      const meta = document.createElement('meta');
+      for (const attribute of tag.attributes) {
+        meta.setAttribute(attribute.name,attribute.value);
+      }
+      document.head.append(meta);
+    });
     const link = original.window.document.createElement('link');
     link.setAttribute('rel', 'amphtml');
     link.setAttribute('href', `https://notiz.dev${route.route}`);
-    original.window.document.head.append(link);  
+    original.window.document.head.append(link);
     document.querySelector(
       'link[rel=canonical]'
     ).href = `https://notiz.dev${route.route}`;
