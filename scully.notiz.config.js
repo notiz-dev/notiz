@@ -22,7 +22,7 @@ exports.config = {
         'fouc',
         'rss',
         'mediumZoom',
-        'bannerGenerator',
+        'bannerGenerator'
       ]
     },
     '/authors/:slug': {
@@ -35,6 +35,12 @@ exports.config = {
       type: 'contentFolder',
       slug: {
         folder: './content/tags'
+      }
+    },
+    '/legal/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/legal'
       }
     }
   }

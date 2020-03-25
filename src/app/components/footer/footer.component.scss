@@ -40,6 +40,9 @@ ion-item-divider {
 
 .fade{
   color: var(--ion-color-medium);
+  a {
+    color: var(--ion-color-medium);
+  }
   font-size: 0.8rem;
 }
 
