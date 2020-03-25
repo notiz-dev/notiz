@@ -1,4 +1,4 @@
 ---
-title: Quick tip
+title: Quick Tip
 slug: quick-tip
 ---

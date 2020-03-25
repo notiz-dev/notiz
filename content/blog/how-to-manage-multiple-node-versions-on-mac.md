@@ -5,7 +5,7 @@ published: true
 publishedAt: 2020-03-19T18:13:00.000Z
 updatedAt: 2020-03-19T18:13:00.000Z
 tags:
-  - quick-tip
+  - Quick Tip
   - Node
 authors:
   - 'Marc Stammerjohann'
