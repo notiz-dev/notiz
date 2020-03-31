@@ -328,65 +328,62 @@ The plugin automatically handles the decorators for the files with the suffix `[
 Let's clean up the boilerplate of our models. Before the plugin the models look like this:
 
 ```typescript
-@ObjectType()
-export class Movie {
-  @Field(type => Int)
-  id: number;
-
-  @Field(type => Date)
-  releaseDate: Date;
-
-  @Field()
-  title: string;
-
-  @Field(type => [Actor])
-  stars: Actor[];
-
-  @Field(type => Float, { nullable: true })
-  rating?: number;
-}
+import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Hobby } from './hobby.model';
 
 @ObjectType()
-export class Actor {
-  @Field(type => Int)
+export class User {
+  @Field((type) => Int)
   id: number;
 
-  @Field()
-  firstname: string;
+  @Field((type) => Date, { name: 'registeredAt' })
+  createdAt: Date;
 
-  @Field()
-  lastname: string;
+  @Field((type) => Date)
+  updatedAt: Date;
+
+  @Field((type) => String)
+  email: string;
+
+  password: string;
+
+  @Field((type) => String, { nullable: true })
+  name?: string;
+
+  @Field((type) => [Hobby])
+  hobbies: Hobby[];
 }
 ```
 
-With the plugin and the removing the extra boilerplate the models look like this:
+After removing the extra boilerplate decorators the models looks like this:
 
 ```typescript
-@ObjectType()
-export class Movie {
-  @Field(type => Int)
-  id: number;
-
-  releaseDate: Date;
-
-  title: string;
-
-  @Field(type => [Actor])
-  stars: Actor[];
-
-  rating?: number;
-}
+import { ObjectType, Field, Int, HideField } from '@nestjs/graphql';
+import { Hobby } from './hobby.model';
 
 @ObjectType()
-export class Actor {
-  @Field(type => Int)
+export class User {
+  @Field((type) => Int)
   id: number;
 
-  firstname: string;
+  @Field({ name: 'registeredAt' })
+  createdAt: Date;
 
-  lastname: string;
+  updatedAt: Date;
+
+  email: string;
+
+  @HideField()
+  password: string;
+
+  name?: string;
+
+  @Field((type) => [Hobby])
+  hobbies: Hobby[];
 }
 ```
 
+> Note: Hidding properties from the schema requires now the `@HideField` decorator.
+
 We can add `@Field` to any property to override the documentation and also the inferred type.
-For example `number` is inferred as the GraphQL type `Float` here we can use `@Field(type => Int)` to change this to a `Int` type.
+For example `number` is inferred as the GraphQL type `Float` here we can use `@Field(type => Int)` to change this to an `Int` type.
