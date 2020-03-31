@@ -53,7 +53,7 @@
 
   body:not(.dark) .posts {
     ion-card {
-      --background: var(--ion-background-color);
+      --background: var(--ion-color-primary-tint);
       // --background: var(--ion-color-primary-tint);
     }
   }

@@ -35,7 +35,7 @@ body:not(.dark) {
     --box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
   }
   ion-chip {
-    background: #ffffff;
+    background: var(--ion-background-color);
     box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
   }
 }
