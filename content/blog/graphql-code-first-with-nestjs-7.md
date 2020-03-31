@@ -142,15 +142,16 @@ type User {
 }
 ```
 
-1. `@Field` takes an optional type function (for example `type => String`)
-2. Optional `FieldOptions` object to change the generated schema
+1. `@Field` takes an optional type function (e.g. `type => String`)
+2. Declare a field as an array using the bracket notation `[ ]` in ype function (e.g. `type => [Hobby]`)
+3. Optional `FieldOptions` object to change the generated schema
   - `name`: property name in the schema (`createdAt` => `registeredAt`)
   - `description`: adding a field description
   - `deprecationReason`: adding a deprection notice
   - `nullable`: declare a field is required or optional
-3. Hide properties from the schema by omitting `@Field`
+4. Hide properties from the schema by omitting `@Field`
 
-For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types). 
+For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types)! 
 
 ## OLD
 
