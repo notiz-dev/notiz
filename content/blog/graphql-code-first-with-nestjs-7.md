@@ -15,7 +15,7 @@ github: https://github.com/notiz-dev/nest-graphql-code-first
 
 Recently the release of [NestJS 7](https://trilon.io/blog/announcing-nestjs-7-whats-new) was announced with amazing updates to the whole framework including the [@nestjs/graphql](https://docs.nestjs.com/graphql/quick-start) ❤️ package.
 
-We create a [GraphQL](https://graphql.org/) API using the `@nestjs/graphql`. I will show you how to write the API with TypeScript using the **code first** approach and the new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin).
+We create a [GraphQL](https://graphql.org/) API using the `@nestjs/graphql`. You will learn how to write the API with TypeScript using the **code first** approach and the new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin).
 
 ## Setup GraphQL
 
@@ -124,6 +124,10 @@ export class User {
 
   @Field(type => [Hobby])
   hobbies: Hobby[];
+}
+
+@ObjectType()
+export class Hobby {
 }
 ```
 
@@ -245,7 +249,7 @@ The playground shows us our GraphQL schema and the docs for our queries.
 
 Additionally, we can execute our queries directly inside the playground. Try out the autocomplete feature of the playground to create your own queries based on your schema and queries.
 
-I am querying all users with the following query:
+We can querying all users with the following query:
 
 ```graphql
 query AllUsers {
@@ -263,7 +267,7 @@ query AllUsers {
 }
 ```
 
-Here is my output, I added a few users and hobbies to the database.
+Here is ..., I added a few users and hobbies to the database.
 
 ![Users query](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/users-query.png)
 
