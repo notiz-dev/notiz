@@ -1,9 +1,9 @@
 ---
-title: 'GraphQL code first approach with NestJS 7'
-description: 'Create a GraphQL API using code first approach with NestJS 7.'
+title: 'GraphQL Code-First Approach with NestJS 7'
+description: 'Create a GraphQL API using Code-First Approach with NestJS 7.'
 published: true
-publishedAt: 2020-03-30T09:11:00.000Z
-updatedAt: 2020-03-30T09:11:00.000Z
+publishedAt: 2020-03-31T20:30:00.000Z
+updatedAt: 2020-03-31T20:30:00.000Z
 tags:
   - NestJS
   - GraphQL
