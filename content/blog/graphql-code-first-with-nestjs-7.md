@@ -9,8 +9,8 @@ tags:
   - GraphQL
   - Prisma
 authors:
-  - 'Marc Stammerjohann'
-github: 'https://github.com/notiz-dev/...'
+  - Marc Stammerjohann
+github: https://github.com/notiz-dev/nest-graphql-code-first
 ---
 
 Recently the release of [NestJS 7](https://trilon.io/blog/announcing-nestjs-7-whats-new) was announced with amazing updates to the whole framekwork including the [@nestjs/graphql](https://docs.nestjs.com/graphql/quick-start) ❤️ package.
@@ -71,8 +71,6 @@ A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Q
 - `@Mutation()` generate method as [Mutation](https://graphql.org/learn/schema/#the-query-and-mutation-types)
 - `@ResolveField` resolve relationship property
 
-## Query
-
 ### Graphql Type
 
 Start with creating your objects as a TypeScript `class`.
@@ -107,24 +105,24 @@ import { Hobby } from './hobby.model';
 
 @ObjectType()
 export class User {
-  @Field((type) => Int)
+  @Field(type => Int)
   id: number;
 
-  @Field((type) => Date, { name: 'registeredAt' })
+  @Field(type => Date, { name: 'registeredAt' })
   createdAt: Date;
 
-  @Field((type) => Date)
+  @Field(type => Date)
   updatedAt: Date;
 
-  @Field((type) => String)
+  @Field(type => String)
   email: string;
 
   password: string;
 
-  @Field((type) => String, { nullable: true })
+  @Field(type => String, { nullable: true })
   name?: string;
 
-  @Field((type) => [Hobby])
+  @Field(type => [Hobby])
   hobbies: Hobby[];
 }
 ```
@@ -142,79 +140,18 @@ type User {
 }
 ```
 
-1. `@Field` takes an optional type function (e.g. `type => String`)
-2. Declare a field as an array using the bracket notation `[ ]` in ype function (e.g. `type => [Hobby]`)
-3. Optional `FieldOptions` object to change the generated schema
-  - `name`: property name in the schema (`createdAt` => `registeredAt`)
-  - `description`: adding a field description
-  - `deprecationReason`: adding a deprection notice
-  - `nullable`: declare a field is required or optional
-4. Hide properties from the schema by omitting `@Field`
+* `@Field` takes an optional type function (e.g. `type => String`)
+* Declare a field as an array using the bracket notation `[ ]` in the type function (e.g. `type => [Hobby]`)
+* Optional `FieldOptions` object to change the generated schema
+  * `name`: property name in the schema (`createdAt` => `registeredAt`)
+  * `description`: adding a field description
+  * `deprecationReason`: adding a deprection notice
+  * `nullable`: declare a field is required or optional
+* Hide properties from the schema by omitting `@Field`
 
-For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types)! 
+For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types)!
 
-## OLD
-
-Create for each database model a TypeScript class to expose them in our GraphQL schema. Create a `movie.model.ts` and a `actor.model.ts` with the same properties from our database:
-
-```typescript
-export class Movie {
-  id: number;
-  releaseDate: Date;
-  title: string;
-  stars: Actor[];
-  rating?: number;
-}
-
-export class Actor {
-  id: number;
-  firstname: string;
-  lastname: string;
-}
-```
-
-Now we use [decorators](https://docs.nestjs.com/graphql/resolvers#code-first) to generate the schema. Start adding `@ObjectType()` to each TypeScript class.
-
-```typescript
-import { ObjectType } from "@nestjs/graphql";
-
-@ObjectType()
-export clas Movie {
-  ...
-}
-
-@ObjectType()
-export clas Actor {
-  ...
-}
-```
-
-Next we use the `@Field` decorator on each class property providing additional information about the type and state (required or optional).
-
-```typescript
-import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
-import { Actor } from './actor.model';
-
-@ObjectType()
-export class Movie {
-  @Field(type => Int)
-  id: number;
-
-  @Field(type => Date)
-  releaseDate: Date;
-
-  @Field()
-  title: string;
-
-  @Field(type => [Actor])
-  stars: Actor[];
-
-  @Field(type => Float, { nullable: true })
-  rating?: number;
-}
-```
-
-`@nestjs/graphql` provides five GraphQL [scalar types](https://docs.nestjs.com/graphql/scalars) such as `Int`, `Float` and `GraphQLISODateTime`.
+We have added a bit of boilerplate to our `User` model and other models we will create. Nest provides a CLI plugin to reduce the boilerplate of our models. Check out [GraphQL plugin](#graphql-plugin) section
 
 ### GraphQL Resolver
 
@@ -226,77 +163,109 @@ nest generate resolver <name>
 # alias
 nest g r <name>
 
-# Movie and Actor
-nest g r movie
-nest g r actor
+# User and Hobby
+nest g r user
+nest g r hobby
 ```
 
-Our resolvers are added to the `prodivers` array in the `app.module.ts`. Now we add a `@Query` to the `MovieResolver`.
+Our resolvers are added to the `prodivers` array in the `app.module.ts`.
 
-```typescript
+```ts
+import { Resolver } from '@nestjs/graphql';
+import { User } from '../models/user.model';
+
+@Resolver(of => User)
+export class UserResolver {
+  ...
+}
+```
+
+Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User)`) this is used to provide a parent object in `@ResolveField`. I will cover `@ResolveField` in a bit.
+
+Add `@Query` to your resolvers to create new GraphQL queries in your schema. Let's create a query function returning all `users()`. Use the bracket notation inside the decorator `@Query(returns => [User])` to declare an array return value.
+
+```ts
 import { Resolver, Query } from '@nestjs/graphql';
-import { Movie } from '../models/movie.model';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { User } from '../models/user.model';
+import { PrismaService } from '../prisma/prisma.service';
 
-@Resolver('Movie')
-export class MovieResolver {
+@Resolver(of => User)
+export class UserResolver {
   constructor(private prisma: PrismaService) {}
 
-  @Query(returns => [Movie])
-  movies() {
-    return this.prisma.movie.findMany();
+  @Query(returns => [User])
+  async users() {
+    return this.prisma.user.findMany();
   }
 }
 ```
 
-If we start the Nest application again and the error from before is gone. Also our GraphQL `schema.gql` is generated containing our generated `types` for Actior and Movie and our `movies` query.
+The above code generates the following query to our schema:
 
 ```graphql
-type Actor {
-  id: Int!
-  firstname: String!
-  lastname: String!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-type Movie {
-  id: Int!
-  releaseDate: DateTime!
-  title: String!
-  stars: [Actor!]!
-  rating: Float
-}
-
 type Query {
-  movies: [Movie!]!
+  users: [User!]!
 }
 ```
+
+A `User` has a relation to many hobbies. To resolve the `hobbies` property from a user, we make use of the `@ResolveField` decorator. Add `@ResolveField` to a function with the **exact** same name of the property we want to resolve. Here we add a `hobbies()` function and provide a `User` object as the parent.
+
+```ts
+import { Resolver, Query, ResolveField, Parent } from '@nestjs/graphql';
+import { User } from '../models/user.model';
+import { PrismaService } from '../prisma/prisma.service';
+
+@Resolver(of => User)
+export class UserResolver {
+  constructor(private prisma: PrismaService) {}
+
+  @Query(returns => [User])
+  async users() {
+    return this.prisma.user.findMany();
+  }
+
+  @ResolveField()
+  async hobbies(@Parent() user: User) {
+    return this.prisma.hobby.findMany({
+      where: { user: { id: user.id } }
+    });
+  }
+}
+```
+
+Use the parent object to query the relationship object from a database or another endpoint.
 
 ### Test GraphQL API
 
-Open the [playground](http://localhost:3000/graphql) and try out the movies query. You can use the [Prisma Studio]
+Start your Nest application and navigate to the [playground](http://localhost:3000/graphql), it is available if `playground` is set to `true` in the `GraphQLModule`.
+
+The playground shows us our GraphQL schema and the docs for our queries.
+
+![Graphql Playground schema view](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/graphql-playground-schema.png)
+
+Additionally, we can execute our queries directly inside the playground. Try out the autocomplete feature of the playground to create your own queries based on your schema and queries.
+
+I am querying all users with the following query:
 
 ```graphql
-query Movies {
-  movies {
+query AllUsers {
+  users {
     id
-    releaseDate
-    title
-    stars {
+    registeredAt
+    updatedAt
+    email
+    name
+    hobbies {
       id
-      firstname
-      lastname
+      name
     }
-    rating
   }
 }
 ```
 
-## Mutation
+Here is my output, I added a few users and hobbies to the database.
+
+![Users query](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/users-query.png)
 
 ## GraphQL plugin
 
@@ -333,24 +302,24 @@ import { Hobby } from './hobby.model';
 
 @ObjectType()
 export class User {
-  @Field((type) => Int)
+  @Field(type => Int)
   id: number;
 
-  @Field((type) => Date, { name: 'registeredAt' })
+  @Field(type => Date, { name: 'registeredAt' })
   createdAt: Date;
 
-  @Field((type) => Date)
+  @Field(type => Date)
   updatedAt: Date;
 
-  @Field((type) => String)
+  @Field(type => String)
   email: string;
 
   password: string;
 
-  @Field((type) => String, { nullable: true })
+  @Field(type => String, { nullable: true })
   name?: string;
 
-  @Field((type) => [Hobby])
+  @Field(type => [Hobby])
   hobbies: Hobby[];
 }
 ```
@@ -363,7 +332,7 @@ import { Hobby } from './hobby.model';
 
 @ObjectType()
 export class User {
-  @Field((type) => Int)
+  @Field(type => Int)
   id: number;
 
   @Field({ name: 'registeredAt' })
@@ -378,7 +347,7 @@ export class User {
 
   name?: string;
 
-  @Field((type) => [Hobby])
+  @Field(type => [Hobby])
   hobbies: Hobby[];
 }
 ```
