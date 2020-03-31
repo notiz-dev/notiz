@@ -205,6 +205,8 @@ Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User
 
 Add `@Query` to your resolvers to create new GraphQL queries in your schema. Let's create a query function returning all `users()`. Use the bracket notation inside the decorator `@Query(returns => [User])` to declare an array return value.
 
+> Note: Prisma is used in this example, but can be replaced easily with an ORM of your choice like [TypeORM](https://docs.nestjs.com/recipes/sql-typeorm), [Mongoose](https://docs.nestjs.com/recipes/mongodb) or [Sequelize](https://docs.nestjs.com/recipes/sql-sequelize). See the full database setup in the [example repo](https://github.com/notiz-dev/nest-graphql-code-first).
+
 ```ts
 import { Resolver, Query } from '@nestjs/graphql';
 import { User } from '../models/user.model';
@@ -264,9 +266,8 @@ The playground shows us our GraphQL schema and the docs for our queries.
 
 ![Graphql Playground schema view](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/graphql-playground-schema.png)
 
-Additionally, we can execute our queries directly inside the playground. Try out the autocomplete feature of the playground to create your own queries based on your schema and queries.
-
-We can querying all users with the following query:
+Additionally, we can "play" with queries inside the playground. Try out the **autocomplete** feature in the playground to create your own queries based on your schema and queries.
+Let's query all users using the following query:
 
 ```graphql
 query AllUsers {
@@ -284,7 +285,7 @@ query AllUsers {
 }
 ```
 
-Here is ..., I added a few users and hobbies to the database.
+The response will look like this with a different data set. I prepared the database with a few dummy users and hobbies.
 
 ![Users query](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/users-query.png)
 
