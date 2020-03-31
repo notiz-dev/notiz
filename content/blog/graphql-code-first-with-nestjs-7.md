@@ -17,6 +17,8 @@ Recently the release of [NestJS 7](https://trilon.io/blog/announcing-nestjs-7-wh
 
 We create a [GraphQL](https://graphql.org/) API using the `@nestjs/graphql`. You will learn how to write the API with TypeScript using the **code first** approach and the new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin).
 
+In this guide we are using [Prisma](https://prisma.io) to easily access a database. You can follow this guide to setup a [Nest application with Prisma](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) as Prisma is out of scope for this guide.
+
 ## Setup GraphQL
 
 To start a GraphQL API install the following packages into your Nest application.
@@ -83,6 +85,12 @@ export class User {
   email: string;
   password: string;
   name?: string;
+  hobbies: Hobby[];
+}
+
+export class Hobby {
+  id: number;
+  name: string;
 }
 ```
 
@@ -95,13 +103,17 @@ import { ObjectType } from '@nestjs/graphql';
 export class User {
   ...
 }
+
+@ObjectType()
+export class Hobby {
+  ...
+}
 ```
 
 Next we use the `@Field` decorator on each class property providing additional information about the type and state (required or optional).
 
 ```ts
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Hobby } from './hobby.model';
 
 @ObjectType()
 export class User {
@@ -128,6 +140,11 @@ export class User {
 
 @ObjectType()
 export class Hobby {
+  @Field(type => Int)
+  id: number;
+
+  @Field(type => String)
+  name: string;
 }
 ```
 
@@ -184,7 +201,7 @@ export class UserResolver {
 }
 ```
 
-Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User)`) this is used to provide a parent object in `@ResolveField`. I will cover `@ResolveField` in a bit.
+Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User)`) this is used to provide a parent object in `@ResolveField`.  will cover `@ResolveField` in a bit.
 
 Add `@Query` to your resolvers to create new GraphQL queries in your schema. Let's create a query function returning all `users()`. Use the bracket notation inside the decorator `@Query(returns => [User])` to declare an array return value.
 
@@ -326,6 +343,15 @@ export class User {
   @Field(type => [Hobby])
   hobbies: Hobby[];
 }
+
+@ObjectType()
+export class Hobby {
+  @Field(type => Int)
+  id: number;
+
+  @Field(type => String)
+  name: string;
+}
 ```
 
 After removing the extra boilerplate decorators the models looks like this:
@@ -353,6 +379,14 @@ export class User {
 
   @Field(type => [Hobby])
   hobbies: Hobby[];
+}
+
+@ObjectType()
+export class Hobby {
+  @Field(type => Int)
+  id: number;
+
+  name: string;
 }
 ```
 
