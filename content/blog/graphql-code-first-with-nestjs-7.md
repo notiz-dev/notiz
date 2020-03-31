@@ -2,8 +2,8 @@
 title: 'GraphQL code first approach with NestJS 7'
 description: 'Create a GraphQL API using code first approach with NestJS 7.'
 published: true
-publishedAt: 2020-03-15T09:11:00.000Z
-updatedAt: 2020-03-15T09:11:00.000Z
+publishedAt: 2020-03-30T09:11:00.000Z
+updatedAt: 2020-03-30T09:11:00.000Z
 tags:
   - NestJS
   - GraphQL
@@ -42,9 +42,9 @@ import { join } from 'path';
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       debug: true,
-      playground: true,
-    }),
-  ],
+      playground: true
+    })
+  ]
 })
 export class AppModule {}
 ```
@@ -69,9 +69,90 @@ A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Q
 - `@Args` generate method params as [Arguments](https://graphql.org/learn/schema/#arguments)
 - `@Query()` generate method as [Query](https://graphql.org/learn/schema/#the-query-and-mutation-types)
 - `@Mutation()` generate method as [Mutation](https://graphql.org/learn/schema/#the-query-and-mutation-types)
-- `@ResolveField` resolve
+- `@ResolveField` resolve relationship property
+
+## Query
 
 ### Graphql Type
+
+Start with creating your objects as a TypeScript `class`.
+
+```ts
+export class User {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  email: string;
+  password: string;
+  name?: string;
+}
+```
+
+Let's add [decorators](https://docs.nestjs.com/graphql/resolvers#code-first) to expose this model in our GraphQL schema. Start adding `@ObjectType()` to the TypeScript class.
+
+```ts
+import { ObjectType } from '@nestjs/graphql';
+
+@ObjectType()
+export class User {
+  ...
+}
+```
+
+Next we use the `@Field` decorator on each class property providing additional information about the type and state (required or optional).
+
+```ts
+import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Hobby } from './hobby.model';
+
+@ObjectType()
+export class User {
+  @Field((type) => Int)
+  id: number;
+
+  @Field((type) => Date, { name: 'registeredAt' })
+  createdAt: Date;
+
+  @Field((type) => Date)
+  updatedAt: Date;
+
+  @Field((type) => String)
+  email: string;
+
+  password: string;
+
+  @Field((type) => String, { nullable: true })
+  name?: string;
+
+  @Field((type) => [Hobby])
+  hobbies: Hobby[];
+}
+```
+
+The following GraphQL type is generated if this class is used in a resolver.
+
+```graphql
+type User {
+  id: Int!
+  registeredAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  name: String
+  hobbies: [Hobby!]!
+}
+```
+
+1. `@Field` takes an optional type function (for example `type => String`)
+2. Optional `FieldOptions` object to change the generated schema
+  - `name`: property name in the schema (`createdAt` => `registeredAt`)
+  - `description`: adding a field description
+  - `deprecationReason`: adding a deprection notice
+  - `nullable`: declare a field is required or optional
+3. Hide properties from the schema by omitting `@Field`
+
+For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types). 
+
+## OLD
 
 Create for each database model a TypeScript class to expose them in our GraphQL schema. Create a `movie.model.ts` and a `actor.model.ts` with the same properties from our database:
 
@@ -213,6 +294,8 @@ query Movies {
   }
 }
 ```
+
+## Mutation
 
 ## GraphQL plugin
 
