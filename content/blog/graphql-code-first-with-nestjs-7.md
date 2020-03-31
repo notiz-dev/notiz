@@ -13,7 +13,7 @@ authors:
 github: https://github.com/notiz-dev/nest-graphql-code-first
 ---
 
-Recently the release of [NestJS 7](https://trilon.io/blog/announcing-nestjs-7-whats-new) was announced with amazing updates to the whole framekwork including the [@nestjs/graphql](https://docs.nestjs.com/graphql/quick-start) ❤️ package.
+Recently the release of [NestJS 7](https://trilon.io/blog/announcing-nestjs-7-whats-new) was announced with amazing updates to the whole framework including the [@nestjs/graphql](https://docs.nestjs.com/graphql/quick-start) ❤️ package.
 
 We create a [GraphQL](https://graphql.org/) API using the `@nestjs/graphql`. I will show you how to write the API with TypeScript using the **code first** approach and the new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin).
 
@@ -57,9 +57,9 @@ To configure the GraphQL endpoint we use `GqlModuleOptions` which are passed to 
 
 There are two options for `autoSchemaFile` providing a **path** for the schema generation or `true` for generating the schema in memory.
 
-## GraphlQL Code First approach
+## GraphQL Code First approach
 
-A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Queries](https://graphql.org/learn/queries/). The schema grows in size and complexity for each new query, mutation and type. GraphQL [**Code First**](https://www.youtube.com/watch?v=OloBAdNCnyQ) enables us to automatically generate a GraphQL schema using TypeScript and decorators. This helps us focus on writing `.ts` files and we don't need to write the GraphlQL schema ourselfs.
+A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Queries](https://graphql.org/learn/queries/). The schema grows in size and complexity for each new query, mutation and type. GraphQL [**Code First**](https://www.youtube.com/watch?v=OloBAdNCnyQ) enables us to automatically generate a GraphQL schema using TypeScript and decorators. This helps us focus on writing `.ts` files and we don't need to write the GraphQL schema ourselves.
 
 `@nestjs/graphql` provides all decorators to generate our schema. Here are a few decorators and there usage:
 
@@ -145,7 +145,7 @@ type User {
 * Optional `FieldOptions` object to change the generated schema
   * `name`: property name in the schema (`createdAt` => `registeredAt`)
   * `description`: adding a field description
-  * `deprecationReason`: adding a deprection notice
+  * `deprecationReason`: adding a deprecation notice
   * `nullable`: declare a field is required or optional
 * Hide properties from the schema by omitting `@Field`
 
@@ -168,7 +168,7 @@ nest g r user
 nest g r hobby
 ```
 
-Our resolvers are added to the `prodivers` array in the `app.module.ts`.
+Our resolvers are added to the `providers` array in the `app.module.ts`.
 
 ```ts
 import { Resolver } from '@nestjs/graphql';
@@ -281,7 +281,7 @@ Nest 7 provides a new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers
 }
 ```
 
-The plugin automatically handles the decorators for the files with the suffix `['.input.ts', '.args.ts', '.entity.ts', '.model.ts']`. If you like to use custome suffixes add those to the plugins option:
+The plugin automatically handles the decorators for the files with the suffix `['.input.ts', '.args.ts', '.entity.ts', '.model.ts']`. If you like to use custom suffixes add those to the plugins option:
 
 ```json
 "plugins": [
@@ -352,7 +352,7 @@ export class User {
 }
 ```
 
-> Note: Hidding properties from the schema requires now the `@HideField` decorator.
+> Note: Hiding properties from the schema requires the `@HideField` decorator.
 
 We can add `@Field` to any property to override the documentation and also the inferred type.
 For example `number` is inferred as the GraphQL type `Float` here we can use `@Field(type => Int)` to change this to an `Int` type.
