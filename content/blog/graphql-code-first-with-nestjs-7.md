@@ -151,7 +151,7 @@ type User {
 
 For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types)!
 
-We have added a bit of boilerplate to our `User` model and other models we will create. Nest provides a CLI plugin to reduce the boilerplate of our models. Check out [GraphQL plugin](#graphql-plugin) section
+We have added a bit of boilerplate to our `User` model and other models we will create. Nest provides a CLI plugin to reduce the boilerplate of our models. Check out the GraphQL plugin section on how to reduce the boilerplate.
 
 ### GraphQL Resolver
 
