@@ -1,9 +1,9 @@
 ---
 title: 'Deploy NestJS with Prisma to Heroku'
-description: 'Deploy a NestJS application with Prisma 2 to Heroku and connect to a PostgreSQL database.'
+description: 'Deploy a NestJS application with Prisma 2.0 to Heroku and connect to a PostgreSQL database.'
 published: true
 publishedAt: 2020-03-12T09:11:00.000Z
-updatedAt: 2020-03-15T22:06:00.000Z
+updatedAt: 2020-04-07T11:18:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -13,7 +13,7 @@ authors:
 github: 'https://github.com/notiz-dev/deploy-nestjs-prisma-heroku'
 ---
 
-I will show you how to deploy a NestJS application with Prisma 2 to [Heroku](https://www.heroku.com/) 🚀. Also we will create a [PostgreSQL database on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1) and connect it with Prisma.
+You will learn how to deploy a NestJS application with Prisma 2.0 to [Heroku](https://www.heroku.com/) 🚀. Also we will create a [PostgreSQL database on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1) and connect it with Prisma.
 
 Check out my previous tutorial [How to query your database using Prisma with NestJS](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) to create a `PrismaService` for your Nest application.
 
@@ -35,7 +35,7 @@ async function bootstrap() {
 bootstrap();
 ```
 
-Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma2 generate && npm run build",` to the **scripts** in our **package.json** which generates a new `PrismaClient` and performs the app build, creating our `dist` folder.
+Heroku takes care of installing our **node_modules** for us. Before Heroku can start our Nest application using `npm run start:prod`, we need to generate the `PrismaClient` and build our app. We add `"postinstall": "npx prisma generate && npm run build",` to the **scripts** in our **package.json** which generates a new `PrismaClient` and performs the app build, creating our `dist` folder.
 
 Heroku needs to know how to execute our Nest application via a `Procfile`. Create a `Procfile` in the root folder with our start script `web: npm run start:prod`. Now Heroku will install our dependencies, generate Prisma Client and build the application in the **postinstall** script and then start the application.
 
@@ -84,7 +84,7 @@ Navigate to **Resources** tab on Heroku and search for the **Heroku Postgres** a
 
 ![Add Heroku Postgres addon](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/add-heroku-postgres-addon.png)
 
-We select a plan for our Postgres database, I will start with the **Hobby Dev - Free** plan and click **Provision**. We can upgrade the database plan later at anytime.
+We select a plan for our Postgres database, we start with the **Hobby Dev - Free** plan and click **Provision**. We can upgrade the database plan later at anytime.
 
 ![Select Postgres plan](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/select-postgres-plan.png)
 
@@ -96,7 +96,7 @@ To connect Prisma to the database, we need to provide the database connection UR
 
 ![View Postgres Credentials](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/view-postgres-credentials.png)
 
-[.env](https://github.com/prisma/prisma2/blob/master/docs/prisma-schema-file.md#using-env-files) file support is included in Prisma 2. Hence, we provide the database connection URL as the environment variable `DATABASE_URL`.
+[.env](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/prisma-schema-file#using-environment-variables) file support is included in Prisma 2.0. Hence, we provide the database connection URL as the environment variable `DATABASE_URL`.
 
 ```prisma
 datasource db {
@@ -137,18 +137,18 @@ model Country {
 }
 ```
 
-Let's use [Prisma Migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate) to save and apply our migrations for the following schema.
+Let's use [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) to save and apply our migrations for the following schema.
 
 ```bash
-npx prisma2 migrate save --experimental
+npx prisma migrate save --experimental
 
-npx prisma2 migrate up --experimental
+npx prisma migrate up --experimental
 ```
 
 We can use [Prisma Studio](https://github.com/prisma/studio) to view if our migration was successful. Run and open studio at [http://localhost:5555](http://localhost:5555).
 
 ```bash
-npx prisma2 studio --experimental
+npx prisma studio --experimental
 ```
 
 ![Prisma Studio with NationalPark and Country Table](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/prisma-studio-after-migration.png)
@@ -160,7 +160,7 @@ Since we have our database ready, we create two REST endpoints to query all **Na
 
 ## Prisma CRUD operations in Nest
 
-Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` whenever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma2 generate` and now we have access to the [CRUD](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#crud) operations of our models.
+Before we implement our CRUD operations in Nest, we need to generate a new `PrismaClient` whenever we make a change to our `schema.prisma` or our `.env` file. Run `npx prisma generate` and now we have access to the [CRUD](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud) operations of our models.
 
 ![Prisma Client CRUD operations](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/prisma-client-crud.png)
 
@@ -187,7 +187,7 @@ Start the Nest app locally in dev mode `npm run start:dev` and try the request a
 
 ![Query all National Parks without Country](assets/img/blog/deploy-nestjs-with-prisma-to-heroku/optimized/query-national-parks-without-country-dev.png)
 
-I have added one national park via Prisma Studio, but we don't see the **Country** in the response. To return the countries in the national park response we [include](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md#include-additionally-via-include) country in the `findMany()` query using the `include` keyword.
+I have added one national park via Prisma Studio, but we don't see the **Country** in the response. To return the countries in the national park response we [include](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/field-selection#include) country in the `findMany()` query using the `include` keyword.
 
 ```typescript
 @Get('nationalParks')
