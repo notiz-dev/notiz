@@ -1,9 +1,9 @@
 ---
 title: 'How to query your database using Prisma with NestJS'
-description: 'Learn how to setup a database with Prisma 2 and query data using NestJS.'
+description: 'Learn how to setup a database with Prisma 2.0 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-03-18T23:44:00.000Z
+updatedAt: 2020-04-07T10:56:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -11,17 +11,17 @@ authors:
   - 'Marc Stammerjohann'
 github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
-  nestjs/cli: 6.14.2
-  nestjs: 6.11.x
-  prisma2: 2.0.0-preview023
-  prisma/client: 2.0.0-preview023
+  nestjs/cli: 7.1.2
+  nestjs: 7.0.x
+  prisma2: 2.0.0-beta.1
+  prisma/client: 2.0.0-beta.1
 ---
 
-[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://github.com/prisma/prisma2/blob/master/docs/supported-databases.md). [Prisma 2](https://github.com/prisma/prisma2) is currently rewritten with Rust and is [not yet production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
+[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/more/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is currently rewritten with Rust and hit recently the first [Beta release](https://www.prisma.io/blog/prisma-2-beta-b7bcl0gd8d8e) 🎉. Find out if Prisma 2.0 is [production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
 
 [NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [GraphQL](https://graphql.org) backend.
 
-This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.
+This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.0.
 
 ## TLDR
 
@@ -40,20 +40,20 @@ nest new project-name
 
 Change your directory into the newly created Nest application and open up your prefered IDE.
 
-## Step 2: Add Prisma 2
+## Step 2: Add Prisma 2.0
 
-[Add](https://github.com/prisma/prisma2/blob/master/docs/getting-started/quickstart-existing-project.md) Prisma 2, create an empty `prisma.schema` file and install [prisma-client-js](https://github.com/prisma/prisma2/blob/master/docs/prisma-client-js/api.md) to your Nest application.
+[Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project) Prisma 2.0, create an empty `prisma.schema` file and install [prisma-client-js](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api) to your Nest application.
 
 ```bash
-npm install prisma2 --save-dev
-npx prisma2 init
+npm install @prisma/cli --save-dev
+npx prisma init
 
 npm install @prisma/client
 ```
 
 ## Step 3: Update Prisma datasource
 
-In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/prisma.schema` to `sqlite` and change the `url` environment to `file:./dev.db`. Prisma [migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
+In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/prisma.schema` to `sqlite` and change the `url` environment to `file:./dev.db`. Prisma [migrate](https://github.com/prisma/prisma/tree/master/docs/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
 
 The `prisma.schema` should look like:
 
@@ -70,7 +70,7 @@ generator client {
 
 ## Step 4: Define a model
 
-Now we define a model for the database. A simple `User` model lookes like:
+Now we define a model for the database. A simple `User` model looks like:
 
 ```prisma
 model User {
@@ -82,25 +82,25 @@ model User {
 
 We are adding the above model to `prisma.schema` below the generator.
 
-For more complex models check out Prisma's [data modeling](https://github.com/prisma/prisma2/blob/master/docs/data-modeling.md) definition.
+For more complex models check out Prisma's [data modeling](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-model) definition.
 
 ## Step 5: Create SQLite database with Migrate
 
 We are creating our first database migration using the experimental Prisma Migrate.
-First we save a migration using `npx prisma2 migrate save --experimental`. Prisma prompst us to create the `dev.db` database and we select `Yes`. Next we provide a name for the migration, for example `user` as we just define the `User` model.
+First we save a migration using `npx prisma migrate save --experimental`. Prisma asks us to create the `dev.db` database and we select `Yes`. Next we provide a name for the migration, for example `user` as we just define the `User` model.
 
-Now we can apply the migration with `npx prisma2 migrate up --experimental`.
+Now we can apply the migration with `npx prisma migrate up --experimental`.
 
-> **Warning**: [Prisma Migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate#prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
+> **Warning**: [Prisma Migrate](https://github.com/prisma/prisma/tree/master/docs/prisma-migrate#prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
 
 ## Step 6: Generate PrismaClient
 
 For each change we make to the data model of `prisma.schema`, we have to generate the `PrismaClient` again.
 
-Run the following command to generate a new `PrismaClient` which should contain querys for the `User` model:
+Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud) operations for the new `User` model:
 
 ```bash
-npx prisma2 generate
+npx prisma generate
 ```
 
 ## Step 7: Create a Prisma service
