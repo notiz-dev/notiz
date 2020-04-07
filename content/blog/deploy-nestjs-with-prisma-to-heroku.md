@@ -128,12 +128,14 @@ generator client {
 model NationalPark {
   id      Int     @id @default(autoincrement())
   name    String
-  country Country
+  country Country @relation(fields: [countryId], references: [id])
+  countryId Int
 }
 
 model Country {
   id   Int    @id @default(autoincrement())
   name String @unique
+  parks NationalPark[]
 }
 ```
 
