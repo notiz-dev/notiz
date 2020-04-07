@@ -3,7 +3,7 @@ title: 'GraphQL Code-First Approach with NestJS 7'
 description: 'Create a GraphQL API using Code-First Approach with NestJS 7.'
 published: true
 publishedAt: 2020-03-31T20:30:00.000Z
-updatedAt: 2020-03-31T20:30:00.000Z
+updatedAt: 2020-04-07T11:56:00.000Z
 tags:
   - NestJS
   - GraphQL
@@ -161,14 +161,14 @@ type User {
 }
 ```
 
-* `@Field` takes an optional type function (e.g. `type => String`)
-* Declare a field as an array using the bracket notation `[ ]` in the type function (e.g. `type => [Hobby]`)
-* Optional `FieldOptions` object to change the generated schema
-  * `name`: property name in the schema (`createdAt` => `registeredAt`)
-  * `description`: adding a field description
-  * `deprecationReason`: adding a deprecation notice
-  * `nullable`: declare a field is required or optional
-* Hide properties from the schema by omitting `@Field`
+- `@Field` takes an optional type function (e.g. `type => String`)
+- Declare a field as an array using the bracket notation `[ ]` in the type function (e.g. `type => [Hobby]`)
+- Optional `FieldOptions` object to change the generated schema
+  - `name`: property name in the schema (`createdAt` => `registeredAt`)
+  - `description`: adding a field description
+  - `deprecationReason`: adding a deprecation notice
+  - `nullable`: declare a field is required or optional
+- Hide properties from the schema by omitting `@Field`
 
 For more details head over to the NestJS [docs](https://docs.nestjs.com/graphql/resolvers#object-types)!
 
@@ -201,7 +201,7 @@ export class UserResolver {
 }
 ```
 
-Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User)`) this is used to provide a parent object in `@ResolveField`.  will cover `@ResolveField` in a bit.
+Declare a `of` function in the `@Resolver` decorator (e.g. `@Resolver(of => User)`) this is used to provide a parent object in `@ResolveField`. We will cover `@ResolveField` in a bit.
 
 Add `@Query` to your resolvers to create new GraphQL queries in your schema. Let's create a query function returning all `users()`. Use the bracket notation inside the decorator `@Query(returns => [User])` to declare an array return value.
 
@@ -378,7 +378,6 @@ export class User {
 
   name?: string;
 
-  @Field(type => [Hobby])
   hobbies: Hobby[];
 }
 
