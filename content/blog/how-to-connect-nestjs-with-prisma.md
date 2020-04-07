@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with NestJS'
 description: 'Learn how to setup a database with Prisma 2.0 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-04-07T10:56:00.000Z
+updatedAt: 2020-04-07T11:05:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -53,7 +53,7 @@ npm install @prisma/client
 
 ## Step 3: Update Prisma datasource
 
-In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/prisma.schema` to `sqlite` and change the `url` environment to `file:./dev.db`. Prisma [migrate](https://github.com/prisma/prisma/tree/master/docs/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
+In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/prisma.schema` to `sqlite` and change the `url` environment to `file:./dev.db`. [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
 
 The `prisma.schema` should look like:
 
@@ -91,7 +91,7 @@ First we save a migration using `npx prisma migrate save --experimental`. Prisma
 
 Now we can apply the migration with `npx prisma migrate up --experimental`.
 
-> **Warning**: [Prisma Migrate](https://github.com/prisma/prisma/tree/master/docs/prisma-migrate#prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
+> **Warning**: [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
 
 ## Step 6: Generate PrismaClient
 
