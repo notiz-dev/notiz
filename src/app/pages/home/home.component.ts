@@ -22,10 +22,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.generateTags();
-
-    this.latestBlogPost$ = this.scullyContentService.latestBlogPost();
-    this.blogPosts$ = this.scullyContentService.blogPosts();
-    this.updateBlogPosts$ = this.scullyContentService.lastUpdateBlogPosts();
+    console.log('home');
+    this.latestBlogPost$ = this.scullyContentService.latestPost();
+    this.blogPosts$ = this.scullyContentService.posts();
+    this.updateBlogPosts$ = this.scullyContentService.lastPosts();
     this.tags$ = this.scullyContentService.tags();
   }
 }

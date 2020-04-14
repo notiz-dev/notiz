@@ -14,13 +14,21 @@ export class ArticleComponent implements OnInit {
   @Input() feature: string;
   @Input() featureIcon: string;
   @Input() peek = false;
-
+  type: ContentType;
 
   sneakPeek: Observable<string>;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    switch (this.route.route.split('/')[1]) {
+      case 'blog':
+        this.type = ContentType.ARTICLE;
+        break;
+      case 'links':
+        this.type = ContentType.LINK;
+        break;
+    }
     if (this.peek) {
       this.sneakPeek = this.http
         .get<string>(
@@ -57,4 +65,9 @@ function nth_occurrence(text: string, searchString: string, nth: number) {
       return lengthUpToFirstIndex + nextOccurrence;
     }
   }
+}
+
+enum ContentType {
+  ARTICLE = 'ARTICLE',
+  LINK = 'LINK'
 }

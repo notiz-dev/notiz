@@ -6,7 +6,7 @@ a {
 h1,
 h2 {
   font-weight: 600;
-  font-size: 2rem;
+  hyphens: auto;
 }
 
 ::ng-deep body.dark {
@@ -55,6 +55,12 @@ p {
 
 .date {
   padding-top: 8px;
+  display: flex;
+  align-items: center;
+  ion-icon {
+   margin-right: 4px;
+   font-size: 18px;
+  }
 }
 
 .sneak-peek-wrapper {

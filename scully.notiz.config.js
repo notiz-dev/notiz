@@ -25,6 +25,12 @@ exports.config = {
         'bannerGenerator'
       ]
     },
+    '/links/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/links'
+      }
+    },
     '/authors/:slug': {
       type: 'contentFolder',
       slug: {
