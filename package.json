@@ -27,7 +27,8 @@
     "blick:serve": "blick open http://localhost:4200 & ng s",
     "optimize:images": "node optimize-images.js",
     "build:image-template": "ng build image-template --prod --output-hashing none && npm run package:image-template",
-    "package:image-template": "cat ./dist/image-template/{runtime,polyfills,main}-es5.js > projects/image-template/dist/image-template.js && ls -lah projects/image-template/dist/image-template.js && cp dist/image-template/styles.css projects/image-template/dist"
+    "package:image-template": "cat ./dist/image-template/{runtime,polyfills,main}-es5.js > projects/image-template/dist/image-template.js && ls -lah projects/image-template/dist/image-template.js && cp dist/image-template/styles.css projects/image-template/dist",
+    "link:add": "node projects/link-generator && ng build && npm run scully"
   },
   "private": true,
   "dependencies": {
