@@ -29,7 +29,12 @@ exports.config = {
       type: 'contentFolder',
       slug: {
         folder: './content/links'
-      }
+      },
+      postRenderers: [
+        'lazyImages',
+        'fouc',
+        'mediumZoom',
+      ]
     },
     '/authors/:slug': {
       type: 'contentFolder',
