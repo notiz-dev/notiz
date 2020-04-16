@@ -14,8 +14,21 @@
 body {
   max-height: unset;
   overflow: scroll;
+  overflow-x: hidden;
   position: relative;
   overscroll-behavior-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background:  var(--ion-color-light);
+}
+::-webkit-scrollbar-thumb {
+  background:  var(--gradient);
+  border-radius: 99px;
 }
 
 body.dark {

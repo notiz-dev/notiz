@@ -72,6 +72,10 @@ p {
   markdown p {
     text-align: justify;
   }
+
+  *{
+    overflow: hidden;
+  }
 }
 
 .overlay:before,
@@ -109,12 +113,6 @@ p {
   padding: 30px 0;
 }
 
-.readmore {
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
-  bottom: -12px;
-}
 
 .banner {
   border-radius: 12px;
