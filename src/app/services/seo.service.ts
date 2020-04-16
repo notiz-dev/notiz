@@ -17,6 +17,7 @@ export class SeoService {
     config = {
       title: environment.title,
       description: environment.description,
+      robots: 'index, follow',
       image: this.absoluteImageUrl(environment.featureImage),
       route: '',
       ...config
@@ -24,7 +25,7 @@ export class SeoService {
 
     this.title.setTitle(config.title);
     this.meta.updateTag({ name: 'description', content: config.description });
-    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ name: 'robots', content: config.robots });
     this.meta.updateTag({
       name: 'keywords',
       content: config.keywords.join(', ')
@@ -141,6 +142,7 @@ export class SeoService {
 export interface SeoConfig {
   title?: string;
   description?: string;
+  robots?: string;
   image?: string;
   og_image?: string;
   twitter_image?: string;

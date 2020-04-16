@@ -10,6 +10,9 @@ export class PageNotFoundComponent implements OnInit {
   constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
-    this.seo.generateTags({ title: 'Page not found' });
+    this.seo.generateTags({
+      title: 'Page not found',
+      robots: 'nofollow, noindex'
+    });
   }
 }
