@@ -4,6 +4,8 @@ description: 'Publish Angular components and Custom Elements from a single proje
 publishedAt: 2020-04-14T23:04:30.799Z
 updatedAt: 2020-04-14T23:04:30.799Z
 url: https://notiz.dev/blog/create-a-component-library-for-angular-and-the-web
+authors:
+  - 'Gary Großgarten'
 tags: 
   - 'angular'
   - 'web components'

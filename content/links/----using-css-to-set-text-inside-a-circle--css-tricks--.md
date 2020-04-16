@@ -5,6 +5,8 @@ description: 'You want to set some text inside the shape of a circle with HTML a
 publishedAt: 2020-04-14T23:11:25.442Z
 updatedAt: 2020-04-14T23:11:25.442Z
 url: https://css-tricks.com/using-css-to-set-text-inside-a-circle/
+authors:
+  - 'Gary Großgarten'
 tags: 
   - 'css'
 ---

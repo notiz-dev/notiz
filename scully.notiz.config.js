@@ -33,7 +33,9 @@ exports.config = {
       postRenderers: [
         'lazyImages',
         'fouc',
+        'rss',
         'mediumZoom',
+        'bannerGenerator'
       ]
     },
     '/authors/:slug': {
