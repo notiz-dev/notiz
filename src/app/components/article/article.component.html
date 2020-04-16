@@ -9,7 +9,17 @@
       <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
-    <div class="date">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</div>
+    <div class="date">
+      <ion-icon
+        *ngIf="type === 'LINK'"
+        color="secondary"
+        name="link"
+      ></ion-icon>
+
+      {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
+
+      <!-- <ion-icon *ngIf="type === 'LINK'" name="link"></ion-icon> -->
+    </div>
     <h1 *ngIf="feature">
       <a [href]="route.route">
         {{ route.title }}
@@ -22,7 +32,7 @@
     </h2>
   </div>
   <div class="content">
-    <p>{{ route.description }}</p>
+    <div class="ion-padding-bottom">{{ route.description }}</div>
     <a
       *ngFor="let tag of route.tags | slice: 0:3"
       [href]="'/tags/' + tag | lowercase | dash"

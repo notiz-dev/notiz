@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () =>
       import('./pages/blog/blog.module').then(m => m.BlogModule)
+  },{
+    path: 'links',
+    loadChildren: () =>
+      import('./pages/links/links.module').then(m => m.LinksModule)
   },
   {
     path: 'authors',

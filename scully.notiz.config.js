@@ -25,6 +25,19 @@ exports.config = {
         'bannerGenerator'
       ]
     },
+    '/links/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/links'
+      },
+      postRenderers: [
+        'lazyImages',
+        'fouc',
+        'rss',
+        'mediumZoom',
+        'bannerGenerator'
+      ]
+    },
     '/authors/:slug': {
       type: 'contentFolder',
       slug: {

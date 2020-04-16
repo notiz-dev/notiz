@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <title>
+        ionicons-v5-m
+    </title>
+     <defs>
+        <linearGradient x1="49.9999401%" y1="100%" x2="50%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#55F3DE" offset="0%"></stop>
+            <stop stop-color="#55B9F3" offset="50.2718539%"></stop>
+            <stop stop-color="#556AF3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <path fill="url(#linearGradient-1)" d="M160,389a20.91,20.91,0,0,1-13.82-5.2l-128-112a21,21,0,0,1,0-31.6l128-112a21,21,0,0,1,27.66,31.61L63.89,256l109.94,96.19A21,21,0,0,1,160,389Z"/>
+    <path fill="url(#linearGradient-1)" d="M352,389a21,21,0,0,1-13.84-36.81L448.11,256,338.17,159.81a21,21,0,0,1,27.66-31.61l128,112a21,21,0,0,1,0,31.6l-128,112A20.89,20.89,0,0,1,352,389Z"/>
+</svg>

@@ -24,7 +24,7 @@ export class TagsComponent implements OnInit {
       description: 'All tags on notiz.dev'
     });
 
-    this.blogPosts$ = this.scullyContent.blogPosts();
+    this.blogPosts$ = this.scullyContent.posts();
     this.tags$ = this.scullyContent.tags();
   }
 }

@@ -31,7 +31,7 @@ const bannerGeneratorPlugin = async (html, route) => {
     ).img;
     const logos = route.data.tags.map(t =>
       resolve(`./src/assets/stack/${t.toLowerCase().replace(' ', '-')}.svg`)
-    );
+    ).filter(t => existsSync(t));
 
     for await (size of sizes) {
       const dom = new JSDOM(template);
