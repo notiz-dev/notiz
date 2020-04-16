@@ -25,6 +25,8 @@ description: '${description}'
 publishedAt: ${new Date().toISOString()}
 updatedAt: ${new Date().toISOString()}
 url: ${url}
+authors:
+  - 'Gary Großgarten'
 tags: ${tags
     .split(',')
     .map(t => `\n  - '${t}'`)
