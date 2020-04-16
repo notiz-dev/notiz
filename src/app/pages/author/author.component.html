@@ -30,7 +30,7 @@
       <ion-col *ngIf="(authorTags$ | async)?.length > 0" class="ion-padding" size="12" size-md="4">
         <div class="sticky-tags">
           <h2><a href="tags">Tags</a></h2>
-          <app-tags-view [blogPosts]="latestAuthorPosts$" [tags]="authorTags$"></app-tags-view>
+          <app-tags-view limit="10" [blogPosts]="latestAuthorPosts$" [tags]="authorTags$"></app-tags-view>
         </div>
       </ion-col>
       <ion-col *ngIf="(updatedAuthorPosts$ | async)?.length > 0" class="ion-padding" size="12" size-md="8">

@@ -3,3 +3,6 @@
     <ion-label>{{ tag.tag.title }}</ion-label>
   </ion-chip>
 </a>
+<ion-button *ngIf="count > limit" [href]="'/tags/'" fill="clear" shape="round">
+  see all
+</ion-button>
