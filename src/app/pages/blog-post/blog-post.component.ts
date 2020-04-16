@@ -63,7 +63,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
       .subscribe();
 
     this.related$ = this.content
-      .blogPosts()
+      .posts()
       .pipe(
         switchMap(posts =>
           this.post$.pipe(

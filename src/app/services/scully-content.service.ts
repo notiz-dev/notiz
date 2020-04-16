@@ -39,7 +39,7 @@ export class ScullyContentService {
   }
 
   authorPosts(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
-    const blogPosts = this.blogPosts();
+    const blogPosts = this.posts();
     return author.pipe(
       switchMap(a =>
         blogPosts.pipe(
@@ -84,7 +84,7 @@ export class ScullyContentService {
   }
 
   tagPosts(tag: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
-    const blogPosts = this.blogPosts();
+    const blogPosts = this.posts();
     return tag.pipe(
       switchMap(page =>
         blogPosts.pipe(

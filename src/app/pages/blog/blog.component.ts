@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
         'Latest articles on notiz.dev featuring Angular, Nestjs, Web Components and more'
     });
 
-    this.blogPosts$ = this.scullyContentService.blogPosts();
+    this.blogPosts$ = this.scullyContentService.posts();
     this.tags$ = this.scullyContentService.tags();
   }
 }

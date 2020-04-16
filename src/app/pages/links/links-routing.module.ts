@@ -3,18 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LinkComponent } from '@pages/link/link.component';
 import { IsAvailable } from 'src/app/guards/available.guard';
-import { LinksComponent } from './links.component';
 
 const routes: Routes = [
-  { path: '', component: LinksComponent },
   {
     path: ':slug',
     component: LinkComponent,
     canActivate: [IsAvailable]
   },
+  { path: '', redirectTo: '/blog' },
   {
     path: '**',
-    component: LinksComponent
+    redirectTo: '/blog'
   }
 ];
 
