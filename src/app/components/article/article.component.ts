@@ -21,7 +21,8 @@ export class ArticleComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    switch (this.route.route.split('/')[1]) {
+    const type = this.route.route.split('/')[1];
+    switch (type) {
       case 'blog':
         this.type = ContentType.ARTICLE;
         break;
@@ -32,7 +33,7 @@ export class ArticleComponent implements OnInit {
     if (this.peek) {
       this.sneakPeek = this.http
         .get<string>(
-          `https://raw.githubusercontent.com/notiz-dev/notiz/master/content/blog/${this.route.sourceFile}`,
+          `https://raw.githubusercontent.com/notiz-dev/notiz/master/content/${type}/${this.route.sourceFile}`,
           { responseType: 'text' as 'json' }
         )
         .pipe(
