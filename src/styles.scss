@@ -20,7 +20,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 14px;
+  width: 12px;
+  height: 12px;
 }
 ::-webkit-scrollbar-track {
   background:  var(--ion-color-light);
