@@ -2,8 +2,8 @@
 title: How to manage multiple Java JDK versions on macOS X
 description: How to manage multiple Java JDK versions on macOS X using homebrew.
 published: true
-publishedAt: 2020-04-16T11:18:00.000Z
-updatedAt: 2020-04-16T11:18:00.000Z
+publishedAt: 2020-04-16T11:30:00.000Z
+updatedAt: 2020-04-16T11:30:00.000Z
 tags:
   - Quick Tip
   - Java
