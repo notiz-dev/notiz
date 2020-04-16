@@ -1,4 +1,4 @@
 ---
-title: tool
+title: DevTool
 slug: tool
 ---
