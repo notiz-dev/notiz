@@ -1,10 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 /* include CSS for prism toolbar */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+// @import '~prismjs/plugins/toolbar/prism-toolbar.css';
 /* check node_modules/prismjs/themes/ for the available themes */
-@import '~prismjs/themes/prism-tomorrow';
+// @import '~prismjs/themes/prism-tomorrow';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --blue: #55b9f3;
+  --cyan: #55f3de;
+  --dark-blue: #556af3;
+}
+
+body {
+  @apply bg-background text-color;
+}
+
+.dark {
+  --background: #121212;
+  --tabs: #2d3748;
+  --text-color: #ffffff;
+  --text-color-light: #a0aec0;
+}
+
+.light {
+  --background: #f4ffff;
+  --tabs: #edf2f7;
+  --text-color: #1a202c;
+  --text-color-light: #718096;
+}
 
 :root {
   --ion-font-family: 'Muli', sans-serif;
