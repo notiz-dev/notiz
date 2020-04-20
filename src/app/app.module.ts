@@ -10,7 +10,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
 import {
-  NizTabsModule
+  NizTabsModule, NizFooterModule
 } from '@notiz/ngx-design';
 
 @NgModule({
@@ -25,7 +25,8 @@ import {
       enabled: environment.production
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
-    NizTabsModule
+    NizTabsModule,
+    NizFooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
