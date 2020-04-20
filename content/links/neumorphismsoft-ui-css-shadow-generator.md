@@ -7,9 +7,9 @@ url: https://neumorphism.io/#55b9f3
 authors:
   - 'Gary Großgarten'
 tags: 
-  - 'css'
-  - 'design'
-  - 'tool'
+  - 'CSS'
+  - 'Design'
+  - 'DevTool'
 ---
 ![Neumorphism/Soft UI CSS shadow generator screenshot](assets/img/links/neumorphismsoft-ui-css-shadow-generator.png)
 CSS code generator that will help with colors, gradients and shadows to adapt this new design trend or discover its posibilities.

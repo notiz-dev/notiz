@@ -7,8 +7,8 @@ url: https://www.octotree.io/
 authors:
   - Marc Stammerjohann
 tags: 
-  - 'github'
-  - 'tool'
+  - 'GitHub'
+  - 'DevTool'
 ---
 ![Octotree screenshot](assets/img/links/octotree.png)
 
