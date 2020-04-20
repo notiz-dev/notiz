@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
       url: '/',
       image: 'assets/img/notiz.svg',
       routeActive: false,
+      hideOnMobile: true
     },
     // {
     //   url: '/search/',
