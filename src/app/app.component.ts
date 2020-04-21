@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tab } from '@notiz/ngx-design';
+import { Tab, FooterSection } from '@notiz/ngx-design';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +34,61 @@ export class AppComponent implements OnInit {
       image: 'assets/img/tags.svg',
       routeActive: true,
     }
+  ];
+
+  copyrightUrl = 'legal/privacy-policy';
+
+  createdWithSvgSources = [
+    'assets/stack/angular.svg',
+    'assets/stack/scully.svg',
+    'assets/stack/tailwindcss.svg',
+    'assets/stack/firebase.svg',
+  ];
+
+  footerSections: FooterSection[] = [
+    {
+      title: 'notiz.dev',
+      links: [
+        {
+          title: '@notiz_dev',
+          url: 'https://twitter.com/notiz_dev',
+          svg: 'assets/img/twitter-white.svg',
+          external: true,
+        },
+        {
+          title: ' @notiz-dev',
+          url: 'https://github.com/notiz-dev',
+          svg: 'assets/img/github-white.svg',
+          external: true,
+        },
+        {
+          title: 'hi@notiz.dev',
+          url: 'mailto:hi@notiz.dev',
+          svg: 'assets/img/mail.svg',
+          external: true,
+        },
+      ],
+    },
+    {
+      title: 'more',
+      links: [
+        {
+          title: 'all posts',
+          url: '/blog/',
+          svg: 'assets/img/blog-white.svg',
+        },
+        {
+          title: 'authors',
+          url: '/authors/',
+          svg: 'assets/img/author.svg',
+        },
+        {
+          title: 'tags',
+          url: '/tags/',
+          svg: 'assets/img/tags-white.svg',
+        },
+      ],
+    },
   ];
 
   ngOnInit() {

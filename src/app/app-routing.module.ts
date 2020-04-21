@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -11,7 +11,8 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () =>
       import('./pages/blog/blog.module').then(m => m.BlogModule)
-  },{
+  },
+  {
     path: 'links',
     loadChildren: () =>
       import('./pages/links/links.module').then(m => m.LinksModule)
@@ -60,7 +61,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'enabled',
+      preloadingStrategy: PreloadAllModules
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
