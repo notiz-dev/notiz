@@ -26,12 +26,12 @@
     <ion-row>
       <ion-col class="ion-padding" size="12" size-md="4">
         <div class="sticky-tags">
-          <h2><a href="tags">Tags</a></h2>
+          <h2 class="text-2xl font-semibold"><a href="tags">Tags</a></h2>
           <app-tags-view limit="10" [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
         </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" size-md="8">
-        <h2>Recently Updated</h2>
+        <h2 class="text-2xl font-semibold">Recently Updated</h2>
         <app-article class="list-article" *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"
           [route]="blogPost">
         </app-article>

@@ -20,18 +20,18 @@
 
       <!-- <ion-icon *ngIf="type === 'LINK'" name="link"></ion-icon> -->
     </div>
-    <h1 *ngIf="feature">
+    <h1 *ngIf="feature" class="mt-1 text-3xl">
       <a [href]="route.route">
         {{ route.title }}
       </a>
     </h1>
-    <h2 *ngIf="!feature">
+    <h2 *ngIf="!feature" class="mt-1 text-2xl">
       <a [href]="route.route">
         {{ route.title }}
       </a>
     </h2>
   </div>
-  <div class="content">
+  <div class="content mt-2">
     <div class="ion-padding-bottom">{{ route.description }}</div>
     <a
       *ngFor="let tag of route.tags | slice: 0:3"
