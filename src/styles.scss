@@ -10,40 +10,6 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 :root {
-  --blue: #55b9f3;
-  --blue-rgb: 85, 185, 243;
-  --cyan: #55f3de;
-  --cyan-rgb: 85, 243, 222;
-  --dark-blue: #556af3;
-  --dark-blue-rgb: 85, 106, 243;
-
-  --gradient: linear-gradient(
-    145deg,
-    var(--cyan),
-    var(--blue),
-    var(--dark-blue)
-  );
-}
-
-body {
-  @apply bg-background text-color;
-}
-
-.dark {
-  --background: #121212;
-  --tabs: #2d3748;
-  --text-color: #ffffff;
-  --text-color-light: #a0aec0;
-}
-
-.light {
-  --background: #f4ffff;
-  --tabs: #edf2f7;
-  --text-color: #1a202c;
-  --text-color-light: #718096;
-}
-
-:root {
   --ion-font-family: 'Muli', sans-serif;
   font-family: 'Muli', sans-serif;
 }
