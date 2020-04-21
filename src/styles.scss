@@ -11,8 +11,18 @@
 
 :root {
   --blue: #55b9f3;
+  --blue-rgb: 85, 185, 243;
   --cyan: #55f3de;
+  --cyan-rgb: 85, 243, 222;
   --dark-blue: #556af3;
+  --dark-blue-rgb: 85, 106, 243;
+
+  --gradient: linear-gradient(
+    145deg,
+    var(--cyan),
+    var(--blue),
+    var(--dark-blue)
+  );
 }
 
 body {
