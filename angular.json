@@ -64,6 +64,9 @@
               {
                 "input": "node_modules/@notiz/ngx-design/styles.css"
               },
+              {
+                "input": "node_modules/prismjs/themes/prism-tomorrow.css"
+              },
               "src/styles.scss"
             ],
             "scripts": ["node_modules/marked/lib/marked.js"]
