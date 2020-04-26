@@ -25,8 +25,6 @@ export class HighlightService {
   highlightAll() {
     if (isPlatformBrowser(this.platformId)) {
       Prism.highlightAll();
-
-
     }
   }
 }

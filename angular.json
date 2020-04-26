@@ -67,6 +67,9 @@
               {
                 "input": "node_modules/prismjs/themes/prism-tomorrow.css"
               },
+              {
+                "input": "node_modules/prismjs/plugins/toolbar/prism-toolbar.css"
+              },
               "src/styles.scss"
             ],
             "scripts": ["node_modules/marked/lib/marked.js"]
