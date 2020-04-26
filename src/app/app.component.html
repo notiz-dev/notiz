@@ -1,7 +1,10 @@
 <niz-tabs [tabs]="tabs">
+  <app-header></app-header>
+
   <main class="w-full max-w-screen-xl mx-auto p-2">
     <router-outlet></router-outlet>
   </main>
 
-  <niz-footer [footerSections]="footerSections" [copyrightUrl]="copyrightUrl" [createdWithSvgSources]="createdWithSvgSources"></niz-footer>
+  <niz-footer [footerSections]="footerSections" [copyrightUrl]="copyrightUrl"
+    [createdWithSvgSources]="createdWithSvgSources"></niz-footer>
 </niz-tabs>

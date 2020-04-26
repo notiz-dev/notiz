@@ -9,9 +9,8 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
-import {
-  NizTabsModule, NizFooterModule
-} from '@notiz/ngx-design';
+import { NizTabsModule, NizFooterModule } from '@notiz/ngx-design';
+import { HeaderModule } from '@components/header/header.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +25,8 @@ import {
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
-    NizFooterModule
+    NizFooterModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
