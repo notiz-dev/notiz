@@ -38,19 +38,13 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@ionic/angular/css/normalize.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/structure.css"
+                "input": "node_modules/@ionic/angular/css/core.css"
               },
               {
                 "input": "node_modules/@ionic/angular/css/typography.css"
               },
               {
-                "input": "node_modules/@ionic/angular/css/core.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/padding.css"
+                "input": "node_modules/@ionic/angular/css/normalize.css"
               },
               {
                 "input": "node_modules/@ionic/angular/css/float-elements.css"

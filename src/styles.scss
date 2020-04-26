@@ -14,23 +14,23 @@
   font-family: 'Muli', sans-serif;
 }
 
-body {
-  max-height: unset;
-  overflow: scroll;
-  overflow-x: hidden;
-  position: relative;
-  overscroll-behavior-y: auto;
-}
+// body {
+//   max-height: unset;
+//   overflow: scroll;
+//   overflow-x: hidden;
+//   position: relative;
+//   overscroll-behavior-y: auto;
+// }
 
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 ::-webkit-scrollbar-track {
-  background:  var(--ion-color-light);
+  background: var(--ion-color-light);
 }
 ::-webkit-scrollbar-thumb {
-  background:  var(--gradient);
+  background: var(--gradient);
   border-radius: 99px;
 }
 
@@ -373,7 +373,7 @@ body:not(.dark) {
 .medium-zoom-image--opened {
   z-index: 3;
 }
-blockquote{
+blockquote {
   position: relative;
 }
 blockquote::before {
