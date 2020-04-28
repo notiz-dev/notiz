@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   tabs: Tab[] = [
     {
       url: '/',
+      text: 'notiz',
+      logo: true,
       image: 'assets/img/notiz.svg',
       routeActive: false,
       hideOnMobile: true
@@ -22,7 +24,7 @@ export class AppComponent implements OnInit {
     {
       url: '/blog/',
       image: 'assets/img/blog.svg',
-      routeActive: true,
+      routeActive: true
     },
     // {
     //   url: '/links/',
@@ -32,7 +34,7 @@ export class AppComponent implements OnInit {
     {
       url: '/tags/',
       image: 'assets/img/tags.svg',
-      routeActive: true,
+      routeActive: true
     }
   ];
 
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit {
     'assets/stack/angular.svg',
     'assets/stack/scully.svg',
     'assets/stack/tailwindcss.svg',
-    'assets/stack/firebase.svg',
+    'assets/stack/firebase.svg'
   ];
 
   footerSections: FooterSection[] = [
@@ -53,21 +55,21 @@ export class AppComponent implements OnInit {
           title: '@notiz_dev',
           url: 'https://twitter.com/notiz_dev',
           svg: 'assets/img/twitter-white.svg',
-          external: true,
+          external: true
         },
         {
           title: ' @notiz-dev',
           url: 'https://github.com/notiz-dev',
           svg: 'assets/img/github-white.svg',
-          external: true,
+          external: true
         },
         {
           title: 'hi@notiz.dev',
           url: 'mailto:hi@notiz.dev',
           svg: 'assets/img/mail.svg',
-          external: true,
-        },
-      ],
+          external: true
+        }
+      ]
     },
     {
       title: 'more',
@@ -75,20 +77,20 @@ export class AppComponent implements OnInit {
         {
           title: 'all posts',
           url: '/blog/',
-          svg: 'assets/img/blog-white.svg',
+          svg: 'assets/img/blog-white.svg'
         },
         {
           title: 'authors',
           url: '/authors/',
-          svg: 'assets/img/author.svg',
+          svg: 'assets/img/author.svg'
         },
         {
           title: 'tags',
           url: '/tags/',
-          svg: 'assets/img/tags-white.svg',
-        },
-      ],
-    },
+          svg: 'assets/img/tags-white.svg'
+        }
+      ]
+    }
   ];
 
   ngOnInit() {
