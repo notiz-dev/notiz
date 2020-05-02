@@ -1,0 +1,7 @@
+.theme {
+  transition: transform 180ms ease;
+
+  &.dark {
+    transform: rotateZ(180deg);
+  }
+}

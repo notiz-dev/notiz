@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tab, FooterSection } from '@notiz/ngx-design';
+import { ThemeService } from '@services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,7 @@ export class AppComponent implements OnInit {
       text: 'notiz',
       logo: true,
       image: 'assets/img/notiz.svg',
-      routeActive: false,
-      hideOnMobile: true
+      routeActive: false
     },
     // {
     //   url: '/search/',
@@ -37,6 +37,10 @@ export class AppComponent implements OnInit {
       routeActive: true
     }
   ];
+
+  themeTab: Tab = {
+    image: 'assets/img/adjust.svg'
+  };
 
   copyrightUrl = 'legal/privacy-policy';
 
@@ -93,6 +97,8 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  constructor(public themeService: ThemeService) {}
+
   ngOnInit() {
     const notiz =
       "##::: ##::'#######::'########:'####:'########:\n" +
@@ -106,5 +112,7 @@ export class AppComponent implements OnInit {
     console.log(
       `${notiz} \n\n* notiz [noˈtiːt͡s] - (german) short, brief, written record \n\nInterested in our source code? It is available on GitHub https://github.com/notiz-dev/notiz ⭐. Created with Angular and Scully, hosted on Firebase.`
     );
+
+    this.themeService.initTheme();
   }
 }
