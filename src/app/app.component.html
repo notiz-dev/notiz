@@ -1,2 +1,13 @@
+<niz-tabs [tabs]="tabs">
+  <niz-tab bottom class="theme" [tab]="themeTab"
+    [ngClass]="{'dark': themeService.theme === 'dark','rotate': themeService.theme === 'dark'}"
+    (click)="themeService.toggleTheme()">
+  </niz-tab>
 
-<router-outlet></router-outlet>
+  <main class="pl-5 pt-10">
+    <router-outlet></router-outlet>
+  </main>
+
+  <niz-footer [footerSections]="footerSections" [copyrightUrl]="copyrightUrl"
+    [createdWithSvgSources]="createdWithSvgSources"></niz-footer>
+</niz-tabs>

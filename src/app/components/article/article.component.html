@@ -1,42 +1,30 @@
 <div [ngClass]="{ featured: feature }">
   <div class="header">
-    <ion-chip
-      *ngIf="feature && featureIcon"
-      class="feature-chip"
-      color="secondary"
-      outline="true"
-    >
+    <ion-chip *ngIf="feature && featureIcon" class="feature-chip" color="secondary" outline="true">
       <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
       <ion-label>{{ feature }}</ion-label>
     </ion-chip>
     <div class="date">
-      <ion-icon
-        *ngIf="type === 'LINK'"
-        color="secondary"
-        name="link"
-      ></ion-icon>
+      <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
 
       {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
 
       <!-- <ion-icon *ngIf="type === 'LINK'" name="link"></ion-icon> -->
     </div>
-    <h1 *ngIf="feature">
+    <h1 *ngIf="feature" class="mt-1 text-3xl">
       <a [href]="route.route">
         {{ route.title }}
       </a>
     </h1>
-    <h2 *ngIf="!feature">
+    <h2 *ngIf="!feature" class="mt-1 text-2xl">
       <a [href]="route.route">
         {{ route.title }}
       </a>
     </h2>
   </div>
-  <div class="content">
+  <div class="content mt-2">
     <div class="ion-padding-bottom">{{ route.description }}</div>
-    <a
-      *ngFor="let tag of route.tags | slice: 0:3"
-      [href]="'/tags/' + tag | lowercase | dash"
-    >
+    <a *ngFor="let tag of route.tags | slice: 0:3" [href]="'/tags/' + tag | lowercase | dash">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>
       </ion-chip>
