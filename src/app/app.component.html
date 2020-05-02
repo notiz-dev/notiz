@@ -1,5 +1,6 @@
 <niz-tabs [tabs]="tabs">
-  <niz-tab bottom class="theme" [tab]="themeTab" [ngClass]="{'dark': themeService.theme === 'dark'}"
+  <niz-tab bottom class="theme" [tab]="themeTab"
+    [ngClass]="{'dark': themeService.theme === 'dark','rotate': themeService.theme === 'dark'}"
     (click)="themeService.toggleTheme()">
   </niz-tab>
 

@@ -21,6 +21,13 @@
   border-radius: 99px;
 }
 
+.theme.dark.rotate niz-inline-svg {
+  transform: rotateZ(180deg);
+}
+.theme niz-inline-svg {
+  transition: transform 150ms ease;
+}
+
 body.dark {
   .cta.secondary {
     --background: var(--ion-background-color);
@@ -78,7 +85,6 @@ a:hover {
 body:not(.dark),
 body.dark {
   ion-chip {
-    transition: border 200ms ease, color 200ms ease;
     padding-inline-start: 16px;
     padding-inline-end: 16px;
     font-size: 20px;

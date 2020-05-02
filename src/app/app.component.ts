@@ -43,7 +43,9 @@ export class AppComponent implements OnInit {
   ];
 
   themeTab: Tab = {
-    image: 'assets/img/adjust.svg'
+    text: 'toggle theme',
+    image: 'assets/img/adjust.svg',
+    tooltip: true
   };
 
   copyrightUrl = 'legal/privacy-policy';
