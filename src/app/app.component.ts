@@ -23,8 +23,10 @@ export class AppComponent implements OnInit {
     // },
     {
       url: '/blog/',
+      text: 'all posts',
       image: 'assets/img/blog.svg',
-      routeActive: true
+      routeActive: true,
+      tooltip: true
     },
     // {
     //   url: '/links/',
@@ -33,8 +35,10 @@ export class AppComponent implements OnInit {
     // },
     {
       url: '/tags/',
+      text: 'tags',
       image: 'assets/img/tags.svg',
-      routeActive: true
+      routeActive: true,
+      tooltip: true
     }
   ];
 
