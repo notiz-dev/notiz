@@ -1,6 +1,8 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/* You can add global styles to this file, and also import other style files */
+/* include CSS for prism toolbar */
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+/* check node_modules/prismjs/themes/ for the available themes */
+@import '~prismjs/themes/prism-tomorrow';
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
@@ -9,23 +11,24 @@
   font-family: 'Muli', sans-serif;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--ion-color-light);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gradient);
-  border-radius: 99px;
+body {
+  max-height: unset;
+  overflow: scroll;
+  overflow-x: hidden;
+  position: relative;
+  overscroll-behavior-y: auto;
 }
 
-.theme.dark.rotate niz-inline-svg {
-  transform: rotateZ(180deg);
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
 }
-.theme niz-inline-svg {
-  transition: transform 150ms ease;
+::-webkit-scrollbar-track {
+  background:  var(--ion-color-light);
+}
+::-webkit-scrollbar-thumb {
+  background:  var(--gradient);
+  border-radius: 99px;
 }
 
 body.dark {
@@ -85,6 +88,7 @@ a:hover {
 body:not(.dark),
 body.dark {
   ion-chip {
+    transition: border 200ms ease, color 200ms ease;
     padding-inline-start: 16px;
     padding-inline-end: 16px;
     font-size: 20px;
@@ -366,7 +370,7 @@ body:not(.dark) {
 .medium-zoom-image--opened {
   z-index: 3;
 }
-blockquote {
+blockquote{
   position: relative;
 }
 blockquote::before {

@@ -1,0 +1,63 @@
+<ion-grid fixed no-padding>
+  <ion-row>
+    <ion-col size="12" size-md="6" class="ion-padding">
+      <ion-list>
+        <ion-item-divider>
+          <ion-label class="ion-text-left">about</ion-label>
+        </ion-item-divider>
+        <p>
+          <markdown class="about" ngPreserveWhitespace src="assets/static/about.md"></markdown>
+        </p>
+      </ion-list>
+    </ion-col>
+    <ion-col size="6" size-md="3" class="ion-padding">
+      <ion-list lines="none">
+        <ion-item-divider>
+          <ion-label>notiz.dev</ion-label>
+        </ion-item-divider>
+        <ion-button href="https://twitter.com/notiz_dev" expand="full" fill="clear" shape="round"
+          class="ion-text-lowercase">
+          <ion-icon slot="start" name="logo-twitter"></ion-icon>
+          @notiz_dev
+        </ion-button>
+        <ion-button href="https://github.com/notiz-dev" expand="full" fill="clear" shape="round"
+          class="ion-text-lowercase">
+          <ion-icon slot="start" name="logo-github"></ion-icon>
+          @notiz-dev
+        </ion-button>
+        <ion-button href="mailto:hi@notiz.dev" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="mail"></ion-icon>
+          hi@notiz.dev
+        </ion-button>
+      </ion-list>
+    </ion-col>
+    <ion-col size="6" size-md="3" class="ion-padding">
+      <ion-list lines="none">
+        <ion-item-divider>
+          <ion-label>more</ion-label>
+        </ion-item-divider>
+        <ion-button href="blog" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="archive"></ion-icon>
+          all posts
+        </ion-button>
+        <ion-button href="authors" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="create"></ion-icon>
+          authors
+        </ion-button>
+        <ion-button href="tags" expand="full" fill="clear" shape="round" class="ion-text-lowercase">
+          <ion-icon slot="start" name="bookmarks"></ion-icon>
+          tags
+        </ion-button>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" class="flexy">
+      <span class="stack">Created with <ion-icon src="assets/stack/angular.svg"></ion-icon>
+        <ion-icon src="assets/stack/scully.svg"></ion-icon>
+        <ion-icon src="assets/stack/firebase.svg"></ion-icon>
+      </span>
+      <span class="fade">© <a href="legal/privacy-policy">notiz.dev</a> {{now | date:'yyyy'}}</span>
+    </ion-col>
+  </ion-row>
+</ion-grid>

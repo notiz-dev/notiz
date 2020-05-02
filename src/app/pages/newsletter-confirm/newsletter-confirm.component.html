@@ -1,4 +1,5 @@
 <div>
+  <app-header></app-header>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" class="ion-text-center ion-padding-top">
@@ -6,7 +7,10 @@
           <ion-spinner name="bubbles"></ion-spinner>
         </div>
         <div class="empty-box" *ngIf="!confirmed && error">
-          <img src="assets/img/cancel.svg" alt="Error while confirming subscription" />
+          <img
+            src="assets/img/cancel.svg"
+            alt="Error while confirming subscription"
+          />
           <h2>Oh no!</h2>
           <p>Something went wrong, sorry! Please try again later.🙈</p>
         </div>
@@ -22,4 +26,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <app-footer></app-footer>
 </div>

@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-theme-switcher',
+  templateUrl: './theme-switcher.component.html',
+  styleUrls: ['./theme-switcher.component.scss']
 })
-export class ThemeService {
+export class ThemeSwitcherComponent implements OnInit {
   _theme: 'dark' | 'light' = 'dark';
-  set theme(theme: 'dark' | 'light') {
+  @Input() set theme(theme: 'dark' | 'light') {
     this._theme = theme;
 
     document.body.classList.toggle('dark', this._theme === 'dark');
@@ -22,7 +24,9 @@ export class ThemeService {
     return this._theme;
   }
 
-  initTheme() {
+  constructor() {}
+
+  ngOnInit() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
     const storedTheme =
@@ -33,7 +37,7 @@ export class ThemeService {
         (mediaQuery.matches && this.theme === 'light') ||
         (!mediaQuery.matches && this.theme === 'dark')
       ) {
-        this.toggleTheme();
+        this.changeTheme();
       }
     });
 
@@ -45,7 +49,7 @@ export class ThemeService {
         : 'light';
   }
 
-  toggleTheme() {
+  changeTheme() {
     if (this._theme === 'dark') {
       this.theme = 'light';
     } else {

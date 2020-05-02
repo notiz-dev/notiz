@@ -9,11 +9,6 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
-import {
-  NizTabsModule,
-  NizFooterModule,
-  NizTabModule
-} from '@notiz/ngx-design';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,10 +21,7 @@ import {
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     }),
-    MarkdownModule.forRoot({ loader: HttpClient }),
-    NizTabsModule,
-    NizTabModule,
-    NizFooterModule
+    MarkdownModule.forRoot({ loader: HttpClient })
   ],
   providers: [],
   bootstrap: [AppComponent]
