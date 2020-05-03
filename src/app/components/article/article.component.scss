@@ -58,12 +58,13 @@ p {
   display: flex;
   align-items: center;
   ion-icon {
-   margin-right: 4px;
-   font-size: 18px;
+    margin-right: 4px;
+    font-size: 18px;
   }
 }
 
 .sneak-peek-wrapper {
+  width: 94%;
   position: relative;
   margin-top: 18px;
   padding: 16px 24px;
@@ -79,7 +80,7 @@ p {
     text-align: justify;
   }
 
-  *{
+  * {
     overflow: hidden;
   }
 }
@@ -118,7 +119,6 @@ p {
   margin: 0;
   padding: 30px 0;
 }
-
 
 .banner {
   border-radius: 12px;

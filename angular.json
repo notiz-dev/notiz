@@ -15,8 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.dev.js"
+            },
             "outputPath": "dist/notiz",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -35,19 +38,13 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@ionic/angular/css/normalize.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/structure.css"
+                "input": "node_modules/@ionic/angular/css/core.css"
               },
               {
                 "input": "node_modules/@ionic/angular/css/typography.css"
               },
               {
-                "input": "node_modules/@ionic/angular/css/core.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/padding.css"
+                "input": "node_modules/@ionic/angular/css/normalize.css"
               },
               {
                 "input": "node_modules/@ionic/angular/css/float-elements.css"
@@ -64,12 +61,24 @@
               {
                 "input": "src/theme/variables.scss"
               },
+              {
+                "input": "node_modules/@notiz/ngx-design/styles.css"
+              },
+              {
+                "input": "node_modules/prismjs/themes/prism-tomorrow.css"
+              },
+              {
+                "input": "node_modules/prismjs/plugins/toolbar/prism-toolbar.css"
+              },
               "src/styles.scss"
             ],
             "scripts": ["node_modules/marked/lib/marked.js"]
           },
           "configurations": {
             "production": {
+              "customWebpackConfig": {
+                "path": "./webpack.config.prod.js"
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -102,12 +111,18 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.dev.js"
+            },
             "browserTarget": "notiz:build"
           },
           "configurations": {
             "production": {
+              "customWebpackConfig": {
+                "path": "./webpack.config.prod.js"
+              },
               "browserTarget": "notiz:build:production"
             }
           }
@@ -207,9 +222,7 @@
               "projects/image-template/src/favicon.ico",
               "projects/image-template/src/assets"
             ],
-            "styles": [
-              "projects/image-template/src/styles.scss"
-            ],
+            "styles": ["projects/image-template/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -271,9 +284,7 @@
               "projects/image-template/src/favicon.ico",
               "projects/image-template/src/assets"
             ],
-            "styles": [
-              "projects/image-template/src/styles.scss"
-            ],
+            "styles": ["projects/image-template/src/styles.scss"],
             "scripts": []
           }
         },
@@ -285,9 +296,7 @@
               "projects/image-template/tsconfig.spec.json",
               "projects/image-template/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

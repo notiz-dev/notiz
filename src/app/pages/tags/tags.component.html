@@ -1,11 +1,9 @@
 <div>
-  <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row>
       <ion-col size="12">
-        <h1>Tags</h1>
-        <h4>See what we are writing about.
-        </h4>
+        <h1 class="text-3xl font-bold">Tags</h1>
+        <h4 class="mt-2 text-lg">See what we are writing about.</h4>
       </ion-col>
       <ion-col class="padding64" size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2">
         <app-tags-view [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
@@ -13,5 +11,4 @@
     </ion-row>
   </ion-grid>
   <app-newsletter-signup></app-newsletter-signup>
-  <app-footer></app-footer>
 </div>

@@ -61,3 +61,6 @@ p {
     --color: var(--ion-text-color);
   }
 }
+ion-item {
+  --transition: none;
+}
