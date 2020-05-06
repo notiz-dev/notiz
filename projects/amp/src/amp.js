@@ -36,7 +36,7 @@ const ampPlugin = async (html, route) => {
     });
     const link = original.window.document.createElement('link');
     link.setAttribute('rel', 'amphtml');
-    link.setAttribute('href', `https://notiz.dev${route.route}`);
+    link.setAttribute('href', `https://notiz.dev${route.route}/amp`);
     original.window.document.head.append(link);
     document.querySelector(
       'link[rel=canonical]'
