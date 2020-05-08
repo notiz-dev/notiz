@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-article',
@@ -39,7 +39,7 @@ export class ArticleComponent implements OnInit {
         .pipe(
           map(text =>
             // strip of yaml part
-            text.slice(nth_occurrence(text, '---', 2), text.length - 1)
+            text.slice(nth_occurrence(text, '---', 2) + 3, text.length - 1)
           )
         );
     }
