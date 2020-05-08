@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ['./src/**/*.html', './src/**/*.ts'],
   theme: {
     extend: {
       colors: {
@@ -12,7 +13,7 @@ module.exports = {
         color: 'var(--text-color)',
         'color-light': 'var(--text-color-light)',
         tabs: 'var(--tabs)'
-      },
+      }
     },
     screens: {
       xx: '0px',
@@ -20,7 +21,7 @@ module.exports = {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1280px',
-    },
-  },
+      xl: '1280px'
+    }
+  }
 };
