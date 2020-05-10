@@ -1,61 +1,39 @@
 <div *ngIf="post$ | async as post">
-    <app-header></app-header>
-    <ion-grid fixed no-padding>
-      <ion-row >
-        <ion-col
-          class="padding64"
-          size="12"
-          size-md="10"
-          offset-md="1"
-          size-xl="9"
-          offset-xl="1"
-        >
-          <app-breadcrumb></app-breadcrumb>
-          <app-article
-            feature="Link"
-            [route]="post"
-          ></app-article>
-        </ion-col>
-        <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
-          <div class="line"></div>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
-          <div class="post">
-            <scully-content></scully-content>
-            <ion-button class="cta" [href]="post.url" shape="round">
-             <ion-icon slot="start" name="link"></ion-icon> Link to article
-            </ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-  
-      <ion-row>
-        <ion-col
-          *ngIf="post$ | async as post"
-          class="padding64"
-          size="12"
-          size-md="10"
-          offset-md="1"
-        >
-          <h2>Share this post</h2>
-          <app-share [route]="post"></app-share>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <app-card-stack
-      title="Related Posts"
-      subtitle="Find more posts like this one."
-    >
-      <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
-        <app-article [route]="blogPost"></app-article>
-      </ion-card>
-      <ion-card *ngIf="(related$ | async | slice: 0:5)?.length < 5">
-        <app-coming-soon></app-coming-soon>
-      </ion-card>
-    </app-card-stack>
-    <app-newsletter-signup class="padding64"></app-newsletter-signup>
-    <app-footer></app-footer>
-  </div>
-  
+  <ion-grid fixed no-padding>
+    <ion-row>
+      <ion-col class="padding64" size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
+        <app-breadcrumb></app-breadcrumb>
+        <app-article feature="Link" [route]="post"></app-article>
+      </ion-col>
+      <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
+        <div class="line"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
+        <div class="post">
+          <scully-content></scully-content>
+          <ion-button class="cta" [href]="post.url" shape="round">
+            <ion-icon slot="start" name="link"></ion-icon> Link to article
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col *ngIf="post$ | async as post" class="padding64" size="12" size-md="10" offset-md="1">
+        <h2>Share this post</h2>
+        <app-share [route]="post"></app-share>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-card-stack title="Related Posts" subtitle="Find more posts like this one.">
+    <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
+      <app-article [route]="blogPost"></app-article>
+    </ion-card>
+    <ion-card *ngIf="(related$ | async | slice: 0:5)?.length < 5">
+      <app-coming-soon></app-coming-soon>
+    </ion-card>
+  </app-card-stack>
+  <app-newsletter-signup class="padding64"></app-newsletter-signup>
+</div>

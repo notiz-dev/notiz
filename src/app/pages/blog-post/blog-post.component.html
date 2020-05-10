@@ -1,29 +1,11 @@
 <div>
-  <app-header></app-header>
   <ion-grid fixed no-padding>
     <ion-row *ngIf="post$ | async as post">
-      <ion-col
-        class="padding64"
-        size="12"
-        size-md="10"
-        offset-md="1"
-        size-xl="9"
-        offset-xl="1"
-      >
+      <ion-col class="padding64" size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
         <app-breadcrumb></app-breadcrumb>
-        <app-article
-          feature="Article"
-          [route]="post"
-        ></app-article>
+        <app-article feature="Article" [route]="post"></app-article>
       </ion-col>
-      <ion-col
-        *ngIf="post.github"
-        size="12"
-        size-md="10"
-        offset-md="1"
-        size-xl="9"
-        offset-xl="1"
-      >
+      <ion-col *ngIf="post.github" size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
         <app-github-url [url]="post.github"></app-github-url>
       </ion-col>
       <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
@@ -42,30 +24,16 @@
       <ion-col size="12" size-md="10" offset-md="1">
         <h2>{{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}</h2>
       </ion-col>
-      <ion-col
-        *ngFor="let author of authors$ | async"
-        size="12"
-        size-md="5"
-        offset-md="1"
-      >
+      <ion-col *ngFor="let author of authors$ | async" size="12" size-md="5" offset-md="1">
         <app-author [author]="author"></app-author>
       </ion-col>
-      <ion-col
-        *ngIf="post$ | async as post"
-        class="padding64"
-        size="12"
-        size-md="10"
-        offset-md="1"
-      >
+      <ion-col *ngIf="post$ | async as post" class="padding64" size="12" size-md="10" offset-md="1">
         <h2>Share this post</h2>
         <app-share [route]="post"></app-share>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-card-stack
-    title="Related Posts"
-    subtitle="Find more posts like this one."
-  >
+  <app-card-stack title="Related Posts" subtitle="Find more posts like this one.">
     <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
       <app-article [route]="blogPost"></app-article>
     </ion-card>
@@ -74,5 +42,4 @@
     </ion-card>
   </app-card-stack>
   <app-newsletter-signup class="padding64"></app-newsletter-signup>
-  <app-footer></app-footer>
 </div>

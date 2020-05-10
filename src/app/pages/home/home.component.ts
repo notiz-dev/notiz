@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.generateTags();
-    console.log('home');
     this.latestBlogPost$ = this.scullyContentService.latestPost();
     this.blogPosts$ = this.scullyContentService.posts();
     this.updateBlogPosts$ = this.scullyContentService.lastPosts();

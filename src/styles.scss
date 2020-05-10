@@ -1,8 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
-/* include CSS for prism toolbar */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
-/* check node_modules/prismjs/themes/ for the available themes */
-@import '~prismjs/themes/prism-tomorrow';
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+
+@import '@ionic/angular/css/core';
+@import '@ionic/angular/css/typography';
+@import '@ionic/angular/css/float-elements';
+@import '@ionic/angular/css/text-alignment';
+@import '@ionic/angular/css/text-transformation';
+@import '@ionic/angular/css/flex-utils';
+
+@import '@notiz/ngx-design/styles';
+
+@import 'prismjs/themes/prism-tomorrow';
+@import 'prismjs/plugins/toolbar/prism-toolbar';
+
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+
+@import 'tailwindcss/utilities';
 
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
@@ -11,24 +25,23 @@
   font-family: 'Muli', sans-serif;
 }
 
-body {
-  max-height: unset;
-  overflow: scroll;
-  overflow-x: hidden;
-  position: relative;
-  overscroll-behavior-y: auto;
-}
-
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background:  var(--ion-color-light);
+  background: var(--ion-color-light);
 }
 ::-webkit-scrollbar-thumb {
-  background:  var(--gradient);
+  background: var(--gradient);
   border-radius: 99px;
+}
+
+.theme.dark.rotate niz-inline-svg {
+  transform: rotateZ(180deg);
+}
+.theme niz-inline-svg {
+  transition: transform 150ms ease;
 }
 
 body.dark {
@@ -88,7 +101,6 @@ a:hover {
 body:not(.dark),
 body.dark {
   ion-chip {
-    transition: border 200ms ease, color 200ms ease;
     padding-inline-start: 16px;
     padding-inline-end: 16px;
     font-size: 20px;
@@ -370,7 +382,7 @@ body:not(.dark) {
 .medium-zoom-image--opened {
   z-index: 3;
 }
-blockquote{
+blockquote {
   position: relative;
 }
 blockquote::before {
