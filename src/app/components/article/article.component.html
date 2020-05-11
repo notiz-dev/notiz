@@ -6,25 +6,22 @@
     </ion-chip>
     <div class="date">
       <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
-
       {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
-
-      <!-- <ion-icon *ngIf="type === 'LINK'" name="link"></ion-icon> -->
     </div>
     <h1 *ngIf="feature" class="mt-1 text-3xl">
-      <a [href]="route.route">
+      <a [routerLink]="[route.route]">
         {{ route.title }}
       </a>
     </h1>
     <h2 *ngIf="!feature" class="mt-1 text-2xl">
-      <a [href]="route.route">
+      <a [routerLink]="[route.route]">
         {{ route.title }}
       </a>
     </h2>
   </div>
   <div class="content mt-2">
     <div class="ion-padding-bottom">{{ route.description }}</div>
-    <a *ngFor="let tag of route.tags | slice: 0:3" [href]="'/tags/' + tag | lowercase | dash">
+    <a *ngFor="let tag of route.tags | slice: 0:3" [routerLink]="'/tags/' + tag | lowercase | dash">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>
       </ion-chip>
@@ -35,7 +32,7 @@
       <markdown ngPreserveWhitespaces [data]="sneakPeek | async"></markdown>
     </div>
     <div class="overlay"></div>
-    <ion-button [href]="route.route" fill="clear" shape="round">
+    <ion-button [routerLink]="[route.route]" fill="clear" shape="round">
       read more
     </ion-button>
   </div>

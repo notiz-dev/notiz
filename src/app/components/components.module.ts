@@ -10,6 +10,7 @@ import { ShareComponent } from './share/share.component';
 import { GithubUrlComponent } from './github-url/github-url.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { PipesModule } from '@pipes/pipes.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,15 @@ import { PipesModule } from '@pipes/pipes.module';
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
   ],
-  imports: [CommonModule, PipesModule, IonicModule, MarkdownModule.forChild()],
+  imports: [
+    CommonModule,
+    PipesModule,
+    IonicModule,
+    MarkdownModule.forChild(),
+    RouterModule,
+  ],
   exports: [
     CardStackComponent,
     TagsViewComponent,
@@ -29,8 +36,8 @@ import { PipesModule } from '@pipes/pipes.module';
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
   ],
-  providers: []
+  providers: [],
 })
 export class ComponentsModule {}
