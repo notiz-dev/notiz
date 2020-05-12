@@ -21,7 +21,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
-    "scully": "scully",
+    "scully": "npx scully",
     "scully:build": "npm run build:prod && npm run scully && sh 404.sh",
     "scully:serve": "scully serve",
     "blick:serve": "blick open http://localhost:4200 & ng s",
