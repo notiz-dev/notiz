@@ -14,7 +14,7 @@ exports.config = {
     '/blog/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: './content/blog'
+        folder: './content/blog',
       },
       postRenderers: [
         'amp',
@@ -22,39 +22,39 @@ exports.config = {
         'fouc',
         'rss',
         'mediumZoom',
-        'bannerGenerator'
-      ]
+        'bannerGenerator',
+      ],
     },
     '/links/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: './content/links'
+        folder: './content/links',
       },
       postRenderers: [
         'lazyImages',
         'fouc',
         'rss',
         'mediumZoom',
-        'bannerGenerator'
-      ]
+        'bannerGenerator',
+      ],
     },
     '/authors/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: './content/authors'
-      }
+        folder: './content/authors',
+      },
     },
     '/tags/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: './content/tags'
-      }
+        folder: './content/tags',
+      },
     },
     '/legal/:slug': {
       type: 'contentFolder',
       slug: {
-        folder: './content/legal'
-      }
-    }
-  }
+        folder: './content/legal',
+      },
+    },
+  },
 };

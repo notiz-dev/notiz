@@ -12,7 +12,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import {
   NizTabsModule,
   NizFooterModule,
-  NizTabModule
+  NizTabModule,
 } from '@notiz/ngx-design';
 
 @NgModule({
@@ -21,17 +21,17 @@ import {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ScullyLibModule.forRoot({ useTranferState: true }),
+    ScullyLibModule.forRoot({ useTransferState: true, alwaysMonitor: true }),
     IonicModule.forRoot({ mode: 'md' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
+      enabled: environment.production,
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
     NizTabModule,
-    NizFooterModule
+    NizFooterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
