@@ -8,7 +8,7 @@ require('./projects/amp');
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
-  defaultPostRenderers: ['lazyImages', 'fouc'],
+  defaultPostRenderers: ['fouc', 'seoHrefOptimise'],
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
@@ -18,9 +18,8 @@ exports.config = {
       },
       postRenderers: [
         'amp',
-        'lazyImages',
-        'fouc',
         'rss',
+        'lazyImages',
         'mediumZoom',
         'bannerGenerator',
       ],
@@ -30,13 +29,7 @@ exports.config = {
       slug: {
         folder: './content/links',
       },
-      postRenderers: [
-        'lazyImages',
-        'fouc',
-        'rss',
-        'mediumZoom',
-        'bannerGenerator',
-      ],
+      postRenderers: ['rss', 'lazyImages', 'mediumZoom', 'bannerGenerator'],
     },
     '/authors/:slug': {
       type: 'contentFolder',
