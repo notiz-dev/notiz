@@ -17,6 +17,8 @@ exports.config = {
         folder: './content/blog',
       },
       postRenderers: [
+        'fouc',
+        'seoHrefOptimise',
         'amp',
         'rss',
         'lazyImages',
@@ -29,7 +31,14 @@ exports.config = {
       slug: {
         folder: './content/links',
       },
-      postRenderers: ['rss', 'lazyImages', 'mediumZoom', 'bannerGenerator'],
+      postRenderers: [
+        'fouc',
+        'seoHrefOptimise',
+        'rss',
+        'lazyImages',
+        'mediumZoom',
+        'bannerGenerator',
+      ],
     },
     '/authors/:slug': {
       type: 'contentFolder',
