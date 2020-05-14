@@ -8,7 +8,7 @@ require('./projects/amp');
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
-  defaultPostRenderers: ['fouc', 'seoHrefOptimise', 'lazyImages'],
+  defaultPostRenderers: ['fouc', 'seoHrefOptimise', 'lazyImages','mediumZoom'],
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
