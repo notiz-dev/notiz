@@ -1,9 +1,9 @@
+<div id="medium-zoom"></div>
 <niz-tabs [tabs]="tabs">
   <niz-tab bottom class="theme" [tab]="themeTab"
     [ngClass]="{'dark': themeService.theme === 'dark','rotate': themeService.theme === 'dark'}"
     (click)="themeService.toggleTheme()">
   </niz-tab>
-
   <main class="pl-5 pt-10">
     <router-outlet></router-outlet>
   </main>

@@ -1,3 +1,23 @@
 .theme {
   transition: transform 180ms ease;
 }
+
+#medium-zoom{
+  position: fixed;
+  width: 100%;
+  z-index: -1;
+}
+
+@screen xs{
+  #medium-zoom{
+    height:calc(100% - 80px)
+  }
+}
+
+@screen md{
+  #medium-zoom{
+    height: 100%;
+    width: calc(100% - 80px);
+    left: 80px;
+  }
+}

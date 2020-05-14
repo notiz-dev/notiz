@@ -2,18 +2,18 @@ name: CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm i
-    - run: cd projects/banner-generator && npm i
-    - run: cd projects/amp && npm i
-    - run: npm run scully:build
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm i
+      - run: cd projects/banner-generator && npm i
+      - run: cd projects/amp && npm i
+      - run: npm run scully:ci
