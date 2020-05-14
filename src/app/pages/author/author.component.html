@@ -5,7 +5,7 @@
         <app-breadcrumb></app-breadcrumb>
         <h1 *ngIf="author$ | async as author">More about the author</h1>
       </ion-col>
-      <ion-col size="10" offset="1" size-md="6" offset-md="0" class="padding64">
+      <ion-col size="10" offset="1" size-md="6" offset-md="0">
         <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
       </ion-col>
       <ion-col class="description-wrapper padding64" size="10" offset="1" size-md="6" offset-md="0">
