@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { TagModule } from '@pages/tag/tag.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
+import { TagsViewModule } from '@components/tags-view/tags-view.module';
 
 @NgModule({
   declarations: [TagsComponent],
@@ -18,7 +19,8 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
     IonicModule,
     ComponentsModule,
     TagModule,
-    NewsletterSignupModule
-  ]
+    NewsletterSignupModule,
+    TagsViewModule,
+  ],
 })
 export class TagsModule {}

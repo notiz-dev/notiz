@@ -1,8 +1,15 @@
-<a *ngFor="let tag of weightedTags$ | async" [routerLink]="'/tags/' + tag.tag.slug">
-  <ion-chip [ngClass]="{ big: tag.weight > 20,  small: tag.weight < 5 }">
-    <ion-label>{{ tag.tag.title }}</ion-label>
-  </ion-chip>
-</a>
-<ion-button *ngIf="count > limit" [routerLink]="'/tags/'" fill="clear" shape="round">
+<niz-chip
+  *ngFor="let tag of weightedTags$ | async"
+  [url]="'/tags/' + tag.tag.slug"
+  [size]="getSize(tag.weight)"
+>
+  {{ tag.tag.title }}
+</niz-chip>
+<ion-button
+  *ngIf="count > limit"
+  [routerLink]="'/tags/'"
+  fill="clear"
+  shape="round"
+>
   see all
 </ion-button>
