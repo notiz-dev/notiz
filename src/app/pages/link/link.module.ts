@@ -7,6 +7,7 @@ import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { LinkComponent } from './link.component';
+import { ArticleModule } from '@components/article/article.module';
 
 @NgModule({
   declarations: [LinkComponent],
@@ -16,7 +17,8 @@ import { LinkComponent } from './link.component';
     IonicModule,
     ComponentsModule,
     NewsletterSignupModule,
-    BreadcrumbModule
-  ]
+    BreadcrumbModule,
+    ArticleModule,
+  ],
 })
 export class LinkModule {}

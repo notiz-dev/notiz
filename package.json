@@ -44,7 +44,7 @@
     "@angular/router": "9.1.6",
     "@angular/service-worker": "9.1.6",
     "@ionic/angular": "5.1.0",
-    "@notiz/ngx-design": "0.0.27",
+    "@notiz/ngx-design": "0.0.29",
     "@scullyio/init": "0.0.26",
     "@scullyio/ng-lib": "0.0.22",
     "@scullyio/scully": "0.0.90",

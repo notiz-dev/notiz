@@ -49,20 +49,12 @@ body.dark {
     --background: var(--ion-background-color);
     --box-shadow: 20px 20px 60px #090909, -20px -20px 60px #1b1b1b;
   }
-  ion-chip {
-    background: var(--ion-background-color);
-    box-shadow: 7px 7px 10px #0b0b0b, -7px -7px 10px #191919;
-  }
 }
 
 body:not(.dark) {
   .cta.secondary {
     --background: var(--ion-background-color);
     --box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
-  }
-  ion-chip {
-    background: var(--ion-background-color);
-    box-shadow: 5px 5px 14px #ededed, -5px -5px 14px #ffffff;
   }
 }
 
@@ -96,34 +88,6 @@ a:hover {
   background-image: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-body:not(.dark),
-body.dark {
-  ion-chip {
-    padding-inline-start: 16px;
-    padding-inline-end: 16px;
-    font-size: 20px;
-    border: 2px solid var(--ion-background-color);
-  }
-  ion-chip:hover {
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 2px solid var(--ion-color-primary);
-  }
-  ion-chip.small {
-    font-size: 14px;
-    height: 24px;
-    border-radius: 12px;
-  }
-
-  ion-chip.big {
-    font-size: 32px;
-    height: 48px;
-    border-radius: 24px;
-    padding: 8px 12px;
-  }
 }
 
 a,

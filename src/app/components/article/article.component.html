@@ -1,11 +1,15 @@
-<div [ngClass]="{ featured: feature }">
+<div>
   <div class="header">
-    <ion-chip *ngIf="feature && featureIcon" class="feature-chip" color="secondary" outline="true">
-      <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
-      <ion-label>{{ feature }}</ion-label>
-    </ion-chip>
+    <niz-chip *ngIf="feature && featureIcon" size="lg" class="text-cyan">
+      <ion-icon [name]="featureIcon"></ion-icon>
+      {{ feature }}
+    </niz-chip>
     <div class="date">
-      <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
+      <ion-icon
+        *ngIf="type === 'LINK'"
+        color="secondary"
+        name="link"
+      ></ion-icon>
       {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
     </div>
     <h1 *ngIf="feature" class="mt-1 text-3xl">
@@ -21,11 +25,14 @@
   </div>
   <div class="content mt-2">
     <div class="ion-padding-bottom">{{ route.description }}</div>
-    <a *ngFor="let tag of route.tags | slice: 0:3" [routerLink]="'/tags/' + tag | lowercase | dash">
-      <ion-chip class="ion-no-border" fill="clear" color="dark">
-        <ion-label>{{ tag }}</ion-label>
-      </ion-chip>
-    </a>
+    <niz-chip
+      *ngFor="let tag of route.tags | slice: 0:3"
+      size="xl"
+      [url]="'/tags/' + tag | lowercase | dash"
+      class="text-white"
+    >
+      {{ tag }}
+    </niz-chip>
   </div>
   <div class="ion-padding sneak-peek-wrapper" *ngIf="peek">
     <div class="sneak-peek post">

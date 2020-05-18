@@ -1,38 +1,11 @@
-a {
-  color: var(--ion-text-color);
-  cursor: pointer;
+:host {
+  display: block;
 }
 
 h1,
 h2 {
   font-weight: 600;
   hyphens: auto;
-}
-
-::ng-deep body.dark {
-  .featured {
-    a {
-      color: var(--ion-color-secondary);
-    }
-  }
-}
-
-::ng-deep body:not(.dark) {
-  .featured {
-    a {
-      color: var(--ion-color-primary);
-    }
-  }
-}
-.featured {
-  max-width: 844px;
-  h1 {
-    font-size: 2.4rem;
-  }
-}
-
-:host {
-  display: block;
 }
 
 h1,

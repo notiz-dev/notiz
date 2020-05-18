@@ -8,6 +8,7 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
+import { ArticleModule } from '@components/article/article.module';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -20,6 +21,7 @@ import { TagsViewModule } from '@components/tags-view/tags-view.module';
     NewsletterSignupModule,
     BreadcrumbModule,
     TagsViewModule,
+    ArticleModule,
   ],
 })
 export class AuthorModule {}

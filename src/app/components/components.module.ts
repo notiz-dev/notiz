@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { CardStackComponent } from './card-stack/card-stack.component';
-import { ArticleComponent } from './article/article.component';
 import { AuthorComponent } from './author/author.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
@@ -14,7 +13,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     CardStackComponent,
-    ArticleComponent,
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
@@ -29,7 +27,6 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     CardStackComponent,
-    ArticleComponent,
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
