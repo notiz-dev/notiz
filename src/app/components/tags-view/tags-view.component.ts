@@ -35,7 +35,6 @@ export class TagsViewComponent implements OnInit {
   }
 
   getSize(weight: number): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {
-    console.log('tag weight', weight);
     if (weight < 4) {
       return 'xs';
     } else if (weight < 8) {
