@@ -78,7 +78,7 @@ We will start with the following simple HTML layout - create an `index.html` in 
 
     <link rel="stylesheet" href="build/tailwind.css" />
   </head>
-  <body class="antialiased p-4">
+  <body class="antialiased p-10">
     <form>
       <div>
         <input type="text" name="username" placeholder="" />
@@ -108,13 +108,11 @@ Let's apply our styles for the floating form field.
 Start by adding a bottom border to the `div` using `border-b-{width}`
 
 ```html
-<div class="my-4 border-b-2">
+<div class="border-b-2">
   <input type="text" name="username" placeholder="" />
   <label for="username">Username</label>
 </div>
 ```
-
-Also add top and bottom margin with `my-{size}`, useful when we add another input field to the form.
 
 ![Border bottom](assets/img/blog/floating-form-field-with-tailwindcss/optimized/2-border.png)
 
@@ -141,11 +139,11 @@ Now add `focus-within:border-blue-500` to change the border color on focus
 
 We begin with changing the position of the `div` to `relative` so that we can use `top` to control the position of the `label`. Add `class="absolute top-0"` to the `label`.
 
-`input` is an inline element, add the Tailwind `block` class to change it to a block element.
+`input` is an inline element, add the Tailwind `block` class to change it to a block element. Also set the input width to 100% with `w-full` to tap the input on the whole form field.
 
 ```html
 <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-  <input type="text" name="username" placeholder="" class="block" />
+  <input type="text" name="username" placeholder="" class="block w-full" />
   <label for="username" class="absolute top-0">Username</label>
 </div>
 ```
@@ -170,11 +168,46 @@ Add `-z-1` class to the label, now the label is not visible anymore. Add `bg-tra
 
 ```html
 <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-  <input type="text" name="username" placeholder="" class="block bg-transparent" />
+  <input type="text" name="username" placeholder="" class="block w-full bg-transparent" />
   <label for="username" class="absolute top-0 -z-1">Username</label>
 </div>
 ```
 
-Now the label is visible and the input field can be focused when clicking the label.
+The label is again visible and the input field can be focused by taping on the label too.
+
+Next we are making the label float above the input using again the pseudo-class `focus-within`. Open your `tailwind.css` and add the following CSS selector:
+
+```css
+input:focus-within ~ label {
+ 
+}
+```
+
+Now we can use Tailwinds [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply) to transform, scale and change the label text color on input focus.
+
+```css
+input:focus-within ~ label {
+ @apply transform scale-75 -translate-y-6 text-blue-500;
+}
+```
+
+Also add `duration-300` to your label class to control the labels transition duration.
+
+![Floating label on focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/5-floating-label-on-focus.png)
+
+Awesome the label is floating, however, it stops floating when we remove the focus from the input. We want the label to keep floating if the input field has some content. We can target the `placeholder` if its not shown `input:not(:placeholder-shown) ~ label` then we know the input has content. 
+
+```css
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+  @apply text-blue-500;
+}
+```
+
+![Floating label without focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/5-floating-label-without-focus.png)
 
 ## Outline Form Field
