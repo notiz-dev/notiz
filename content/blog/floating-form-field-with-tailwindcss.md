@@ -12,11 +12,9 @@ authors:
 github: https://github.com/notiz-dev/...
 ---
 
-In the following lessons you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). 
+In the following lessons you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). This is inspired by the awesome video from [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
 
-![Floating form field result](assets/img/blog/floating-form-field-with-tailwindcss/optimized/floating-form-field-result.png)
-
-Inspired by the awesome video by [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
+![Floating form field](assets/img/blog/floating-form-field-with-tailwindcss/optimized/7-floating-form-field.png)
 
 ## Setup
 
@@ -148,7 +146,7 @@ We begin with changing the position of the `div` to `relative` so that we can us
 </div>
 ```
 
-Currently the label is covering our input field and preventing us from focusing the input.
+Currently the label is covering our input field and preventing us from focusing the input 🙈.
 
 ![Label is covering up the input](assets/img/blog/floating-form-field-with-tailwindcss/optimized/4-label-covers-input.png)
 
@@ -173,7 +171,7 @@ Add `-z-1` class to the label, now the label is not visible anymore. Add `bg-tra
 </div>
 ```
 
-The label is again visible and the input field can be focused by taping on the label too.
+The label is again visible and the input field can be focused by taping on the label too 🐵.
 
 Next we are making the label float above the input using again the pseudo-class `focus-within`. Open your `tailwind.css` and add the following CSS selector:
 
@@ -195,7 +193,7 @@ Also add `duration-300` to your label class to control the labels transition dur
 
 ![Floating label on focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/5-floating-label-on-focus.png)
 
-Awesome the label is floating, however, it stops floating when we remove the focus from the input. We want the label to keep floating if the input field has some content. We can target the `placeholder` if its not shown `input:not(:placeholder-shown) ~ label` then we know the input has content. 
+Awesome the label is floating 🎈, however, it stops floating when we remove the focus from the input 😞. We want the label to keep floating if the input field has some content. We can target the `placeholder` if its not shown `input:not(:placeholder-shown) ~ label` then we know the input has content. 
 
 ```css
 input:focus-within ~ label,
@@ -208,6 +206,25 @@ input:focus-within ~ label {
 }
 ```
 
-![Floating label without focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/5-floating-label-without-focus.png)
+![Floating label without focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/6-floating-label-without-focus.png)
+
+Yeah 🤩, the label floats on focus and if the input has content. It seems the label is not aligned with the input field. We can set `transform-origin` on the label to 0%. Let Tailwind generate it for you, open `tailwind.config.js` and add it to the theme section:
+
+```js
+theme: {
+  extend: {
+    transformOrigin: {
+      "0": "0%",
+    },
+    zIndex: {
+      "-1": "-1",
+    },
+  },
+}
+```
+
+Now add `origin-0` to the label and finally we have our own floating form field made with Tailwind CSS 😍🚀
+
+![Floating Form Field](assets/img/blog/floating-form-field-with-tailwindcss/optimized/7-floating-form-field.png)
 
 ## Outline Form Field
