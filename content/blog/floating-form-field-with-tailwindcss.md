@@ -81,7 +81,7 @@ We will start with the following simple HTML layout - create an `index.html` in 
   <body class="antialiased p-4">
     <form>
       <div>
-        <input type="text" name="username" />
+        <input type="text" name="username" placeholder="" />
         <label for="username">Username</label>
       </div>
     </form>
@@ -102,5 +102,39 @@ Here we have our input and label.
 Let's apply our styles for the floating form field.
 
 ## Floating Form Field
+
+### Focus Border
+
+Start by adding a bottom border to the `div` using `border-b-{width}`
+
+```html
+<div class="my-4 border-b-2">
+  <input type="text" name="username" placeholder="" />
+  <label for="username">Username</label>
+</div>
+```
+
+Also add top and bottom margin with `my-{size}`, useful when we add another form field to the form.
+
+![Border bottom](assets/img/blog/floating-form-field-with-tailwindcss/optimized/2-border.png)
+
+We want to change the border color when the input is focused. We can use the pseudo-class `focus-within`. Enable the [focus-within variant](https://tailwindcss.com/docs/pseudo-class-variants/#focus-within) in Tailwind for `borderColor` by adding it in the `tailwind.config.js` under the variant section:
+
+```js
+variants: {
+  borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
+},
+```
+
+Now add `focus-within:border-blue-500` to change the border color on focus
+
+```html
+<div class="my-4 border-b-2 focus-within:border-blue-500">
+  <input type="text" name="username" placeholder="" />
+  <label for="username">Username</label>
+</div>
+```
+
+![Change border color on focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/3-focus-border-color.png)
 
 ## Outline Form Field
