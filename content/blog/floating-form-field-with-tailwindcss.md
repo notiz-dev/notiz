@@ -114,11 +114,11 @@ Start by adding a bottom border to the `div` using `border-b-{width}`
 </div>
 ```
 
-Also add top and bottom margin with `my-{size}`, useful when we add another form field to the form.
+Also add top and bottom margin with `my-{size}`, useful when we add another input field to the form.
 
 ![Border bottom](assets/img/blog/floating-form-field-with-tailwindcss/optimized/2-border.png)
 
-We want to change the border color when the input is focused. We can use the pseudo-class `focus-within`. Enable the [focus-within variant](https://tailwindcss.com/docs/pseudo-class-variants/#focus-within) in Tailwind for `borderColor` by adding it in the `tailwind.config.js` under the variant section:
+We want to change the border color when the input is focused. We can use the pseudo-class `focus-within`. Enable the [focus-within variant](https://tailwindcss.com/docs/pseudo-class-variants/#focus-within) in Tailwind for `borderColor` by adding it in the `tailwind.config.js` under the variants section:
 
 ```js
 variants: {
@@ -136,5 +136,45 @@ Now add `focus-within:border-blue-500` to change the border color on focus
 ```
 
 ![Change border color on focus](assets/img/blog/floating-form-field-with-tailwindcss/optimized/3-focus-border-color.png)
+
+### Floating Label
+
+We begin with changing the position of the `div` to `relative` so that we can use `top` to control the position of the `label`. Add `class="absolute top-0"` to the `label`.
+
+`input` is an inline element, add the Tailwind `block` class to change it to a block element.
+
+```html
+<div class="relative my-4 border-b-2 focus-within:border-blue-500">
+  <input type="text" name="username" placeholder="" class="block" />
+  <label for="username" class="absolute top-0">Username</label>
+</div>
+```
+
+Currently the label is covering our input field and preventing us from focusing the input.
+
+![Label is covering up the input](assets/img/blog/floating-form-field-with-tailwindcss/optimized/4-label-covers-input.png)
+
+Let's change the `z-index` of the label to be behind the input field by setting it to `z-index: -1`. We need to extend the Tailwind theme to generate a negative z-index for us:
+
+```js
+theme: {
+  extend: {
+    zIndex: {
+      "-1": "-1",
+    },
+  },
+}
+```
+
+Add `-z-1` class to the label, now the label is not visible anymore. Add `bg-transparent` to the `input`. 
+
+```html
+<div class="relative my-4 border-b-2 focus-within:border-blue-500">
+  <input type="text" name="username" placeholder="" class="block bg-transparent" />
+  <label for="username" class="absolute top-0 -z-1">Username</label>
+</div>
+```
+
+Now the label is visible and the input field can be focused when clicking the label.
 
 ## Outline Form Field
