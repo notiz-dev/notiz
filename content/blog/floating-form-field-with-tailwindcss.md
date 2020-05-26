@@ -14,7 +14,7 @@ github: https://github.com/notiz-dev/...
 
 In the following lessons you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). This is inspired by the awesome video from [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
 
-![Floating form field](assets/img/blog/floating-form-field-with-tailwindcss/optimized/7-floating-form-field.png)
+![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
 ## Setup
 
@@ -79,7 +79,7 @@ We will start with the following simple HTML layout - create an `index.html` in 
   <body class="antialiased p-10">
     <form>
       <div>
-        <input type="text" name="username" placeholder="" />
+        <input type="text" name="username" placeholder=" " />
         <label for="username">Username</label>
       </div>
     </form>
@@ -107,7 +107,7 @@ Start by adding a bottom border to the `div` using `border-b-{width}`
 
 ```html
 <div class="border-b-2">
-  <input type="text" name="username" placeholder="" />
+  <input type="text" name="username" placeholder=" " />
   <label for="username">Username</label>
 </div>
 ```
@@ -126,7 +126,7 @@ Now add `focus-within:border-blue-500` to change the border color on focus
 
 ```html
 <div class="my-4 border-b-2 focus-within:border-blue-500">
-  <input type="text" name="username" placeholder="" />
+  <input type="text" name="username" placeholder=" " />
   <label for="username">Username</label>
 </div>
 ```
@@ -137,11 +137,11 @@ Now add `focus-within:border-blue-500` to change the border color on focus
 
 We begin with changing the position of the `div` to `relative` so that we can use `top` to control the position of the `label`. Add `class="absolute top-0"` to the `label`.
 
-`input` is an inline element, add the Tailwind `block` class to change it to a block element. Also set the input width to 100% with `w-full` to tap the input on the whole form field.
+`input` is an inline element, add the Tailwind `block` class to change it to a block element. Also set the input width to 100% with `w-full` to tap the input on the whole form field. Additionally, add `appearance-none` and `focus:outline-none` to the input to remove browser specific styles.
 
 ```html
 <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-  <input type="text" name="username" placeholder="" class="block w-full" />
+  <input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none" />
   <label for="username" class="absolute top-0">Username</label>
 </div>
 ```
@@ -166,7 +166,7 @@ Add `-z-1` class to the label, now the label is not visible anymore. Add `bg-tra
 
 ```html
 <div class="relative my-4 border-b-2 focus-within:border-blue-500">
-  <input type="text" name="username" placeholder="" class="block w-full bg-transparent" />
+  <input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
   <label for="username" class="absolute top-0 -z-1">Username</label>
 </div>
 ```
@@ -226,5 +226,33 @@ theme: {
 Now add `origin-0` to the label and finally we have our own floating form field made with Tailwind CSS 😍🚀
 
 ![Floating Form Field](assets/img/blog/floating-form-field-with-tailwindcss/optimized/7-floating-form-field.png)
+
+### Building a form
+
+Building a form field by duplicating the floating form field or by extracting the styles with [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply).
+
+Add `space-y-{size}` to the form to add margin between your input fields and we can even wrap it in a card.
+
+```html
+ <form class="max-w-sm mx-auto rounded-lg shadow-xl overflow-hidden p-6 space-y-10">
+  <h2 class="text-2xl font-bold text-center">Login</h2>
+  <div class="relative border-b-2 focus-within:border-blue-500">
+    <input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
+    <label for="username" class="absolute top-0 -z-1 duration-300 origin-0">Username</label>
+  </div>
+  <div class="relative border-b-2 focus-within:border-blue-500">
+    <input type="text" name="email" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
+    <label for="email" class="absolute top-0 -z-1 duration-300 origin-0">Email</label>
+  </div>
+  <div class="relative border-b-2 focus-within:border-blue-500">
+    <input type="password" name="password" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" />
+    <label for="password" class="absolute top-0 -z-1 duration-300 origin-0">Password</label>
+  </div>
+</form>
+```
+
+Here we have our first form using our floating form field
+
+![Floating form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
 ## Outline Form Field
