@@ -9,7 +9,7 @@ tags:
   - CSS
 authors:
   - Marc Stammerjohann
-github: https://github.com/notiz-dev/...
+github: https://github.com/notiz-dev/floating-form-field-tailwindcss
 ---
 
 In the following lessons you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). This is inspired by the awesome video from [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
