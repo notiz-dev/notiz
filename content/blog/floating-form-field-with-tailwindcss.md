@@ -16,6 +16,8 @@ In the following lessons you will learn how to use [Tailwind CSS](https://tailwi
 
 ![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
+You can follow along in a new project or get the [source code](https://github.com/notiz-dev/floating-form-field-tailwindcss) from GitHub.
+
 ## Setup
 
 Let's start in an empty directory and setup up a default `package.json` file using `npm init -y`.
@@ -229,7 +231,7 @@ Now add `origin-0` to the label and finally we have our own floating form field 
 
 ### Building a form
 
-Building a form field by duplicating the floating form field or by extracting the styles with [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply).
+Let's build a form field by duplicating the floating form field or by extracting the styles with [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply).
 
 Add `space-y-{size}` to the form to add margin between your input fields and we can even wrap it in a card.
 
@@ -276,6 +278,69 @@ Look at our outline form field
 
 Try to focus into the field and you notice the label is **not** covering up the outline.
 
-![Floating label not covering the outline](assets/img/blog/floating-form-field-with-tailwindcss/optimized/9-outline-floating-label.png)
+![Floating label not covering the outline](assets/img/blog/floating-form-field-with-tailwindcss/optimized/9-outline-floating-label-below.png)
 
+To make the label cover up the outline we have to customize the floating css applied to the outline form field. Duplicate the custom CSS in your `tailwind.css` and add `.outline` class to both selectors. Add `outline` class to the `div` around your input and label.
+
+```css
+.outline input:focus-within ~ label,
+.outline input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+```
+
+We need to update a few styles on the label
+
+- Remove padding top and bottom `py-0`
+- Reduce padding left and right `px-1`
+- Add margin left `ml-3`
+- Reset z-index `z-0`
+
+Also we have to reduce the translate to match the outline.
+
+```css
+.outline input:focus-within ~ label,
+.outline input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+}
+```
+
+Perfect the label is exactly on the outline, but we still the the line.
+
+![Floating label covers outline with line through](assets/img/blog/floating-form-field-with-tailwindcss/optimized/10-outline-floating-label-with-line-through.png)
+
+To hide the outline set the background of the label to the same background of the container where you show the form field. Here we can add `bg-white` to the label.
+
+```html
+<div class="outline relative border-2 focus-within:border-blue-500">
+  <input type="text" name="username" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+  <label for="username" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0">Username</label>
+</div>
+```
+
+Now we have the outline form field working too 👍
+
+### Building a form
+
+Now we can create our form using the outline style.
+
+```html
+<form class="max-w-sm mx-auto rounded-lg shadow-xl overflow-hidden p-6 space-y-10">
+  <h2 class="text-2xl font-bold text-center">Login</h2>
+  <div class="outline relative border-2 focus-within:border-blue-500">
+    <input type="text" name="username" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+    <label for="username" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0">Username</label>
+  </div>
+  <div class="outline relative border-2 focus-within:border-blue-500">
+    <input type="email" name="email" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+    <label for="email" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0">Email</label>
+  </div>
+  <div class="outline relative border-2 focus-within:border-blue-500">
+    <input type="password" name="password" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+    <label for="password" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0">Password</label>
+  </div>
+</form>
+```
+
+![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
