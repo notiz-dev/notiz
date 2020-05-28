@@ -2,8 +2,8 @@
 title: Floating Form Field with Tailwind CSS
 description: Learn how to build a floating form field with Tailwind CSS
 published: true
-publishedAt: 2020-05-25T11:30:00.000Z
-updatedAt: 2020-05-25T11:30:00.000Z
+publishedAt: 2020-05-28T12:50:00.000Z
+updatedAt: 2020-05-28T12:50:00.000Z
 tags:
   - Tailwind CSS
   - CSS
