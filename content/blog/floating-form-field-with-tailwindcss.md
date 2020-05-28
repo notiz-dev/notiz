@@ -12,7 +12,7 @@ authors:
 github: https://github.com/notiz-dev/floating-form-field-tailwindcss
 ---
 
-In the following lessons you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). This is inspired by the awesome video from [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
+In the following lesson you will learn how to use [Tailwind CSS](https://tailwindcss.com) utility-first approach to create a floating form field known from [Material Design](https://material.io/components/text-fields). This is inspired by the awesome video from [fireship.io](https://www.youtube.com/watch?v=yrrw6KdGuxc).
 
 ![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
@@ -173,9 +173,9 @@ Add `-z-1` class to the label, now the label is not visible anymore. Add `bg-tra
 </div>
 ```
 
-The label is again visible and the input field can be focused by taping on the label too 🐵.
+The label is visible again and the input field can be focused by taping on the label too 🐵.
 
-Next we are making the label float above the input using again the pseudo-class `focus-within`. Open your `tailwind.css` and add the following CSS selector:
+Next we are making the label float above the input, again, using the pseudo-class `focus-within`. Open your `tailwind.css` and add the following CSS selector:
 
 ```css
 input:focus-within ~ label {
@@ -183,7 +183,7 @@ input:focus-within ~ label {
 }
 ```
 
-Now we can use Tailwinds [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply) to transform, scale and change the label text color on input focus.
+Now we can use Tailwind's [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply) to transform, scale and change the label text color on input focus.
 
 ```css
 input:focus-within ~ label {
@@ -233,7 +233,7 @@ Now add `origin-0` to the label and finally we have our own floating form field 
 
 Let's build a form field by duplicating the floating form field or by extracting the styles with [@apply](https://tailwindcss.com/docs/functions-and-directives/#apply).
 
-Add `space-y-{size}` to the form to add margin between your input fields and we can even wrap it in a card.
+Add `space-y-{size}` to the form to add margin between your input fields. You could also wrap it with a card.
 
 ```html
  <form class="max-w-sm mx-auto rounded-lg shadow-xl overflow-hidden p-6 space-y-10">
@@ -261,7 +261,7 @@ Next we are trying out another style - Outline Form Field.
 
 ## Outline Form Field
 
-In this style the form field has and outline all around and the label floats into the outline. We reuse the floating form field and change `border-b-2` to `border-2` this gives us the outline. 
+In this style the form field has an outline all around and the label floats into the outline. We reuse the floating form field and change `border-b-2` to `border-2` this gives us the outline. 
 
 We should add padding `p-4` to create space inside the outline and increase the font size `text-lg` of the input and the label.
 
@@ -305,7 +305,7 @@ Also we have to reduce the translate to match the outline.
 }
 ```
 
-Perfect the label is exactly on the outline, but we still the the line.
+Perfect the label is exactly on the outline, but we still the line.
 
 ![Floating label covers outline with line through](assets/img/blog/floating-form-field-with-tailwindcss/optimized/10-outline-floating-label-with-line-through.png)
 
@@ -318,7 +318,7 @@ To hide the outline set the background of the label to the same background of th
 </div>
 ```
 
-Now we have the outline form field working too 👍
+Now we have the outline form field working too. 👍
 
 ### Building a form
 
@@ -344,4 +344,4 @@ Now we can create our form using the outline style.
 
 ![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
-Go ahead create and customize your own floating form field w/ Tailwind CSS. Send me your own design on Twitter [@mrcjln](https://twitter.com/mrcjln).
+If you followed along, create and customize your own floating form field w/ Tailwind CSS. Send me your own design on Twitter [@mrcjln](https://twitter.com/mrcjln).
