@@ -335,6 +335,6 @@ Now create a form using the outline style.
 </form>
 ```
 
-![Floating Form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
+![Outline Form](assets/img/blog/floating-form-field-with-tailwindcss/outline-form.gif)
 
 If you followed along, create and customize your own floating form field w/ Tailwind CSS. Send me your own design on Twitter [@mrcjln](https://twitter.com/mrcjln).
