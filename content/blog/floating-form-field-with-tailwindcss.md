@@ -255,4 +255,27 @@ Here we have our first form using our floating form field
 
 ![Floating form](assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif)
 
+Next we are trying out another style - Outline Form Field.
+
 ## Outline Form Field
+
+In this style the form field has and outline all around and the label floats into the outline. We reuse the floating form field and change `border-b-2` to `border-2` this gives us the outline. 
+
+We should add padding `p-4` to create space inside the outline and increase the font size `text-lg` of the input and the label.
+
+```html
+<div class="relative border-2 focus-within:border-blue-500">
+  <input type="password" name="password" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+  <label for="password" class="absolute top-0 p-4 text-lg -z-1 duration-300 origin-0">Password</label>
+</div>
+```
+
+Look at our outline form field
+
+![Outline form field](assets/img/blog/floating-form-field-with-tailwindcss/optimized/8-outline-form-field.png)
+
+Try to focus into the field and you notice the label is **not** covering up the outline.
+
+![Floating label not covering the outline](assets/img/blog/floating-form-field-with-tailwindcss/optimized/9-outline-floating-label.png)
+
+
