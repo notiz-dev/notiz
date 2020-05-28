@@ -1,4 +1,4 @@
 ---
 title: Tailwind CSS
-slug: tailwindcss
+slug: tailwind-css
 ---
