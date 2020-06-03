@@ -1,0 +1,9 @@
+<a [class]="styles" *ngIf="url" [routerLink]="url">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+
+<span [class]="styles" *ngIf="!url">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</span>
+
+<ng-template #content><ng-content></ng-content></ng-template>

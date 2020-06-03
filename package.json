@@ -29,7 +29,9 @@
     "optimize:images": "node optimize-images.js",
     "build:image-template": "ng build image-template --prod --output-hashing none && npm run package:image-template",
     "package:image-template": "cat ./dist/image-template/{runtime,polyfills,main}-es5.js > projects/image-template/dist/image-template.js && ls -lah projects/image-template/dist/image-template.js && cp dist/image-template/styles.css projects/image-template/dist",
-    "link:add": "node projects/link-generator && ng build && npm run scully"
+    "link:add": "node projects/link-generator && ng build && npm run scully",
+    "build:design": "ng build --project design --prod",
+    "publish:ngx-design": "npm run build:design && npm publish dist/design --tag alpha"
   },
   "private": true,
   "dependencies": {
@@ -44,7 +46,6 @@
     "@angular/router": "9.1.9",
     "@angular/service-worker": "9.1.9",
     "@ionic/angular": "5.1.1",
-    "@notiz/ngx-design": "0.0.26",
     "@scullyio/init": "0.0.28",
     "@scullyio/ng-lib": "0.0.24",
     "@scullyio/scully": "0.0.93",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "9.1.0",
     "@angular-devkit/build-angular": "0.901.7",
+    "@angular-devkit/build-ng-packagr": "~0.900.3",
     "@angular/cli": "9.1.7",
     "@angular/compiler-cli": "9.1.9",
     "@angular/language-service": "9.1.9",
@@ -81,6 +83,7 @@
     "karma-coverage-istanbul-reporter": "2.1.0",
     "karma-jasmine": "2.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
+    "ng-packagr": "^9.0.0",
     "postcss-import": "12.0.1",
     "postcss-loader": "3.0.0",
     "postcss-scss": "2.0.0",
