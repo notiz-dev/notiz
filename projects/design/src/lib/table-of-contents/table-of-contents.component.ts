@@ -1,18 +1,7 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { DOCUMENT, Location } from '@angular/common';
-import {
-  fromEvent,
-  Subject,
-  Observable,
-  merge,
-} from 'rxjs';
-import {
-  tap,
-  map,
-  takeUntil,
-  switchMap,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { fromEvent, Subject, Observable, merge } from 'rxjs';
+import { tap, map, takeUntil, switchMap, withLatestFrom } from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { ActivatedRoute } from '@angular/router';
 
@@ -79,6 +68,23 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
         tap(([el, route]) =>
           this.location.replaceState(`${route.route}#${el.id}`)
         )
+      )
+      .subscribe();
+
+   this.headers$.pipe(
+        switchMap((anchors) =>
+          merge(
+            ...anchors.map((a) =>
+              fromEvent(a, 'click').pipe(
+                map((ev) => a),
+                withLatestFrom(this.scully.getCurrent())
+              )
+            )
+          )
+        ),
+        tap(console.log),
+        tap(([el, route]) => this.scrollTo(route.route, el.id)),
+        takeUntil(this.onDestroy$)
       )
       .subscribe();
   }

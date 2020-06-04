@@ -32,10 +32,6 @@ Open the newly created project in your favorite IDE.
 
 Next, run: 
 
-### Test 1
-
-
-
 ```bash
 ng g library components
 ```
@@ -69,9 +65,6 @@ If you want to publish your components as Custom Elements cd into `./projects/el
 npm init
 ```
 
-### Test 2
-
-
 Then, add the following to the newly created **package.json**:
 
 ```js
@@ -99,7 +92,7 @@ Do some changes to your elements `app.module.ts`:
 * Add `ngDoBootstrap` hook.
 * For every component create an element using the `createCustomElement` function from `@angular/elements`. Then define the element using web's native `customElemments.define` function, specifying a selector.
 
-### Test 3
+
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
@@ -129,7 +122,7 @@ Remove `zone.js` (optional):
 
 > Removing `zone.js` is probably a good idea. Read more about it [in this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
 
-### Test 4
+
 ```typescript
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
