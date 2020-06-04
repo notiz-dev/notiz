@@ -29,10 +29,10 @@ module.exports = {
     screens: {
       xx: '0px',
       xs: '256px',
-      sm: '640px',
+      sm: '576px',
       md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+      lg: '992px',
+      xl: '1200px',
     },
   },
 };
