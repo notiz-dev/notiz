@@ -13,7 +13,7 @@
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
+    "strictMetadataEmit": false,
     "enableResourceInlining": true
   },
   "exclude": [
