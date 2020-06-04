@@ -37,7 +37,13 @@
               "src/manifest.webmanifest"
             ],
             "styles": ["src/styles.scss", "src/theme/variables.scss"],
-            "scripts": ["node_modules/marked/lib/marked.js"]
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "dist/shortcodes/main-es5.js",
+              "dist/shortcodes/main-es2015.js",
+              "dist/shortcodes/polyfills-es5.js",
+              "dist/shortcodes/polyfills-es2015.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -311,9 +317,122 @@
               "projects/design/tsconfig.lib.json",
               "projects/design/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "shortcodes": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/shortcodes",
+      "sourceRoot": "projects/shortcodes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/shortcodes",
+            "index": "projects/shortcodes/src/index.html",
+            "main": "projects/shortcodes/src/main.ts",
+            "polyfills": "projects/shortcodes/src/polyfills.ts",
+            "tsConfig": "projects/shortcodes/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/shortcodes/src/favicon.ico",
+              "projects/shortcodes/src/assets"
+            ],
+            "styles": ["projects/shortcodes/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/shortcodes/src/environments/environment.ts",
+                  "with": "projects/shortcodes/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "shortcodes:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shortcodes:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shortcodes:build"
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/shortcodes/src/test.ts",
+            "polyfills": "projects/shortcodes/src/polyfills.ts",
+            "tsConfig": "projects/shortcodes/tsconfig.spec.json",
+            "karmaConfig": "projects/shortcodes/karma.conf.js",
+            "assets": [
+              "projects/shortcodes/src/favicon.ico",
+              "projects/shortcodes/src/assets"
+            ],
+            "styles": ["projects/shortcodes/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shortcodes/tsconfig.app.json",
+              "projects/shortcodes/tsconfig.spec.json",
+              "projects/shortcodes/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/shortcodes/e2e/protractor.conf.js",
+            "devServerTarget": "shortcodes:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shortcodes:serve:production"
+            }
           }
         }
       }

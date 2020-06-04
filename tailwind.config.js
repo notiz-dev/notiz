@@ -19,6 +19,9 @@ module.exports = {
         'color-light': 'var(--text-color-light)',
         tabs: 'var(--tabs)',
       },
+      boxShadow: {
+        double: 'var(--shadow-double)',
+      },
       fontFamily: {
         sans: ['Muli'],
       },
