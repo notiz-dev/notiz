@@ -1,14 +1,21 @@
-require('@notiz/scully-plugin-lazy-images');
-require('@notiz/scully-plugin-fouc');
-require('@notiz/scully-plugin-rss');
-require('@notiz/scully-plugin-medium-zoom');
-require('./projects/banner-generator');
-require('./projects/amp');
+import '@notiz/scully-plugin-lazy-images';
+import '@notiz/scully-plugin-fouc';
+import '@notiz/scully-plugin-rss';
+import '@notiz/scully-plugin-medium-zoom';
+import './projects/banner-generator';
+import './projects/amp';
+
+const defaultPostRenderers = [
+  'fouc',
+  'seoHrefOptimise',
+  'lazyImages',
+  'mediumZoom',
+];
 
 exports.config = {
   projectRoot: './src',
   projectName: 'notiz',
-  defaultPostRenderers: ['fouc', 'seoHrefOptimise', 'lazyImages','mediumZoom'],
+  defaultPostRenderers,
   outDir: './dist/static',
   routes: {
     '/blog/:slug': {
@@ -16,29 +23,14 @@ exports.config = {
       slug: {
         folder: './content/blog',
       },
-      postRenderers: [
-        'fouc',
-        'seoHrefOptimise',
-        'amp',
-        'rss',
-        'lazyImages',
-        'mediumZoom',
-        'bannerGenerator',
-      ],
+      postRenderers: [...defaultPostRenderers, 'amp', 'rss', 'bannerGenerator'],
     },
     '/links/:slug': {
       type: 'contentFolder',
       slug: {
         folder: './content/links',
       },
-      postRenderers: [
-        'fouc',
-        'seoHrefOptimise',
-        'rss',
-        'lazyImages',
-        'mediumZoom',
-        'bannerGenerator',
-      ],
+      postRenderers: [...defaultPostRenderers, 'rss', 'bannerGenerator'],
     },
     '/authors/:slug': {
       type: 'contentFolder',

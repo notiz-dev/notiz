@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
   createdWithSvgSources = [
     'assets/stack/angular.svg',
     'assets/stack/scully.svg',
-    'assets/stack/tailwindcss.svg',
+    'assets/stack/tailwind-css.svg',
     'assets/stack/firebase.svg'
   ];
 

@@ -1,5 +1,10 @@
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.ts'],
+  purge: [
+    './src/**/*.html',
+    './src/**/*.ts',
+    './projects/design/**/*.html',
+    './projects/design/**/*.ts',
+  ],
   theme: {
     extend: {
       colors: {
@@ -29,9 +34,9 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    variants: {
-      borderWidth: ['responsive', 'hover'],
-    },
-    plugins: [],
   },
+  variants: {
+    borderWidth: ['responsive', 'hover'],
+  },
+  plugins: [],
 };

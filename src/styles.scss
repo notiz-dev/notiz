@@ -1,5 +1,6 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
+@import 'base-styles.scss';
 
 @import '@ionic/angular/css/core';
 @import '@ionic/angular/css/typography';
@@ -7,8 +8,6 @@
 @import '@ionic/angular/css/text-alignment';
 @import '@ionic/angular/css/text-transformation';
 @import '@ionic/angular/css/flex-utils';
-
-@import '@notiz/ngx-design/styles';
 
 @import 'prismjs/themes/prism-tomorrow';
 @import 'prismjs/plugins/toolbar/prism-toolbar';

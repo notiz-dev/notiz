@@ -1,7 +1,7 @@
 <div *ngIf="post$ | async as post">
   <ion-grid fixed no-padding>
     <ion-row>
-      <ion-col class="padding64" size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
+      <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
         <app-breadcrumb></app-breadcrumb>
         <app-article feature="Link" [route]="post"></app-article>
       </ion-col>

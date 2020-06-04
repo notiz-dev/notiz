@@ -1,16 +1,26 @@
 <div>
-  <ion-grid fixed no-padding class="padding64">
+  <ion-grid fixed no-padding>
     <ion-row>
-      <ion-col class="ion-padding" size="12" size-md="4">
+      <ion-col class="ion-padding hidden md:block" size="12" size-md="4">
         <div class="sticky-tags">
-          <h2 class="ml-6 text-2xl font-semibold"><a routerLink="tags">Tags</a></h2>
-          <app-tags-view limit="10" [blogPosts]="blogPosts$" [tags]="tags$"></app-tags-view>
+          <h2 class="ml-6 text-2xl font-semibold">
+            <a routerLink="/tags">Tags</a>
+          </h2>
+          <app-tags-view
+            limit="10"
+            [blogPosts]="blogPosts$"
+            [tags]="tags$"
+          ></app-tags-view>
         </div>
       </ion-col>
       <ion-col class="ion-padding" size="12" size-md="8">
         <h1 class="text-3xl font-bold">All Posts</h1>
         <!-- TODO infinite scroll -->
-        <app-article class="list-article" *ngFor="let blogPost of blogPosts$ | async" [route]="blogPost">
+        <app-article
+          class="list-article"
+          *ngFor="let blogPost of blogPosts$ | async"
+          [route]="blogPost"
+        >
         </app-article>
       </ion-col>
     </ion-row>
