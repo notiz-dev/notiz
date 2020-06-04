@@ -82,7 +82,6 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
             )
           )
         ),
-        tap(console.log),
         tap(([el, route]) => this.scrollTo(route.route, el.id)),
         takeUntil(this.onDestroy$)
       )
