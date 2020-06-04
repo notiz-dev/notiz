@@ -1,0 +1,18 @@
+<ul>
+    <h2>Table of Contents</h2>
+  <li>
+    <a class="h3" *ngIf="(scully.getCurrent() | async)?.route as route" (click)="scrollToTop(route)">Top of Page</a>
+  </li>
+  <li *ngFor="let header of headers$ | async">
+    <a
+      [ngClass]="[header.localName, active(route, header.id)]"
+      *ngIf="(scully.getCurrent() | async)?.route as route"
+      (click)="scrollTo(route, header.id)"
+    >
+      {{ header.innerHTML }}</a
+    >
+  </li>
+  <li>
+    <a class="h3" (click)="scrollToRelated()">Related Articles</a>
+  </li>
+</ul>

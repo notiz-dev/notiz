@@ -14,4 +14,6 @@ export * from './lib/tabs/tabs.component';
 export * from './lib/tabs/tabs.module';
 export * from './lib/toolbar/toolbar.component';
 export * from './lib/toolbar/toolbar.module';
+export * from './lib/table-of-contents/table-of-contents.component';
+export * from './lib/table-of-contents/table-of-contents.module';
 export * from './lib/utils/symbols';
