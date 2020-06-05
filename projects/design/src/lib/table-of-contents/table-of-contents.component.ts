@@ -41,8 +41,10 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     fromEvent(window, 'AngularReady')
       .pipe(
         switchMap((ev) => this.route.fragment),
-        withLatestFrom(this.scully.getCurrent()),
-        tap(([fragment, route]) => this.scrollTo(route.route, fragment)),
+        switchMap((fragment) =>
+          this.scully.getCurrent().pipe(map((c) => [fragment, c.route]))
+        ),
+        tap(([fragment, route]) => this.scrollTo(route, fragment)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
@@ -70,11 +72,11 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     this.headers$
       .pipe(
         switchMap((headers) => merge(...headers.map((h) => isVisible(h)))),
-        withLatestFrom(this.scully.getCurrent()),
-        // takeUntil(this.onDestroy$),
+        switchMap((el) => this.scully.getCurrent().pipe(map((c) => [el, c]))),
         tap(([el, route]) =>
           this.location.replaceState(`${route.route}#${el.id}`)
-        )
+        ),
+        takeUntil(this.onDestroy$)
       )
       .subscribe();
 
@@ -84,13 +86,14 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
           merge(
             ...anchors.map((a) =>
               fromEvent(a, 'click').pipe(
-                map((ev) => a),
-                withLatestFrom(this.scully.getCurrent())
+                switchMap((ev) =>
+                  this.scully.getCurrent().pipe(map((c) => [a.id, c.route]))
+                )
               )
             )
           )
         ),
-        tap(([el, route]) => this.scrollTo(route.route, el.id)),
+        tap(([id, route]) => this.scrollTo(route, id)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
