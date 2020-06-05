@@ -72,9 +72,9 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     this.headers$
       .pipe(
         switchMap((headers) => merge(...headers.map((h) => isVisible(h)))),
-        switchMap((el) => this.scully.getCurrent().pipe(map((c) => [el, c]))),
+        switchMap((el) => this.scully.getCurrent().pipe(map((c) => [el.id, c.route]))),
         tap(([el, route]) =>
-          this.location.replaceState(`${route.route}#${el.id}`)
+          this.location.replaceState(`${route}#${el}`)
         ),
         takeUntil(this.onDestroy$)
       )
