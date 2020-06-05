@@ -1,4 +1,10 @@
-import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Inject,
+  OnDestroy,
+  HostBinding,
+} from '@angular/core';
 import { DOCUMENT, Location } from '@angular/common';
 import { fromEvent, Subject, Observable, merge } from 'rxjs';
 import { tap, map, takeUntil, switchMap, withLatestFrom } from 'rxjs/operators';
@@ -14,15 +20,16 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   onDestroy$ = new Subject();
   headers$: Observable<Element[]>;
 
+  @HostBinding('class') get classes(): string {
+    return 'block sticky top-8 ml-2';
+  }
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public scully: ScullyRoutesService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
-  ngOnDestroy(): void {
-    this.onDestroy$.next();
-  }
 
   ngOnInit(): void {
     this.headers$ = fromEvent(window, 'AngularReady').pipe(
@@ -71,7 +78,8 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
       )
       .subscribe();
 
-   this.headers$.pipe(
+    this.headers$
+      .pipe(
         switchMap((anchors) =>
           merge(
             ...anchors.map((a) =>
@@ -86,6 +94,11 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       )
       .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   scrollTo(url: string, id: string) {
@@ -107,5 +120,13 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
       this.document.getElementsByTagName('app-card-stack')
     )[0];
     stack?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  headerClasses(header: string): string {
+    if (header === 'h2') {
+      return 'text-lg';
+    } else if (header === 'h3') {
+      return 'text-sm pl-2';
+    }
   }
 }

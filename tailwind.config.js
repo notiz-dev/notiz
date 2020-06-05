@@ -25,6 +25,9 @@ module.exports = {
       fontFamily: {
         sans: ['Muli'],
       },
+      inset: {
+        '8': '8rem',
+      },
     },
     screens: {
       xx: '0px',
