@@ -91,7 +91,8 @@ div {
   color: var(--ion-text-color);
 }
 
-a:hover {
+a:hover,
+a.active {
   background-image: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
