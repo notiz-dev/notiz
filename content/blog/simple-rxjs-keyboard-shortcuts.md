@@ -12,7 +12,7 @@ authors:
 github: https://github.com/garygrossgarten/rxjs-shortcuts
 ---
 
-I recently tried to add some keyboard shortcuts to my app. 🤯 **But don't worry**, the solution is quite simple. At least Brent Rambo approves.
+I recently tried to add some keyboard shortcuts to my Angular app. 🤯 **But don't worry**, the solution is quite simple. At least Brent Rambo approves.
 
 <p align="center">
 <img width="80%" max-width="640px" src="https://media.giphy.com/media/m2Q7FEc0bEr4I/source.gif" alt="Brent Rambo - Shortcut master">
@@ -94,7 +94,7 @@ export function sequence() {
 }
 ```
 
-Then use like this
+Then use it like this
 
 ```typescript
 const abc$ = shortcut([KeyCode.KeyA, KeyCode.KeyB, KeyCode.KeyC]).pipe(
@@ -102,7 +102,7 @@ const abc$ = shortcut([KeyCode.KeyA, KeyCode.KeyB, KeyCode.KeyC]).pipe(
 );
 ```
 
-Now the `abc$` `Observable` with only emit when the keys are pressed sequentially (a->b->c).
+Now the `abc$` `Observable` will only emit when the keys are pressed sequentially (a->b->c).
 
 ## Limitations
 
