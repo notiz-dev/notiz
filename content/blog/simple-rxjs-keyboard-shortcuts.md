@@ -12,13 +12,13 @@ authors:
 github: https://github.com/garygrossgarten/rxjs-shortcuts
 ---
 
-I recently tried to add some keyboard shortcuts to my Angular app. 🤯 But don't worry, the solution is quite simple. At least Brent Rambo approves.
+I recently tried to add some keyboard shortcuts to my Angular app. 🤯 **But don't worry**, the solution is quite simple. At least Brent Rambo approves.
 
 <p align="center">
 <img width="80%" max-width="640px" src="https://media.giphy.com/media/m2Q7FEc0bEr4I/source.gif" alt="Brent Rambo - Shortcut master">
 </p>
 
-In this Quick Tip I'll show you what I came up with, using [RxJS](https://rxjs-dev.firebaseapp.com/).
+In this [Quick Tip](https://notiz.dev/tags/quick-tip), I'll show you what I came up with, using [RxJS](https://rxjs-dev.firebaseapp.com/).
 This demonstration is done in an Angular Workspace scaffolded with the [Angular CLI](https://cli.angular.io/).
 
 
@@ -60,7 +60,7 @@ export const shortcut = (shortcut: KeyCode[]) => {
 
 ## Usage
 
-Usage is simple. Just call the `shortcut` function with your desired `KeyCode` combination. Then subscribe to the result and handle the keyboard shortcut. More examples can be found in the [repo](https://github.com/garygrossgarten/rxjs-shortcuts).
+**Usage is simple**. Just call the `shortcut` function with your desired `KeyCode` combination. Then subscribe to the result and handle the keyboard shortcut. More examples can be found in the [repo](https://github.com/garygrossgarten/rxjs-shortcuts).
 
 ```typescript
 const commaDot$ = shortcut([KeyCode.Comma, KeyCode.Period]);
@@ -108,4 +108,8 @@ Now the `abc$` `Observable` will only emit when the keys are pressed sequentiall
 
 Beware that keyboard shortcuts could collide with global shortcuts specified by your OS or Browser (e.g. Spotlight on Mac for Cmd+Space). Also there are cases where `keyup` events will be skipped when certain keys are pressed down. This is particularly the case with the cmd key (`KeyCode.MetaRight` and `KeyCode.MetaLeft`) on mac.
 
-If you have further questions on the article or just want to say hi, feel free to slide into my [twitter dms](https://twitter.com/garygrossgarten).
+
+---
+
+
+If you have further questions on the article or just want to say hi, feel free to slide into my [twitter dms](https://twitter.com/garygrossgarten).🐦
