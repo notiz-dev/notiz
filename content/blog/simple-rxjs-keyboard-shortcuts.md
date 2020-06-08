@@ -2,8 +2,8 @@
 title: 'Create Keyboard Shortcuts with RxJS'
 description: 'The cleanest way to create and orchestrate Keyboard Shortcuts with RxJS.'
 published: true
-publishedAt: 2020-06-06T15:45:00.000Z
-updatedAt: 2020-06-06T15:45:00.000Z
+publishedAt: 2020-06-08T19:20:51.808Z
+updatedAt: 2020-06-08T19:20:51.808Z
 tags:
   - RxJS
   - Quick Tip
