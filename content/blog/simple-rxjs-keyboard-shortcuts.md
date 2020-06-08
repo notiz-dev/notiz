@@ -29,7 +29,7 @@ The `shortcut` function below can be used to effortlessly create `Observables` f
 See the comments in the code for explanation:
 
 ```typescript
-export const shortcut = (shortcut: KeyCode[]) => {
+export const shortcut = (shortcut: KeyCode[]): Observable<KeyboardEvent[]> => {
   // Observables for all keydown and keyup events
   const keyDown$ = fromEvent<KeyboardEvent>(document, 'keydown');
   const keyUp$ = fromEvent<KeyboardEvent>(document, 'keyup');
