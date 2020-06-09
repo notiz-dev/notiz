@@ -20,7 +20,7 @@
     </h2>
   </div>
   <div class="content mt-2">
-    <div class="ion-padding-bottom">{{ route.description }}</div>
+    <div class="text-base">{{ route.description }}</div>
     <a *ngFor="let tag of route.tags | slice: 0:3" [routerLink]="'/tags/' + tag | lowercase | dash">
       <ion-chip class="ion-no-border" fill="clear" color="dark">
         <ion-label>{{ tag }}</ion-label>

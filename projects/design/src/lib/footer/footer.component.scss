@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .gradient:hover {
   background: var(--gradient);
   -webkit-background-clip: text;

@@ -21,7 +21,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   headers$: Observable<Element[]>;
 
   @HostBinding('class') get classes(): string {
-    return 'block sticky top-8 ml-2';
+    return 'block sticky ml-2';
   }
 
   constructor(
@@ -127,9 +127,9 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
 
   headerClasses(header: string): string {
     if (header === 'h2') {
-      return 'text-lg';
+      return 'text-lg text-semibold';
     } else if (header === 'h3') {
-      return 'text-sm pl-2';
+      return 'text-base pl-2';
     }
   }
 }

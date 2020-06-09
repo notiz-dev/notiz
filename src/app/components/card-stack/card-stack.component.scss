@@ -1,6 +1,7 @@
 :host {
   // background: var(--ion-color-primary);
-  display: block;
+  display: flex;
+  flex-direction: row;
 }
 .posts {
   position: relative;
@@ -15,7 +16,7 @@
 
 ::ng-deep {
   .posts {
-    ion-card {
+    ion-card:not(.neu-card) {
       border-radius: 50px;
       flex: 1 0 auto;
       transition: transform 0.2s ease, margin 0.2s ease, box-shadow 0.2s ease;
@@ -43,7 +44,7 @@
       }
     }
 
-    ion-card:hover {
+    ion-card:hover:not(.neu-card) {
       transform: translate(-4px, -12px);
       margin-right: 8px;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
@@ -54,50 +55,30 @@
   body:not(.dark) .posts {
     ion-card {
       --background: var(--ion-color-primary-tint);
-      // --background: var(--ion-color-primary-tint);
     }
   }
 }
 
-.neu-card,
-.neu-card-small {
+.neu-card {
+  flex: 1 0 auto;
+  padding: 16px 24px;
+
+  border-radius: 50px;
+  max-width: 220px;
+  height: 344px;
+  margin-right: 0px;
+  transform: none;
+  margin-right: 28px;
+  --background: var(--gradient);
+
   h2,
   h4 {
     color: #ffffff;
     text-align: justify;
+    hyphens: auto;
   }
 
   h2 {
     font-weight: 600;
-  }
-}
-
-.neu-card {
-  padding: 16px;
-  border-radius: 50px;
-  position: absolute;
-  right: 0px;
-  width: 240px;
-  height: 344px;
-  margin-right: 0px;
-  top: 44px;
-  transform: none;
-  padding-top: 28px;
-  margin-right: 28px;
-  --background: var(--gradient);
-}
-
-.neu-card-small {
-  padding: 16px;
-  border-radius: 50px;
-
-  height: 186px;
-  transform: none;
-  --background: var(--gradient);
-}
-
-@media (max-width: 991px) {
-  .neu-card-small {
-    margin: 16px 24px;
   }
 }

@@ -13,7 +13,11 @@ import {
   NizTabsModule,
   NizFooterModule,
   NizTabModule,
+  NizNavbarModule,
+  NizToolbarModule,
+  NizInlineSvgModule,
 } from '@notiz/ngx-design';
+import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,9 +34,13 @@ import {
     NizTabsModule,
     NizTabModule,
     NizFooterModule,
+    NizNavbarModule,
+    NizToolbarModule,
+    NizInlineSvgModule,
+    NewsletterSignupModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

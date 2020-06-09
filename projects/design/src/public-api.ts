@@ -16,4 +16,8 @@ export * from './lib/toolbar/toolbar.component';
 export * from './lib/toolbar/toolbar.module';
 export * from './lib/table-of-contents/table-of-contents.component';
 export * from './lib/table-of-contents/table-of-contents.module';
+export * from './lib/navbar/navbar.component';
+export * from './lib/navbar/navbar.module';
+export * from './lib/primary-button/primary-button.component';
+export * from './lib/primary-button/primary-button.module';
 export * from './lib/utils/symbols';

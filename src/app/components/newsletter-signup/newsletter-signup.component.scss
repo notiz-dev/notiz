@@ -1,12 +1,13 @@
+:host{
+  display: block;
+}
+
 .signup {
   --background: var(--gradient);
 }
 .input-wrapper {
   display: flex;
   align-items: center;
-}
-.cta {
-  width: 100%;
 }
 
 ion-input,

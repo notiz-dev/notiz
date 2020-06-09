@@ -1,23 +1,42 @@
 <div id="medium-zoom"></div>
-<niz-tabs [tabs]="tabs">
-  <niz-tab
-    bottom
-    class="theme"
-    [tab]="themeTab"
-    [ngClass]="{
-      dark: themeService.theme === 'dark',
-      rotate: themeService.theme === 'dark'
-    }"
-    (click)="themeService.toggleTheme()"
-  >
-  </niz-tab>
-  <main class="pl-5 pt-10">
-    <router-outlet></router-outlet>
-  </main>
-
-  <niz-footer
-    [footerSections]="footerSections"
-    [copyrightUrl]="copyrightUrl"
-    [createdWithSvgSources]="createdWithSvgSources"
-  ></niz-footer>
-</niz-tabs>
+<niz-navbar>
+  <niz-toolbar>
+    <a start class="font-bold text-xl select-none" [routerLink]="['/']">Logo</a>
+    <div end class="flex flex-row space-x-6 items-center">
+      <a
+        class="font-bold text-xl select-none"
+        [routerLink]="['/blog']"
+        routerLinkActive="router-link-active"
+        start
+        >All Posts</a
+      >
+      <a
+        class="font-bold text-xl select-none"
+        [routerLink]="['/tags']"
+        routerLinkActive="router-link-active"
+        start
+        >Tags</a
+      >
+      <button
+        class="relative h-6 w-6 theme focus:outline-none select-none"
+        [ngClass]="{
+          dark: themeService.theme === 'dark',
+          rotate: themeService.theme === 'dark'
+        }"
+        (click)="themeService.toggleTheme()"
+      >
+        <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
+      </button>
+    </div>
+  </niz-toolbar>
+</niz-navbar>
+<main class="pt-10">
+  <router-outlet></router-outlet>
+</main>
+<app-newsletter-signup class="mt-10"></app-newsletter-signup>
+<niz-footer
+  class="mt-10"
+  [footerSections]="footerSections"
+  [copyrightUrl]="copyrightUrl"
+  [createdWithSvgSources]="createdWithSvgSources"
+></niz-footer>
