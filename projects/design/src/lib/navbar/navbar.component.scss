@@ -7,6 +7,8 @@
   width: 100%;
   background-color: var(--ion-background-color);
   z-index: 5;
+  transition: transform 260ms ease;
+
 
   niz-inline-svg.gradient {
     position: absolute;
@@ -20,4 +22,9 @@
   ::ng-deep header niz-toolbar {
     height: 64px;
   }
+  
+}
+
+:host.out {
+  transform: translateY(-100%);
 }
