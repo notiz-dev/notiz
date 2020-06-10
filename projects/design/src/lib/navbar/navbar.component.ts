@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     scroll$
       .pipe(
         withLatestFrom($direction),
-        map(([top, direction]) => top > 88 && direction === 'DOWN'),
+        map(([top, direction]) => top > 128 && direction === 'DOWN'),
         tap((hidden) =>
           hidden
             ? (this.el.nativeElement as HTMLElement).classList.add('out')
