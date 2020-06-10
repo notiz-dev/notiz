@@ -8,6 +8,8 @@ export * from './lib/footer/footer.component';
 export * from './lib/footer/footer.module';
 export * from './lib/inline-svg/inline-svg.component';
 export * from './lib/inline-svg/inline-svg.module';
+export * from './lib/input/input.component';
+export * from './lib/input/input.module';
 export * from './lib/tab/tab.component';
 export * from './lib/tab/tab.module';
 export * from './lib/tabs/tabs.component';
@@ -21,3 +23,4 @@ export * from './lib/navbar/navbar.module';
 export * from './lib/primary-button/primary-button.component';
 export * from './lib/primary-button/primary-button.module';
 export * from './lib/utils/symbols';
+

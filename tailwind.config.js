@@ -15,9 +15,11 @@ module.exports = {
         'dark-blue': 'var(--dark-blue)',
         'dark-blue-opacity-10': 'rgba(var(--dark-blue-rgb), 0.1)',
         background: 'var(--background)',
+        'background-light': 'var(--background-light)',
         color: 'var(--text-color)',
         'color-light': 'var(--text-color-light)',
         tabs: 'var(--tabs)',
+        danger: 'var(--danger)'
       },
       boxShadow: {
         double: 'var(--shadow-double)',
@@ -27,6 +29,12 @@ module.exports = {
       },
       inset: {
         '8': '8rem',
+      },
+      transformOrigin: {
+        '0': '0%',
+      },
+      zIndex: {
+        '-1': '-1',
       },
     },
     screens: {

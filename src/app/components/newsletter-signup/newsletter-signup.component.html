@@ -12,17 +12,13 @@
   </div>
 
   <div class="flex flex-row h-16 space-x-5 items-center flex-1">
-    <ion-item class="newsletter" [ngClass]="{ dirty: dirty }" lines="none">
-      <ion-label position="floating">
-        <p>Email Address</p>
-      </ion-label>
-      <ion-input
-        (ionFocus)="dirty = false"
-        required
-        formControlName="email"
-        type="email"
-      ></ion-input>
-    </ion-item>
+    <niz-input
+      label="Email Address"
+      type="email"
+      formControlName="email"
+      [invalid]="invalid"
+      (nizFocus)="invalid = false"
+    ></niz-input>
     <niz-primary-button type="submit">
       <ion-icon *ngIf="!pending" name="paper-plane"></ion-icon>
       <ion-spinner *ngIf="pending" name="bubbles"></ion-spinner>

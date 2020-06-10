@@ -6,6 +6,7 @@
   --cyan-rgb: 85, 243, 222;
   --dark-blue: #556af3;
   --dark-blue-rgb: 85, 106, 243;
+  --danger: #ff4961;
 
   --gradient: linear-gradient(
     145deg,
@@ -61,6 +62,7 @@
 body.dark {
   // tailwind
   --background: #121212;
+  --background-light: #1a1b1e;
   --tabs: #1c1c1c;
   --text-color: #ffffff;
   --text-color-light: #a0aec0;
@@ -122,6 +124,7 @@ body.dark {
 body:not(.dark) {
   // tailwind
   --background: #ffffff;
+  --background-light: #fafafa;
   --tabs: #fafafa;
   --text-color: #1a202c;
   --text-color-light: #718096;
