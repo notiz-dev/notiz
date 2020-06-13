@@ -1,7 +1,10 @@
 <div id="medium-zoom"></div>
 <niz-navbar>
   <niz-toolbar>
-    <a start class="font-bold text-xl select-none" [routerLink]="['/']">Logo</a>
+    <a start class="flex items-center select-none" [routerLink]="['/']">
+      <niz-inline-svg class="h-12 w-12" svgSource="assets/img/logo.svg"></niz-inline-svg>
+      <span class="ml-2 text-xl font-bold">notiz</span>
+    </a>
     <div end class="flex flex-row space-x-6 items-center">
       <a
         class="font-bold text-xl select-none"
