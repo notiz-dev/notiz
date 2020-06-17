@@ -83,7 +83,8 @@ div {
   color: var(--ion-text-color);
 }
 
-a:hover {
+a:hover,
+a.active {
   background-image: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -117,7 +118,7 @@ ion-grid {
 }
 
 .list-article:not(:first-of-type) {
-  margin-top: 86px;
+  margin-top: 42px;
 }
 
 .hidden-xs-up {
@@ -223,6 +224,9 @@ body.dark .post {
       color: #ffe9cd;
     }
   }
+  hr {
+    border-color: var(--ion-item-background);
+  }
 }
 body:not(.dark) .post {
   a,
@@ -243,9 +247,22 @@ body:not(.dark) .post {
       background: #fff6ea;
     }
   }
+
+  hr {
+    border-color: var(--ion-color-primary-tint);
+  }
 }
 
 .post {
+  hr {
+    border-top-width: 4px;
+    margin-top: 44px;
+    margin-bottom: 28px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   p {
     code {
       padding: 0px 6px;

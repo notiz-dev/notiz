@@ -7,6 +7,7 @@ import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { ArticleModule } from '@components/article/article.module';
+import { TableOfContentsModule } from '@notiz/ngx-design';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -18,6 +19,7 @@ import { ArticleModule } from '@components/article/article.module';
     NewsletterSignupModule,
     BreadcrumbModule,
     ArticleModule,
+    TableOfContentsModule,
   ],
 })
 export class BlogPostModule {}
