@@ -35,6 +35,10 @@ module.exports = {
       },
       borderRadius: {
         xl: '22px'
+      },
+      minHeight: {
+        18: '4.5rem',
+        24: '6rem',
       }
     },
     screens: {

@@ -14,12 +14,12 @@
   title="Latest Articles"
   [subtitle]="'Latest posts by ' + author.title"
 >
-  <ion-card *ngFor="let link of latestAuthorPosts$ | async | slice: 0:5">
+  <div class="card" *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8">
     <app-article [route]="link"></app-article>
-  </ion-card>
-  <ion-card *ngIf="(latestAuthorPosts$ | async).length < 5">
+  </div>
+  <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
     <app-coming-soon></app-coming-soon>
-  </ion-card>
+  </div>
 </app-card-stack>
 
 <div class="flex flex-row space-x-5 mt-10 max-w-screen-xl mx-auto">

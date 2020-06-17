@@ -1,17 +1,18 @@
-<div class="flex flex-col space-y-2">
+<div class="flex flex-col space-y-2 h-full">
   <div class="flex flex-row items-center text-sm space-x-2">
     <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
     <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
-  <h2 class="mt-1 text-2xl">
+  <h2 class="mt-1 text-2xl line-clamp-3 min leading-8">
     <a [routerLink]="[route.route]">
       {{ route.title }}
     </a>
   </h2>
-  <div  class="h-20" class="text-base">
+
+  <div class="text-base description line-clamp-2 leading-6">
     {{ route.description }}
   </div>
-  <div class="h-20">
+  <div>
     <niz-chip
       *ngFor="let tag of route.tags | slice: 0:3"
       size="xl"

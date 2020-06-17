@@ -8,24 +8,28 @@
     [route]="blogPost"
   ></app-article>
 </div>
-
-<app-card-stack
-  title="Latest Articles"
-  subtitle="Check out latest posts and featured content from notiz.dev"
->
-  <div class="card" *ngFor="let blogPost of blogPosts$ | async | slice: 1:8">
-    <app-article [route]="blogPost"></app-article>
-  </div>
-  <div
-    class="card"
-    #emptystack
-    *ngIf="(blogPosts$ | async | slice: 1:8)?.length < 7"
+<div class="mx-auto flex">
+  <app-card-stack
+    title="Latest Articles"
+    subtitle="Check out latest posts and featured content from notiz.dev"
   >
-    <app-coming-soon></app-coming-soon>
-  </div>
-</app-card-stack>
-<div class="flex flex-row space-x-5 mt-10 max-w-screen-xl mx-auto">
-  <div class="flex-1 sticky top-0 flex flex-col space-y-5">
+    <div class="card" *ngFor="let blogPost of blogPosts$ | async | slice: 1:8">
+      <app-article [route]="blogPost"></app-article>
+    </div>
+    <div
+      class="card"
+      #emptystack
+      *ngIf="(blogPosts$ | async | slice: 1:8)?.length < 7"
+    >
+      <app-coming-soon></app-coming-soon>
+    </div>
+  </app-card-stack>
+</div>
+
+<div
+  class="flex flex-col-reverse md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
+>
+  <div class="w-full md:w-4/12 flex flex-col space-y-4 mt-5 md:mt-0">
     <h2 class="ml-6 text-2xl font-semibold">
       <a routerLink="/tags">Tags</a>
     </h2>
@@ -35,8 +39,9 @@
       [tags]="tags$"
     ></app-tags-view>
   </div>
-  <div class="flex flex-col space-y-5">
+  <div class="w-full md:w-8/12 flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold">Recently Updated</h2>
+
     <app-article
       class="list-article"
       *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"

@@ -1,4 +1,4 @@
-<div class="responsive-container  space-y-5 mt-10">
+<div class="responsive-container space-y-5 mt-10">
   <app-breadcrumb></app-breadcrumb>
 
   <app-article feature="Article" [route]="post$ | async"></app-article>
@@ -25,10 +25,10 @@
   <app-share [route]="authors$ | async"></app-share>
 </div>
 <app-card-stack title="Related Posts" subtitle="Find more posts like this one.">
-  <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
+  <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
     <app-article [route]="blogPost"></app-article>
-  </ion-card>
-  <ion-card *ngIf="(related$ | async | slice: 0:5)?.length < 5">
+  </div>
+  <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
     <app-coming-soon></app-coming-soon>
-  </ion-card>
+  </div>
 </app-card-stack>

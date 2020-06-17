@@ -1,10 +1,28 @@
 :host {
-  @apply flex items-center w-full py-4;
+  @apply flex items-center  pl-10 py-4 mx-auto;
+  max-width: calc(100vw - 6px);
 }
+@screen xx {
+  .title-card {
+    width: 64px;
+    flex: 0 0 64px;
+    display: flex;
 
-.title-card {
-  width: 240px;
-  flex: 0 0 240px;
+    h2 {
+      transform: rotateZ(180deg);
+      writing-mode: tb-rl;
+    }
+  }
+}
+@screen md {
+  .title-card {
+    width: 240px;
+    flex: 0 0 240px;
+    h2 {
+      transform: rotateZ(0deg);
+      writing-mode: lr;
+    }
+  }
 }
 
 ::ng-deep app-card-stack {
@@ -15,16 +33,14 @@
     position: relative;
 
     app-article {
+      @apply h-full;
+
       h2 {
-        height: 88px;
+        @apply min-h-24;
       }
 
-      h4 {
-        height: 24px;
-      }
-
-      p {
-        height: 70px;
+      .description {
+        @apply min-h-18;
       }
     }
   }

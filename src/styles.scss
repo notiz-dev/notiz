@@ -1,6 +1,7 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'base-styles.scss';
+@import 'theme/line-clamp.utilities.scss';
 
 @import '@ionic/angular/css/core';
 
@@ -17,6 +18,7 @@
 :root {
   font-family: 'Muli', sans-serif;
 }
+
 
 a,
 p,
@@ -49,7 +51,6 @@ div {
 .theme niz-inline-svg {
   transition: transform 150ms ease;
 }
-
 
 a {
   text-decoration: none;
@@ -269,15 +270,16 @@ blockquote::before {
 }
 
 .responsive-container {
-  @apply max-w-screen-xl mx-auto flex flex-col;
+  @apply max-w-screen-xl mx-auto flex flex-col px-5;
 }
 
-.card{
-  @apply  rounded-xl shadow-md bg-gray-900 px-4 py-2 overflow-y-hidden;
+.card {
+  @apply rounded-xl shadow-md bg-gray-900 p-4 overflow-y-hidden;
   width: 280px;
   height: 340px;
 }
 
-.bg-gradient{
+.bg-gradient {
   background: var(--gradient);
 }
+

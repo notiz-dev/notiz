@@ -11,15 +11,15 @@
     </p>
   </div>
 
-  <div class="flex flex-row h-16 space-x-5 items-center flex-1">
-    <niz-input
+  <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 items-center max-w-screen-lg">
+    <niz-input class="w-full md:w-8/12"
       label="Email Address"
       type="email"
       formControlName="email"
       [invalid]="invalid"
       (nizFocus)="invalid = false"
     ></niz-input>
-    <niz-primary-button type="submit">
+    <niz-primary-button class="w-full md:w-4/12" type="submit">
       <ion-icon *ngIf="!pending" name="paper-plane"></ion-icon>
       <ion-spinner *ngIf="pending" name="bubbles"></ion-spinner>
       Subscribe
