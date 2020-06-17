@@ -274,7 +274,7 @@ blockquote::before {
 }
 
 .card {
-  @apply rounded-xl shadow-md bg-gray-900 p-4 overflow-y-hidden;
+  @apply rounded-xl shadow-md bg-background-light p-4 overflow-y-hidden;
   width: 280px;
   height: 340px;
 }

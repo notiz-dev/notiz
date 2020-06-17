@@ -51,7 +51,7 @@ export class NizChip implements OnInit {
   private get shapeStyles(): string {
     switch (this.shape) {
       case 'flat':
-        return 'py-0';
+        return 'py-0 shadow-none';
       case 'normal':
       default:
         return 'py-1';
