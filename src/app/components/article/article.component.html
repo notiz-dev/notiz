@@ -28,6 +28,7 @@
     <niz-chip
       *ngFor="let tag of route.tags | slice: 0:3"
       size="xl"
+      shape="flat"
       [url]="'/tags/' + tag | lowercase | dash"
     >
       {{ tag }}
