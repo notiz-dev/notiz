@@ -10,7 +10,7 @@ export class NizChip implements OnInit {
   @Input() url: string;
 
   private _hostStyles =
-    'inline-block bg-background text-current m-1 px-4 py-1 rounded-full shadow-double border-2 border-background';
+    'inline-block bg-background text-current m-1 px-4 py-1 rounded-full shadow-md border-2 border-background';
 
   private _hoverStyles = 'hover:border-2 hover:border-blue';
 
