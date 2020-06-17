@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "at-rule-no-unknown": [ true, {
+      "ignoreAtRules": [
+        "extends",
+        "tailwind",
+        "screen",
+        "apply"
+      ]
+    }],
+    "block-no-empty": null,
+  }
+}

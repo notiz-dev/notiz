@@ -36,6 +36,9 @@ module.exports = {
       zIndex: {
         '-1': '-1',
       },
+      borderRadius: {
+        xl: '22px'
+      }
     },
     screens: {
       xx: '0px',
@@ -44,6 +47,8 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
+      dark: { raw: '(prefers-color-scheme: dark)' },
+      light: { raw: '(prefers-color-scheme: light)' },
     },
   },
 };

@@ -1,7 +1,10 @@
-<div class="posts mx-auto">
-  <ion-card class="neu-card">
-    <h2 class="mt-4 text-2xl font-semibold">{{ title }}</h2>
-    <h4 class="mt-2 text-lg">{{ subtitle }}</h4>
-  </ion-card>
-  <ng-content></ng-content>
+<div class="card bg-gradient title-card">
+  <h2 class="mt-4 text-2xl font-semibold">{{ title }}</h2>
+  <h4 class="mt-2 text-lg">{{ subtitle }}</h4>
+</div>
+
+<div class="flex flex-row overflow-x-scroll w-full ml-20">
+  <div class="flex flex-no-wrap pr-4 py-4 horizontal-cards">
+    <ng-content></ng-content>
+  </div>
 </div>

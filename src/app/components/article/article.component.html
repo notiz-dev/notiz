@@ -1,39 +1,14 @@
-<div [ngClass]="{ featured: feature }">
-  <div class="header">
-    <ion-chip *ngIf="feature && featureIcon" class="feature-chip" color="secondary" outline="true">
-      <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
-      <ion-label>{{ feature }}</ion-label>
-    </ion-chip>
-    <div class="date">
-      <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
-      {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
-    </div>
-    <h1 *ngIf="feature" class="mt-1 text-3xl">
-      <a [routerLink]="[route.route]">
-        {{ route.title }}
-      </a>
-    </h1>
-    <h2 *ngIf="!feature" class="mt-1 text-2xl">
-      <a [routerLink]="[route.route]">
-        {{ route.title }}
-      </a>
-    </h2>
+<div class="flex flex-col space-y-2">
+  <div class="flex flex-row items-center text-sm space-x-2">
+    <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
+    <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
-  <div class="content mt-2">
-    <div class="text-base">{{ route.description }}</div>
-    <a *ngFor="let tag of route.tags | slice: 0:3" [routerLink]="'/tags/' + tag | lowercase | dash">
-      <ion-chip class="ion-no-border" fill="clear" color="dark">
-        <ion-label>{{ tag }}</ion-label>
-      </ion-chip>
+  <h2 class="mt-1 text-2xl">
+    <a [routerLink]="[route.route]">
+      {{ route.title }}
     </a>
-  </div>
-  <div class="sneak-peek-wrapper" *ngIf="peek">
-    <div class="sneak-peek post">
-      <markdown ngPreserveWhitespaces [data]="sneakPeek | async"></markdown>
-    </div>
-    <div class="overlay"></div>
-    <ion-button [routerLink]="[route.route]" fill="clear" shape="round">
-      read more
-    </ion-button>
+  </h2>
+  <div class="text-base">
+    {{route.description}}
   </div>
 </div>

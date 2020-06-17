@@ -13,12 +13,16 @@
   title="Latest Articles"
   subtitle="Check out latest posts and featured content from notiz.dev"
 >
-  <ion-card *ngFor="let blogPost of blogPosts$ | async | slice: 1:6">
+  <div class="card" *ngFor="let blogPost of blogPosts$ | async | slice: 1:8">
     <app-article [route]="blogPost"></app-article>
-  </ion-card>
-  <ion-card #emptystack *ngIf="(blogPosts$ | async | slice: 1:6)?.length < 5">
+  </div>
+  <div
+    class="card"
+    #emptystack
+    *ngIf="(blogPosts$ | async | slice: 1:8)?.length < 7"
+  >
     <app-coming-soon></app-coming-soon>
-  </ion-card>
+  </div>
 </app-card-stack>
 <div class="flex flex-row space-x-5 mt-10 max-w-screen-xl mx-auto">
   <div class="flex-1 sticky top-0 flex flex-col space-y-5">

@@ -1,36 +1,20 @@
 :host {
-  // background: var(--ion-color-primary);
-  display: flex;
-  flex-direction: row;
-}
-.posts {
-  position: relative;
-  display: flex;
-  overflow-x: auto;
-  width: 100%;
-  padding-top: 44px;
-  padding-bottom: 32px;
-  padding-left: 86px;
-  // background: var(--ion-color-primary);
+  @apply flex items-center w-full py-4;
 }
 
-::ng-deep {
-  .posts {
-    ion-card:not(.neu-card) {
-      border-radius: 50px;
-      flex: 1 0 auto;
-      transition: transform 0.2s ease, margin 0.2s ease, box-shadow 0.2s ease;
-      height: 344px;
-      margin-right: -66px;
-      max-width: 280px;
-      min-width: 280px;
-      padding: 16px 24px;
-    }
+.title-card {
+  width: 240px;
+  flex: 0 0 240px;
+}
+
+::ng-deep app-card-stack {
+  .card:not(.title-card) {
+    margin-left: -130px;
+    transition: transform 200ms ease;
+    box-shadow: -1rem 0 2.4rem #121212;
+    position: relative;
 
     app-article {
-      ion-chip {
-        box-shadow: none;
-      }
       h2 {
         height: 88px;
       }
@@ -43,42 +27,17 @@
         height: 70px;
       }
     }
-
-    ion-card:hover:not(.neu-card) {
-      transform: translate(-4px, -12px);
-      margin-right: 8px;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-    }
   }
 
-  body:not(.dark) .posts {
-    ion-card {
-      --background: var(--ion-color-primary-tint);
-    }
+  .card:not(.title-card):hover {
+    transform: translateY(-12px);
+  }
+
+  .card:not(.title-card):hover ~ .card {
+    transform: translateX(130px);
   }
 }
 
-.neu-card {
-  flex: 1 0 auto;
-  padding: 16px 24px;
-
-  border-radius: 50px;
-  max-width: 220px;
-  height: 344px;
-  margin-right: 0px;
-  transform: none;
-  margin-right: 28px;
-  --background: var(--gradient);
-
-  h2,
-  h4 {
-    color: #ffffff;
-    text-align: justify;
-    hyphens: auto;
-  }
-
-  h2 {
-    font-weight: 600;
-  }
+.horizontal-cards {
+  padding-left: 174px;
 }
