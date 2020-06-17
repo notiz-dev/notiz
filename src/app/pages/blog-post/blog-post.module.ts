@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
+import { ArticleModule } from '@components/article/article.module';
 import { TableOfContentsModule } from '@notiz/ngx-design';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TableOfContentsModule } from '@notiz/ngx-design';
     ComponentsModule,
     NewsletterSignupModule,
     BreadcrumbModule,
-    TableOfContentsModule
-  ]
+    ArticleModule,
+    TableOfContentsModule,
+  ],
 })
 export class BlogPostModule {}

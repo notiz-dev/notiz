@@ -8,7 +8,17 @@
       {{ route.title }}
     </a>
   </h2>
-  <div class="text-base">
-    {{route.description}}
+  <div  class="h-20" class="text-base">
+    {{ route.description }}
+  </div>
+  <div class="h-20">
+    <niz-chip
+      *ngFor="let tag of route.tags | slice: 0:3"
+      size="xl"
+      shape="flat"
+      [url]="'/tags/' + tag | lowercase | dash"
+    >
+      {{ tag }}
+    </niz-chip>
   </div>
 </div>

@@ -7,6 +7,8 @@ import { AuthorRoutingModule } from './author-routing.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
+import { TagsViewModule } from '@components/tags-view/tags-view.module';
+import { ArticleModule } from '@components/article/article.module';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -17,7 +19,9 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
     ComponentsModule,
     ScullyLibModule,
     NewsletterSignupModule,
-    BreadcrumbModule
-  ]
+    BreadcrumbModule,
+    TagsViewModule,
+    ArticleModule,
+  ],
 })
 export class AuthorModule {}

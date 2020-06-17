@@ -7,7 +7,7 @@ import { map, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
   @Input() route: ScullyRoute;
@@ -37,7 +37,7 @@ export class ArticleComponent implements OnInit {
           { responseType: 'text' as 'json' }
         )
         .pipe(
-          map(text =>
+          map((text) =>
             // strip of yaml part
             text.slice(nth_occurrence(text, '---', 2) + 3, text.length - 1)
           )
@@ -70,5 +70,5 @@ function nth_occurrence(text: string, searchString: string, nth: number) {
 
 enum ContentType {
   ARTICLE = 'ARTICLE',
-  LINK = 'LINK'
+  LINK = 'LINK',
 }

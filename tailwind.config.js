@@ -21,9 +21,6 @@ module.exports = {
         tabs: 'var(--tabs)',
         danger: 'var(--danger)'
       },
-      boxShadow: {
-        double: 'var(--shadow-double)',
-      },
       fontFamily: {
         sans: ['Muli'],
       },
@@ -51,4 +48,8 @@ module.exports = {
       light: { raw: '(prefers-color-scheme: light)' },
     },
   },
+  variants: {
+    borderWidth: ['responsive', 'hover'],
+  },
+  plugins: [],
 };
