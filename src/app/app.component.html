@@ -2,7 +2,10 @@
 <niz-navbar>
   <niz-toolbar class="px-5">
     <a start class="flex items-center select-none" [routerLink]="['/']">
-      <niz-inline-svg class="h-12 w-12" svgSource="assets/img/logo.svg"></niz-inline-svg>
+      <niz-inline-svg
+        class="h-12 w-12"
+        svgSource="assets/img/logo.svg"
+      ></niz-inline-svg>
       <span class="ml-2 text-xl font-bold">notiz</span>
     </a>
     <div end class="flex flex-row space-x-6 items-center">
@@ -45,3 +48,5 @@
   [copyrightUrl]="copyrightUrl"
   [createdWithSvgSources]="createdWithSvgSources"
 ></niz-footer>
+
+<niz-search></niz-search>

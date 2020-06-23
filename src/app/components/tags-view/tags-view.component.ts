@@ -21,7 +21,6 @@ export class TagsViewComponent implements OnInit {
   constructor(private scullyContent: ScullyContentService) {}
 
   ngOnInit(): void {
-    console.log('TagsViewComponent init');
     this.weightedTags$ = this.scullyContent
       .weightedTags(this.blogPosts, this.tags)
       .pipe(
