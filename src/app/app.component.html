@@ -33,6 +33,12 @@
       >
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
       </button>
+      <button
+        class="relative h-6 w-6 focus:outline-none select-none"
+        (click)="search.openSearch()"
+      >
+        <niz-inline-svg svgSource="assets/img/search.svg"></niz-inline-svg>
+      </button>
     </div>
   </niz-toolbar>
 </niz-navbar>
@@ -49,4 +55,4 @@
   [createdWithSvgSources]="createdWithSvgSources"
 ></niz-footer>
 
-<niz-search></niz-search>
+<niz-search #search></niz-search>

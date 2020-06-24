@@ -48,7 +48,7 @@ Thumbs.db
 
 # firebase
 .firebase/
-firebase-debug.log
+firebase-debug.log  
 
 src/assets/scully-routes.json
 
