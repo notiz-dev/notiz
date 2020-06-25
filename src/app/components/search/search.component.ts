@@ -50,7 +50,7 @@ export class NizSearch implements OnInit {
   }
 
   private openSearchShortcut() {
-    shortcut([KeyCode.MetaLeft, KeyCode.KeyK])
+    shortcut([KeyCode.ControlLeft, KeyCode.KeyF])
       .pipe(
         sequence(),
         filter(() => !this.isOpen),
