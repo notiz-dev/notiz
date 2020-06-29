@@ -11,6 +11,7 @@ import { LinkComponent } from './link.component';
 import { NizPrimaryButtonModule } from '@notiz/ngx-design';
 
 import { ArticleModule } from '@components/article/article.module';
+import { CommentsModule } from '@components/comments/comments.module';
 
 @NgModule({
   declarations: [LinkComponent],
@@ -23,6 +24,7 @@ import { ArticleModule } from '@components/article/article.module';
     BreadcrumbModule,
     NizPrimaryButtonModule,
     ArticleModule,
+    CommentsModule
   ],
 })
 export class LinkModule {}
