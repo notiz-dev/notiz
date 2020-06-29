@@ -8,6 +8,7 @@ import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/new
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { ArticleModule } from '@components/article/article.module';
 import { TableOfContentsModule } from '@notiz/ngx-design';
+import { CommentsModule } from '@components/comments/comments.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -20,6 +21,7 @@ import { TableOfContentsModule } from '@notiz/ngx-design';
     BreadcrumbModule,
     ArticleModule,
     TableOfContentsModule,
+    CommentsModule
   ],
 })
 export class BlogPostModule {}
