@@ -9,7 +9,7 @@ import { first, switchMap, tap, map } from 'rxjs/operators';
 @Component({
   selector: 'app-link',
   templateUrl: './link.component.html',
-  styleUrls: ['./link.component.scss']
+  styleUrls: ['./link.component.scss'],
 })
 export class LinkComponent implements OnInit {
   post$: Observable<ScullyRoute>;
@@ -22,13 +22,13 @@ export class LinkComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.post$ = this.scully.getCurrent();
+    this.post$ = this.content.getCurrent();
     this.post$
       .pipe(
         first(),
-        switchMap(post =>
+        switchMap((post) =>
           this.content.authors().pipe(
-            tap(authors =>
+            tap((authors) =>
               this.seo.generateTags({
                 title: post.title,
                 description: post.description,
@@ -46,12 +46,14 @@ export class LinkComponent implements OnInit {
     this.related$ = this.content
       .posts()
       .pipe(
-        switchMap(posts =>
+        switchMap((posts) =>
           this.post$.pipe(
-            map(post =>
+            map((post) =>
               posts
-                .filter(p => p.route !== post.route)
-                .filter(p => p.tags.some(t => post.tags.some(t2 => t2 === t)))
+                .filter((p) => p.route !== post.route)
+                .filter((p) =>
+                  p.tags.some((t) => post.tags.some((t2) => t2 === t))
+                )
             )
           )
         )

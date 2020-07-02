@@ -16,16 +16,20 @@ module.exports = {
         'dark-blue-opacity-10': 'rgba(var(--dark-blue-rgb), 0.1)',
         background: 'var(--background)',
         'background-light': 'var(--background-light)',
+        'background-shade': 'var(--background-shade)',
         color: 'var(--text-color)',
         'color-light': 'var(--text-color-light)',
         tabs: 'var(--tabs)',
-        danger: 'var(--danger)'
+        danger: 'var(--danger)',
       },
       fontFamily: {
         sans: ['Muli'],
       },
       inset: {
         '8': '8rem',
+      },
+      maxHeight: {
+        '384': '384px',
       },
       transformOrigin: {
         '0': '0%',
@@ -34,12 +38,12 @@ module.exports = {
         '-1': '-1',
       },
       borderRadius: {
-        xl: '22px'
+        xl: '22px',
       },
       minHeight: {
         18: '4.5rem',
         24: '6rem',
-      }
+      },
     },
     screens: {
       xx: '0px',

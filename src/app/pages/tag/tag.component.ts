@@ -8,10 +8,10 @@ import { first, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
-  styleUrls: ['./tag.component.scss']
+  styleUrls: ['./tag.component.scss'],
 })
 export class TagComponent implements OnInit {
-  page$: Observable<ScullyRoute> = this.scully.getCurrent();
+  page$: Observable<ScullyRoute> = this.scullyContent.getCurrent();
 
   tagPosts$: Observable<ScullyRoute[]>;
 
@@ -22,16 +22,16 @@ export class TagComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.page$ = this.scully.getCurrent();
+    this.page$ = this.scullyContent.getCurrent();
     this.page$
       .pipe(
         first(),
-        tap(tag => {
+        tap((tag) => {
           this.seo.generateTags({
             title: tag.title,
             description: `All posts of ${tag.title}`,
             route: tag.route,
-            keywords: [tag.title]
+            keywords: [tag.title],
           });
         })
       )

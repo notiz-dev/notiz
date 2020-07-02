@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Tab, FooterSection } from '@notiz/ngx-design';
 import { ThemeService } from '@services/theme.service';
+import { tap } from 'rxjs/operators';
+import { shortcut } from '@utils/shortcuts';
+import { KeyCode } from '@utils/keycodes';
+import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   tabs: Tab[] = [
@@ -14,7 +18,7 @@ export class AppComponent implements OnInit {
       text: 'notiz',
       logo: true,
       image: 'assets/img/notiz.svg',
-      routeActive: false
+      routeActive: false,
     },
     // {
     //   url: '/search/',
@@ -26,7 +30,7 @@ export class AppComponent implements OnInit {
       text: 'all posts',
       image: 'assets/img/blog.svg',
       routeActive: true,
-      tooltip: true
+      tooltip: true,
     },
     // {
     //   url: '/links/',
@@ -38,14 +42,14 @@ export class AppComponent implements OnInit {
       text: 'tags',
       image: 'assets/img/tags.svg',
       routeActive: true,
-      tooltip: true
-    }
+      tooltip: true,
+    },
   ];
 
   themeTab: Tab = {
     text: 'toggle theme',
     image: 'assets/img/adjust.svg',
-    tooltip: true
+    tooltip: true,
   };
 
   copyrightUrl = 'legal/privacy-policy';
@@ -54,7 +58,7 @@ export class AppComponent implements OnInit {
     'assets/stack/angular.svg',
     'assets/stack/scully.svg',
     'assets/stack/tailwind-css.svg',
-    'assets/stack/firebase.svg'
+    'assets/stack/firebase.svg',
   ];
 
   footerSections: FooterSection[] = [
@@ -65,21 +69,21 @@ export class AppComponent implements OnInit {
           title: '@notiz_dev',
           url: 'https://twitter.com/notiz_dev',
           svg: 'assets/img/twitter-white.svg',
-          external: true
+          external: true,
         },
         {
           title: ' @notiz-dev',
           url: 'https://github.com/notiz-dev',
           svg: 'assets/img/github-white.svg',
-          external: true
+          external: true,
         },
         {
           title: 'hi@notiz.dev',
           url: 'mailto:hi@notiz.dev',
           svg: 'assets/img/mail.svg',
-          external: true
-        }
-      ]
+          external: true,
+        },
+      ],
     },
     {
       title: 'more',
@@ -87,20 +91,20 @@ export class AppComponent implements OnInit {
         {
           title: 'all posts',
           url: '/blog/',
-          svg: 'assets/img/blog-white.svg'
+          svg: 'assets/img/blog-white.svg',
         },
         {
           title: 'authors',
           url: '/authors/',
-          svg: 'assets/img/author.svg'
+          svg: 'assets/img/author.svg',
         },
         {
           title: 'tags',
           url: '/tags/',
-          svg: 'assets/img/tags-white.svg'
-        }
-      ]
-    }
+          svg: 'assets/img/tags-white.svg',
+        },
+      ],
+    },
   ];
 
   constructor(public themeService: ThemeService) {}
@@ -120,5 +124,12 @@ export class AppComponent implements OnInit {
     );
 
     this.themeService.initTheme();
+
+    merge(
+      shortcut([KeyCode.ControlLeft, KeyCode.KeyT]),
+      shortcut([KeyCode.ControlRight, KeyCode.KeyT])
+    )
+      .pipe(tap(() => this.themeService.toggleTheme()))
+      .subscribe();
   }
 }
