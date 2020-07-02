@@ -1,18 +1,27 @@
+import { Router, NavigationEnd, RouteConfigLoadEnd } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { map, switchMap, tap, reduce } from 'rxjs/operators';
+import {
+  map,
+  switchMap,
+  tap,
+  reduce,
+  filter,
+  startWith,
+  share,
+} from 'rxjs/operators';
 import { Observable, zip, concat } from 'rxjs';
 import { TagWeight } from '../types/types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScullyContentService {
-  constructor(private scully: ScullyRoutesService) {}
+  constructor(private scully: ScullyRoutesService, private router: Router) {}
 
   blogPosts(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/blog/').pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.publishedAt) > new Date(p2.publishedAt) ? -1 : 1
         )
@@ -20,13 +29,22 @@ export class ScullyContentService {
     );
   }
 
+  getCurrent(): Observable<ScullyRoute> {
+    return this.router.events.pipe(
+      startWith(new NavigationEnd(0, '/', '/')),
+      filter((event) => event instanceof NavigationEnd),
+      switchMap(() => this.scully.getCurrent()),
+      filter((route) => !!route)
+    );
+  }
+
   latestBlogPost(): Observable<ScullyRoute> {
-    return this.blogPosts().pipe(map(posts => posts[0]));
+    return this.blogPosts().pipe(map((posts) => posts[0]));
   }
 
   lastUpdateBlogPosts() {
     return this.blogPosts().pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
         )
@@ -41,10 +59,10 @@ export class ScullyContentService {
   authorPosts(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
     const blogPosts = this.posts();
     return author.pipe(
-      switchMap(a =>
+      switchMap((a) =>
         blogPosts.pipe(
-          map(blogs =>
-            blogs.filter(blog => blog.authors.some(t => t === a.title))
+          map((blogs) =>
+            blogs.filter((blog) => blog.authors.some((t) => t === a.title))
           )
         )
       )
@@ -53,7 +71,7 @@ export class ScullyContentService {
 
   lastUpdateAuthorPosts(author: Observable<ScullyRoute>) {
     return this.authorPosts(author).pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
         )
@@ -69,12 +87,12 @@ export class ScullyContentService {
     const authorPosts$ = this.authorPosts(author);
     const tags$ = this.tags();
     return authorPosts$.pipe(
-      switchMap(authorPosts =>
+      switchMap((authorPosts) =>
         tags$.pipe(
-          map(tags => {
+          map((tags) => {
             return tags.filter(
-              tag =>
-                authorPosts.filter(post => post.tags.includes(tag.title))
+              (tag) =>
+                authorPosts.filter((post) => post.tags.includes(tag.title))
                   .length > 0
             );
           })
@@ -86,10 +104,10 @@ export class ScullyContentService {
   tagPosts(tag: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
     const blogPosts = this.posts();
     return tag.pipe(
-      switchMap(page =>
+      switchMap((page) =>
         blogPosts.pipe(
-          map(blogs =>
-            blogs.filter(blog => blog.tags.some(t => t === page.title))
+          map((blogs) =>
+            blogs.filter((blog) => blog.tags.some((t) => t === page.title))
           )
         )
       )
@@ -101,27 +119,28 @@ export class ScullyContentService {
     tags$: Observable<ScullyRoute[]>
   ): Observable<TagWeight[]> {
     const used$: Observable<number> = blogPosts$.pipe(
-      map(blogs =>
-        blogs.map(blog => (blog.tags || []).length).reduce((a, b) => a + b, 0)
+      map((blogs) =>
+        blogs.map((blog) => (blog.tags || []).length).reduce((a, b) => a + b, 0)
       )
     );
 
     return blogPosts$.pipe(
-      switchMap(blogs =>
+      switchMap((blogs) =>
         tags$.pipe(
-          map(tags =>
-            tags.map(tag => ({
+          map((tags) =>
+            tags.map((tag) => ({
               tag,
-              count: blogs.filter(blog => (blog.tags || []).some(t => t === tag.title))
-                .length
+              count: blogs.filter((blog) =>
+                (blog.tags || []).some((t) => t === tag.title)
+              ).length,
             }))
           ),
-          switchMap(counts =>
+          switchMap((counts) =>
             used$.pipe(
-              map(used =>
-                counts.map(count => ({
+              map((used) =>
+                counts.map((count) => ({
                   tag: count.tag,
-                  weight: (count.count / used) * 100
+                  weight: (count.count / used) * 100,
                 }))
               )
             )
@@ -133,7 +152,7 @@ export class ScullyContentService {
 
   links(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/links/').pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.publishedAt) > new Date(p2.publishedAt) ? -1 : 1
         )
@@ -142,12 +161,12 @@ export class ScullyContentService {
   }
 
   latestLink(): Observable<ScullyRoute> {
-    return this.links().pipe(map(posts => posts[0]));
+    return this.links().pipe(map((posts) => posts[0]));
   }
 
   lastUpdateLinks() {
     return this.links().pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
         )
@@ -157,8 +176,8 @@ export class ScullyContentService {
 
   posts() {
     return zip(this.blogPosts(), this.links()).pipe(
-      map(([p1,p2]) => [...p1,...p2]),
-      map(posts =>
+      map(([p1, p2]) => [...p1, ...p2]),
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.publishedAt) > new Date(p2.publishedAt) ? -1 : 1
         )
@@ -167,12 +186,12 @@ export class ScullyContentService {
   }
 
   latestPost(): Observable<ScullyRoute> {
-    return this.posts().pipe(map(posts => posts[0]));
+    return this.posts().pipe(map((posts) => posts[0]));
   }
 
   lastPosts() {
     return this.posts().pipe(
-      map(posts =>
+      map((posts) =>
         posts.sort((p1, p2) =>
           new Date(p1.updatedAt) > new Date(p2.updatedAt) ? -1 : 1
         )
@@ -186,6 +205,6 @@ export const filterRoute = (
   path: string
 ): Observable<ScullyRoute[]> => {
   return routes.pipe(
-    map(r => r.filter(route => route.route.startsWith(path)))
+    map((r) => r.filter((route) => route.route.startsWith(path)))
   );
 };

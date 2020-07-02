@@ -16,6 +16,7 @@ module.exports = {
         'dark-blue-opacity-10': 'rgba(var(--dark-blue-rgb), 0.1)',
         background: 'var(--background)',
         'background-light': 'var(--background-light)',
+        'background-shade': 'var(--background-shade)',
         color: 'var(--text-color)',
         'color-light': 'var(--text-color-light)',
         tabs: 'var(--tabs)',

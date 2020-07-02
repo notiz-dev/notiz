@@ -7,6 +7,6 @@ import { SearchPipe } from './search.pipe';
   declarations: [DashPipe, SearchPipe],
   imports: [CommonModule],
   exports: [DashPipe, SearchPipe],
-  providers: [],
+  providers: [SearchPipe],
 })
 export class PipesModule {}

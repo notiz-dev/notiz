@@ -1,3 +1,4 @@
+import { ScullyContentService } from '@services/scully-content.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
@@ -17,7 +18,7 @@ interface RoutePattern {
 @Component({
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss']
+  styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent implements OnInit, OnDestroy {
   private breadcrumbs$ = new BehaviorSubject<Breadcrumb[]>([]);
@@ -26,14 +27,14 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
-  constructor(private router: Router, private scully: ScullyRoutesService) {}
+  constructor(private router: Router, private content: ScullyContentService) {}
 
   ngOnInit() {
-    this.scully
+    this.content
       .getCurrent()
       .pipe(
         takeUntil(this.destroy$),
-        tap(currentPage => {
+        tap((currentPage) => {
           this.breadcrumbs$.next(
             this.getBreadcrumbsWithStartPage(this.router.url, currentPage)
           );
@@ -54,7 +55,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     const breadcrumbs = this.getBreadcrumbs(root, currentPage);
     breadcrumbs.unshift({
       url: '',
-      text: 'notiz'
+      text: 'notiz',
     });
     return breadcrumbs;
   }
@@ -74,7 +75,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
       if (currentPage.route === url) {
         breadcrumbs.push({
           text: currentPage.title,
-          url
+          url,
         });
       }
 
@@ -82,7 +83,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
       if (routePattern) {
         breadcrumbs.push({
           text: routePattern.text,
-          url
+          url,
         });
       }
 
@@ -94,7 +95,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   }
 
   private getMachtingRoute(url: string): RoutePattern {
-    return this.routePatterns().find(routePattern =>
+    return this.routePatterns().find((routePattern) =>
       routePattern.pattern.test(url)
     );
   }
@@ -103,16 +104,16 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     return [
       {
         pattern: /^\/blog$/,
-        text: 'blog'
+        text: 'blog',
       },
       {
         pattern: /^\/authors$/,
-        text: 'authors'
+        text: 'authors',
       },
       {
         pattern: /^\/tags$/,
-        text: 'tags'
-      }
+        text: 'tags',
+      },
     ];
   }
 }

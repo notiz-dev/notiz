@@ -24,7 +24,7 @@ export class AuthorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.author$ = this.scully.getCurrent();
+    this.author$ = this.scullyContent.getCurrent();
     this.author$
       .pipe(
         first(),

@@ -63,6 +63,7 @@ body.dark {
   // tailwind
   --background: #121212;
   --background-light: #1a1b1e;
+  --background-shade: #050505;
   --tabs: #1c1c1c;
   --text-color: #ffffff;
   --text-color-light: #a0aec0;
@@ -123,7 +124,8 @@ body.dark {
 body:not(.dark) {
   // tailwind
   --background: #ffffff;
-  --background-light: #fafafa;
+  --background-light: #edf2f7;
+  --background-shade: #cbd5e0;
   --tabs: #fafafa;
   --text-color: #1a202c;
   --text-color-light: #718096;
