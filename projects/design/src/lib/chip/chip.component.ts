@@ -8,6 +8,7 @@ import { Component, Input, OnInit, HostBinding, Host } from '@angular/core';
 export class NizChip implements OnInit {
   @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Input() shape: 'normal' | 'flat' = 'normal';
+  @Input() hover = false;
 
   private xsStyles = 'text-xs';
   private smStyles = 'text-sm';
@@ -17,7 +18,9 @@ export class NizChip implements OnInit {
 
   @HostBinding('class')
   get classes(): string {
-    return `${this.sizeStyles} ${this.shapeStyles}`;
+    return `${this.sizeStyles} ${this.shapeStyles} ${
+      this.hover ? 'hover:bg-blue-opacity-10' : ''
+    }`;
   }
 
   constructor() {}
