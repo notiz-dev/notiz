@@ -1,10 +1,11 @@
+import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
-import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
+import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { LinkComponent } from './link.component';
 
@@ -23,6 +24,7 @@ import { ArticleModule } from '@components/article/article.module';
     BreadcrumbModule,
     NizPrimaryButtonModule,
     ArticleModule,
+    ComingSoonModule,
   ],
 })
 export class LinkModule {}

@@ -1,3 +1,4 @@
+import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorComponent } from './author.component';
@@ -22,6 +23,7 @@ import { ArticleModule } from '@components/article/article.module';
     BreadcrumbModule,
     TagsViewModule,
     ArticleModule,
+    ComingSoonModule,
   ],
 })
 export class AuthorModule {}
