@@ -6,7 +6,6 @@ import { AuthorComponent } from './author/author.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
 import { GithubUrlComponent } from './github-url/github-url.component';
-import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { PipesModule } from '@pipes/pipes.module';
 import { RouterModule } from '@angular/router';
 
@@ -16,7 +15,6 @@ import { RouterModule } from '@angular/router';
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
-    ComingSoonComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +28,6 @@ import { RouterModule } from '@angular/router';
     AuthorComponent,
     ShareComponent,
     GithubUrlComponent,
-    ComingSoonComponent,
   ],
   providers: [],
 })

@@ -1,7 +1,12 @@
-// h1 {
-//   @apply text-6xl;
-// }
-
-// h2 {
-//   @apply text-4xl tracking-tight font-bold;
-// }
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  @apply text-color;
+}

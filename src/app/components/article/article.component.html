@@ -1,6 +1,10 @@
 <div class="flex flex-col space-y-2 h-full">
   <div class="flex flex-row items-center text-sm space-x-2">
-    <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
+    <niz-inline-svg
+      *ngIf="type === 'LINK'"
+      class="h-4 w-4 text-cyan"
+      svgSource="assets/img/link.svg"
+    ></niz-inline-svg>
     <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
   <h2 class="mt-1 text-2xl font-bold line-clamp-3 min leading-8">
@@ -17,9 +21,10 @@
       *ngFor="let tag of route.tags | slice: 0:3"
       size="xl"
       shape="flat"
-      [url]="'/tags/' + tag | lowercase | dash"
     >
-      {{ tag }}
+      <a [routerLink]="'/tags/' + tag | lowercase | dash" class="gradient">
+        {{ tag }}
+      </a>
     </niz-chip>
   </div>
 </div>

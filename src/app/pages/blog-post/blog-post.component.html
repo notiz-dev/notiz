@@ -1,9 +1,9 @@
-<div class="responsive-container space-y-5 mt-10">
+<div class="responsive-container space-y-5 mt-10" *ngIf="post$ | async as post">
   <app-breadcrumb></app-breadcrumb>
 
-  <app-article feature="Article" [route]="post$ | async"></app-article>
+  <app-article feature="Article" [route]="post"></app-article>
 
-  <app-github-url [url]="(post$ | async).github"></app-github-url>
+  <app-github-url [url]="post.github"></app-github-url>
 
   <div class="line"></div>
   <div class="flex flex-row space-x-5 mt-10 max-w-screen-xl mx-auto">

@@ -1,3 +1,4 @@
+import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
@@ -22,6 +23,7 @@ import { ArticleModule } from '@components/article/article.module';
     NewsletterSignupModule,
     TagsViewModule,
     ArticleModule,
+    ComingSoonModule,
   ],
 })
 export class HomeModule {}

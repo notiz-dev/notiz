@@ -1,15 +1,14 @@
 <niz-chip
   *ngFor="let tag of weightedTags$ | async"
-  [url]="'/tags/' + tag.tag.slug"
   [size]="getSize(tag.weight)"
+  class="gradient"
 >
-  {{ tag.tag.title }}
+  <a [routerLink]="'/tags/' + tag.tag.slug">
+    {{ tag.tag.title }}
+  </a>
 </niz-chip>
-<ion-button
-  *ngIf="count > limit"
-  [routerLink]="'/tags/'"
-  fill="clear"
-  shape="round"
->
-  see all
-</ion-button>
+<niz-chip *ngIf="count > limit" shape="flat" [hover]="true">
+  <a [routerLink]="'/tags/'" class="text-sm font-bold uppercase text-blue"
+    >see all</a
+  >
+</niz-chip>

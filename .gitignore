@@ -48,8 +48,10 @@ Thumbs.db
 
 # firebase
 .firebase/
-firebase-debug.log  
+firebase-debug.log
 
 src/assets/scully-routes.json
 
 scully.notiz.config.js
+
+scully.log

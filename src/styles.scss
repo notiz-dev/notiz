@@ -19,18 +19,11 @@
   font-family: 'Muli', sans-serif;
 }
 
-
-a,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-div {
-  color: var(--ion-text-color);
+.gradient:hover {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 ::-webkit-scrollbar {
@@ -50,23 +43,6 @@ div {
 }
 .theme niz-inline-svg {
   transition: transform 150ms ease;
-}
-
-a {
-  text-decoration: none;
-}
-a:hover,
-a.active,
-a.router-link-active {
-  &:not(.no-hover) {
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-a.no-hover {
-  display: inline-flex;
 }
 
 // markdown
@@ -282,4 +258,3 @@ blockquote::before {
 .bg-gradient {
   background: var(--gradient);
 }
-
