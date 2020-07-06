@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   _theme: 'dark' | 'light' = 'dark';
+  themeChange = new BehaviorSubject<"dark" | "light">(this._theme);
   set theme(theme: 'dark' | 'light') {
+    if (this.theme === theme) {
+      return;
+    }
     this._theme = theme;
+    this.themeChange.next(theme);
 
     document.body.classList.toggle('dark', this._theme === 'dark');
 
@@ -28,7 +34,7 @@ export class ThemeService {
     const storedTheme =
       window.localStorage && window.localStorage.getItem('theme');
 
-    prefersDark.addListener(mediaQuery => {
+    prefersDark.addListener((mediaQuery) => {
       if (
         (mediaQuery.matches && this.theme === 'light') ||
         (!mediaQuery.matches && this.theme === 'dark')
