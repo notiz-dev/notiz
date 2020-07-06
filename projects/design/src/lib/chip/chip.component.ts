@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostBinding } from '@angular/core';
+import { Component, Input, OnInit, HostBinding, Host } from '@angular/core';
 
 @Component({
   selector: 'niz-chip',
@@ -7,13 +7,7 @@ import { Component, Input, OnInit, HostBinding } from '@angular/core';
 })
 export class NizChip implements OnInit {
   @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Input() url: string;
   @Input() shape: 'normal' | 'flat' = 'normal';
-
-  private _hostStyles =
-    'inline-block bg-background text-current m-1 px-4 rounded-full shadow-md border-2 border-background';
-
-  private _hoverStyles = 'hover:border-2 hover:border-blue';
 
   private xsStyles = 'text-xs';
   private smStyles = 'text-sm';
@@ -21,15 +15,14 @@ export class NizChip implements OnInit {
   private lgStyles = 'text-lg';
   private xlStyles = 'text-xl';
 
+  @HostBinding('class')
+  get classes(): string {
+    return `${this.sizeStyles} ${this.shapeStyles}`;
+  }
+
   constructor() {}
 
   ngOnInit(): void {}
-
-  get styles() {
-    return `${this._hostStyles} ${this.sizeStyles} ${this.shapeStyles} ${
-      this.url ? this._hoverStyles : ''
-    }`;
-  }
 
   private get sizeStyles(): string {
     switch (this.size) {
@@ -37,7 +30,6 @@ export class NizChip implements OnInit {
         return this.xsStyles;
       case 'sm':
         return this.smStyles;
-
       case 'lg':
         return this.lgStyles;
       case 'xl':
@@ -54,7 +46,7 @@ export class NizChip implements OnInit {
         return 'py-0 shadow-none';
       case 'normal':
       default:
-        return 'py-1';
+        return 'py-1 shadow-md';
     }
   }
 }

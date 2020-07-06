@@ -1,7 +1,10 @@
+:host {
+  @apply inline-block bg-background text-current m-1 px-4 rounded-full border-2 border-background;
+}
+
 a:hover {
   background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
