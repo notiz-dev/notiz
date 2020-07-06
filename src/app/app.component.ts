@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tab, FooterSection } from '@notiz/ngx-design';
+import { FooterSection } from '@notiz/ngx-design';
 import { ThemeService } from '@services/theme.service';
 import { tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
@@ -12,46 +12,6 @@ import { merge } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  tabs: Tab[] = [
-    {
-      url: '/',
-      text: 'notiz',
-      logo: true,
-      image: 'assets/img/notiz.svg',
-      routeActive: false,
-    },
-    // {
-    //   url: '/search/',
-    //   image: 'assets/img/search.svg',
-    //   routeActive: true,
-    // },
-    {
-      url: '/blog/',
-      text: 'all posts',
-      image: 'assets/img/blog.svg',
-      routeActive: true,
-      tooltip: true,
-    },
-    // {
-    //   url: '/links/',
-    //   image: 'assets/img/links.svg',
-    //   routeActive: true,
-    // },
-    {
-      url: '/tags/',
-      text: 'tags',
-      image: 'assets/img/tags.svg',
-      routeActive: true,
-      tooltip: true,
-    },
-  ];
-
-  themeTab: Tab = {
-    text: 'toggle theme',
-    image: 'assets/img/adjust.svg',
-    tooltip: true,
-  };
-
   copyrightUrl = 'legal/privacy-policy';
 
   createdWithSvgSources = [

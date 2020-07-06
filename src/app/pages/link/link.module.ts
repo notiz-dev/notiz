@@ -9,7 +9,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { LinkComponent } from './link.component';
 
-import { NizPrimaryButtonModule } from '@notiz/ngx-design';
+import { NizPrimaryButtonModule, NizInlineSvgModule } from '@notiz/ngx-design';
 
 import { ArticleModule } from '@components/article/article.module';
 
@@ -25,6 +25,7 @@ import { ArticleModule } from '@components/article/article.module';
     NizPrimaryButtonModule,
     ArticleModule,
     ComingSoonModule,
+    NizInlineSvgModule,
   ],
 })
 export class LinkModule {}
