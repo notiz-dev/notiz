@@ -1,3 +1,4 @@
+import { NizInlineSvgModule } from '@notiz/ngx-design';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -13,9 +14,10 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     NewsletterUnsubscribeRoutingModule,
     IonicModule,
     ComponentsModule,
-    NewsletterSignupModule
+    NewsletterSignupModule,
+    NizInlineSvgModule,
   ],
   exports: [NewsletterUnsubscribeComponent],
-  providers: []
+  providers: [],
 })
 export class NewsletterUnsubscribeModule {}

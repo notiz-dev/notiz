@@ -7,7 +7,7 @@ import { SeoService } from '@services/seo.service';
 @Component({
   selector: 'app-newsletter-confirm',
   templateUrl: './newsletter-confirm.component.html',
-  styleUrls: ['./newsletter-confirm.component.scss']
+  styleUrls: ['./newsletter-confirm.component.scss'],
 })
 export class NewsletterConfirmComponent implements OnInit {
   confirmed: boolean;
@@ -22,7 +22,7 @@ export class NewsletterConfirmComponent implements OnInit {
   ngOnInit(): void {
     this.seo.generateTags({
       title: 'Confirm newsletter',
-      description: 'Confirm your newsletter subscription for notiz.dev'
+      description: 'Confirm your newsletter subscription for notiz.dev',
     });
 
     const uuid = this.route.snapshot.queryParamMap.get('uuid');
@@ -35,7 +35,7 @@ export class NewsletterConfirmComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {},
-        error => {
+        (error) => {
           this.error = true;
         },
         () => {

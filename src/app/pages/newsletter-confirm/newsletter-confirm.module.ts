@@ -1,3 +1,4 @@
+import { NizInlineSvgModule } from '@notiz/ngx-design';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsletterConfirmComponent } from './newsletter-confirm.component';
@@ -11,9 +12,10 @@ import { ComponentsModule } from '@components/components.module';
     CommonModule,
     NewsletterConfirmRoutingModule,
     IonicModule,
-    ComponentsModule
+    ComponentsModule,
+    NizInlineSvgModule,
   ],
   exports: [NewsletterConfirmComponent],
-  providers: []
+  providers: [],
 })
 export class NewsletterConfirmModule {}

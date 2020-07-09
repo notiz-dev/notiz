@@ -11,8 +11,11 @@
     </p>
   </div>
 
-  <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 items-center max-w-screen-lg">
-    <niz-input class="w-full md:w-8/12"
+  <div
+    class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 items-center max-w-screen-lg"
+  >
+    <niz-input
+      class="w-full md:w-8/12"
       label="Email Address"
       type="email"
       formControlName="email"
@@ -20,8 +23,16 @@
       (nizFocus)="invalid = false"
     ></niz-input>
     <niz-primary-button class="w-full md:w-4/12" type="submit">
-      <ion-icon *ngIf="!pending" name="paper-plane"></ion-icon>
-      <ion-spinner *ngIf="pending" name="bubbles"></ion-spinner>
+      <niz-inline-svg
+        *ngIf="!pending"
+        class="h-6 w-6 mr-2"
+        svgSource="assets/img/paper-plane.svg"
+      ></niz-inline-svg>
+      <niz-inline-svg
+        *ngIf="pending"
+        class="h-6 w-6 mr-2 spin"
+        svgSource="assets/img/spinner.svg"
+      ></niz-inline-svg>
       Subscribe
     </niz-primary-button>
   </div>

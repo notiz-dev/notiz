@@ -7,7 +7,7 @@ import { SeoService } from '@services/seo.service';
 @Component({
   selector: 'app-newsletter-unsubscribe',
   templateUrl: './newsletter-unsubscribe.component.html',
-  styleUrls: ['./newsletter-unsubscribe.component.scss']
+  styleUrls: ['./newsletter-unsubscribe.component.scss'],
 })
 export class NewsletterUnsubscribeComponent implements OnInit {
   unsubscribed: boolean;
@@ -22,7 +22,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
   ngOnInit(): void {
     this.seo.generateTags({
       title: 'Unsubscribe newsletter',
-      description: 'Unsubscribe from notiz.dev newsletter'
+      description: 'Unsubscribe from notiz.dev newsletter',
     });
 
     const uuid = this.route.snapshot.queryParamMap.get('uuid');
@@ -35,7 +35,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {},
-        error => {
+        (error) => {
           this.error = true;
         },
         () => {

@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NewsletterSignupComponent } from './newsletter-signup.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NizPrimaryButtonModule, NizInputModule } from '@notiz/ngx-design';
+import {
+  NizPrimaryButtonModule,
+  NizInputModule,
+  NizInlineSvgModule,
+} from '@notiz/ngx-design';
 
 @NgModule({
   declarations: [NewsletterSignupComponent],
@@ -14,6 +18,7 @@ import { NizPrimaryButtonModule, NizInputModule } from '@notiz/ngx-design';
     IonicModule,
     NizPrimaryButtonModule,
     NizInputModule,
+    NizInlineSvgModule,
   ],
   exports: [NewsletterSignupComponent],
   providers: [],

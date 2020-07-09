@@ -193,14 +193,6 @@ body:not(.dark) .post {
   }
 }
 
-.empty-box {
-  min-height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 body.dark {
   app-breadcrumb {
     a,
@@ -257,4 +249,17 @@ blockquote::before {
 
 .bg-gradient {
   background: var(--gradient);
+}
+
+.spin {
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
