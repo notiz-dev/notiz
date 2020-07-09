@@ -5,17 +5,11 @@ import { CardStackComponent } from './card-stack/card-stack.component';
 import { AuthorComponent } from './author/author.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ShareComponent } from './share/share.component';
-import { GithubUrlComponent } from './github-url/github-url.component';
 import { PipesModule } from '@pipes/pipes.module';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    CardStackComponent,
-    AuthorComponent,
-    ShareComponent,
-    GithubUrlComponent,
-  ],
+  declarations: [CardStackComponent, AuthorComponent, ShareComponent],
   imports: [
     CommonModule,
     PipesModule,
@@ -23,12 +17,7 @@ import { RouterModule } from '@angular/router';
     MarkdownModule.forChild(),
     RouterModule,
   ],
-  exports: [
-    CardStackComponent,
-    AuthorComponent,
-    ShareComponent,
-    GithubUrlComponent,
-  ],
+  exports: [CardStackComponent, AuthorComponent, ShareComponent],
   providers: [],
 })
 export class ComponentsModule {}

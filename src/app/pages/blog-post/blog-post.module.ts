@@ -1,3 +1,4 @@
+import { GithubUrlModule } from './../../components/github-url/github-url.module';
 import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -24,6 +25,7 @@ import { CommentsModule } from '@components/comments/comments.module';
     TableOfContentsModule,
     CommentsModule,
     ComingSoonModule,
+    GithubUrlModule,
   ],
 })
 export class BlogPostModule {}
