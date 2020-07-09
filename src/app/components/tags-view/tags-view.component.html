@@ -1,8 +1,4 @@
-<niz-chip
-  *ngFor="let tag of weightedTags$ | async"
-  [size]="getSize(tag.weight)"
-  class="gradient"
->
+<niz-chip *ngFor="let tag of weightedTags$ | async" class="gradient">
   <a [routerLink]="'/tags/' + tag.tag.slug">
     {{ tag.tag.title }}
   </a>
