@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './blog.component';
@@ -16,7 +15,6 @@ import { ArticleModule } from '@components/article/article.module';
     CommonModule,
     BlogRoutingModule,
     ScullyLibModule,
-    IonicModule,
     ComponentsModule,
     BlogPostModule,
     NewsletterSignupModule,

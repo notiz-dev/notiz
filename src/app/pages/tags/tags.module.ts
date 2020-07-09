@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { TagsRoutingModule } from './tags-routing.module';
 import { TagsComponent } from './tags.component';
-import { IonicModule } from '@ionic/angular';
 
 import { ComponentsModule } from '@components/components.module';
 import { TagModule } from '@pages/tag/tag.module';
@@ -16,7 +15,6 @@ import { TagsViewModule } from '@components/tags-view/tags-view.module';
     CommonModule,
     TagsRoutingModule,
     ScullyLibModule,
-    IonicModule,
     ComponentsModule,
     TagModule,
     NewsletterSignupModule,

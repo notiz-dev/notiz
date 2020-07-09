@@ -2,7 +2,6 @@ import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorComponent } from './author.component';
-import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { AuthorRoutingModule } from './author-routing.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
@@ -15,7 +14,6 @@ import { ArticleModule } from '@components/article/article.module';
   declarations: [AuthorComponent],
   imports: [
     CommonModule,
-    IonicModule,
     AuthorRoutingModule,
     ComponentsModule,
     ScullyLibModule,

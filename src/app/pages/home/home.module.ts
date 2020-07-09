@@ -2,7 +2,6 @@ import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -17,7 +16,6 @@ import { ArticleModule } from '@components/article/article.module';
     CommonModule,
     HomeRoutingModule,
     ScullyLibModule,
-    IonicModule,
     ComponentsModule,
     BlogPostModule,
     NewsletterSignupModule,

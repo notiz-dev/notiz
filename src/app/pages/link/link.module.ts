@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 
-import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
@@ -19,7 +18,6 @@ import { CommentsModule } from '@components/comments/comments.module';
   imports: [
     CommonModule,
     ScullyLibModule,
-    IonicModule,
     ComponentsModule,
     NewsletterSignupModule,
     BreadcrumbModule,
