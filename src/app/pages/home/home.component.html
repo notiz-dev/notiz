@@ -43,7 +43,6 @@
     <h2 class="text-2xl font-semibold">Recently Updated</h2>
 
     <app-article
-      class="list-article"
       *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"
       [route]="blogPost"
     >
