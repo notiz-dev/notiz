@@ -2,37 +2,3 @@ img {
   width: 20rem;
   border-radius: 50%;
 }
-
-.description-wrapper{
-  display: flex;
-  align-items: center;
-}
-
-.description {
-  text-align: justify;
-  position: relative;
-  padding-left: 16px;
-  a {
-    color: var(--ion-color-secondary);
-  }
-}
-
-.description:before,
-.description:after {
-  content: '"';
-  font-size: 34px;
-  font-weight: 600;
-  color: var(--ion-color-primary);
-  position: absolute;
-  font-style: italic;
-
-}
-.description::before {
-  top: -2px;
-  left: -12px;
-}
-
-.description:after {
-  bottom: -10px;
-  right: -18px;
-}

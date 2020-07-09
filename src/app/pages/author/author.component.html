@@ -3,10 +3,6 @@
   <h1 *ngIf="author$ | async as author">More about the author</h1>
 
   <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
-
-  <div class="description">
-    <scully-content></scully-content>
-  </div>
 </div>
 
 <div class="mx-auto flex">

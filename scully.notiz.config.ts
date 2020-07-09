@@ -1,5 +1,6 @@
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import '@notiz/scully-plugin-lazy-images';
+import '@notiz/scully-plugin-copy-static-content';
 import '@notiz/scully-plugin-fouc';
 import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
@@ -12,6 +13,7 @@ const defaultPostRenderers = [
   'seoHrefOptimise',
   'lazyImages',
   'mediumZoom',
+  'copyStaticContent',
 ];
 
 const SitemapPlugin = getSitemapPlugin();

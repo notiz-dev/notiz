@@ -83,8 +83,6 @@ export class NizSearch implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.scully.available$.subscribe(console.log);
-
     this.registerSearchShortcuts();
 
     this.searchChanged
