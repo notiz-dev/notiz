@@ -5,7 +5,7 @@ published: true
 publishedAt: 2020-03-17T10:12:00.000Z
 updatedAt: 2020-03-17T10:12:00.000Z
 tags:
-  - 'GitHub Actions'
+  - GitHub
   - Typescript
 authors:
   - 'Gary Großgarten'
