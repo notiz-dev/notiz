@@ -9,21 +9,23 @@
   </div>
 </div>
 
-<app-card-stack
-  *ngIf="author$ | async as author"
-  title="Latest Articles"
-  [subtitle]="'Latest posts by ' + author.title"
->
-  <div
-    class="card"
-    *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
+<div class="mx-auto flex">
+  <app-card-stack
+    *ngIf="author$ | async as author"
+    title="Latest Articles"
+    [subtitle]="'Latest posts by ' + author.title"
   >
-    <app-article [route]="link"></app-article>
-  </div>
-  <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
-    <app-coming-soon></app-coming-soon>
-  </div>
-</app-card-stack>
+    <div
+      class="card"
+      *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
+    >
+      <app-article [route]="link"></app-article>
+    </div>
+    <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
+      <app-coming-soon></app-coming-soon>
+    </div>
+  </app-card-stack>
+</div>
 
 <div
   class="max-w-screen-xl flex flex-col-reverse mt-10 mx-auto px-5 space-y-5 md:space-y-0 md:flex-row md:space-x-5"

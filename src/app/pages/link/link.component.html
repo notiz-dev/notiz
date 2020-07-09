@@ -20,12 +20,17 @@
   <app-share [route]="post$ | async"></app-share>
 </div>
 
-<app-card-stack title="Related Posts" subtitle="Find more posts like this one.">
-  <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
-    <app-article [route]="blogPost"></app-article>
-  </div>
-  <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
-    <app-coming-soon></app-coming-soon>
-  </div>
-</app-card-stack>
-<app-comments class="my-5" [route]="post$ | async"></app-comments>>
+<div class="mx-auto flex">
+  <app-card-stack
+    title="Related Posts"
+    subtitle="Find more posts like this one."
+  >
+    <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
+      <app-article [route]="blogPost"></app-article>
+    </div>
+    <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
+      <app-coming-soon></app-coming-soon>
+    </div>
+  </app-card-stack>
+</div>
+<app-comments class="my-5" [route]="post$ | async"></app-comments>
