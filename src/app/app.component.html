@@ -6,13 +6,16 @@
           class="h-16 w-16"
           svgSource="assets/img/logo.svg"
         ></niz-inline-svg>
-        <span class="text-2xl font-black text-dark-blue">notiz.dev</span>
+        <span class="text-2xl font-black text-blue">notiz.dev </span>
       </a>
       <div class="flex flex-row space-x-4">
         <a
           class="router-link"
           [routerLink]="['/blog']"
-          [ngClass]="{'router-link-active': (current$ | async)?.route | startswith : '/links/'}"
+          [ngClass]="{
+            'router-link-active':
+              (current$ | async)?.route | startswith: '/links/'
+          }"
           routerLinkActive="router-link-active"
         >
           Posts

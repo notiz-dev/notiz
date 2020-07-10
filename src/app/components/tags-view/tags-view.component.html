@@ -1,4 +1,7 @@
-<niz-chip class="mb-1 mr-1 gradient" *ngFor="let tag of tags | async | slice: 0:limit">
+<niz-chip
+  class="mb-1 mr-1 gradient"
+  *ngFor="let tag of tags | async | slice: 0:limit"
+>
   <a [routerLink]="'/tags/' + tag.slug">
     {{ tag.title }}
   </a>
