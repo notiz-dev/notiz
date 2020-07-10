@@ -1,9 +1,9 @@
 ---
-title: Style Angular with Tailwind CSS
+title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications Tailwind CSS
 published: true
-publishedAt: 2020-07-10T19:30:00.000Z
-updatedAt: 2020-07-10T19:30:00.000Z
+publishedAt: 2020-07-10T19:50:00.000Z
+updatedAt: 2020-07-10T19:50:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -24,7 +24,7 @@ ng new app-name --style=scss
 cd app-name
 ```
 
-Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or jump directly to the [shortcut](#shortcut-aka-angular-schematics).
+Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or jump directly to the [shortcut](blog/angular-10-with-tailwindcss#shortcut-aka-angular-schematics).
 
 ## Setup
 
@@ -245,7 +245,7 @@ get classes() {
 
 Add the following snippet to your `src/app.component.html` to see if Tailwind styles the following card. (Don't worry about the picture its random)
 
-![Angular Tailwind Card](assets/img/blog/style-angular-with-tailwindcss/optimized/angular-tailwind-card.png)
+![Angular Tailwind Card](assets/img/blog/angular-10-with-tailwindcss/optimized/angular-tailwind-card.png)
 
 
 ```html
