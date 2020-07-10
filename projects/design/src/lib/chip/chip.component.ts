@@ -7,7 +7,7 @@ import { Component, Input, OnInit, HostBinding, Host } from '@angular/core';
 })
 export class NizChip implements OnInit {
   @Input() size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  @Input() shape: 'normal' | 'flat' = 'normal';
+  @Input() shape: 'raised' | 'flat' = 'flat';
   @Input() hover = false;
 
   private xsStyles = 'text-xs';
@@ -47,7 +47,7 @@ export class NizChip implements OnInit {
     switch (this.shape) {
       case 'flat':
         return 'py-0 shadow-none';
-      case 'normal':
+      case 'raised':
       default:
         return 'py-1 shadow-md';
     }

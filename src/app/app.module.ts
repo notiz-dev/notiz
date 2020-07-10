@@ -19,6 +19,7 @@ import {
 } from '@notiz/ngx-design';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { NizSearchComponentModule } from '@components/search/search.module';
+import { PipesModule } from '@pipes/pipes.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +41,7 @@ import { NizSearchComponentModule } from '@components/search/search.module';
     NizInlineSvgModule,
     NewsletterSignupModule,
     NizSearchComponentModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

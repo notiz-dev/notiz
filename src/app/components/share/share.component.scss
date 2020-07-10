@@ -104,11 +104,11 @@ a:hover {
 }
 
 .resp-sharing-button--email {
-  background-color: var(--ion-color-medium);
+  @apply bg-background-shade;
 }
 
 .resp-sharing-button--email:hover {
-  background-color: var(--ion-color-medium-shade);
+  @apply bg-background-light;
 }
 
 .resp-sharing-button--xing {

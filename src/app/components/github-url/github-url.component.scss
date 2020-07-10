@@ -9,15 +9,15 @@
 }
 
 ::ng-deep body.dark app-github-url {
-  background: var(--ion-item-background);
-  border: 2px solid var(--ion-item-background);
+  @apply bg-background;
+  border: 2px solid var(--background);
 }
 ::ng-deep body:not(.dark) app-github-url {
-  background: var(--ion-color-primary-tint);
-  border: 2px solid var(--ion-color-primary-tint);
+  @apply text-dark-blue-opacity-10;
+  border: 2px solid var(--dark-blue);
 }
 :host:hover {
-  border: 2px solid var(--ion-color-primary);
+  border: 2px solid var(--blue);
   cursor: pointer;
   a {
     background-image: var(--gradient);
@@ -26,7 +26,7 @@
   }
 
   .arrow ion-icon {
-    color: var(--ion-color-primary);
+    @apply text-blue;
   }
 }
 .stamp {

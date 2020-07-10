@@ -17,3 +17,8 @@ li + li:before {
   padding: 8px;
   content: '/\00a0';
 }
+
+a,
+li + li:before {
+  @apply text-dark-blue;
+}

@@ -1,20 +1,20 @@
 <div
-  class="max-w-screen-xl flex flex-col-reverse mt-10 mx-auto px-5 space-y-5 md:space-y-0 md:flex-row md:space-x-5"
+  class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
 >
-  <div class="w-full flex flex-col space-y-4 mt-5 md:w-4/12 md:mt-0">
+  <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
+    <h2 class="text-2xl font-semibold">All Posts</h2>
+    <div class="flex flex-wrap">
+      <app-article
+        *ngFor="let blogPost of blogPosts$ | async"
+        [route]="blogPost"
+      >
+      </app-article>
+    </div>
+  </div>
+  <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
     <h2 class="text-2xl font-semibold">
       <a routerLink="/tags">Tags</a>
     </h2>
-    <app-tags-view
-      limit="10"
-      [blogPosts]="blogPosts$"
-      [tags]="tags$"
-    ></app-tags-view>
-  </div>
-  <div class="w-full flex flex-col space-y-4 md:w-8/12">
-    <h2 class="text-2xl font-semibold">All Posts</h2>
-    <!-- TODO infinite scroll -->
-    <app-article *ngFor="let blogPost of blogPosts$ | async" [route]="blogPost">
-    </app-article>
+    <app-tags-view limit="18" [tags]="tags$"></app-tags-view>
   </div>
 </div>

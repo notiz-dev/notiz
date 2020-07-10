@@ -20,7 +20,7 @@ import {
   map,
 } from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { Subject } from 'rxjs';
+import { Subject, merge } from 'rxjs';
 import { SearchPipe } from '@pipes/search.pipe';
 
 @Component({
@@ -121,11 +121,17 @@ export class NizSearch implements OnInit {
   }
 
   private openSearchShortcut() {
-    shortcut([KeyCode.ControlLeft, KeyCode.KeyF])
+    merge(
+      shortcut([KeyCode.ShiftLeft, KeyCode.Digit7]),
+      shortcut([KeyCode.ShiftRight, KeyCode.Digit7]),
+      shortcut([KeyCode.ControlLeft, KeyCode.KeyF]),
+      shortcut([KeyCode.ControlRight, KeyCode.KeyF]),
+      shortcut([KeyCode.NumpadDivide]),
+      shortcut([KeyCode.Slash])
+    )
       .pipe(
         sequence(),
         filter(() => !this.isOpen),
-        tap(console.log),
         tap(() => this.openSearch())
       )
       .subscribe();

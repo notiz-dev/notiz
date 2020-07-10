@@ -1,30 +1,41 @@
-<div id="medium-zoom"></div>
 <niz-navbar>
   <niz-toolbar class="px-5">
-    <a start class="flex items-center select-none" [routerLink]="['/']">
-      <niz-inline-svg
-        class="h-12 w-12"
-        svgSource="assets/img/logo.svg"
-      ></niz-inline-svg>
-      <span class="ml-2 text-xl font-bold">notiz</span>
-    </a>
+    <div start class="flex flex-row space-x-8 items-center">
+      <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
+        <niz-inline-svg
+          class="h-16 w-16"
+          svgSource="assets/img/logo.svg"
+        ></niz-inline-svg>
+        <span class="text-2xl font-black text-dark-blue">notiz.dev</span>
+      </a>
+      <div class="flex flex-row space-x-4">
+        <a
+          class="router-link"
+          [routerLink]="['/blog']"
+          [ngClass]="{'router-link-active': (current$ | async)?.route | startswith : '/links/'}"
+          routerLinkActive="router-link-active"
+        >
+          Posts
+        </a>
+        <button class="router-link">
+          Newsletter
+        </button>
+      </div>
+    </div>
+
     <div end class="flex flex-row space-x-6 items-center">
-      <a
-        class="font-bold text-xl select-none"
-        [routerLink]="['/blog']"
-        routerLinkActive="router-link-active"
-        start
+      <button
+        (click)="search.openSearch()"
+        class="hidden md:flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
       >
-        Posts
-      </a>
-      <a
-        class="font-bold text-xl select-none"
-        [routerLink]="['/tags']"
-        routerLinkActive="router-link-active"
-        start
-      >
-        Tags
-      </a>
+        <niz-inline-svg
+          class="h-4 w-4 theme"
+          svgSource="assets/img/search.svg"
+        ></niz-inline-svg>
+        <span class="px-2 outline-none font-semibold">
+          "<kbd>/</kbd>" to focus</span
+        >
+      </button>
       <button
         class="relative h-6 w-6 theme focus:outline-none select-none"
         [ngClass]="{
@@ -34,12 +45,6 @@
         (click)="themeService.toggleTheme()"
       >
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
-      </button>
-      <button
-        class="relative h-6 w-6 focus:outline-none select-none"
-        (click)="search.openSearch()"
-      >
-        <niz-inline-svg svgSource="assets/img/search.svg"></niz-inline-svg>
       </button>
     </div>
   </niz-toolbar>

@@ -17,8 +17,9 @@ module.exports = {
         background: 'var(--background)',
         'background-light': 'var(--background-light)',
         'background-shade': 'var(--background-shade)',
-        color: 'var(--text-color)',
-        'color-light': 'var(--text-color-light)',
+        color: 'var(--text)',
+        'color-light': 'var(--text-light)',
+        'color-shade': 'var(--text-shade)',
         tabs: 'var(--tabs)',
         danger: 'var(--danger)',
       },
@@ -26,7 +27,10 @@ module.exports = {
         sans: ['Muli'],
       },
       inset: {
-        '8': '8rem',
+        4: "1rem",
+        16: "4rem",
+        24: "6rem",
+        32: "8rem",
       },
       maxHeight: {
         '384': '384px',

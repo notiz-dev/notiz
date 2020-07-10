@@ -1,5 +1,5 @@
 <div class="flex items-center h-20 bg-background-light rounded-full border-2 border-background-light" [class.invalid]="invalid">
-  <div class="relative z-0 w-full ml-10 text-lg">
+  <div class="relative z-0 w-full ml-10 text-xl">
     <input
       class="block w-full appearance-none bg-transparent focus:outline-none"
       [type]="type"
@@ -9,7 +9,7 @@
       (focus)="focus($event)"
       [(ngModel)]="value"
     />
-    <label class="absolute top-0 -z-1 duration-300 origin-0 text-light">{{
+    <label class="absolute top-0 -z-1 duration-150 origin-0 text-light font-bold">{{
       label
     }}</label>
   </div>

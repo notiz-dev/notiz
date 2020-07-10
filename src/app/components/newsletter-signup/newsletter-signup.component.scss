@@ -10,24 +10,14 @@
   align-items: center;
 }
 
-ion-input,
-p {
-  font-size: 20px;
-}
-
 .newsletter {
   width: 100%;
   --inner-padding-start: 24px;
-  border: 2px solid var(--ion-background-color);
+  border: 2px solid var(--background);
 }
 
 .newsletter.dirty {
-  border: 2px solid var(--ion-color-danger);
-
-  ion-input,
-  p {
-    color: var(--ion-color-danger);
-  }
+  border: 2px solid var(--danger);
 }
 
 ::ng-deep {
@@ -41,7 +31,7 @@ p {
     .newsletter {
       --padding-start: 24px;
       border-radius: 50px;
-      --background: var(--ion-color-primary-tint);
+      --background: var(--dark-blue);
       --box-shadow: inset 11px 11px 22px #e6e6e6, inset -11px -11px 22px #ffffff;
     }
   }
@@ -53,15 +43,12 @@ p {
   }
 
   .form-error {
-    --background: var(--ion-color-danger);
-    --color: var(--ion-text-color);
+    --background: var(--danger);
+    --color: var(--text-color);
   }
 
   .form-success {
-    --background: var(--ion-color-success);
-    --color: var(--ion-text-color);
+    --background: var(--tw-color-green-500);
+    --color: var(--text-color);
   }
-}
-ion-item {
-  --transition: none;
 }

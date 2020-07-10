@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  background-color: var(--ion-background-color);
+  @apply bg-background;
   z-index: 5;
   transition: transform 260ms ease;
 

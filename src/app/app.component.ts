@@ -4,7 +4,9 @@ import { ThemeService } from '@services/theme.service';
 import { tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
-import { merge } from 'rxjs';
+import { merge, Observable } from 'rxjs';
+import { ScullyContentService } from '@services/scully-content.service';
+import { ScullyRoute } from '@scullyio/ng-lib';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ import { merge } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   copyrightUrl = 'legal/privacy-policy';
-
+  current$: Observable<ScullyRoute>;
   createdWithSvgSources = [
     'assets/stack/angular.svg',
     'assets/stack/scully.svg',
@@ -67,7 +69,10 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  constructor(public themeService: ThemeService) {}
+  constructor(
+    public themeService: ThemeService,
+    private content: ScullyContentService
+  ) {}
 
   ngOnInit() {
     const notiz =
@@ -91,5 +96,7 @@ export class AppComponent implements OnInit {
     )
       .pipe(tap(() => this.themeService.toggleTheme()))
       .subscribe();
+
+    this.current$ = this.content.getCurrent();
   }
 }

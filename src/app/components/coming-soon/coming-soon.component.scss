@@ -10,5 +10,5 @@ ion-icon {
   font-size: 38px;
 }
 a {
-  color: var(--ion-color-secondary);
+  @apply text-dark-blue-opacity-10;
 }

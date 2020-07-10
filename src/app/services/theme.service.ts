@@ -8,9 +8,6 @@ export class ThemeService {
   _theme: 'dark' | 'light' = 'dark';
   themeChange = new BehaviorSubject<"dark" | "light">(this._theme);
   set theme(theme: 'dark' | 'light') {
-    if (this.theme === theme) {
-      return;
-    }
     this._theme = theme;
     this.themeChange.next(theme);
 

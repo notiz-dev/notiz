@@ -3,8 +3,6 @@
 @import 'base-styles.scss';
 @import 'theme/line-clamp.utilities.scss';
 
-@import '@ionic/angular/css/core';
-
 @import 'prismjs/themes/prism-tomorrow';
 @import 'prismjs/plugins/toolbar/prism-toolbar';
 
@@ -19,6 +17,10 @@
   font-family: 'Muli', sans-serif;
 }
 
+body {
+  @apply bg-background;
+}
+
 .gradient:hover {
   background: var(--gradient);
   background-clip: text;
@@ -27,14 +29,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--ion-color-light);
+  @apply bg-background-shade;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--gradient);
+  @apply bg-background-light;
   border-radius: 99px;
 }
 
@@ -67,19 +69,19 @@
   color: #f2df62;
 }
 
-body.dark .post {
+.post {
   a,
   li:before {
-    color: var(--ion-color-secondary);
+    @apply text-dark-blue-opacity-10;
   }
 
   h2 {
-    color: var(--ion-color-primary-tint);
+    @apply text-blue;
   }
 
   pre {
+    @apply bg-background-light;
     border-radius: 16px;
-    background: var(--ion-item-background);
     box-shadow: inset 22px 22px 44px #16171a, inset -22px -22px 44px #1e1f23;
   }
 
@@ -89,31 +91,7 @@ body.dark .post {
     }
   }
   hr {
-    border-color: var(--ion-item-background);
-  }
-}
-body:not(.dark) .post {
-  a,
-  li:before {
-    color: var(--ion-color-primary);
-  }
-
-  h2 {
-    color: var(--ion-item-background);
-  }
-
-  pre {
-    border-radius: 16px;
-    background: var(--ion-color-primary-tint);
-  }
-  p {
-    code {
-      background: #fff6ea;
-    }
-  }
-
-  hr {
-    border-color: var(--ion-color-primary-tint);
+    @apply border-background-light;
   }
 }
 
@@ -177,42 +155,12 @@ body:not(.dark) .post {
 
   code[class*='language-'],
   pre[class*='language-'] {
-    color: var(--ion-text-color);
-  }
-}
-
-.about {
-  p {
-    font-size: 1rem;
-  }
-  em {
-    font-size: 0.8rem;
-  }
-  a {
-    color: var(--ion-color-secondary);
-  }
-}
-
-body.dark {
-  app-breadcrumb {
-    a,
-    li + li:before {
-      color: var(--ion-color-secondary);
-    }
-  }
-}
-
-body:not(.dark) {
-  app-breadcrumb {
-    a,
-    li + li:before {
-      color: var(--ion-color-primary);
-    }
+    @apply text-color;
   }
 }
 
 .medium-zoom-overlay {
-  background: var(--ion-background-color) !important;
+  @apply bg-background;
   z-index: 2;
 }
 .medium-zoom-image--opened {
@@ -263,3 +211,4 @@ blockquote::before {
     transform: rotate(360deg);
   }
 }
+
