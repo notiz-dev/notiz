@@ -2,15 +2,15 @@
 title: Style Angular with Tailwind CSS
 description: Learn how to style Angular applications Tailwind CSS
 published: true
-publishedAt: 2020-07-10T19:15:00.000Z
-updatedAt: 2020-07-10T19:15:00.000Z
+publishedAt: 2020-07-10T19:30:00.000Z
+updatedAt: 2020-07-10T19:30:00.000Z
 tags:
   - Angular
   - Tailwind CSS
   - CSS
 authors:
   - Marc Stammerjohann
-github: https://github.com/notiz-dev/...
+github: https://github.com/notiz-dev/angular-tailwindcss
 ---
 
 Learn how to use utility-first CSS framework [Tailwind CSS](https://tailwindcss.com) with [Angular](https://angular.io/).
@@ -146,6 +146,52 @@ module.exports = {
 ```
 
 Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in `package.json`. Now run `npm run build:prod` to get a production build with only used Tailwind styles.
+
+## CSS instead of SCSS
+
+You don't need to install `postcss-scss`
+
+```bash
+npm i -D tailwindcss postcss-import postcss-loader @angular-builders/custom-webpack
+
+# For Angular 10 install to resolve
+# ERROR in Cannot read property 'flags' of undefined
+npm i -D @angular-builders/custom-webpack@10.0.0-beta.0
+```
+
+Update also your `webpack.config.js`:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: "postcss-loader",
+        options: {
+          ident: "postcss",
+          syntax: "postcss",
+          plugins: () => [
+            require("postcss-import"),
+            require("tailwindcss"),
+            require("autoprefixer"),
+          ],
+        },
+      },
+    ],
+  },
+};
+```
+
+Finally add Tailwind base styles to `src/styles.css`.
+
+```css
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+```
 
 ## Shortcut aka Angular Schematics
 
