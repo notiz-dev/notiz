@@ -243,7 +243,7 @@ get classes() {
 }
 ```
 
-Add the following snippet to your `src/app.component.html` to see if Tailwind styles the following card.
+Add the following snippet to your `src/app.component.html` to see if Tailwind styles the following card. (Don't worry about the picture its random)
 
 ![Angular Tailwind Card](assets/img/blog/style-angular-with-tailwindcss/optimized/angular-tailwind-card.png)
 
