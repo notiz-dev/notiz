@@ -9,6 +9,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
+import { AuthorCardModule } from '@components/author/author.module';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -22,6 +23,7 @@ import { ArticleModule } from '@components/article/article.module';
     TagsViewModule,
     ArticleModule,
     ComingSoonModule,
+    AuthorCardModule,
   ],
 })
 export class AuthorModule {}

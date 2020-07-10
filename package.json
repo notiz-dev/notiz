@@ -66,7 +66,6 @@
     "@angular/compiler-cli": "9.1.9",
     "@angular/language-service": "9.1.9",
     "@gammastream/scully-plugin-sitemap": "1.0.0",
-    "@ionic/angular-toolkit": "2.2.0",
     "@notiz/scully-plugin-copy-static-content": "file:projects/copy-static-content",
     "@notiz/scully-plugin-fouc": "0.2.0",
     "@notiz/scully-plugin-lazy-images": "0.2.7",

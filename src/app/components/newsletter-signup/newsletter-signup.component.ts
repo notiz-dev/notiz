@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { first, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-newsletter-signup',
   templateUrl: './newsletter-signup.component.html',
-  styleUrls: ['./newsletter-signup.component.scss']
+  styleUrls: ['./newsletter-signup.component.scss'],
 })
 export class NewsletterSignupComponent implements OnInit {
   newsletterSignup: FormGroup;
@@ -26,7 +26,7 @@ export class NewsletterSignupComponent implements OnInit {
 
   private setupForm() {
     this.newsletterSignup = this.formBuilder.group({
-      email: ['', [Validators.email, Validators.required]]
+      email: ['', [Validators.email, Validators.required]],
     });
   }
 
@@ -46,9 +46,9 @@ export class NewsletterSignupComponent implements OnInit {
                 message:
                   'Successfully subscribed to notiz.dev. Check your email. 📮',
                 duration: 4000,
-                cssClass: 'form-success'
+                cssClass: 'form-success',
               })
-              .then(_ => _.present());
+              .then((_) => _.present());
           })
         )
         .subscribe();
@@ -58,8 +58,8 @@ export class NewsletterSignupComponent implements OnInit {
       .create({
         message: 'Please enter your mail address. 📧',
         duration: 4000,
-        cssClass: 'form-error'
+        cssClass: 'form-error',
       })
-      .then(_ => _.present());
+      .then((_) => _.present());
   }
 }

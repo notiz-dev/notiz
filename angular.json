@@ -30,11 +30,6 @@
               "src/favicon.png",
               "src/robot.txt",
               "src/assets",
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./svg"
-              },
               "src/manifest.webmanifest"
             ],
             "styles": ["src/styles.scss", "src/theme/variables.scss"],
@@ -141,30 +136,6 @@
           "configurations": {
             "production": {
               "devServerTarget": "notiz:serve:production"
-            }
-          }
-        },
-        "ionic-cordova-serve": {
-          "builder": "@ionic/angular-toolkit:cordova-serve",
-          "options": {
-            "cordovaBuildTarget": "notiz:ionic-cordova-build",
-            "devServerTarget": "notiz:serve"
-          },
-          "configurations": {
-            "production": {
-              "cordovaBuildTarget": "notiz:ionic-cordova-build:production",
-              "devServerTarget": "notiz:serve:production"
-            }
-          }
-        },
-        "ionic-cordova-build": {
-          "builder": "@ionic/angular-toolkit:cordova-build",
-          "options": {
-            "browserTarget": "notiz:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "notiz:build:production"
             }
           }
         }

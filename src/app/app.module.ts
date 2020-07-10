@@ -5,7 +5,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { IonicModule } from '@ionic/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
@@ -28,7 +27,6 @@ import { PipesModule } from '@pipes/pipes.module';
     HttpClientModule,
     AppRoutingModule,
     ScullyLibModule.forRoot({ useTransferState: true, alwaysMonitor: true }),
-    IonicModule.forRoot({ mode: 'md' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
@@ -41,7 +39,7 @@ import { PipesModule } from '@pipes/pipes.module';
     NizInlineSvgModule,
     NewsletterSignupModule,
     NizSearchComponentModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

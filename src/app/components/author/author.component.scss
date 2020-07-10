@@ -1,0 +1,16 @@
+a:hover {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about {
+  a {
+    @apply text-cyan;
+  }
+}
+
+niz-chip {
+  @apply bg-background;
+}

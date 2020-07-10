@@ -10,6 +10,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { ArticleModule } from '@components/article/article.module';
 import { TableOfContentsModule } from '@notiz/ngx-design';
 import { CommentsModule } from '@components/comments/comments.module';
+import { AuthorCardModule } from '@components/author/author.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -24,6 +25,7 @@ import { CommentsModule } from '@components/comments/comments.module';
     CommentsModule,
     ComingSoonModule,
     GithubUrlModule,
+    AuthorCardModule,
   ],
 })
 export class BlogPostModule {}

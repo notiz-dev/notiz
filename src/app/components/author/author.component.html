@@ -1,42 +1,57 @@
-<ion-card class="author">
-  <ion-item>
-    <ion-avatar slot="start">
-      <img [alt]="author.title" [src]="author.img" />
-    </ion-avatar>
+<div
+  class="max-w-sm bg-background-light rounded overflow-hidden shadow-lg px-4 py-5 space-y-4 md:max-w-lg"
+>
+  <div class="flex items-center space-x-4">
+    <img
+      class="h-24 w-24 rounded-full"
+      [alt]="author.title"
+      [src]="author.img"
+    />
     <div>
-      <h2>
-        <a [routerLink]="author.route">{{ author.title }}</a>
-      </h2>
-      <a class="website" [href]="author.website">{{ author.website }}</a>
+      <a
+        class="mt-1 text-2xl font-bold line-clamp-2 min leading-8"
+        [routerLink]="author.route"
+      >
+        {{ author.title }}
+      </a>
+      <a [href]="author.website" target="_blank" rel="noreferrer">{{
+        author.website
+      }}</a>
     </div>
-  </ion-item>
+  </div>
 
   <markdown
-    class="post"
+    class="about"
     [src]="'assets/content/authors/' + author.sourceFile"
   ></markdown>
 
-  <ion-card-content class="ion-no-padding">
-    <ion-button
-      href="https://twitter.com/{{ author.twitter }}"
-      expand="full"
-      fill="clear"
-      shape="round"
-      class="lowercase"
-    >
-      <ion-icon slot="start" name="logo-twitter"></ion-icon>
-      @{{ author.twitter }}
-    </ion-button>
-
-    <ion-button
-      href="https://github.com/{{ author.github }}"
-      expand="full"
-      fill="clear"
-      shape="round"
-      class="lowercase"
-    >
-      <ion-icon slot="start" name="logo-github"></ion-icon>
-      @{{ author.github }}
-    </ion-button>
-  </ion-card-content>
-</ion-card>
+  <div class="space-x-2">
+    <niz-chip size="xl">
+      <a
+        class="flex items-center space-x-2"
+        href="https://twitter.com/{{ author.twitter }}"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <niz-inline-svg
+          class="h-4 w-4"
+          svgSource="assets/img/twitter-white.svg"
+        ></niz-inline-svg>
+        <span>@{{ author.twitter }}</span>
+      </a>
+    </niz-chip>
+    <niz-chip size="xl">
+      <a
+        class="flex items-center space-x-2"
+        href="https://github.com/{{ author.github }}"
+        target="_blank"
+        rel="noreferrer"
+        ><niz-inline-svg
+          class="h-4 w-4"
+          svgSource="assets/stack/github.svg"
+        ></niz-inline-svg>
+        <span>@{{ author.github }}</span>
+      </a>
+    </niz-chip>
+  </div>
+</div>
