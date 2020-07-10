@@ -1,5 +1,5 @@
 <div
-  class="max-w-sm bg-background-light rounded overflow-hidden shadow-lg px-4 py-5 space-y-4 md:max-w-lg"
+  class="max-w-sm bg-background-light rounded-lg overflow-hidden shadow-lg px-4 py-5 space-y-6 md:max-w-lg"
 >
   <div class="flex items-center space-x-4">
     <img
@@ -20,10 +20,9 @@
     </div>
   </div>
 
-  <markdown
-    class="about"
-    [src]="'assets/content/authors/' + author.sourceFile"
-  ></markdown>
+  <div class="about">
+    <markdown [src]="'assets/content/authors/' + author.sourceFile"></markdown>
+  </div>
 
   <div class="space-x-2">
     <niz-chip size="xl">
