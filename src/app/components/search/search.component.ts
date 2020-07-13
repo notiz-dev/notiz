@@ -51,7 +51,7 @@ export class NizSearch implements OnInit {
 
   @HostListener('document:keydown.enter', ['$event'])
   enterDown(event: KeyboardEvent) {
-    if (this.isOpen) {
+    if (this.isOpen && this.searchResult?.length > 0) {
       this.openActive(this.activeIndex);
     }
   }
