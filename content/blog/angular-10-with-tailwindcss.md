@@ -2,8 +2,8 @@
 title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
-publishedAt: 2020-07-10T19:50:00.000Z
-updatedAt: 2020-07-10T19:50:00.000Z
+publishedAt: 2020-07-13T08:55:00.000Z
+updatedAt: 2020-07-13T08:55:00.000Z
 tags:
   - Angular
   - Tailwind CSS
