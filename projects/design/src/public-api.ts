@@ -23,4 +23,7 @@ export * from './lib/navbar/navbar.module';
 export * from './lib/primary-button/primary-button.component';
 export * from './lib/primary-button/primary-button.module';
 export * from './lib/utils/symbols';
-
+export * from './lib/toast/toast.module';
+export * from './lib/toast/toast.component';
+export * from './lib/toast/toast.service';
+export * from './lib/toast/toast.options';

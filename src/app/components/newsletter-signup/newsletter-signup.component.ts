@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { ToastController } from '@ionic/angular';
+import { ToastService, ToastType } from '@notiz/ngx-design';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -17,7 +17,7 @@ export class NewsletterSignupComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private toast: ToastController
+    private toast: ToastService
   ) {
     this.setupForm();
   }
@@ -41,25 +41,21 @@ export class NewsletterSignupComponent implements OnInit {
         .pipe(
           tap(() => (this.pending = false)),
           tap(() => {
-            this.toast
-              .create({
-                message:
-                  'Successfully subscribed to notiz.dev. Check your email. 📮',
-                duration: 4000,
-                cssClass: 'form-success',
-              })
-              .then((_) => _.present());
+            this.toast.show({
+              type: ToastType.SUCCESS,
+              text:
+                'Successfully subscribed to notiz.dev. Check your email. 📮',
+            });
           })
         )
         .subscribe();
     }
     this.invalid = true;
-    return this.toast
-      .create({
-        message: 'Please enter your mail address. 📧',
-        duration: 4000,
-        cssClass: 'form-error',
-      })
-      .then((_) => _.present());
+
+    this.toast.show({
+      type: ToastType.ERROR,
+      text:
+        'Please enter your mail address. 📧',
+    });
   }
 }

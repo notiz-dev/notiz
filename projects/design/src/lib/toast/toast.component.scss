@@ -1,0 +1,25 @@
+:host {
+  @apply fixed;
+  @apply flex;
+  @apply flex-row;
+  @apply bottom-12;
+  @apply w-full;
+  @apply items-center;
+  @apply bg-background-shade;
+  @apply rounded-full;
+  @apply h-16;
+  @apply transform;
+  @apply -translate-x-1/2;
+  @apply translate-y-full;
+  left: 50%;
+  @apply max-w-2xl;
+  @apply shadow-lg;
+  @apply transition-all;
+  @apply opacity-0;
+  @apply duration-200;
+}
+
+:host.open {
+  @apply translate-y-0;
+  @apply opacity-100;
+}

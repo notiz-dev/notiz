@@ -224,3 +224,31 @@ blockquote::before {
     -webkit-text-fill-color: transparent;
   }
 }
+
+body.dark {
+  niz-toast.error {
+    @apply bg-red-800;
+
+    .toast-text,
+    .toast-button {
+      @apply text-color-light;
+    }
+  }
+  niz-toast.success {
+    @apply bg-green-800;
+
+    .toast-text,
+    .toast-button {
+      @apply text-color-light;
+    }
+  }
+}
+
+body:not(.dark) {
+  niz-toast.error {
+    @apply bg-red-500;
+  }
+  niz-toast.success {
+    @apply bg-green-800;
+  }
+}

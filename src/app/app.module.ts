@@ -15,6 +15,7 @@ import {
   NizNavbarModule,
   NizToolbarModule,
   NizInlineSvgModule,
+  NizToastModule,
 } from '@notiz/ngx-design';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { NizSearchComponentModule } from '@components/search/search.module';
@@ -33,13 +34,14 @@ import { PipesModule } from '@pipes/pipes.module';
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
     NizTabModule,
-    NizFooterModule,
+    NizFooterModule, 
     NizNavbarModule,
     NizToolbarModule,
     NizInlineSvgModule,
     NewsletterSignupModule,
     NizSearchComponentModule,
     PipesModule,
+    NizToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],
