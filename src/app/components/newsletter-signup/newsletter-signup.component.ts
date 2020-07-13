@@ -43,6 +43,7 @@ export class NewsletterSignupComponent implements OnInit {
           tap(() => {
             this.toast.show({
               type: ToastType.SUCCESS,
+              duration: 4000,
               text:
                 'Successfully subscribed to notiz.dev. Check your email. 📮',
             });
@@ -54,6 +55,7 @@ export class NewsletterSignupComponent implements OnInit {
 
     this.toast.show({
       type: ToastType.ERROR,
+      duration: 4000,
       text:
         'Please enter your mail address. 📧',
     });
