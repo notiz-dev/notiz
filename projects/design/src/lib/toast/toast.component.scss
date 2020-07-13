@@ -3,7 +3,7 @@
   @apply flex;
   @apply flex-row;
   @apply bottom-12;
-  @apply w-full;
+
   @apply items-center;
   @apply bg-background-shade;
   @apply rounded-full;
@@ -17,9 +17,17 @@
   @apply transition-all;
   @apply opacity-0;
   @apply duration-200;
+
+  width: calc(100% - 16px);
 }
 
 :host.open {
   @apply translate-y-0;
   @apply opacity-100;
+}
+
+@screen md {
+  :host {
+    @apply w-full;
+  }
 }
