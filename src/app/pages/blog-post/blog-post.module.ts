@@ -8,9 +8,12 @@ import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { ArticleModule } from '@components/article/article.module';
-import { TableOfContentsModule } from '@notiz/ngx-design';
+import { TableOfContentsModule, NizInlineSvgModule, NizChipModule } from '@notiz/ngx-design';
 import { CommentsModule } from '@components/comments/comments.module';
 import { AuthorCardModule } from '@components/author/author.module';
+import { RouterModule } from '@angular/router';
+
+import { PipesModule } from '@pipes/pipes.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -26,6 +29,10 @@ import { AuthorCardModule } from '@components/author/author.module';
     ComingSoonModule,
     GithubUrlModule,
     AuthorCardModule,
+    RouterModule,
+    NizInlineSvgModule,
+    NizChipModule,
+    PipesModule
   ],
 })
 export class BlogPostModule {}

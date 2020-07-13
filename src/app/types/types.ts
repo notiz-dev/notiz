@@ -11,3 +11,8 @@ export interface SearchItem {
   url: string;
   tag: string;
 }
+
+export enum ContentType {
+  ARTICLE = 'ARTICLE',
+  LINK = 'LINK',
+}

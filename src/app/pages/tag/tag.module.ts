@@ -7,6 +7,7 @@ import { TagComponent } from './tag.component';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { ArticleModule } from '@components/article/article.module';
+import { FeaturedModule } from '@components/featured/featured.module';
 
 @NgModule({
   declarations: [TagComponent],
@@ -17,6 +18,7 @@ import { ArticleModule } from '@components/article/article.module';
     NewsletterSignupModule,
     BreadcrumbModule,
     ArticleModule,
+    FeaturedModule
   ],
 })
 export class TagModule {}

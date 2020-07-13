@@ -36,6 +36,7 @@ module.exports = {
       },
       maxHeight: {
         '384': '384px',
+        '524': '524px',
       },
       transformOrigin: {
         '0': '0%',

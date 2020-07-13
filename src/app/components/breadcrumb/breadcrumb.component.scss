@@ -10,7 +10,7 @@ ol {
 
 li {
   display: inline;
-  font-size: 0.9rem;
+  @apply text-sm;
 }
 
 li + li:before {
@@ -20,5 +20,5 @@ li + li:before {
 
 a,
 li + li:before {
-  @apply text-dark-blue;
+  @apply text-blue;
 }

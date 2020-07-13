@@ -10,6 +10,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
 import { AuthorCardModule } from '@components/author/author.module';
+import { FeaturedModule } from '@components/featured/featured.module';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -24,6 +25,7 @@ import { AuthorCardModule } from '@components/author/author.module';
     ArticleModule,
     ComingSoonModule,
     AuthorCardModule,
+    FeaturedModule
   ],
 })
 export class AuthorModule {}

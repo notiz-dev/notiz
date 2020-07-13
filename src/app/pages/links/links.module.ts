@@ -4,11 +4,11 @@ import { LinksRoutingModule } from './links-routing.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
-import { LinkModule } from '@pages/link/link.module';
+import { BlogPostModule } from '@pages/blog-post/blog-post.module';
 
 @NgModule({
   imports: [
-    LinkModule,
+    BlogPostModule,
     CommonModule,
     LinksRoutingModule,
     ScullyLibModule,

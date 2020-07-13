@@ -22,7 +22,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   headers$: Observable<Element[]>;
 
   @HostBinding('class') get classes(): string {
-    return 'block sticky ml-2';
+    return 'block';
   }
 
   constructor(
@@ -131,7 +131,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     if (header === 'h2') {
       return 'text-lg text-semibold';
     } else if (header === 'h3') {
-      return 'text-base pl-2';
+      return 'text-base';
     }
   }
 }

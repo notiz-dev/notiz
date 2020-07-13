@@ -1,14 +1,10 @@
-<div class="responsive-container space-y-5 mt-10">
-  <app-article
-    [peek]="true"
-    class="featured"
-    feature="Fresh Article"
-    featureIcon="megaphone-outline"
+<div class="responsive-container mt-10">
+  <app-featured
     *ngIf="latestBlogPost$ | async as blogPost"
     [route]="blogPost"
-  ></app-article>
+  ></app-featured>
 </div>
-<div class="mx-auto flex">
+<div class="mx-auto flex mt-10">
   <app-card-stack
     title="Latest Articles"
     subtitle="Check out latest posts and featured content from notiz.dev"
