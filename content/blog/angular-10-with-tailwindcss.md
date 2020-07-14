@@ -36,7 +36,7 @@ npm i -D tailwindcss postcss-import postcss-loader postcss-scss
 ng add ngx-build-plus
 ```
 
-Create a `webpack.config.js` in your root folder to configure Postcss with Tailwind.
+Create a **webpack.config.js** in your root folder to configure Postcss with Tailwind.
 
 ```bash
 touch webpack.config.js
@@ -66,44 +66,38 @@ module.exports = {
 };
 ```
 
-If you use the schematics `ng add ngx-build-plus` it will update your `angular.json` file automatically otherwise you can do it manually.
+Now open **angular.json** file to apply the extra webpack config to generate Tailwind styles during `ng build`, `ng serve` and `ng test`. If you used the schematics `ng add ngx-build-plus` it automatically replaces `@angular-devkit/build-angular` with `ngx-build-plus` in your `angular.json`. Additionally, add the `extraWebpackConfig` to each build step. In the end your **angular.json** should look like this:
 
 ```diff
 "architect": {
   "build": {
--    "builder": "@angular-devkit/build-angular:browser",
-+    "builder": "ngx-build-plus:browser",
+-   "builder": "@angular-devkit/build-angular:browser",
++   "builder": "ngx-build-plus:browser",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
       ...
-    },
-
-  "serve": {
--    "builder": "@angular-devkit/build-angular:dev-server",
-+    "builder": "ngx-build-plus:dev-server",
-      ...
-    },
-  
-
-  "test": {
--    "builder": "@angular-devkit/build-angular:karma",
-+    "builder": "ngx-build-plus:karma",
-      ...
-    },
+    }
     ...
+  },
+  "serve": {
+-   "builder": "@angular-devkit/build-angular:dev-server",
++   "builder": "ngx-build-plus:dev-server",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
+      ...
+    }
+    ...
+  },
+  "test": {
+-   "builder": "@angular-devkit/build-angular:karma",
++   "builder": "ngx-build-plus:karma",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
+      ...
+    }
+    ...
+  },
 ```
-
-ngx-build-plus allows you to serve, build and test your app with `ng serve|build|test --extra-webpack-config` to load a webpack config. Add the following scripts to your `package.json`.
-
-```bash
-"scripts": {
-  "start": "ng serve --extra-webpack-config webpack.config.js",
-  "build": "ng build --extra-webpack-config webpack.config.js",
-  "build:prod": "ng build --prod --extra-webpack-config webpack.config.js",
-  "test": "ng test --extra-webpack-config webpack.config.js",
-  ...
-},
-```
-
-Tailwind styles are **only** generated if the webpack config is loaded. To serve your application use `npm run start` instead of `ng serve`.
 
 Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or for full config `npx tailwindcss init --full`. Almost there. Add Tailwind base styles to your `src/styles.scss` file
 
@@ -115,13 +109,13 @@ Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or
 @import 'tailwindcss/utilities';
 ```
 
-Now go ahead serve your app using `npm run start`, you are ready to style 🎨 your Angular app with Tailwind utility classes.
+Now go ahead serve your app, you are ready to style 🎨 your Angular app with Tailwind utility classes.
 
 ... wait a moment, we need to purge the unused CSS styles from Tailwind.
 
 ## Remove unused CSS Styles
 
-We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in `tailwind.config.js`.
+We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in **tailwind.config.js**.
 
 ```js
 module.exports = {
@@ -134,7 +128,7 @@ module.exports = {
 };
 ```
 
-Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Update your build step `"build:prod": "NODE_ENV=production ng build --prod --extra-webpack-config webpack.config.js",`. Now run `npm run build:prod` to get a production build **only** with used Tailwind styles.
+Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in **package.json**. Now run `npm run build:prod` for a production build **only** with used Tailwind styles.
 
 ## CSS instead of SCSS
 
