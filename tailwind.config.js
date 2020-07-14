@@ -35,6 +35,7 @@ module.exports = {
         32: "8rem",
       },
       maxHeight: {
+        '248': '248px',
         '384': '384px',
         '524': '524px',
       },

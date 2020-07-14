@@ -2,12 +2,11 @@
   width: calc(100% -12px);
 }
 
-.cursor-pointer:hover a{
+.cursor-pointer:hover a {
   @apply cursor-pointer;
   @apply text-blue;
 }
 
-.active{
-  @apply text-color-shade;
-
+.active {
+  @apply text-blue;
 }

@@ -114,6 +114,10 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
         pattern: /^\/tags$/,
         text: 'tags',
       },
+      {
+        pattern: /^\/links$/,
+        text: 'links',
+      },
     ];
   }
 }
