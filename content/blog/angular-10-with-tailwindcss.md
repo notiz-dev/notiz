@@ -3,7 +3,7 @@ title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2020-07-13T08:55:00.000Z
+updatedAt: 2020-07-14T16:50:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -13,7 +13,7 @@ authors:
 github: https://github.com/notiz-dev/angular-tailwindcss
 ---
 
-Learn how to use utility-first CSS framework [Tailwind CSS](https://tailwindcss.com) with [Angular](https://angular.io/).
+Learn how to use utility-first CSS framework [Tailwind CSS](https://tailwindcss.com) with [Angular](https://angular.io/) using [ngx-build-plus](https://github.com/manfredsteyer/ngx-build-plus).
 
 ## Angular Project
 
@@ -28,17 +28,15 @@ Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or
 
 ## Setup
 
-Start by adding dependencies for Tailwind, Postcss and custom webpack for angular.
+Start by adding dependencies for Tailwind, Postcss and ngx-build-plus for angular.
 
 ```bash
-npm i -D tailwindcss postcss-import postcss-loader postcss-scss @angular-builders/custom-webpack
+npm i -D tailwindcss postcss-import postcss-loader postcss-scss
 
-# For Angular 10 install to resolve
-# ERROR in Cannot read property 'flags' of undefined
-npm i -D @angular-builders/custom-webpack@10.0.0-beta.0
+ng add ngx-build-plus
 ```
 
-Create a `webpack.config.js` in your root folder to configure Postcss with Tailwind.
+Create a **webpack.config.js** in your root folder to configure Postcss with Tailwind.
 
 ```bash
 touch webpack.config.js
@@ -68,55 +66,40 @@ module.exports = {
 };
 ```
 
-Now open `angular.json` file to apply the custom webpack config to generate Tailwind styles during `ng build` and `ng serve`.
+Now open **angular.json** file to apply the extra webpack config to generate Tailwind styles during `ng build`, `ng serve` and `ng test`. If you used the schematics `ng add ngx-build-plus` it automatically replaces `@angular-devkit/build-angular` with `ngx-build-plus` in your `angular.json`. Additionally, add the `extraWebpackConfig` to each build step. In the end your **angular.json** should look like this:
 
 ```diff
 "architect": {
   "build": {
--    "builder": "@angular-devkit/build-angular:browser",
-+    "builder": "@angular-builders/custom-webpack:browser",
-      "options": {
-+       "customWebpackConfig": {
-+         "path": "./webpack.config.js"
-+       },
-        "outputPath": "dist/app-name",
-        "index": "src/index.html",
-
+-   "builder": "@angular-devkit/build-angular:browser",
++   "builder": "ngx-build-plus:browser",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
       ...
-
-       "configurations": {
-          "production": {
-+           "customWebpackConfig": {
-+             "path": "./webpack.config.js"
-+           },
-            "fileReplacements": [
-              {
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }
-            ],
-
-      ...
-
+    }
+    ...
+  },
   "serve": {
--    "builder": "@angular-devkit/build-angular:dev-server",
-+    "builder": "@angular-builders/custom-webpack:dev-server",
-      "options": {
-+       "customWebpackConfig": {
-+         "path": "./webpack.config.js"
-+       },
-        "browserTarget": "app-name:build"
-      },
-      "configurations": {
-        "production": {
-+         "customWebpackConfig": {
-+            "path": "./webpack.config.js"
-+         },
+-   "builder": "@angular-devkit/build-angular:dev-server",
++   "builder": "ngx-build-plus:dev-server",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
+      ...
+    }
+    ...
+  },
+  "test": {
+-   "builder": "@angular-devkit/build-angular:karma",
++   "builder": "ngx-build-plus:karma",
+    "options": {
++     "extraWebpackConfig": "webpack.config.js",
+      ...
+    }
+    ...
+  },
 ```
 
-Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or for full config `npx tailwindcss init --full`.
-
-Almost there. Add Tailwind base styles to your `src/styles.scss` file
+Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or for full config `npx tailwindcss init --full`. Almost there. Add Tailwind base styles to your `src/styles.scss` file
 
 ```css
 @import 'tailwindcss/base';
@@ -126,13 +109,13 @@ Almost there. Add Tailwind base styles to your `src/styles.scss` file
 @import 'tailwindcss/utilities';
 ```
 
-Now go ahead serve your app, you are ready to style your Angular app with Tailwind utility classes.
+Now go ahead serve your app, you are ready to style 🎨 your Angular app with Tailwind utility classes.
 
 ... wait a moment, we need to purge the unused CSS styles from Tailwind.
 
 ## Remove unused CSS Styles
 
-We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in `tailwind.config.js`.
+We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in **tailwind.config.js**.
 
 ```js
 module.exports = {
@@ -145,18 +128,16 @@ module.exports = {
 };
 ```
 
-Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in `package.json`. Now run `npm run build:prod` to get a production build with only used Tailwind styles.
+Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in **package.json**. Now run `npm run build:prod` for a production build **only** with used Tailwind styles.
 
 ## CSS instead of SCSS
 
-You don't need to install `postcss-scss`
+Using CSS instead of SCSS? No problem. You don't need to install `postcss-scss`.
 
 ```bash
-npm i -D tailwindcss postcss-import postcss-loader @angular-builders/custom-webpack
+npm i -D tailwindcss postcss-import postcss-loader 
 
-# For Angular 10 install to resolve
-# ERROR in Cannot read property 'flags' of undefined
-npm i -D @angular-builders/custom-webpack@10.0.0-beta.0
+ng add ngx-build-plus
 ```
 
 Update also your `webpack.config.js`:
