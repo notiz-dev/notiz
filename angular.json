@@ -17,6 +17,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/notiz",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -74,6 +75,7 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "notiz:build"
           },
           "configurations": {
@@ -91,6 +93,7 @@
         "test": {
           "builder": "ngx-build-plus:karma",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
