@@ -15,11 +15,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.dev.js"
-            },
             "outputPath": "dist/notiz",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -43,9 +40,6 @@
           },
           "configurations": {
             "production": {
-              "customWebpackConfig": {
-                "path": "./webpack.config.prod.js"
-              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -78,18 +72,12 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.dev.js"
-            },
             "browserTarget": "notiz:build"
           },
           "configurations": {
             "production": {
-              "customWebpackConfig": {
-                "path": "./webpack.config.prod.js"
-              },
               "browserTarget": "notiz:build:production"
             }
           }
@@ -101,7 +89,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
