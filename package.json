@@ -46,7 +46,6 @@
     "@angular/platform-browser-dynamic": "9.1.9",
     "@angular/router": "9.1.9",
     "@angular/service-worker": "9.1.9",
-    "@ionic/angular": "5.1.1",
     "@scullyio/init": "0.0.28",
     "@scullyio/ng-lib": "0.0.24",
     "@scullyio/scully": "0.0.98",
