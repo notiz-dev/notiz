@@ -4,13 +4,13 @@
     class="flex flex-col space-y-4 featured"
     [routerLink]="[route.route]"
   >
-    <div class="flex flex-row items-center text-sm space-x-2">
+    <div class="flex flex-row items-center space-x-2">
       <niz-inline-svg
         *ngIf="type === 'LINK'"
         class="h-4 w-4 text-cyan"
         svgSource="assets/img/link.svg"
       ></niz-inline-svg>
-      <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
+      <span class="text-sm">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
     </div>
 
     <h2

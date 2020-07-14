@@ -1,5 +1,5 @@
 <div
-  class="responsive-container space-y-5 mt-10"
+  class="responsive-container space-y-4 mt-10"
   *ngIf="post$ | async as route"
 >
   <div class="flex flex-row">
@@ -14,7 +14,7 @@
       class="flex flex-col space-y-4 featured"
       [routerLink]="[route.route]"
     >
-      <h2 class="space-x-4 mt-1 text-4xl font-bold line-clamp-2 min leading-10">
+      <h2 class="space-x-4 text-4xl font-bold line-clamp-2 min leading-10">
         <span>{{ route.title }}</span>
       </h2>
 
