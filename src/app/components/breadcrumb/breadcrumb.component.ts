@@ -2,7 +2,7 @@ import { ScullyContentService } from '@services/scully-content.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
+import { ScullyRoute } from '@scullyio/ng-lib';
 import { tap, takeUntil } from 'rxjs/operators';
 
 interface Breadcrumb {
@@ -66,32 +66,37 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     url: string = '',
     breadcrumbs: Breadcrumb[] = []
   ) {
-    root = root.substring(root.indexOf('/') + 1);
-    const routes = root.split('/');
-
-    for (const route of routes) {
-      url += `/${route}`;
-
-      if (currentPage.route === url) {
-        breadcrumbs.push({
-          text: currentPage.title,
-          url,
-        });
-      }
-
-      const routePattern = this.getMachtingRoute(url);
-      if (routePattern) {
-        breadcrumbs.push({
-          text: routePattern.text,
-          url,
-        });
-      }
-
-      if (root.indexOf('/') === -1) {
-        return breadcrumbs;
-      }
-      return this.getBreadcrumbs(root, currentPage, url, breadcrumbs);
+    if (root.indexOf('/') === -1) {
+      return breadcrumbs;
     }
+
+    root = root.substring(root.indexOf('/') + 1);
+
+    url += `/${this.removeHashtag(root.split('/')[0])}`;
+    if (currentPage.route === url) {
+      breadcrumbs.push({
+        text: currentPage.title,
+        url,
+      });
+    }
+
+    const routePattern = this.getMachtingRoute(url);
+    if (routePattern) {
+      breadcrumbs.push({
+        text: routePattern.text,
+        url,
+      });
+    }
+
+    return this.getBreadcrumbs(root, currentPage, url, breadcrumbs);
+  }
+
+  private removeHashtag(route: string): string {
+    const hashtagIndex = route.indexOf('#');
+    if (hashtagIndex > -1) {
+      return route.substring(0, hashtagIndex);
+    }
+    return route;
   }
 
   private getMachtingRoute(url: string): RoutePattern {
