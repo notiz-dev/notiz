@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { ToastService, ToastType } from '@notiz/ngx-design';
+import { ToastService, ToastType, NizInput } from '@notiz/ngx-design';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -14,10 +14,13 @@ export class NewsletterSignupComponent implements OnInit {
   pending = false;
   invalid = false;
 
+  @ViewChild(NizInput) input: NizInput;
+
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private toast: ToastService
+    private toast: ToastService,
+    public element: ElementRef<HTMLElement>
   ) {
     this.setupForm();
   }
@@ -56,8 +59,11 @@ export class NewsletterSignupComponent implements OnInit {
     this.toast.show({
       type: ToastType.ERROR,
       duration: 4000,
-      text:
-        'Please enter your mail address. 📧',
+      text: 'Please enter your mail address. 📧',
     });
+  }
+
+  focus() {
+    this.input.input.nativeElement.focus();
   }
 }

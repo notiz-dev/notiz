@@ -5,6 +5,8 @@ import {
   Output,
   EventEmitter,
   HostBinding,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
@@ -21,6 +23,8 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR],
 })
 export class NizInput implements ControlValueAccessor {
+  @ViewChild('input') input: ElementRef<HTMLInputElement>;
+
   @Input() label: string;
   @Input() type: 'text' | 'email';
 

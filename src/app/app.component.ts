@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FooterSection } from '@notiz/ngx-design';
 import { ThemeService } from '@services/theme.service';
 import { tap } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { KeyCode } from '@utils/keycodes';
 import { merge, Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
+import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,9 @@ import { ScullyRoute } from '@scullyio/ng-lib';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('newsletter', { read: NewsletterSignupComponent })
+  newsletter: NewsletterSignupComponent;
+
   copyrightUrl = 'legal/privacy-policy';
   current$: Observable<ScullyRoute>;
   createdWithSvgSources = [
@@ -98,5 +102,9 @@ export class AppComponent implements OnInit {
       .subscribe();
 
     this.current$ = this.content.getCurrent();
+  }
+
+  scrollToNewsletter() {
+    this.newsletter.focus();
   }
 }

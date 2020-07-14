@@ -2,9 +2,9 @@
   class="responsive-container space-y-4 mt-10"
   *ngIf="post$ | async as route"
 >
-  <div class="flex flex-row">
+  <div class="flex flex-col md:flex-row">
     <app-breadcrumb></app-breadcrumb>
-    <span class="flex-grow text-right text-sm">{{
+    <span class="flex-grow md:text-right text-sm">{{
       route.updatedAt | date: 'MMMM dd, yyyy'
     }}</span>
   </div>
