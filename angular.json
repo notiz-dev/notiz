@@ -25,7 +25,7 @@
             "aot": true,
             "assets": [
               "src/favicon.png",
-              "src/robot.txt",
+              "src/robots.txt",
               "src/assets",
               "src/manifest.webmanifest"
             ],

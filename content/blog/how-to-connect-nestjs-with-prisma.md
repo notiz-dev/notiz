@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with NestJS'
 description: 'Learn how to setup a database with Prisma 2.0 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-04-07T11:05:00.000Z
+updatedAt: 2020-06-24T11:02:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -13,13 +13,13 @@ github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
   nestjs/cli: 7.1.2
   nestjs: 7.0.x
-  prisma2: 2.0.0-beta.1
-  prisma/client: 2.0.0-beta.1
+  prisma2: 2.0.0
+  prisma/client: 2.0.0
 ---
 
-[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/more/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is currently rewritten with Rust and hit recently the first [Beta release](https://www.prisma.io/blog/prisma-2-beta-b7bcl0gd8d8e) 🎉. Find out if Prisma 2.0 is [production ready](https://www.notion.so/Is-Prisma-2-Ready-8b3fba3eaf5b4bf3ab7102fd94f56148).
+[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/more/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
 
-[NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architectur and enables to create a REST and [GraphQL](https://graphql.org) backend.
+[NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architecture and enables to create a REST and [GraphQL](https://graphql.org) backend.
 
 This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.0.
 
@@ -38,7 +38,7 @@ npm i -g @nestjs/cli
 nest new project-name
 ```
 
-Change your directory into the newly created Nest application and open up your prefered IDE.
+Change your directory into the newly created Nest application and open up your preferred IDE.
 
 ## Step 2: Add Prisma 2.0
 
