@@ -81,6 +81,7 @@
           },
           "configurations": {
             "production": {
+              "extraWebpackConfig": "webpack.config.js",
               "browserTarget": "notiz:build:production"
             }
           }
@@ -300,6 +301,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/shortcodes",
             "index": "projects/shortcodes/src/index.html",
             "main": "projects/shortcodes/src/main.ts",
@@ -321,6 +323,7 @@
                   "with": "projects/shortcodes/src/environments/environment.prod.ts"
                 }
               ],
+              "extraWebpackConfig": "webpack.config.js",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -347,10 +350,12 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "shortcodes:build"
           },
           "configurations": {
             "production": {
+              "extraWebpackConfig": "webpack.config.js",
               "browserTarget": "shortcodes:build:production"
             }
           }
@@ -364,6 +369,7 @@
         "test": {
           "builder": "ngx-build-plus:karma",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "main": "projects/shortcodes/src/test.ts",
             "polyfills": "projects/shortcodes/src/polyfills.ts",
             "tsConfig": "projects/shortcodes/tsconfig.spec.json",
