@@ -1,30 +1,27 @@
-<div>
-  <ion-grid fixed no-padding>
-    <ion-row>
-      <ion-col size="12" class="ion-padding">
-        <app-breadcrumb></app-breadcrumb>
-        <h1>{{ (page$ | async)?.title }}</h1>
-      </ion-col>
-      <ion-col class="ion-padding" size="12" size-md="8" push-md="3">
-        <scully-content></scully-content>
-      </ion-col>
-      <ion-col size="12" class="ion-padding">
-        <app-article [peek]="true" feature="Latest Post" featureIcon="megaphone-outline"
-          *ngFor="let route of tagPosts$ | async | slice: 0:1" [route]="route"></app-article>
-      </ion-col>
+<div class="responsive-container space-y-5 mt-10">
+  <app-breadcrumb></app-breadcrumb>
+  <h1 class="text-2xl font-semibold">{{ (page$ | async)?.title }}</h1>
 
-      <ion-col class="ion-padding" size="12" size-md="4"> </ion-col>
-      <ion-col *ngIf="(tagPosts$ | async)?.length > 0" class="ion-padding" size="12" size-md="8">
-        <h2>Latest posts for {{ (page$ | async)?.title }}</h2>
-        <app-article class="list-article" *ngFor="let blogPost of tagPosts$ | async | slice: 0:10" [route]="blogPost">
-        </app-article>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="(tagPosts$ | async)?.length === 0">
-      <ion-col size="10" offset="1" size-md="6" offset-md="3">
-        <app-coming-soon></app-coming-soon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-newsletter-signup></app-newsletter-signup>
+  <scully-content></scully-content>
+
+  <app-featured
+    *ngFor="let route of tagPosts$ | async | slice: 0:1"
+    [route]="route"
+  ></app-featured>
+</div>
+<div
+  class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
+>
+  <div class="w-full flex flex-col space-y-4">
+    <h2 class="text-2xl font-semibold">
+      Latest posts for {{ (page$ | async)?.title }}
+    </h2>
+    <div class="flex flex-wrap">
+      <app-article
+        *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"
+        [route]="blogPost"
+      >
+      </app-article>
+    </div>
+  </div>
 </div>

@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   ViewEncapsulation,
-  AfterViewChecked
+  AfterViewChecked,
 } from '@angular/core';
 import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
@@ -16,7 +16,7 @@ import { ScullyContentService } from 'src/app/services/scully-content.service';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
   preserveWhitespaces: true,
-  encapsulation: ViewEncapsulation.Emulated
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked {
   post$: Observable<ScullyRoute>;
@@ -31,13 +31,13 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit() {
-    this.post$ = this.scully.getCurrent();
+    this.post$ = this.content.getCurrent();
     this.post$
       .pipe(
         first(),
-        switchMap(post =>
+        switchMap((post) =>
           this.content.authors().pipe(
-            tap(authors =>
+            tap((authors) =>
               this.seo.generateTags({
                 title: post.title,
                 description: post.description,
@@ -51,10 +51,10 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
                   tag: post.tags,
                   author: [
                     ...authors
-                      .filter(a => post.authors.some(a2 => a2 === a.title))
-                      .map(a => `https://notiz.dev${a.route}`)
-                  ]
-                }
+                      .filter((a) => post.authors.some((a2) => a2 === a.title))
+                      .map((a) => `https://notiz.dev${a.route}`),
+                  ],
+                },
               })
             )
           )
@@ -65,12 +65,14 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
     this.related$ = this.content
       .posts()
       .pipe(
-        switchMap(posts =>
+        switchMap((posts) =>
           this.post$.pipe(
-            map(post =>
+            map((post) =>
               posts
-                .filter(p => p.route !== post.route)
-                .filter(p => p.tags.some(t => post.tags.some(t2 => t2 === t)))
+                .filter((p) => p.route !== post.route)
+                .filter((p) =>
+                  p.tags.some((t) => post.tags.some((t2) => t2 === t))
+                )
             )
           )
         )
@@ -79,11 +81,11 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
     this.authors$ = this.content
       .authors()
       .pipe(
-        switchMap(authors =>
+        switchMap((authors) =>
           this.post$.pipe(
-            map(post =>
-              authors.filter(author =>
-                post.authors.some(a => a === author.title)
+            map((post) =>
+              authors.filter((author) =>
+                post.authors.some((a) => a === author.title)
               )
             )
           )

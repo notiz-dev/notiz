@@ -15,18 +15,45 @@ module.exports = {
         'dark-blue': 'var(--dark-blue)',
         'dark-blue-opacity-10': 'rgba(var(--dark-blue-rgb), 0.1)',
         background: 'var(--background)',
-        color: 'var(--text-color)',
-        'color-light': 'var(--text-color-light)',
+        'background-opac': 'var(--background-opac)',
+        'background-light': 'var(--background-light)',
+        'background-shade': 'var(--background-shade)',
+        color: 'var(--text)',
+        'color-light': 'var(--text-light)',
+        'color-shade': 'var(--text-shade)',
         tabs: 'var(--tabs)',
-      },
-      boxShadow: {
-        double: 'var(--shadow-double)',
+        danger: 'var(--danger)',
+        code: 'var(--code)',
       },
       fontFamily: {
         sans: ['Muli'],
       },
       inset: {
-        '8': '8rem',
+        4: '1rem',
+        8: '2rem',
+        12: '3rem',
+        16: '4rem',
+        24: '6rem',
+        32: '8rem',
+      },
+      maxHeight: {
+        '248': '248px',
+        '384': '384px',
+        '524': '524px',
+      },
+      transformOrigin: {
+        '0': '0%',
+      },
+      zIndex: {
+        '-1': '-1',
+      },
+      borderRadius: {
+        xl: '22px',
+      },
+      minHeight: {
+        18: '4.5rem',
+        24: '6rem',
+        80: '20rem',
       },
     },
     screens: {
@@ -36,6 +63,12 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
+      dark: { raw: '(prefers-color-scheme: dark)' },
+      light: { raw: '(prefers-color-scheme: light)' },
     },
   },
+  variants: {
+    borderWidth: ['responsive', 'hover'],
+  },
+  plugins: [],
 };

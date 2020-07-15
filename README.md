@@ -13,7 +13,10 @@ _\* notiz [noˈtiːt͡s] - (german) short, brief, written record_
 ```bash
 npm install
 
-npm run dev
+npm run build:shortcodes
+npm run build:scully
+
+npm run serve:scully
 ```
 
 Visit [localhost:1668](http://localhost:1668/) for the static content with Scully and [localhost:1864](http://localhost:1864/) for the angular app without the static content.

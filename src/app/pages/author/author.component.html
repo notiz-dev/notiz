@@ -1,74 +1,47 @@
-<div>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12">
-        <app-breadcrumb></app-breadcrumb>
-        <h1 *ngIf="author$ | async as author">More about the author</h1>
-      </ion-col>
-      <ion-col size="10" offset="1" size-md="6" offset-md="0">
-        <app-author
-          *ngIf="author$ | async as author"
-          [author]="author"
-        ></app-author>
-      </ion-col>
-      <ion-col
-        class="description-wrapper padding64"
-        size="10"
-        offset="1"
-        size-md="6"
-        offset-md="0"
-      >
-        <div class="description">
-          <scully-content></scully-content>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<div class="responsive-container space-y-5 mt-10">
+  <app-breadcrumb></app-breadcrumb>
+  <h1 *ngIf="author$ | async as author" class="text-2xl text-semibold">
+    More about the author
+  </h1>
+
+  <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
+</div>
+<div class="mx-auto flex">
+  
   <app-card-stack
     *ngIf="author$ | async as author"
     title="Latest Articles"
     [subtitle]="'Latest posts by ' + author.title"
   >
-    <ion-card *ngFor="let link of latestAuthorPosts$ | async | slice: 0:5">
-      <app-article [route]="link"></app-article>
-    </ion-card>
-    <ion-card *ngIf="(latestAuthorPosts$ | async).length < 5">
+    <div
+      class="card"
+      *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
+    >
+      <app-article class="stacked"  [route]="link"></app-article>
+    </div>
+    <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
       <app-coming-soon></app-coming-soon>
-    </ion-card>
+    </div>
   </app-card-stack>
-  <ion-grid fixed no-padding>
-    <ion-row>
-      <ion-col
-        *ngIf="(authorTags$ | async)?.length > 0"
-        class="ion-padding"
-        size="12"
-        size-md="4"
+</div>
+
+<div
+  class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
+>
+  <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
+    <h2 class="text-2xl font-semibold">Recently Updated</h2>
+    <div class="flex flex-wrap">
+      <app-article
+        *ngFor="let blogPost of updatedAuthorPosts$ | async | slice: 1:10"
+        [route]="blogPost"
       >
-        <div class="sticky-tags">
-          <h2 class="ml-6 text-2xl font-semibold">
-            <a routerLink="/tags">Tags</a>
-          </h2>
-          <app-tags-view
-            limit="10"
-            [blogPosts]="latestAuthorPosts$"
-            [tags]="authorTags$"
-          ></app-tags-view>
-        </div>
-      </ion-col>
-      <ion-col
-        *ngIf="(updatedAuthorPosts$ | async)?.length > 0"
-        class="ion-padding"
-        size="12"
-        size-md="8"
-      >
-        <h2 class="text-2xl font-semibold">Recently Updated</h2>
-        <app-article
-          class="list-article"
-          [route]="link"
-          *ngFor="let link of updatedAuthorPosts$ | async"
-        ></app-article>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-newsletter-signup></app-newsletter-signup>
+      </app-article>
+    </div>
+  </div>
+  <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
+    <h2 class="text-2xl font-semibold">
+      <a routerLink="/tags">Tags</a>
+    </h2>
+    <app-tags-view limit="18" [tags]="authorTags$"></app-tags-view>
+  </div>
 </div>

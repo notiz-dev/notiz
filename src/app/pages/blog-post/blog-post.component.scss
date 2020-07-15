@@ -6,10 +6,6 @@
   width: fit-content;
 }
 
-app-github-url {
-  margin-top: 16px;
-}
-
 .post {
   margin-top: 16px;
   h2::before {
@@ -37,11 +33,9 @@ app-github-url {
   height: 1px;
   width: 100%;
   margin-top: 12px;
+  @apply bg-background;
 }
 
-::ng-deep body.dark .line {
-  background: var(--ion-item-background);
-}
-::ng-deep body:not(.dark) .line {
-  background: var(--ion-color-primary-tint);
+niz-toc {
+  top: 112px;
 }

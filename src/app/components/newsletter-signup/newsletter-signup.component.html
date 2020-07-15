@@ -1,27 +1,39 @@
-<form [formGroup]="newsletterSignup" (ngSubmit)="signupNewsletter()">
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="12" size-md="6" offset-md="1">
-        <h2>Weeklyish Newsletter</h2>
-        <p>Stay up to date with Angular, NestJS and more! Sign up to receive updates on our latest posts.</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="input-wrapper" size="12" size-md="6" offset-md="1">
-        <ion-item class="newsletter" [ngClass]="{'dirty': dirty}" lines="none">
-          <ion-label position="floating">
-            <p>Email Address</p>
-          </ion-label>
-          <ion-input (ionFocus)="dirty = false" required formControlName="email" type="email"></ion-input>
-        </ion-item>
-      </ion-col>
-      <ion-col size="12" size-md="4">
-        <ion-button type="submit" class="cta" shape="round">
-          <ion-icon *ngIf="!pending" slot="start" name="paper-plane"></ion-icon>
-          <ion-spinner *ngIf="pending" slot="start" name="bubbles"></ion-spinner>
-          SUBSCRIBE
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<form
+  class="flex flex-col space-y-5 max-w-screen-xl mx-auto px-5"
+  [formGroup]="newsletterSignup"
+  (ngSubmit)="signupNewsletter()"
+>
+  <div>
+    <h2 class="text-2xl font-semibold">Weeklyish Newsletter</h2>
+    <p>
+      Stay up to date with Angular, NestJS and more! Sign up to receive updates
+      on our latest posts.
+    </p>
+  </div>
+
+  <div
+    class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 items-center max-w-screen-lg"
+  >
+    <niz-input
+      class="w-full md:w-8/12"
+      label="Email Address"
+      type="email"
+      formControlName="email"
+      [invalid]="invalid"
+      (nizFocus)="invalid = false"
+    ></niz-input>
+    <niz-primary-button class="w-full md:w-4/12" type="submit">
+      <niz-inline-svg
+        *ngIf="!pending"
+        class="h-6 w-6 mr-2"
+        svgSource="assets/img/paper-plane.svg"
+      ></niz-inline-svg>
+      <niz-inline-svg
+        *ngIf="pending"
+        class="h-6 w-6 mr-2 spin"
+        svgSource="assets/img/spinner.svg"
+      ></niz-inline-svg>
+      Subscribe
+    </niz-primary-button>
+  </div>
 </form>

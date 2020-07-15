@@ -1,4 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostBinding,
+} from '@angular/core';
 
 @Component({
   selector: 'niz-toolbar',
@@ -6,16 +10,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./toolbar.component.scss'],
 })
 export class NizToolbar implements OnInit {
-  @Output() toggledMenu = new EventEmitter<boolean>();
 
-  isOpen: boolean;
+  @HostBinding('class') get class(){
+    return 'w-full mx-auto flex items-center justify-between'
+  }
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  toggleMobileMenu() {
-    this.isOpen = !this.isOpen;
-    this.toggledMenu.emit(this.isOpen);
-  }
+
 }

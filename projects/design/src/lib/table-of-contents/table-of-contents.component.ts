@@ -1,3 +1,4 @@
+import { ScullyContentService } from '@services/scully-content.service';
 import {
   Component,
   OnInit,
@@ -21,12 +22,13 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   headers$: Observable<Element[]>;
 
   @HostBinding('class') get classes(): string {
-    return 'block sticky top-8 ml-2';
+    return 'block';
   }
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public scully: ScullyRoutesService,
+    public content: ScullyContentService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
@@ -42,7 +44,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
       .pipe(
         switchMap((ev) => this.route.fragment),
         switchMap((fragment) =>
-          this.scully.getCurrent().pipe(map((c) => [fragment, c.route]))
+          this.content.getCurrent().pipe(map((c) => [fragment, c.route]))
         ),
         tap(([fragment, route]) => this.scrollTo(route, fragment)),
         takeUntil(this.onDestroy$)
@@ -72,10 +74,10 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     this.headers$
       .pipe(
         switchMap((headers) => merge(...headers.map((h) => isVisible(h)))),
-        switchMap((el) => this.scully.getCurrent().pipe(map((c) => [el.id, c.route]))),
-        tap(([el, route]) =>
-          this.location.replaceState(`${route}#${el}`)
+        switchMap((el) =>
+          this.content.getCurrent().pipe(map((c) => [el.id, c.route]))
         ),
+        tap(([el, route]) => this.location.replaceState(`${route}#${el}`)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
@@ -87,7 +89,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
             ...anchors.map((a) =>
               fromEvent(a, 'click').pipe(
                 switchMap((ev) =>
-                  this.scully.getCurrent().pipe(map((c) => [a.id, c.route]))
+                  this.content.getCurrent().pipe(map((c) => [a.id, c.route]))
                 )
               )
             )
@@ -127,9 +129,9 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
 
   headerClasses(header: string): string {
     if (header === 'h2') {
-      return 'text-lg';
+      return 'text-lg text-semibold';
     } else if (header === 'h3') {
-      return 'text-sm pl-2';
+      return 'text-base';
     }
   }
 }

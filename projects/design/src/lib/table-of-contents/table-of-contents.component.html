@@ -1,9 +1,9 @@
-<ul>
-  <h2>Table of Contents</h2>
+<ul class="">
+  <h2 class="text-xl font-semibold">Table of Contents</h2>
   <li class="cursor-pointer">
     <a
       [class]="headerClasses('h3')"
-      *ngIf="(scully.getCurrent() | async)?.route as route"
+      *ngIf="(content.getCurrent() | async)?.route as route"
       (click)="scrollToTop(route)"
     >
       Top of Page
@@ -12,7 +12,7 @@
   <li *ngFor="let header of headers$ | async" class="cursor-pointer">
     <a
       [ngClass]="[headerClasses(header.localName), active(route, header.id)]"
-      *ngIf="(scully.getCurrent() | async)?.route as route"
+      *ngIf="(content.getCurrent() | async)?.route as route"
       (click)="scrollTo(route, header.id)"
     >
       {{ header.innerHTML }}

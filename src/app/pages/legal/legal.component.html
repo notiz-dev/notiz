@@ -1,13 +1,4 @@
-<div>
-  <ion-grid fixed no-padding>
-    <ion-row>
-      <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
-        <div class="post">
-          <h2 *ngIf="page$ | async as page">{{ page.title }}</h2>
-          <scully-content></scully-content>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-newsletter-signup class="padding64"></app-newsletter-signup>
+<div class="post responsive-container  space-y-5 mt-10">
+  <h2 *ngIf="page$ | async as page">{{ page.title }}</h2>
+  <scully-content></scully-content>
 </div>

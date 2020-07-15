@@ -1,39 +1,32 @@
-<div [ngClass]="{ featured: feature }">
-  <div class="header">
-    <ion-chip *ngIf="feature && featureIcon" class="feature-chip" color="secondary" outline="true">
-      <ion-icon *ngIf="featureIcon" [name]="featureIcon"></ion-icon>
-      <ion-label>{{ feature }}</ion-label>
-    </ion-chip>
-    <div class="date">
-      <ion-icon *ngIf="type === 'LINK'" color="secondary" name="link"></ion-icon>
-      {{ route.updatedAt | date: 'MMMM dd, yyyy' }}
-    </div>
-    <h1 *ngIf="feature" class="mt-1 text-3xl">
-      <a [routerLink]="[route.route]">
-        {{ route.title }}
-      </a>
-    </h1>
-    <h2 *ngIf="!feature" class="mt-1 text-2xl">
-      <a [routerLink]="[route.route]">
-        {{ route.title }}
-      </a>
-    </h2>
+<a class="article-card" [routerLink]="[route.route]">
+  <div class="flex flex-row items-center text-sm space-x-2">
+    <niz-inline-svg
+      *ngIf="type === 'LINK'"
+      class="h-4 w-4 text-cyan"
+      svgSource="assets/img/link.svg"
+    ></niz-inline-svg>
+    <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
-  <div class="content mt-2">
-    <div class="ion-padding-bottom">{{ route.description }}</div>
-    <a *ngFor="let tag of route.tags | slice: 0:3" [routerLink]="'/tags/' + tag | lowercase | dash">
-      <ion-chip class="ion-no-border" fill="clear" color="dark">
-        <ion-label>{{ tag }}</ion-label>
-      </ion-chip>
-    </a>
+
+  <h2 class="mt-1 text-2xl font-bold line-clamp-2 min leading-8">
+    {{ route.title }}
+  </h2>
+
+  <div class="text-base text-color-light description line-clamp-2 leading-6">
+    {{ route.description }}
   </div>
-  <div class="ion-padding sneak-peek-wrapper" *ngIf="peek">
-    <div class="sneak-peek post">
-      <markdown ngPreserveWhitespaces [data]="sneakPeek | async"></markdown>
-    </div>
-    <div class="overlay"></div>
-    <ion-button [routerLink]="[route.route]" fill="clear" shape="round">
-      read more
-    </ion-button>
-  </div>
-</div>
+  <niz-chip
+    class="tags gradient"
+    *ngFor="let tag of route.tags | slice: 0:3"
+    size="xl"
+  >
+    <a [routerLink]="'/tags/' + tag | dash | lowercase">{{ tag }}</a>
+  </niz-chip>
+  <span class="absolute bottom-4 flex flow-row space-x-2 items-center h-6">
+    <span class="font-bold text-color-light">Read More</span>
+    <niz-inline-svg
+      class="icon h-4 w-4 text-blue"
+      svgSource="assets/img/arrow-right.svg"
+    ></niz-inline-svg>
+  </span>
+</a>

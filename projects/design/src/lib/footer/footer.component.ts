@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 export interface FooterSection {
   title: string;
@@ -23,6 +23,10 @@ export class NizFooter implements OnInit {
   @Input() footerSections: FooterSection[];
   @Input() copyrightUrl: string;
   @Input() createdWithSvgSources: string[];
+
+  @HostBinding('class') get classes(): string{
+    return 'block';
+  }
 
   constructor() {}
 

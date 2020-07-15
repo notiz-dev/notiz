@@ -1,9 +1,6 @@
-ion-chip {
-  margin-left: 10px;
-  margin-top: 6px;
+:host{
+    @apply block;
+    @apply whitespace-pre-wrap;
+    @apply max-w-lg;
 }
 
-ion-chip {
-  background: #55b9f3;
-  box-shadow: 4px 4px 7px #4eaae0, -4px -4px 7px #5cc8ff;
-}

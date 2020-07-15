@@ -1,71 +1,75 @@
-<div>
-  <ion-grid fixed no-padding>
-    <ion-row *ngIf="post$ | async as post">
-      <ion-col size="12" size-lg="10" offset-lg="1" size-xl="9" offset-xl="1">
-        <app-breadcrumb></app-breadcrumb>
-        <app-article feature="Article" [route]="post"></app-article>
-      </ion-col>
-      <ion-col
-        *ngIf="post.github"
-        size="12"
-        size-lg="10"
-        offset-lg="1"
-        size-xl="9"
-        offset-xl="1"
-      >
-        <app-github-url [url]="post.github"></app-github-url>
-      </ion-col>
-      <ion-col size="12" size-md="10" offset-md="1" size-xl="9" offset-xl="1">
-        <div class="line"></div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="flex-col-reverse lg:flex-row">
-      <ion-col size="12" size-lg="8" offsetLg="1">
-        <div class="post">
-          <scully-content></scully-content>
-        </div>
-      </ion-col>
-      <ion-col size="12" size-lg="3">
-        <niz-toc></niz-toc>
-      </ion-col>
-    </ion-row>
+<div
+  class="responsive-container space-y-4 mt-10"
+  *ngIf="post$ | async as route"
+>
+  <div class="flex flex-col md:flex-row">
+    <app-breadcrumb></app-breadcrumb>
+    <span class="flex-grow md:text-right text-sm">{{
+      route.updatedAt | date: 'MMMM dd, yyyy'
+    }}</span>
+  </div>
+  <div class="flex flex-col space-y-4">
+    <a
+      #link
+      class="flex flex-col space-y-4 featured"
+      [routerLink]="[route.route]"
+    >
+      <h2 class="space-x-4 text-4xl font-bold line-clamp-2 min leading-normal">
+        <span>{{ route.title }}</span>
+      </h2>
 
-    <ion-row>
-      <ion-col size="12" size-md="10" offset-md="1">
-        <h2 class="ml-2 text-2xl">
-          {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
-        </h2>
-      </ion-col>
-      <ion-col
-        *ngFor="let author of authors$ | async"
-        size="12"
-        size-md="5"
-        offset-md="1"
+      <div class="text-xl text-color-light description line-clamp-2 leading-6">
+        {{ route.description }}
+      </div>
+    </a>
+
+    <div class="line"></div>
+    <div
+      class="max-w-screen-xl flex flex-col-reverse mt-10 md:flex-row md:space-x-5"
+    >
+      <div class="w-full flex flex-col space-y-4  md:w-9/12 xl:w-10/12 post">
+        <scully-content></scully-content>
+      </div>
+      <div
+        class="top-32 w-full flex flex-col mt-5  md:w-3/12 xl:w-2/12 md:mt-0"
       >
-        <app-author [author]="author"></app-author>
-      </ion-col>
-      <ion-col
-        *ngIf="post$ | async as post"
-        class="padding64"
-        size="12"
-        size-md="10"
-        offset-md="1"
-      >
-        <h2 class="ml-2 text-2xl">Share this post</h2>
-        <app-share [route]="post"></app-share>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-card-stack
-    title="Related Posts"
-    subtitle="Find more posts like this one."
-  >
-    <ion-card *ngFor="let blogPost of related$ | async | slice: 0:5">
-      <app-article [route]="blogPost"></app-article>
-    </ion-card>
-    <ion-card *ngIf="(related$ | async | slice: 0:5)?.length < 5">
-      <app-coming-soon></app-coming-soon>
-    </ion-card>
-  </app-card-stack>
-  <app-newsletter-signup class="padding64"></app-newsletter-signup>
+        <div class="sticky top-32 space-y-4 ">
+          <niz-toc></niz-toc>
+          <div>
+            <h2 class="text-xl font-semibold">Tags</h2>
+            <niz-chip
+              class="mb-1 mr-1 gradient"
+              *ngFor="let tag of route.tags | slice: 0:3"
+              size="xl"
+            >
+              <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
+                {{ tag }}
+              </a>
+            </niz-chip>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+    <h2 class="ml-2 text-2xl">
+      {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
+    </h2>
+
+    <app-author [author]="(authors$ | async)[0]"></app-author>
+  </div>
+  <div class="mx-auto flex">
+    <app-card-stack
+      title="Related Posts"
+      subtitle="Find more posts like this one."
+    >
+      <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
+        <app-article class="stacked" [route]="blogPost"></app-article>
+      </div>
+      <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
+        <app-coming-soon></app-coming-soon>
+      </div>
+    </app-card-stack>
+  </div>
+  <app-comments class="my-5" [route]="post$ | async"></app-comments>
 </div>

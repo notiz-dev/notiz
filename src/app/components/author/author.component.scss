@@ -1,48 +1,10 @@
-ion-card {
-  border-radius: 50px;
-  padding: 16px 24px;
-}
-ion-label {
-  text-align: center;
-  width: 100%;
-  color: var(--ion-text-color);
+a:hover {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-ion-item-divider {
-  --padding-start: 0px;
-  --ion-border-color: transparent;
-  --background: transparent;
-}
-
-.website {
-  display: block;
-  color: var(--ion-color-secondary);
-  padding-bottom: 16px;
-}
-
-ion-avatar {
-  height: 48px;
-  width: 48px;
-}
-
-::ng-deep body:not(.dark) .author {
-  --background: var(--ion-color-primary-tint);
-  ion-item {
-    --background: var(--ion-color-primary-tint);
-    --border-color: var(--ion-color-primary-tint);
-  }
-}
-
-@media (max-width: 991px) {
-  ion-card {
-    padding: 16px 4px;
-  }
-  ion-card-header {
-    padding: 0;
-  }
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 24px;
+niz-chip {
+  @apply bg-background;
 }
