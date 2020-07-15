@@ -1,5 +1,4 @@
 :root {
-
   --tw-color-transparent: transparent;
   --tw-color-black: #000;
   --tw-color-white: #fff;
@@ -110,7 +109,6 @@
     var(--blue),
     var(--dark-blue)
   );
-
 }
 
 body.dark {
@@ -121,6 +119,7 @@ body.dark {
   --text: var(--tw-color-gray-100);
   --text-light: var(--tw-color-gray-300);
   --text-shade: var(--tw-color-gray-400);
+  --code: #ffe9cd;
 }
 
 body:not(.dark) {
@@ -131,4 +130,5 @@ body:not(.dark) {
   --text: var(--tw-color-gray-800);
   --text-light: var(--tw-color-gray-700);
   --text-shade: var(--tw-color-gray-500);
+  --code: #f38e54;
 }

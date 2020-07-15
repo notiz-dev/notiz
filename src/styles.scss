@@ -76,6 +76,13 @@ body {
     @apply text-cyan;
   }
 
+  a:hover {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   h2 {
     @apply text-blue;
   }
@@ -87,15 +94,14 @@ body {
 
   p {
     code {
-      color: #ffe9cd;
+      @apply text-code;
     }
   }
+
   hr {
     @apply border-background-light;
   }
-}
 
-.post {
   hr {
     border-top-width: 4px;
     margin-top: 44px;
@@ -147,6 +153,11 @@ body {
   pre {
     margin: 0 0 1.5rem;
   }
+
+  blockquote p {
+    margin: 0.5rem 0;
+  }
+
   h2 {
     @apply font-semibold text-2xl text-blue mt-4 mb-2;
   }
