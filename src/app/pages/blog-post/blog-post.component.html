@@ -1,10 +1,10 @@
 <div
-  class="responsive-container space-y-5 mt-10"
+  class="responsive-container space-y-4 mt-10"
   *ngIf="post$ | async as route"
 >
-  <div class="flex flex-row">
+  <div class="flex flex-col md:flex-row">
     <app-breadcrumb></app-breadcrumb>
-    <span class="flex-grow text-right text-sm">{{
+    <span class="flex-grow md:text-right text-sm">{{
       route.updatedAt | date: 'MMMM dd, yyyy'
     }}</span>
   </div>
@@ -14,7 +14,7 @@
       class="flex flex-col space-y-4 featured"
       [routerLink]="[route.route]"
     >
-      <h2 class="space-x-4 mt-1 text-4xl font-bold line-clamp-2 min leading-10">
+      <h2 class="space-x-4 text-4xl font-bold line-clamp-2 min leading-normal">
         <span>{{ route.title }}</span>
       </h2>
 
@@ -25,28 +25,30 @@
 
     <div class="line"></div>
     <div
-      class="max-w-screen-xl flex flex-col-reverse mt-10 px-5 md:flex-row md:space-x-5"
+      class="max-w-screen-xl flex flex-col-reverse mt-10 md:flex-row md:space-x-5"
     >
-      <div class="w-full flex flex-col space-y-4 md:w-10/12 post">
+      <div class="w-full flex flex-col space-y-4  md:w-9/12 xl:w-10/12 post">
         <scully-content></scully-content>
       </div>
       <div
-        class="sticky top-32 w-full flex flex-col space-y-4 mt-5 md:w-2/12 md:mt-0"
+        class="top-32 w-full flex flex-col mt-5  md:w-3/12 xl:w-2/12 md:mt-0"
       >
-
-        <niz-toc></niz-toc>
-        <div>
-          <h2 class="text-xl font-semibold">Tags</h2>
-          <niz-chip
-            class="mb-1 mr-1 gradient"
-            *ngFor="let tag of route.tags | slice: 0:3"
-            size="xl"
-          >
-            <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
-              {{ tag }}
-            </a>
-          </niz-chip>
+        <div class="sticky top-32 space-y-4 ">
+          <niz-toc></niz-toc>
+          <div>
+            <h2 class="text-xl font-semibold">Tags</h2>
+            <niz-chip
+              class="mb-1 mr-1 gradient"
+              *ngFor="let tag of route.tags | slice: 0:3"
+              size="xl"
+            >
+              <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
+                {{ tag }}
+              </a>
+            </niz-chip>
+          </div>
         </div>
+       
       </div>
     </div>
 

@@ -15,6 +15,7 @@ module.exports = {
         'dark-blue': 'var(--dark-blue)',
         'dark-blue-opacity-10': 'rgba(var(--dark-blue-rgb), 0.1)',
         background: 'var(--background)',
+        'background-opac': 'var(--background-opac)',
         'background-light': 'var(--background-light)',
         'background-shade': 'var(--background-shade)',
         color: 'var(--text)',
@@ -35,6 +36,7 @@ module.exports = {
         32: "8rem",
       },
       maxHeight: {
+        '248': '248px',
         '384': '384px',
         '524': '524px',
       },

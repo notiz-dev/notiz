@@ -1,4 +1,4 @@
-<footer class="w-full max-w-screen-xl mx-auto text-white">
+<footer class="w-full max-w-screen-xl mx-auto text-white px-5">
   <div class="md:grid md:grid-cols-2">
     <div>
       <p class="text-sm font-semibold text-color-shade">about</p>
@@ -22,11 +22,11 @@
         <div class="mt-4 space-y-2">
           <ng-container *ngFor="let link of footerSection.links">
             <a [href]="link.url" *ngIf="link.external" target="_blank" rel="noreferrer"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-5">
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-1">
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
             <a [routerLink]="link.url" *ngIf="!link.external"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-5">
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-1">
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
 

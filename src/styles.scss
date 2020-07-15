@@ -141,16 +141,14 @@ body {
   p,
   a,
   li {
-    font-size: 1.18rem;
+    @apply text-lg;
   }
   p,
   pre {
     margin: 0 0 1.5rem;
   }
   h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-top: 42px;
+    @apply font-semibold text-2xl text-blue mt-4 mb-2;
   }
 
   code[class*='language-'],
@@ -160,23 +158,24 @@ body {
 }
 
 .medium-zoom-overlay {
-  @apply bg-background;
+  background-color: var(--background) !important;
   z-index: 2;
 }
 .medium-zoom-image--opened {
   z-index: 3;
 }
+
 blockquote {
   position: relative;
 }
 blockquote::before {
   content: '';
-  background: var(--gradient);
-  width: 8px;
+  @apply bg-blue;
+  width: 4px;
   position: absolute;
   height: 100%;
   left: -18px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 @screen xl {

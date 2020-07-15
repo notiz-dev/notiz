@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.post .backdrop{
+.post .backdrop {
   @apply transition-opacity;
   @apply duration-150;
 }
@@ -38,9 +38,11 @@
   .backdrop {
     @apply opacity-75;
   }
-
-
 }
 .icon {
   @apply h-8 w-8 hidden text-blue;
+}
+
+.gradient {
+  z-index: 3;
 }

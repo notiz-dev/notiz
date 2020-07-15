@@ -4,13 +4,13 @@
     class="flex flex-col space-y-4 featured"
     [routerLink]="[route.route]"
   >
-    <div class="flex flex-row items-center text-sm space-x-2">
+    <div class="flex flex-row items-center space-x-2">
       <niz-inline-svg
         *ngIf="type === 'LINK'"
         class="h-4 w-4 text-cyan"
         svgSource="assets/img/link.svg"
       ></niz-inline-svg>
-      <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
+      <span class="text-sm">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
     </div>
 
     <h2
@@ -40,7 +40,7 @@
   </div>
   <div
     (click)="link.click()"
-    class="post overflow-hidden relative max-h-384 md:max-h-524"
+    class="post overflow-hidden relative max-h-248 md:max-h-384 px-5"
   >
     <div
       class="backdrop font-fold flex text-2xl text-blue justify-center items-center absolute inset-0 bg-background opacity-0"
@@ -51,5 +51,6 @@
     ></niz-inline-svg>
 
     <markdown ngPreserveWhitespaces [data]="sneakpeak$ | async"></markdown>
+    <markdown [src]="'assets/content/' + route.route + '.md'"></markdown>
   </div>
 </div>
