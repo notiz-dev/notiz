@@ -4,8 +4,6 @@
 
 export * from './lib/chip/chip.component';
 export * from './lib/chip/chip.module';
-export * from './lib/footer/footer.component';
-export * from './lib/footer/footer.module';
 export * from './lib/inline-svg/inline-svg.component';
 export * from './lib/inline-svg/inline-svg.module';
 export * from './lib/input/input.component';

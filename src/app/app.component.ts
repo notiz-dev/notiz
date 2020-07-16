@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FooterSection } from '@notiz/ngx-design';
+
 import { ThemeService } from '@services/theme.service';
 import { tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
@@ -8,6 +8,9 @@ import { merge, Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
+import { GoogleAnalyticsService } from '@services/google-analytics.service';
+import { NizSearch } from '@components/search/search.component';
+import { FooterSection } from '@components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -75,7 +78,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     public themeService: ThemeService,
-    private content: ScullyContentService
+    private content: ScullyContentService,
+    public analytics: GoogleAnalyticsService
   ) {}
 
   ngOnInit() {
@@ -98,7 +102,18 @@ export class AppComponent implements OnInit {
       shortcut([KeyCode.ControlLeft, KeyCode.KeyT]),
       shortcut([KeyCode.ControlRight, KeyCode.KeyT])
     )
-      .pipe(tap(() => this.themeService.toggleTheme()))
+      .pipe(
+        tap(() =>
+          this.analytics.trigger(
+            'theme toggle',
+            'shortcut',
+            `from ${this.themeService.theme} to ${
+              this.themeService.theme === 'dark' ? 'light' : 'dark'
+            }`
+          )
+        ),
+        tap(() => this.themeService.toggleTheme())
+      )
       .subscribe();
 
     this.current$ = this.content.getCurrent();
@@ -106,5 +121,25 @@ export class AppComponent implements OnInit {
 
   scrollToNewsletter() {
     this.newsletter.focus();
+    this.analytics.trigger(
+      'newsletter click',
+      'engagement',
+    )
+  }
+
+  openSearch(search: NizSearch) {
+    search.openSearch();
+    this.analytics.trigger("search click", "engagement", );
+  }
+
+  toggleTheme() {
+    this.analytics.trigger(
+      "theme toggle",
+      "engagement",
+      `from ${this.themeService.theme} to ${
+        this.themeService.theme === "dark" ? "light" : "dark"
+      }`
+    );
+    this.themeService.toggleTheme();
   }
 }
