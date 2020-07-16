@@ -13,7 +13,7 @@ const { generateImage } = require('./generate-images');
 
 const sizes = [
   { name: 'og', width: 1200, height: 630 },
-  { name: 'twitter', width: 1200, height: 600 }
+  { name: 'twitter', width: 1200, height: 600 },
 ];
 
 const bannerGeneratorPlugin = async (html, route) => {
@@ -28,9 +28,11 @@ const bannerGeneratorPlugin = async (html, route) => {
         .toLowerCase()
         .replace(' ', '-')}.md`
     ).img;
-    const logos = route.data.tags.map(t =>
-      resolve(`./src/assets/stack/${t.toLowerCase().replace(' ', '-')}.svg`)
-    ).filter(t => existsSync(t));
+    const logos = route.data.tags
+      .map((t) =>
+        resolve(`./src/assets/stack/${t.toLowerCase().replace(' ', '-')}.svg`)
+      )
+      .filter((t) => existsSync(t));
 
     for await (size of sizes) {
       const dom = new JSDOM(template);
@@ -58,10 +60,9 @@ const bannerGeneratorPlugin = async (html, route) => {
       );
       await generateImage(route, size);
     }
-    // unlinkSync(`${outDir}/${route.route}/index.html`);
-    // unlinkSync(`${outDir}/${route.route}/styles.css`);
-       // unlinkSync(`${outDir}/${route.route}/main-es5.js`)
-
+    unlinkSync(`${outDir}/${route.route}/index.html`);
+    unlinkSync(`${outDir}/${route.route}/styles.css`);
+    unlinkSync(`${outDir}/${route.route}/main-es5.js`);
   } catch (err) {
     console.error(err.message);
   }
@@ -74,9 +75,9 @@ function getYamlFromMarkdown(path) {
   const json = {};
   yaml
     .split('\n')
-    .filter(y => !!y)
-    .map(y => y.split(': '))
-    .forEach(y => (json[y[0]] = y[1]));
+    .filter((y) => !!y)
+    .map((y) => y.split(': '))
+    .forEach((y) => (json[y[0]] = y[1]));
 
   return json;
 }
@@ -118,5 +119,5 @@ function nth_occurrence(text, searchString, nth) {
 }
 
 module.exports = {
-  bannerGeneratorPlugin
+  bannerGeneratorPlugin,
 };
