@@ -112,7 +112,6 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   }
 
   active(url: string, id: string) {
-    console.warn('active', this.location.path(true));
     return this.location.path(true) === `${url}#${id}` ? 'active' : '';
   }
 
