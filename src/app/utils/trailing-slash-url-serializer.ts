@@ -1,5 +1,8 @@
 import { DefaultUrlSerializer, UrlTree } from '@angular/router';
 
+/**
+ * @see https://github.com/angular/angular/issues/16051
+ */
 export class TrailingSlashUrlSerializer extends DefaultUrlSerializer {
   private static _withTrailingSlash(url: string): string {
     const splitOn = url.indexOf('?') > -1 ? '?' : '#';
