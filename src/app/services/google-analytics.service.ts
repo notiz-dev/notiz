@@ -14,7 +14,7 @@ export class GoogleAnalyticsService implements OnDestroy {
   constructor(private router: Router) {
     this.router.events
       .pipe(
-        skipWhile(() => !environment.production),
+        skipWhile(() => !environment.production || window.location.hostname === 'localhost'),
         filter((event) => event instanceof NavigationEnd),
         tap((event: NavigationEnd) =>
           gtag("config", "UA-56561079-5", {
@@ -36,7 +36,7 @@ export class GoogleAnalyticsService implements OnDestroy {
     eventLabel: string = null,
     eventValue: number = null
   ) {
-    if (!environment.production) {
+    if (!environment.production || window.location.hostname === 'localhost') {
       console.warn("not triggering analytics event from localhost");
       console.log({ eventName, eventCategory, eventLabel, eventValue });
       return;
