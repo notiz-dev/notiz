@@ -49,6 +49,6 @@ export class GoogleAnalyticsService implements OnDestroy {
   }
 
   ref(ref: string) {
-    this.trigger("External Link", "click", ref);
+    this.trigger("External Link click", "engagement", ref);
   }
 }

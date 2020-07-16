@@ -1,4 +1,4 @@
-import { GithubUrlModule } from '@components/github-url/github-url.module';
+
 import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -27,7 +27,6 @@ import { PipesModule } from '@pipes/pipes.module';
     TableOfContentsModule,
     CommentsModule,
     ComingSoonModule,
-    GithubUrlModule,
     AuthorCardModule,
     RouterModule,
     NizInlineSvgModule,
