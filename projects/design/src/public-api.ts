@@ -29,3 +29,5 @@ export * from './lib/toast/toast.service';
 export * from './lib/toast/toast.options';
 export * from './lib/menu/menu.module';
 export * from './lib/menu/menu.component';
+export * from './lib/banner/banner.module';
+export * from './lib/banner/banner.component';

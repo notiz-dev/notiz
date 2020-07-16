@@ -4,6 +4,8 @@ module.exports = {
     './src/**/*.ts',
     './projects/design/**/*.html',
     './projects/design/**/*.ts',
+    "./projects/shortcodes/**/*.html",
+    "./projects/shortcodes/**/*.ts",
   ],
   theme: {
     extend: {

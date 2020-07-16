@@ -6,7 +6,6 @@ const {
   mkdirSync,
   copyFileSync,
   unlinkSync,
-  rmdirSync
 } = require('fs');
 
 const { resolve } = require('path');
@@ -21,7 +20,7 @@ const bannerGeneratorPlugin = async (html, route) => {
   try {
     const outDir = './dist/static/assets/banners';
     const template = readFileSync(
-      resolve('./projects/image-template/dist/template.html')
+      resolve('./projects/banner-generator/template.html')
     ).toString();
     const avatar = getYamlFromMarkdown(
       `./content/authors/${route.data.authors[0]
@@ -36,7 +35,7 @@ const bannerGeneratorPlugin = async (html, route) => {
     for await (size of sizes) {
       const dom = new JSDOM(template);
       const document = dom.window.document;
-      const image = document.createElement('image-template');
+      const image = document.createElement('nizs-banner');
       image.title = route.data.title;
       image.setAttribute('author', route.data.authors[0]);
       image.setAttribute('updated-at', route.data.updatedAt);
@@ -50,18 +49,19 @@ const bannerGeneratorPlugin = async (html, route) => {
         dom.serialize()
       );
       copyFileSync(
-        resolve('./projects/image-template/dist/styles.css'),
+        resolve('./dist/shortcodes/styles.css'),
         resolve(`${outDir}/${route.route}/styles.css`)
       );
       copyFileSync(
-        resolve('./projects/image-template/dist/image-template.js'),
-        resolve(`${outDir}/${route.route}/image-template.js`)
+        resolve('./dist/shortcodes/main-es5.js'),
+        resolve(`${outDir}/${route.route}/main-es5.js`)
       );
       await generateImage(route, size);
     }
-    unlinkSync(`${outDir}/${route.route}/index.html`);
-    unlinkSync(`${outDir}/${route.route}/styles.css`);
-    unlinkSync(`${outDir}/${route.route}/image-template.js`);
+    // unlinkSync(`${outDir}/${route.route}/index.html`);
+    // unlinkSync(`${outDir}/${route.route}/styles.css`);
+       // unlinkSync(`${outDir}/${route.route}/main-es5.js`)
+
   } catch (err) {
     console.error(err.message);
   }
