@@ -20,7 +20,11 @@
         >
           Blog
         </a>
-        <button class="router-link" (click)="scrollToNewsletter()">
+        <button
+          class="router-link"
+          [attr.aria-label]="'Scroll to Newsletter'"
+          (click)="scrollToNewsletter()"
+        >
           Newsletter
         </button>
       </div>
@@ -28,6 +32,7 @@
 
     <div end class="flex flex-row space-x-6 items-center">
       <button
+        [attr.aria-label]="'Open search'"
         (click)="openSearch(search)"
         class="hidden md:flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
       >
@@ -41,6 +46,7 @@
       </button>
       <button
         class="hidden md:flex h-6 w-6 theme focus:outline-none select-none"
+        [attr.aria-label]="'Toggle theme'"
         [ngClass]="{
           dark: themeService.theme === 'dark',
           rotate: themeService.theme === 'dark'
@@ -51,6 +57,7 @@
       </button>
       <button
         (click)="menu.toggle()"
+        [attr.aria-label]="'Toggle menu'"
         class="md:hidden h-8 w-8 focus:outline-none focus:select-none"
       >
         <niz-inline-svg
@@ -95,11 +102,16 @@
     >
       Blog
     </a>
-    <button class="router-link" (click)="scrollToNewsletter()">
+    <button
+      class="router-link"
+      [attr.aria-label]="'Scroll to Newsletter'"
+      (click)="scrollToNewsletter()"
+    >
       Newsletter
     </button>
     <button
-      (click)="openSearch(search)"
+      (click)="openSearch()"
+      [attr.aria-label]="'Open search'"
       class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >
       <niz-inline-svg
@@ -110,6 +122,7 @@
     </button>
     <button
       (click)="toggleTheme(); $event.stopPropagation()"
+      [attr.aria-label]="'Toggle theme'"
       class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >
       <niz-inline-svg

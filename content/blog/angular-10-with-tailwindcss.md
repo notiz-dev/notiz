@@ -178,7 +178,7 @@ Finally add Tailwind base styles to `src/styles.css`.
 
 If you also think the steps above are tedious ... Don't look any further.
 
-Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a schematic to add tailwind to an Angular project. Check it out [here](https://github.com/garygrossgarten/ngx-tailwind) and run the schematic to automatically configure Tailwind:
+Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/garygrossgarten/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind:
 
 ```bash
 ng add @garygrossgarten/ngx-tailwind
