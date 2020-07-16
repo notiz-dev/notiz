@@ -24,6 +24,20 @@
 </head>
 
 <body class="font-sans antialiased">
+  <script> // prevent theme flicker
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const storedTheme =
+      window.localStorage && window.localStorage.getItem("theme");
+
+    const theme =
+      storedTheme === "dark" || storedTheme === "light"
+        ? storedTheme
+        : prefersDark
+        ? "dark"
+        : "light";
+    document.body.classList.toggle("dark", theme === "dark");
+  </script>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 
