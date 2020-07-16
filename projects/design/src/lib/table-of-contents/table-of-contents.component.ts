@@ -77,7 +77,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
         switchMap((el) =>
           this.content.getCurrent().pipe(map((c) => [el.id, c.route]))
         ),
-        tap(([el, route]) => this.location.replaceState(`${route}#${el}`)),
+        tap(([el, route]) => this.location.replaceState(`${route}/#${el}`)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
@@ -107,11 +107,12 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   }
 
   scrollTo(url: string, id: string) {
-    this.location.replaceState(`${url}#${id}`);
+    this.location.replaceState(`${url}/#${id}`);
     this.document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
   active(url: string, id: string) {
+    console.warn('active', this.location.path(true));
     return this.location.path(true) === `${url}#${id}` ? 'active' : '';
   }
 
