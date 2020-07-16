@@ -21,6 +21,8 @@ import {
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { NizSearchComponentModule } from '@components/search/search.module';
 import { PipesModule } from '@pipes/pipes.module';
+import { UrlSerializer } from '@angular/router';
+import { TrailingSlashUrlSerializer } from './utils/trailing-slash-url-serializer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +37,7 @@ import { PipesModule } from '@pipes/pipes.module';
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
     NizTabModule,
-    NizFooterModule, 
+    NizFooterModule,
     NizNavbarModule,
     NizToolbarModule,
     NizInlineSvgModule,
@@ -43,9 +45,9 @@ import { PipesModule } from '@pipes/pipes.module';
     NizSearchComponentModule,
     PipesModule,
     NizToastModule,
-    NizMenuModule
+    NizMenuModule,
   ],
-  providers: [],
+  providers: [{ provide: UrlSerializer, useClass: TrailingSlashUrlSerializer }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
