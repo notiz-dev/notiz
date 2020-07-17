@@ -20,7 +20,7 @@
     "dev": "npm run build && npm run scully && npm run scully:serve",
     "build:scully": "npm run build:prod && npm run scully",
     "build:design": "ng build --project design --prod",
-    "build:shortcodes": "ng build --prod --project shortcodes --single-bundle --output-hashing none",
+    "build:shortcodes": "NODE_ENV=production ng build --prod --project shortcodes --single-bundle --output-hashing none",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*{.ts,.scss}\"",
