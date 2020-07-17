@@ -1,14 +1,15 @@
-import { Component, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'lib-banner',
+  templateUrl: './banner.component.html',
+  styleUrls: ['./banner.component.scss']
 })
-export class AppComponent {
+export class NizBanner {
+
   @Input() title = 'image-template';
   @Input() updatedAt = new Date().toDateString();
-  @Input() logo = 'https://notiz.dev/assets/img/logo-text.svg';
+  @Input() logo = 'https://notiz.dev/assets/img/logo.svg';
   @Input() set logos(logos: string) {
     this._logos = logos.split(',');
   }
@@ -21,11 +22,11 @@ export class AppComponent {
 
   @HostBinding('style.width')
   get _width() {
-    return `${this.width - 2 * 64}px`;
+    return `${this.width}px`;
   }
 
   @HostBinding('style.height')
   get _height() {
-    return `${this.height - 2 * 48}px`;
+    return `${this.height}px`;
   }
 }

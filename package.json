@@ -15,7 +15,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "NODE_ENV=production ng build --prod",
+    "build:prod": "NODE_ENV=production ng build --prod --output-hashing none",
     "test": "ng test",
     "dev": "npm run build && npm run scully && npm run scully:serve",
     "build:scully": "npm run build:prod && npm run scully",
@@ -29,8 +29,6 @@
     "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000 && sh 404.sh",
     "blick:serve": "blick open http://localhost:4200 & ng s",
     "optimize:images": "node optimize-images.js",
-    "build:image-template": "ng build image-template --prod --output-hashing none && npm run package:image-template",
-    "package:image-template": "cat ./dist/image-template/{runtime,polyfills,main}-es5.js > projects/image-template/dist/image-template.js && ls -lah projects/image-template/dist/image-template.js && cp dist/image-template/styles.css projects/image-template/dist",
     "link:add": "node projects/link-generator && ng build && npm run scully",
     "publish:ngx-design": "npm run build:design && npm publish dist/design --tag alpha"
   },
