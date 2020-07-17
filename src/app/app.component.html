@@ -33,7 +33,7 @@
     <div end class="flex flex-row space-x-6 items-center">
       <button
         [attr.aria-label]="'Open search'"
-        (click)="search.openSearch()"
+        (click)="openSearch(search)"
         class="hidden md:flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
       >
         <niz-inline-svg
@@ -51,7 +51,7 @@
           dark: themeService.theme === 'dark',
           rotate: themeService.theme === 'dark'
         }"
-        (click)="themeService.toggleTheme()"
+        (click)="toggleTheme()"
       >
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
       </button>
@@ -89,6 +89,7 @@
 
 <niz-search #search></niz-search>
 <niz-toast></niz-toast>
+
 <niz-menu #menu>
   <div class="h-full flex flex-col space-y-4 items-end justify-center pr-8">
     <a
@@ -109,7 +110,7 @@
       Newsletter
     </button>
     <button
-      (click)="search.openSearch()"
+      (click)="openSearch(search)"
       [attr.aria-label]="'Open search'"
       class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >
@@ -120,7 +121,7 @@
       <span class="px-2 outline-none font-semibold"> Tap to focus</span>
     </button>
     <button
-      (click)="themeService.toggleTheme(); $event.stopPropagation()"
+      (click)="toggleTheme(); $event.stopPropagation()"
       [attr.aria-label]="'Toggle theme'"
       class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >

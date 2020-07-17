@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NizFooter } from './footer.component';
 import { RouterModule } from '@angular/router';
-import { NizInlineSvgModule } from '../inline-svg/inline-svg.module';
+import { NizInlineSvgModule } from '@notiz/ngx-design';
+
 
 @NgModule({
   declarations: [NizFooter],

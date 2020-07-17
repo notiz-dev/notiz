@@ -10,7 +10,6 @@ import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
 import {
   NizTabsModule,
-  NizFooterModule,
   NizTabModule,
   NizNavbarModule,
   NizToolbarModule,
@@ -21,6 +20,7 @@ import {
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { NizSearchComponentModule } from '@components/search/search.module';
 import { PipesModule } from '@pipes/pipes.module';
+import { NizFooterModule } from '@components/footer/footer.module';
 
 @NgModule({
   declarations: [AppComponent],

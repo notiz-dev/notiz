@@ -22,6 +22,7 @@ import {
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { Subject, merge } from 'rxjs';
 import { SearchPipe } from '@pipes/search.pipe';
+import { GoogleAnalyticsService } from '@services/google-analytics.service';
 
 @Component({
   selector: 'niz-search',
@@ -79,7 +80,8 @@ export class NizSearch implements OnInit {
   constructor(
     public scully: ScullyRoutesService,
     private searchPipe: SearchPipe,
-    private router: Router
+    private router: Router,
+    private analytics: GoogleAnalyticsService
   ) {}
 
   ngOnInit() {
@@ -90,6 +92,9 @@ export class NizSearch implements OnInit {
         debounceTime(250),
         distinctUntilChanged(),
         tap((search) => (this.search = search)),
+        tap((search) =>
+          this.analytics.trigger('search query', 'search', search)
+        ),
         tap(() => (this.activeIndex = 0)),
         switchMap((search) =>
           this.scully.available$.pipe(
@@ -113,6 +118,11 @@ export class NizSearch implements OnInit {
 
   private openActive(index: number) {
     this.closeSearch();
+    this.analytics.trigger(
+      'search result enter',
+      'search',
+      this.searchResult[index].url
+    );
     this.router.navigateByUrl(this.searchResult[index].url);
   }
 
@@ -131,6 +141,7 @@ export class NizSearch implements OnInit {
     )
       .pipe(
         sequence(),
+        tap(() => this.analytics.trigger('search open', 'shortcut')),
         filter(() => !this.isOpen),
         tap(() => this.openSearch())
       )
@@ -148,8 +159,11 @@ export class NizSearch implements OnInit {
     setTimeout(() => this.searchInput.nativeElement.focus(), 0);
   }
 
-  closeSearch() {
+  closeSearch(url?: string) {
     this.isOpen = false;
     this.resetSearch();
+    if (url) {
+      this.analytics.trigger('search result click', 'search', url);
+    }
   }
 }

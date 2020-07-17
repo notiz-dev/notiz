@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { GoogleAnalyticsService } from '@services/google-analytics.service';
 
 export interface FooterSection {
   title: string;
@@ -28,7 +29,7 @@ export class NizFooter implements OnInit {
     return 'block';
   }
 
-  constructor() {}
+  constructor(public analytics: GoogleAnalyticsService) {}
 
   ngOnInit(): void {}
 }

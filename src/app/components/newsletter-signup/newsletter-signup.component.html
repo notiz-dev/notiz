@@ -20,7 +20,7 @@
       type="email"
       formControlName="email"
       [invalid]="invalid"
-      (nizFocus)="invalid = false"
+      (nizFocus)="nizFocus()"
     ></niz-input>
     <niz-primary-button class="w-full md:w-4/12" type="submit">
       <niz-inline-svg
