@@ -8,7 +8,7 @@ import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { first, tap, map, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, fromEvent } from 'rxjs';
 import { ScullyContentService } from 'src/app/services/scully-content.service';
 
 @Component({
@@ -23,18 +23,30 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   related$: Observable<ScullyRoute[]>;
   authors$: Observable<ScullyRoute[]>;
 
+  allowHighlight = true;
+
   constructor(
-    private scully: ScullyRoutesService,
     private highlightService: HighlightService,
     private seo: SeoService,
     private content: ScullyContentService
   ) {}
 
   ngOnInit() {
+    this.allowHighlight = true;
+    console.warn('blog', this.allowHighlight);
+
+    fromEvent(window, 'AngularReady')
+      .pipe(
+        tap(() => console.warn('Angular ready')),
+        tap(() => (this.allowHighlight = false))
+      )
+      .subscribe();
+
     this.post$ = this.content.getCurrent();
     this.post$
       .pipe(
         first(),
+        tap((post) => console.warn('post change', post)),
         switchMap((post) =>
           this.content.authors().pipe(
             tap((authors) =>
@@ -94,6 +106,9 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.highlightService.highlightAll();
+    if (this.allowHighlight) {
+      console.warn('highlighing');
+      this.highlightService.highlightAll();
+    }
   }
 }
