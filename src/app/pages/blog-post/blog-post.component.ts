@@ -42,7 +42,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
                 title: post.title,
                 description: post.description,
                 route: post.route,
-                keywords: post.tags,
+                keywords: post.keywords,
                 twitter_image: `https://notiz.dev/assets/banners${post.route}/twitter.png`,
                 og_image: `https://notiz.dev/assets/banners${post.route}/og.png`,
                 article: {
