@@ -7,6 +7,11 @@ updatedAt: 2020-06-08T19:20:51.808Z
 tags:
   - RxJS
   - Quick Tip
+keywords:
+  - RxJS
+  - Quick Tip
+  - Shortcuts
+  - Angular
 authors:
   - 'Gary Großgarten'
 github: https://github.com/garygrossgarten/rxjs-shortcuts

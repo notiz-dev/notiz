@@ -7,6 +7,11 @@ updatedAt: 2020-04-16T11:30:00.000Z
 tags:
   - Quick Tip
   - Java
+keywords:
+  - Quick Tip
+  - Java
+  - macOS X
+  - homebrew
 authors:
   - Marc Stammerjohann
 ---

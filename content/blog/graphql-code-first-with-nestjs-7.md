@@ -8,6 +8,11 @@ tags:
   - NestJS
   - GraphQL
   - Prisma
+keywords:
+  - NestJS
+  - GraphQL
+  - Code-First Approach
+  - Prisma
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/nest-graphql-code-first

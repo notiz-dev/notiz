@@ -7,6 +7,10 @@ updatedAt: 2020-03-17T10:12:00.000Z
 tags:
   - GitHub
   - Typescript
+keywords:  
+  - GitHub
+  - GitHub Action
+  - Typescript
 authors:
   - 'Gary Großgarten'
 github: 'https://github.com/notiz-dev/github-action-template'

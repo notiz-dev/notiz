@@ -7,6 +7,10 @@ updatedAt: 2020-03-25T10:12:00.000Z
 tags:
   - Angular
   - Web Components
+keywords:
+  - Angular
+  - Web Components
+  - Custom Elements
 authors:
   - 'Gary Großgarten'
 github: 'https://github.com/notiz-dev/design'
