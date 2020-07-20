@@ -64,7 +64,7 @@
     "@gammastream/scully-plugin-sitemap": "1.0.1",
     "@notiz/scully-plugin-copy-static-content": "file:projects/copy-static-content",
     "@notiz/scully-plugin-fouc": "0.2.0",
-    "@notiz/scully-plugin-lazy-images": "^0.3.0-beta.5",
+    "@notiz/scully-plugin-lazy-images": "0.3.0",
     "@notiz/scully-plugin-medium-zoom": "0.2.4",
     "@notiz/scully-plugin-rss": "0.3.0",
     "@types/jasmine": "3.5.8",
