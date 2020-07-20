@@ -85,6 +85,12 @@ body {
 
   h2 {
     @apply text-blue;
+    @apply text-2xl;
+  }
+  
+  h3 {
+    @apply text-color;
+    @apply text-xl;
   }
 
   pre {
