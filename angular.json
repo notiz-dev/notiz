@@ -17,6 +17,9 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
+            ],
             "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/notiz",
             "index": "src/index.html",
