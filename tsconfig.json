@@ -20,7 +20,11 @@
       "@services/*": ["src/app/services/*"],
       "@utils/*": ["src/app/utils/*"],
       "@environments/*": ["src/environments/*"],
-      "@notiz/ngx-design": ["projects/design/src/public-api"]
+      "@notiz/ngx-design": ["projects/design/src/public-api"],
+      "@notiz/scully-plugin-prism-highlight": [
+        "dist/prism-highlight/notiz-scully-plugin-prism-highlight",
+        "dist/prism-highlight"
+      ]
     }
   },
   "angularCompilerOptions": {

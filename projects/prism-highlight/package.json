@@ -1,0 +1,9 @@
+{
+  "name": "@notiz/scully-plugin-prism-highlight",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@scullyio/scully": ">=0.0.75",
+    "jsdom": "^16.3.0",
+    "prismjs": "^1.20.0"
+  }
+}

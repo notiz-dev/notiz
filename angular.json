@@ -294,6 +294,44 @@
           }
         }
       }
+    },
+    "prism-highlight": {
+      "projectType": "library",
+      "root": "projects/prism-highlight",
+      "sourceRoot": "projects/prism-highlight/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/prism-highlight/tsconfig.lib.json",
+            "project": "projects/prism-highlight/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/prism-highlight/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/prism-highlight/src/test.ts",
+            "tsConfig": "projects/prism-highlight/tsconfig.spec.json",
+            "karmaConfig": "projects/prism-highlight/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/prism-highlight/tsconfig.lib.json",
+              "projects/prism-highlight/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "notiz"

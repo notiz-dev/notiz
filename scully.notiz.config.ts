@@ -7,6 +7,7 @@ import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
 import './projects/amp';
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
+import { getPrismHighlightPlugin } from '@notiz/scully-plugin-prism-highlight';
 
 const defaultPostRenderers = [
   'fouc',
@@ -54,6 +55,11 @@ setPluginConfig(SitemapPlugin, {
   },
 });
 
+const PrismHighlightPlugin = getPrismHighlightPlugin();
+setPluginConfig(PrismHighlightPlugin, {
+  languages: ['bash', 'diff', 'json', 'typescript'],
+});
+
 export const config: ScullyConfig = {
   projectRoot: './src',
   projectName: 'notiz',
@@ -65,7 +71,13 @@ export const config: ScullyConfig = {
       slug: {
         folder: './content/blog',
       },
-      postRenderers: [...defaultPostRenderers, 'amp', 'rss', 'bannerGenerator'],
+      postRenderers: [
+        ...defaultPostRenderers,
+        'amp',
+        'rss',
+        'bannerGenerator',
+        PrismHighlightPlugin,
+      ],
     },
     '/links/:slug': {
       type: 'contentFolder',

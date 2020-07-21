@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation,
-  AfterViewChecked,
-} from '@angular/core';
-import { HighlightService } from '@services/highlight.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SeoService } from '@services/seo.service';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { first, tap, map, switchMap } from 'rxjs/operators';
@@ -18,14 +12,13 @@ import { ScullyContentService } from 'src/app/services/scully-content.service';
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogPostComponent implements OnInit, AfterViewChecked {
+export class BlogPostComponent implements OnInit {
   post$: Observable<ScullyRoute>;
   related$: Observable<ScullyRoute[]>;
   authors$: Observable<ScullyRoute[]>;
 
   constructor(
     private scully: ScullyRoutesService,
-    private highlightService: HighlightService,
     private seo: SeoService,
     private content: ScullyContentService
   ) {}
@@ -91,9 +84,5 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
           )
         )
       );
-  }
-
-  ngAfterViewChecked() {
-    this.highlightService.highlightAll();
   }
 }
