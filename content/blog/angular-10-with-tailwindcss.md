@@ -9,10 +9,7 @@ tags:
   - Tailwind CSS
   - CSS
 keywords:
-  - Angular
   - Utility-First CSS
-  - Tailwind CSS
-  - CSS
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/angular-tailwindcss

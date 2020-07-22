@@ -8,8 +8,6 @@ tags:
   - Quick Tip
   - Git
 keywords:
-  - Quick Tip
-  - Git
   - Git LFS
   - GitHub
 authors:

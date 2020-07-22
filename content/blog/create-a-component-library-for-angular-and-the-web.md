@@ -8,8 +8,6 @@ tags:
   - Angular
   - Web Components
 keywords:
-  - Angular
-  - Web Components
   - Custom Elements
 authors:
   - 'Gary Großgarten'

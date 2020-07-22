@@ -9,9 +9,6 @@ tags:
   - Prisma
   - Heroku
 keywords:
-  - NestJS
-  - Prisma
-  - Heroku
   - PostgreSQL
 authors:
   - 'Marc Stammerjohann'

@@ -8,8 +8,6 @@ tags:
   - Quick Tip
   - Java
 keywords:
-  - Quick Tip
-  - Java
   - macOS X
   - homebrew
 authors:

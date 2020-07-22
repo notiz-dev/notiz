@@ -8,8 +8,6 @@ tags:
   - NestJS
   - Prisma
 keywords:
-  - NestJS
-  - Prisma
   - SQLite
 authors:
   - 'Marc Stammerjohann'

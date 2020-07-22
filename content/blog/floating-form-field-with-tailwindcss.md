@@ -8,9 +8,7 @@ tags:
   - Tailwind CSS
   - CSS
 keywords:
-  - Tailwind CSS
   - Material Design
-  - CSS
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/floating-form-field-tailwindcss

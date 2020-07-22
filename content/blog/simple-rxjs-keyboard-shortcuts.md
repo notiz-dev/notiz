@@ -8,8 +8,6 @@ tags:
   - RxJS
   - Quick Tip
 keywords:
-  - RxJS
-  - Quick Tip
   - Shortcuts
   - Angular
 authors:

@@ -8,8 +8,6 @@ tags:
   - Quick Tip
   - Node
 keywords:
-  - Quick Tip
-  - Node
   - macOS X
   - homebrew
 authors:
