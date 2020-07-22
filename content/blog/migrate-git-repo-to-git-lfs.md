@@ -7,6 +7,9 @@ updatedAt: 2020-04-26T15:45:00.000Z
 tags:
   - Quick Tip
   - Git
+keywords:
+  - Git LFS
+  - GitHub
 authors:
   - 'Marc Stammerjohann'
 ---

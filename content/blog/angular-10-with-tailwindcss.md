@@ -8,6 +8,8 @@ tags:
   - Angular
   - Tailwind CSS
   - CSS
+keywords:
+  - Utility-First CSS
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/angular-tailwindcss

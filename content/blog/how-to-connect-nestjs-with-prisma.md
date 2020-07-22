@@ -7,6 +7,8 @@ updatedAt: 2020-06-24T11:02:00.000Z
 tags:
   - NestJS
   - Prisma
+keywords:
+  - SQLite
 authors:
   - 'Marc Stammerjohann'
 github: 'https://github.com/notiz-dev/nestjs-prisma'

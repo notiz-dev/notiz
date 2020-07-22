@@ -7,6 +7,9 @@ updatedAt: 2020-03-19T18:13:00.000Z
 tags:
   - Quick Tip
   - Node
+keywords:
+  - macOS X
+  - homebrew
 authors:
   - 'Marc Stammerjohann'
 ---

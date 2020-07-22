@@ -8,6 +8,8 @@ tags:
   - NestJS
   - Prisma
   - Heroku
+keywords:
+  - PostgreSQL
 authors:
   - 'Marc Stammerjohann'
 github: 'https://github.com/notiz-dev/deploy-nestjs-prisma-heroku'
