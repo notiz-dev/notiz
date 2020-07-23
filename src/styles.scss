@@ -87,7 +87,7 @@ body {
     @apply text-blue;
     @apply text-2xl;
   }
-  
+
   h3 {
     @apply text-color;
     @apply text-xl;
@@ -171,6 +171,10 @@ body {
   code[class*='language-'],
   pre[class*='language-'] {
     @apply text-color;
+  }
+
+  p img {
+    @apply m-auto;
   }
 }
 
