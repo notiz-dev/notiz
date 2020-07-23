@@ -1,14 +1,16 @@
+import { Router, NavigationStart } from '@angular/router';
 import {
   Component,
   OnInit,
   ViewEncapsulation,
   AfterViewChecked,
+  OnDestroy,
 } from '@angular/core';
 import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { first, tap, map, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { first, tap, map, switchMap, takeUntil, filter } from 'rxjs/operators';
+import { Observable, fromEvent, Subject } from 'rxjs';
 import { ScullyContentService } from 'src/app/services/scully-content.service';
 
 @Component({
@@ -18,23 +20,43 @@ import { ScullyContentService } from 'src/app/services/scully-content.service';
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogPostComponent implements OnInit, AfterViewChecked {
+export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
   post$: Observable<ScullyRoute>;
   related$: Observable<ScullyRoute[]>;
   authors$: Observable<ScullyRoute[]>;
 
+  allowHighlight = true;
+
+  private destroy$ = new Subject();
+
   constructor(
-    private scully: ScullyRoutesService,
     private highlightService: HighlightService,
     private seo: SeoService,
-    private content: ScullyContentService
+    private content: ScullyContentService,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    this.router.events
+      .pipe(
+        takeUntil(this.destroy$),
+        filter((event) => event instanceof NavigationStart),
+        tap(() => (this.allowHighlight = true))
+      )
+      .subscribe();
+
+    fromEvent(window, 'AngularReady')
+      .pipe(
+        takeUntil(this.destroy$),
+        tap(() => (this.allowHighlight = false))
+      )
+      .subscribe();
+
     this.post$ = this.content.getCurrent();
     this.post$
       .pipe(
         first(),
+        tap((post) => console.warn('post change', post)),
         switchMap((post) =>
           this.content.authors().pipe(
             tap((authors) =>
@@ -96,6 +118,13 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.highlightService.highlightAll();
+    if (this.allowHighlight) {
+      this.highlightService.highlightAll();
+    }
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
