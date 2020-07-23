@@ -1,14 +1,16 @@
+import { Router, NavigationStart } from '@angular/router';
 import {
   Component,
   OnInit,
   ViewEncapsulation,
   AfterViewChecked,
+  OnDestroy,
 } from '@angular/core';
 import { HighlightService } from '@services/highlight.service';
 import { SeoService } from '@services/seo.service';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { first, tap, map, switchMap } from 'rxjs/operators';
-import { Observable, fromEvent } from 'rxjs';
+import { first, tap, map, switchMap, takeUntil, filter } from 'rxjs/operators';
+import { Observable, fromEvent, Subject } from 'rxjs';
 import { ScullyContentService } from 'src/app/services/scully-content.service';
 
 @Component({
@@ -18,26 +20,34 @@ import { ScullyContentService } from 'src/app/services/scully-content.service';
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogPostComponent implements OnInit, AfterViewChecked {
+export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
   post$: Observable<ScullyRoute>;
   related$: Observable<ScullyRoute[]>;
   authors$: Observable<ScullyRoute[]>;
 
   allowHighlight = true;
 
+  private destroy$ = new Subject();
+
   constructor(
     private highlightService: HighlightService,
     private seo: SeoService,
-    private content: ScullyContentService
+    private content: ScullyContentService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.allowHighlight = true;
-    console.warn('blog', this.allowHighlight);
+    this.router.events
+      .pipe(
+        takeUntil(this.destroy$),
+        filter((event) => event instanceof NavigationStart),
+        tap(() => (this.allowHighlight = true))
+      )
+      .subscribe();
 
     fromEvent(window, 'AngularReady')
       .pipe(
-        tap(() => console.warn('Angular ready')),
+        takeUntil(this.destroy$),
         tap(() => (this.allowHighlight = false))
       )
       .subscribe();
@@ -107,8 +117,12 @@ export class BlogPostComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     if (this.allowHighlight) {
-      console.warn('highlighing');
       this.highlightService.highlightAll();
     }
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
