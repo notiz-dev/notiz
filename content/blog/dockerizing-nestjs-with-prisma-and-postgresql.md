@@ -2,8 +2,8 @@
 title: Dockerizing a NestJS app with Prisma and PostgreSQL
 description: How to dockerize a NestJS application with Prisma and PostgreSQL.
 published: true
-publishedAt: 2020-07-29T13:30:00.000Z
-updatedAt: 2020-07-29T13:30:00.000Z
+publishedAt: 2020-07-31T10:00:00.000Z
+updatedAt: 2020-07-31T10:00:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -91,12 +91,16 @@ But wait... what is going in the `Dockerfile` 🤔❓ See the breakdown for each
 
 Don't forget to create a `.dockerignore` file next to your `Dockerfile`:
 
-```
+```docker
 node_modules
 npm-debug.log
 ```
 
 The `COPY` command ignores those local files and folder and won't copy them into your Docker image to prevent **overwriting** your installed modules in your image.
+
+Your application structure should look like this:
+
+![Project structure](assets/img/blog/dockerizing-nestjs-with-prisma-and-postgresql/optimized/project-structure.png)
 
 ## Breakdown of the multi-stage Dockerfile
 
@@ -110,7 +114,7 @@ FROM node:12 AS builder
 
 The first line tells Docker to use the latest [LTS](https://nodejs.org/en/about/releases/) version `12` for `node` as the base image to build the container from. To optimize the container image size you are using the [multistage-build](https://docs.docker.com/develop/develop-images/multistage-build/) and assign a name to your base image `AS builder`.
 
-> **Note** Before updating to a newer version of `node` check the support of Nest, Prisma and other dependencies
+> **Note**: Before updating to a newer version of `node` check the support of Nest, Prisma and other dependencies
 
 🧰 Working directory
 
@@ -259,13 +263,17 @@ In this example add the following variable to the `.env` file. The `HOST` is whe
 DATABASE_URL=postgresql://prisma:topsecret@postgres:5432/food?schema=food&sslmode=prefer
 ```
 
-Time 🕙 to run your Nest app and Postgres Docker image.
+Time 🕙 to start your Nest app and Postgres Docker image. Make sure the ports `3000` and `5432` are not in use already.
 
 ```bash
 docker-compose up
 # or detached
 docker-compose up -d
 ```
+
+You should have the following two docker containers started
+
+![Docker container started by docker-compose](assets/img/blog/dockerizing-nestjs-with-prisma-and-postgresql/optimized/docker-compose.png)
 
 Open again [localhost:3000](http://localhost:3000) to verify that your Nest app is running with Docker. Also verify that your endpoints using the Prisma Client have access to the Postgres DB.
 
