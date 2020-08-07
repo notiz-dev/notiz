@@ -32,7 +32,7 @@ npx prisma init
 Do you need more options? I got you covered, you can go a step further and specify a Prisma version if you like:
 
 ```bash
-nest add nestjs-prisma --prismaVersion 2.2.0
+nest add nestjs-prisma --prismaVersion 2.4.1
 ```
 
 Or go crazy by adding a `Dockerfile` for your Nest app and a `docker-compose.yaml` with a **PostgreSQL** database.
