@@ -3,7 +3,7 @@ title: Introducing NestJS Prisma Schematics
 description: Schematics to easily add Prisma support to a NestJS application 
 published: true
 publishedAt: 2020-08-07T09:30:00.000Z
-updatedAt: 2020-08-07T09:30:00.000Z
+updatedAt: 2020-08-17T21:25:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -18,13 +18,10 @@ Until now, adding [Prisma to a NestJS application](https://notiz.dev/blog/how-to
 
 I am excited to release [`nestjs-prisma`](https://github.com/marcjulian/nestjs-prisma) - a set of schematics to perform all steps necessary to add Prisma to your NestJS application **automatically**.
 
-All you need to do is run the following commands in your Nest app:
+All you need to do is run the following command in your Nest app:
 
 ```bash
 nest add nestjs-prisma
-
-# initialize prisma
-npx prisma init
 ```
 
 ![Schematics in action](assets/img/blog/nestjs-prisma-schematics/schematics-in-action.gif)
