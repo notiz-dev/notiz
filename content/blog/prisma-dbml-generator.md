@@ -2,8 +2,8 @@
 title: DBML generator for Prisma
 description: Visualize Prisma Schema as Entity-Relationship Diagram
 published: true
-publishedAt: 2020-09-15T17:08:00.000Z
-updatedAt: 2020-09-15T17:08:00.000Z
+publishedAt: 2020-09-15T17:50:00.000Z
+updatedAt: 2020-09-15T17:50:00.000Z
 tags:
   - Prisma
 keywords:
