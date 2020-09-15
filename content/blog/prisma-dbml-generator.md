@@ -69,7 +69,7 @@ enum Role {
 }
 ```
 
-generates the following `schema.dbml` in `prisma/dbml`
+generates the following `schema.dbml` to `prisma/dbml`
 
 ```dbml
 Table User {
@@ -114,5 +114,27 @@ Ref: Post.authorId > User.id
 Copy the `schema.dbml` content and [visualize](https://dbdiagram.io/d) it as an Entity-Relationship Diagram:
 
 ![Entity-Relationship Diagram](assets/img/blog/prisma-dbml-generator/optimized/db-diagram.png)
+
+You should see this output each time you run `npx prisma generate`
+
+```bash
+$ npx prisma generate
+Environment variables loaded from prisma/.env
+
+✔ Generated Prisma Client to ./node_modules/@prisma/client in 281ms
+
+✔ Generated DBML Schema to ./prisma/dbml in 5ms
+
+You can now start using Prisma Client in your code:
+
+```
+import { PrismaClient } from '@prisma/client'
+// or const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient()
+```
+
+Explore the full API: http://pris.ly/d/client
+```
 
 [Check out the readme](https://github.com/notiz-dev/prisma-dbml-generator#readme) and give it a try with your own Prisma Schema 😎.
