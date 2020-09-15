@@ -115,4 +115,4 @@ Copy the `schema.dbml` content and [visualize](https://dbdiagram.io/d) it as an 
 
 ![Entity-Relationship Diagram](assets/img/blog/prisma-dbml-generator/optimized/db-diagram.png)
 
-[Check out the readme](https://github.com/notiz-dev/prisma-dbml-generator#readme) and give it a try with your Prisma Schema.
+[Check out the readme](https://github.com/notiz-dev/prisma-dbml-generator#readme) and give it a try with your own Prisma Schema 😎.
