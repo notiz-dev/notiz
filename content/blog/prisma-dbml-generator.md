@@ -30,7 +30,7 @@ generator dbml {
 }
 ```
 
-Running `npx prisma generator` for the following Prisma schema
+Running `npx prisma generate` for the following Prisma schema
 
 ```prisma
 model User {
