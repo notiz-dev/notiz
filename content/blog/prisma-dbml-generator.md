@@ -3,7 +3,7 @@ title: DBML generator for Prisma
 description: Visualize Prisma Schema as Entity-Relationship Diagram
 published: true
 publishedAt: 2020-09-15T17:50:00.000Z
-updatedAt: 2020-09-15T17:50:00.000Z
+updatedAt: 2020-09-16T10:29:00.000Z
 tags:
   - Prisma
 keywords:
@@ -127,12 +127,12 @@ Environment variables loaded from prisma/.env
 
 You can now start using Prisma Client in your code:
 
-```
+``
 import { PrismaClient } from '@prisma/client'
 // or const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
-```
+``
 
 Explore the full API: http://pris.ly/d/client
 ```
