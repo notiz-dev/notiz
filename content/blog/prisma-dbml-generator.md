@@ -3,7 +3,7 @@ title: DBML generator for Prisma
 description: Visualize Prisma Schema as Entity-Relationship Diagram
 published: true
 publishedAt: 2020-09-15T17:50:00.000Z
-updatedAt: 2020-09-16T10:29:00.000Z
+updatedAt: 2020-09-18T13:30:00.000Z
 tags:
   - Prisma
 keywords:
@@ -15,6 +15,8 @@ github: https://github.com/notiz-dev/prisma-dbml-generator
 ---
 
 Introducing 🥳 [Prisma DBML Generator](https://github.com/notiz-dev/prisma-dbml-generator) **automatically** generating a [DBML](https://www.dbml.org/home) schema based on your Prisma Schema. 
+
+## DBML Generator
 
 Simply install the DBML generator
 
@@ -54,12 +56,19 @@ model Profile {
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  id         Int        @id @default(autoincrement())
+  title      String     @default("")
+  content    String?
+  published  Boolean    @default(false)
+  author     User?      @relation(fields: [authorId], references: [id])
+  authorId   Int?
+  categories Category[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[]
 }
 
 /// user role
@@ -94,11 +103,23 @@ Table Profile {
 
 Table Post {
   id Int [pk, increment]
-  title String [not null]
+  title String [not null, default: '']
   content String
   published Boolean [not null, default: false]
   author User
   authorId Int
+  categories Category
+}
+
+Table Category {
+  id Int [pk, increment]
+  name String [not null]
+  posts Post
+}
+
+Table CategoryToPost {
+  categoryId Int [ref: > Category.id]
+  postId Int [ref: > Post.id]
 }
 
 Enum Role {
@@ -137,4 +158,17 @@ const prisma = new PrismaClient()
 Explore the full API: http://pris.ly/d/client
 ```
 
-[Check out the readme](https://github.com/notiz-dev/prisma-dbml-generator#readme) and give it a try with your own Prisma Schema 😎.
+## Additional Options
+
+Do you like to configure the output directory or even the output name 🤓?
+You can play around with the following options:
+
+```prisma
+generator dbml {
+  provider   = "prisma-dbml-generator"
+  output     = "../dbml"
+  outputName = "awesome.dbml"
+}
+```
+
+[Check out all options](https://github.com/notiz-dev/prisma-dbml-generator#additional-options) and give it a try with your own Prisma Schema 😎.
