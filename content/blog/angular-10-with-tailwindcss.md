@@ -3,7 +3,7 @@ title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2020-07-14T16:50:00.000Z
+updatedAt: 2020-09-29T16:21:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -54,13 +54,15 @@ module.exports = {
         test: /\.scss$/,
         loader: 'postcss-loader',
         options: {
-          ident: 'postcss',
-          syntax: 'postcss-scss',
-          plugins: () => [
-            require('postcss-import'),
-            require('tailwindcss'),
-            require('autoprefixer'),
-          ],
+          postcssOptions: {
+            ident: 'postcss',
+            syntax: 'postcss-scss',
+            plugins: [
+              require('postcss-import'),
+              require('tailwindcss'),
+              require('autoprefixer'),
+            ],
+          },
         },
       },
     ],
@@ -150,15 +152,17 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        loader: "postcss-loader",
+        loader: 'postcss-loader',
         options: {
-          ident: "postcss",
-          syntax: "postcss",
-          plugins: () => [
-            require("postcss-import"),
-            require("tailwindcss"),
-            require("autoprefixer"),
-          ],
+          postcssOptions: {
+            ident: 'postcss',
+            syntax: 'postcss',
+            plugins: [
+              require('postcss-import'),
+              require('tailwindcss'),
+              require('autoprefixer'),
+            ],
+          },
         },
       },
     ],
@@ -276,3 +280,40 @@ Add the following snippet to your `src/app.component.html` to see if Tailwind st
 ```
 
 In the next post you will create an Angular component for a floating form field based on my last post [Floating Form Field with Tailwind CSS](https://notiz.dev/blog/floating-form-field-with-tailwindcss).
+
+## Update postcss-loader from 3.x to 4.x
+
+[postcss-loader](https://github.com/webpack-contrib/postcss-loader) has new [breaking changes](https://github.com/webpack-contrib/postcss-loader/blob/master/CHANGELOG.md#-breaking-changes) when updating from version 3.x to 4.x. Huge thanks to [@phileagleson](https://github.com/notiz-dev/notiz/issues/111#issuecomment-689249664) :clap: who pointed out that options for Postcss have moved to the `postcssOptions`. Therefore, update your `webpack.config.js` as follows when updating to `postcss-loader@4.x`
+
+```diff
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        loader: 'postcss-loader',
+        options: {
+-          ident: 'postcss',
+-          syntax: 'postcss-scss',
+-          plugins: () => [
+-            require('postcss-import'),
+-            require('tailwindcss'),
+-            require('autoprefixer'),
+-          ],
++          postcssOptions: {
++           ident: 'postcss',
++            syntax: 'postcss-scss',
++            plugins: [
++              require('postcss-import'),
++              require('tailwindcss'),
++              require('autoprefixer'),
+            ],
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+All `webpack.config.js` examples are updated to use the new `postcssOptions` for `postcss-loader@4.x`.
