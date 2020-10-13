@@ -8,7 +8,14 @@ import {
 } from '@angular/core';
 import { DOCUMENT, Location } from '@angular/common';
 import { fromEvent, Subject, Observable, merge } from 'rxjs';
-import { tap, map, takeUntil, switchMap, withLatestFrom } from 'rxjs/operators';
+import {
+  tap,
+  map,
+  takeUntil,
+  switchMap,
+  withLatestFrom,
+  filter,
+} from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { ActivatedRoute } from '@angular/router';
 
@@ -46,6 +53,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
         switchMap((fragment) =>
           this.content.getCurrent().pipe(map((c) => [fragment, c.route]))
         ),
+        filter(([fragment, route]) => !!fragment && !!route),
         tap(([fragment, route]) => this.scrollTo(route, fragment)),
         takeUntil(this.onDestroy$)
       )
