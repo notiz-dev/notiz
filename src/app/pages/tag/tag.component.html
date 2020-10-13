@@ -1,3 +1,11 @@
+<niz-seo
+  *ngIf="page$ | async as page"
+  [title]="page.title"
+  [description]="'All posts of ' + page.title"
+  [route]="page.route"
+  [tags]="[page.title]"
+></niz-seo>
+
 <div class="responsive-container space-y-5 mt-10">
   <app-breadcrumb></app-breadcrumb>
   <h1 class="text-2xl font-semibold">{{ (page$ | async)?.title }}</h1>

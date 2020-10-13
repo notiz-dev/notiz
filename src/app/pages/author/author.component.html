@@ -1,3 +1,17 @@
+<niz-seo
+  *ngIf="author$ | async as author"
+  [title]="author.title + ' - notiz'"
+  [description]="'Overview of posts on notiz.dev by ' + author.title"
+  [route]="author.route"
+  [image]="author.img"
+  [tags]="[author.title]"
+  [authorFirstName]="author.title.slice(0, author.title.indexOf(' '))"
+  [authorLastName]="
+    author.title.slice(author.title.indexOf(' ') + 1, author.title.length)
+  "
+  [authorUserName]="author.twitter"
+></niz-seo>
+
 <div class="responsive-container space-y-5 mt-10">
   <app-breadcrumb></app-breadcrumb>
   <h1 *ngIf="author$ | async as author" class="text-2xl text-semibold">
@@ -7,7 +21,6 @@
   <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
 </div>
 <div class="mx-auto flex">
-  
   <app-card-stack
     *ngIf="author$ | async as author"
     title="Latest Articles"
@@ -17,7 +30,7 @@
       class="card"
       *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
     >
-      <app-article class="stacked"  [route]="link"></app-article>
+      <app-article class="stacked" [route]="link"></app-article>
     </div>
     <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
       <app-coming-soon></app-coming-soon>

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute } from '@scullyio/ng-lib';
-import { SeoService } from '@services/seo.service';
 import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   latestBlogPost$: Observable<ScullyRoute>;
@@ -15,13 +14,9 @@ export class HomeComponent implements OnInit {
   updateBlogPosts$: Observable<ScullyRoute[]>;
   tags$: Observable<ScullyRoute[]>;
 
-  constructor(
-    private scullyContentService: ScullyContentService,
-    private seo: SeoService
-  ) {}
+  constructor(private scullyContentService: ScullyContentService) {}
 
   ngOnInit() {
-    this.seo.generateTags();
     this.latestBlogPost$ = this.scullyContentService.latestPost();
     this.blogPosts$ = this.scullyContentService.posts();
     this.updateBlogPosts$ = this.scullyContentService.lastPosts();

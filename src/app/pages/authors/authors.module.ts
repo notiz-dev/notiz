@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthorsComponent } from './authors.component';
@@ -16,6 +17,7 @@ import { AuthorCardModule } from '@components/author/author.module';
     ComponentsModule,
     NewsletterSignupModule,
     AuthorCardModule,
+    SeoModule,
   ],
 })
 export class AuthorsModule {}

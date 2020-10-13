@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     PageNotFoundRoutingModule,
     ComponentsModule,
     NewsletterSignupModule,
+    SeoModule,
   ],
 })
 export class PageNotFoundModule {}

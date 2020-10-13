@@ -8,6 +8,7 @@ import { BlogPostModule } from '@pages/blog-post/blog-post.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
+import { SeoModule } from '@components/seo/seo.module';
 
 @NgModule({
   declarations: [BlogComponent],
@@ -20,6 +21,7 @@ import { ArticleModule } from '@components/article/article.module';
     NewsletterSignupModule,
     TagsViewModule,
     ArticleModule,
+    SeoModule,
   ],
 })
 export class BlogModule {}

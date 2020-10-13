@@ -1,3 +1,17 @@
+<niz-seo
+  *ngIf="post$ | async as post"
+  [title]="post.title"
+  [description]="post.description"
+  [route]="post.route"
+  [tags]="post.tags"
+  [keywords]="post.keywords"
+  [twitterImage]="post.route"
+  [ogImage]="post.route"
+  [articlePublishedAt]="post.publishedAt"
+  [articleUpdatedAt]="post.updatedAt"
+  [articleAuthors]="authors$ | async | mapPostAuthors"
+></niz-seo>
+
 <div
   class="responsive-container space-y-4 mt-10"
   *ngIf="post$ | async as route"
@@ -27,13 +41,11 @@
     <div
       class="max-w-screen-xl flex flex-col-reverse mt-10 md:flex-row md:space-x-5"
     >
-      <div class="w-full flex flex-col space-y-4  md:w-9/12 xl:w-10/12 post">
+      <div class="w-full flex flex-col space-y-4 md:w-9/12 xl:w-10/12 post">
         <scully-content></scully-content>
       </div>
-      <div
-        class="top-32 w-full flex flex-col mt-5  md:w-3/12 xl:w-2/12 md:mt-0"
-      >
-        <div class="sticky top-32 space-y-4 ">
+      <div class="top-32 w-full flex flex-col mt-5 md:w-3/12 xl:w-2/12 md:mt-0">
+        <div class="sticky top-32 space-y-4">
           <niz-toc></niz-toc>
           <div>
             <h2 class="text-xl font-semibold">Tags</h2>
@@ -48,7 +60,6 @@
             </niz-chip>
           </div>
         </div>
-       
       </div>
     </div>
 

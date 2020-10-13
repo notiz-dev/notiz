@@ -7,9 +7,8 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { HighlightService } from '@services/highlight.service';
-import { SeoService } from '@services/seo.service';
-import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { first, tap, map, switchMap, takeUntil, filter } from 'rxjs/operators';
+import { ScullyRoute } from '@scullyio/ng-lib';
+import { tap, map, switchMap, takeUntil, filter } from 'rxjs/operators';
 import { Observable, fromEvent, Subject } from 'rxjs';
 import { ScullyContentService } from 'src/app/services/scully-content.service';
 
@@ -31,7 +30,6 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   constructor(
     private highlightService: HighlightService,
-    private seo: SeoService,
     private content: ScullyContentService,
     private router: Router
   ) {}
@@ -53,38 +51,6 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
       .subscribe();
 
     this.post$ = this.content.getCurrent();
-    this.post$
-      .pipe(
-        first(),
-        tap((post) => console.warn('post change', post)),
-        switchMap((post) =>
-          this.content.authors().pipe(
-            tap((authors) =>
-              this.seo.generateTags({
-                title: post.title,
-                description: post.description,
-                route: post.route,
-                keywords: post.keywords
-                  ? post.tags.concat(post.keywords)
-                  : post.tags,
-                twitter_image: `https://notiz.dev/assets/banners${post.route}/twitter.png`,
-                og_image: `https://notiz.dev/assets/banners${post.route}/og.png`,
-                article: {
-                  published_time: post.publishedAt,
-                  modified_time: post.updatedAt,
-                  tag: post.tags,
-                  author: [
-                    ...authors
-                      .filter((a) => post.authors.some((a2) => a2 === a.title))
-                      .map((a) => `https://notiz.dev${a.route}`),
-                  ],
-                },
-              })
-            )
-          )
-        )
-      )
-      .subscribe();
 
     this.related$ = this.content
       .posts()

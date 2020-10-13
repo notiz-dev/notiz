@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
@@ -19,6 +20,7 @@ import { TagsViewModule } from '@components/tags-view/tags-view.module';
     TagModule,
     NewsletterSignupModule,
     TagsViewModule,
+    SeoModule,
   ],
 })
 export class TagsModule {}

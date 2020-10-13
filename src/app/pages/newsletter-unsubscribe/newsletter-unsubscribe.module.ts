@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { NizInlineSvgModule } from '@notiz/ngx-design';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +15,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     ComponentsModule,
     NewsletterSignupModule,
     NizInlineSvgModule,
+    SeoModule,
   ],
   exports: [NewsletterUnsubscribeComponent],
   providers: [],

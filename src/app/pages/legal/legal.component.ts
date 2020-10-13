@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { SeoService } from '@services/seo.service';
+import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 
@@ -12,14 +11,9 @@ import { ScullyContentService } from '@services/scully-content.service';
 export class LegalComponent implements OnInit {
   page$: Observable<ScullyRoute>;
 
-  constructor(
-    private scully: ScullyRoutesService,
-    private seo: SeoService,
-    public content: ScullyContentService
-  ) {}
+  constructor(public content: ScullyContentService) {}
 
   ngOnInit(): void {
     this.page$ = this.content.getCurrent();
-    this.seo.generateTags();
   }
 }

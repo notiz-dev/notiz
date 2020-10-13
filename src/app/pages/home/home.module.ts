@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { ComingSoonModule } from '@components/coming-soon/coming-soon.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -23,7 +24,8 @@ import { FeaturedModule } from '@components/featured/featured.module';
     TagsViewModule,
     ArticleModule,
     ComingSoonModule,
-    FeaturedModule
+    FeaturedModule,
+    SeoModule,
   ],
 })
 export class HomeModule {}

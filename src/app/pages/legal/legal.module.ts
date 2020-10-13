@@ -1,3 +1,4 @@
+import { SeoModule } from '@components/seo/seo.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LegalComponent } from './legal.component';
@@ -14,6 +15,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     ScullyContentModule,
     ComponentsModule,
     NewsletterSignupModule,
+    SeoModule,
   ],
 })
 export class LegalModule {}
