@@ -28,10 +28,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": "^0.0.75"
+    "@scullyio/scully": "^1.0.3"
   },
   "dependencies": {
-    "jsdom": "^16.2.1",
+    "jsdom": "^16.4.0",
     "showdown": "^1.9.1"
   }
 }
