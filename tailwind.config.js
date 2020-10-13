@@ -4,8 +4,8 @@ module.exports = {
     './src/**/*.ts',
     './projects/design/**/*.html',
     './projects/design/**/*.ts',
-    "./projects/shortcodes/**/*.html",
-    "./projects/shortcodes/**/*.ts",
+    './projects/shortcodes/**/*.html',
+    './projects/shortcodes/**/*.ts',
   ],
   theme: {
     extend: {
@@ -39,12 +39,12 @@ module.exports = {
         32: '8rem',
       },
       maxHeight: {
-        '248': '248px',
-        '384': '384px',
-        '524': '524px',
+        248: '248px',
+        384: '384px',
+        524: '524px',
       },
       transformOrigin: {
-        '0': '0%',
+        0: '0%',
       },
       zIndex: {
         '-1': '-1',
@@ -71,6 +71,10 @@ module.exports = {
   },
   variants: {
     borderWidth: ['responsive', 'hover'],
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
   plugins: [],
 };

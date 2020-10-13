@@ -189,6 +189,7 @@ body {
 blockquote {
   position: relative;
 }
+
 blockquote::before {
   content: '';
   @apply bg-blue;
