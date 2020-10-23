@@ -3,7 +3,7 @@ title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2020-09-29T16:21:00.000Z
+updatedAt: 2020-10-23T15:27:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -184,10 +184,10 @@ Finally add Tailwind base styles to `src/styles.css`.
 
 If you also think the steps above are tedious ... Don't look any further.
 
-Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/garygrossgarten/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind:
+Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/notiz-dev/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind:
 
 ```bash
-ng add @garygrossgarten/ngx-tailwind
+ng add ngx-tailwind
 ```
 
 ## Use Tailwind CSS utility classes
