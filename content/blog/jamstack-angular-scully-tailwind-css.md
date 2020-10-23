@@ -1,0 +1,108 @@
+---
+title: 'Jamstack: Angular + Scully + Tailwind CSS'
+description: Use Angular's static site generator Scully and style it with Tailwind CSS
+published: true
+publishedAt: 2020-10-23T15:27:00.000Z
+updatedAt: 2020-10-23T15:27:00.000Z
+tags:
+  - Scully
+  - Angular
+  - Tailwind CSS
+keywords:
+  - Jamstack
+  - Utility-First CSS
+authors:
+  - Marc Stammerjohann
+github: https://github.com/notiz-dev/angular-scully-tailwindcss
+---
+
+[Scully](https://scully.io/) is a static site generator build for the web framework [Angular](https://angular.io/). You learn how to build a [Jamstack](https://jamstack.org/what-is-jamstack/) project with Angular and Scully. Let's add [Tailwind CSS](https://tailwindcss.com) for easy styling, the cherry 🍒  on the cake 🍰.
+
+## TL;DR
+
+Create a new Angular project, add Scully and Tailwind CSS using schematics.
+
+```bash
+ng new app-name --style=scss --routing true
+cd app-name
+
+ng add @scullyio/init
+
+ng add ngx-tailwind
+```
+
+Angular provides [schematics](https://angular.io/guide/schematics) for generating and performing installation steps automatically for you - used by Scully and [ngx-tailwind](https://github.com/notiz-dev/ngx-tailwind). 💯
+
+## Remove unused CSS for production build 🧹
+
+Tailwind generates a lot of CSS styles which are very helpful during development. Before deploying the Scully app [remove all unused CSS](https://tailwindcss.com/docs/controlling-file-size#removing-unused-css) using the `purge` option in `tailwind.config.js`. Provide paths of your template and TypeScript files:
+
+```diff
+module.exports = {
+  future: {
+    // removeDeprecatedGapUtilities: true,
+    // purgeLayersByDefault: true,
+  },
++ purge: ["./src/**/*.html", "./src/**/*.ts"],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+};
+```
+
+Tailwind automatically purges unused styles when `NODE_ENV` is set to `production`. Use the script added by `ngx-tailwind`
+
+```bash
+npm run build:prod
+```
+
+Open `app.component.html` and replace the content with the following template using Tailwind utility styles.
+
+```html
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center">
+  <div class="mx-auto p-20 rounded-lg shadow-lg bg-white">
+    <p class="text-4xl font-semibold">Angular + Scully + Tailwind = 🚀</p>
+  </div>
+</div>
+```
+
+## Start Scully
+
+Getting started to serve Angular as a Jamstack app for the first time. Follow the steps in this order.
+
+1. First build Angular app
+
+```bash
+npm run build:prod
+```
+
+2. Build Scully app
+
+```bash
+npm run scully
+```
+
+All pre-rendered static  site files are generated in `./dist/static`. For each page you will see an `index.html` file.
+
+3. Scully app
+
+```bash
+npm run scully:serve
+```
+
+Open your favorite browser and go to [http://localhost:1668/](http://localhost:1668/) for the Scully static server and [http://localhost:1864/](http://localhost:1864/) for the Angular server.
+
+You should see on both links - Angular top 👆, Scully bottom 👇.
+
+![First Scully Serve](assets/img/blog/jamstack-angular-scully-tailwind-css/optimized/first-scully-serve.png)
+
+## What's added by Scully? 🔍
+
+Scully creates a [config](https://scully.io/docs/reference/config/) file `scully.<projectname>.config.ts` at the root folder. You will look at this in a moment.
+
+
+
+
+
