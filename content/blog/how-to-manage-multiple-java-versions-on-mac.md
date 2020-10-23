@@ -3,7 +3,7 @@ title: How to manage multiple Java JDK versions on macOS X
 description: How to manage multiple Java JDK versions on macOS X using homebrew.
 published: true
 publishedAt: 2020-04-16T11:30:00.000Z
-updatedAt: 2020-04-16T11:30:00.000Z
+updatedAt: 2020-10-23T12:08:00.000Z
 tags:
   - Quick Tip
   - Java
@@ -31,12 +31,9 @@ brew cask install java<version>
 
 # latest version
 brew cask install java
-
-# LTS 11
-brew cask install java11
 ```
 
-> **Note** JDK versions prior **11** (**8**, **9** and **10**) are no longer supported.
+> **Note** JDK versions  **8**, **9**, **10** and **11** are no longer supported.
 
 [AdoptOpenJDK](https://adoptopenjdk.net/) provides older Java versions. To install the Java JDKs from AdoptOpenJDK:
 
@@ -54,6 +51,9 @@ brew cask install adoptopenjdk9
 
 # Java 10
 brew cask install adoptopenjdk10
+
+# Java 11
+brew cask install adoptopenjdk11
 ```
 
 ## Switch Java JDK via alias
