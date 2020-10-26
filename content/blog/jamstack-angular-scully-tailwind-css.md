@@ -32,6 +32,7 @@ ng add ngx-tailwind
 ```
 
 Or follow along with the [source code](https://github.com/notiz-dev/angular-scully-tailwindcss).
+For more information about Angular and Tailwind read the in-depth guide [Angular 10 with Tailwind CSS](https://notiz.dev/blog/angular-10-with-tailwindcss).
 
 ## Remove unused CSS for production build 🧹
 
@@ -297,7 +298,7 @@ Blog post content is now styled 😎. How easy was that? Feel free to further [c
 
 ![Prose markdown content using Tailwind Typography plugin](assets/img/blog/jamstack-angular-scully-tailwind-css/optimized/scully-typography-prose-content.png)
 
-Last thing is left, listing all available posts and navigating to the post slug.
+One more thing is left, listing all available posts and navigating to the post slug.
 
 ## Blog Overview Page
 
@@ -403,8 +404,14 @@ Add your blog name and loop over all posts in your template
 
 ![Blog overview page](assets/img/blog/jamstack-angular-scully-tailwind-css/optimized/blog-post-overview-page.png)
 
-What are you wait for? 😄 Now it's time for you to create your own blog 🚀. Use Scully schematics to generate new blog posts automatically for you 
+Now all you need is an idea and time to write it down. [Creating](https://scully.io/docs/learn/create-a-blog/generate-new-blog-posts/) your next blog post is as easy as 💆
 
 ```bash
 ng generate @scullyio/init:post --name="Cool post"
 ```
+
+Made possible by Scully schematics.
+
+What are you wait for? 😄 Now it's time for you to create your own blog 🚀. Need more inspiration? [notiz.dev](https://notiz.dev) is build using Scully and Tailwind CSS. 😉 
+
+
