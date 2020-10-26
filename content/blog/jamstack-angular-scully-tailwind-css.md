@@ -216,8 +216,7 @@ Check out [Tailwind Blog](https://blog.tailwindcss.com/) which is used here as r
 
 Update your blog front matter to set `published` to `true`, add `publishedAt` with a datetime string and remove any unpublished `slug`, also add some placeholder content:
 
-```md
----
+<pre lang="md"><code class="language-markdown">---
 title: 2020-10-23-blog
 description: "blog description"
 published: true
@@ -250,7 +249,7 @@ Unordered List
 ### Diavolo
 
 > Pizza might be very 🌶️
-```
+</code></pre>
 
 Last but not least, remove all styles from `blog.component.scss`. Now re-build Angular, Scully and serve Scully to see the new blog post header
 
@@ -300,4 +299,3 @@ Blog post content is now styled 😎. How easy was that? Feel free to further [c
 
 ## Blog Overview Page
 
-## Next up
