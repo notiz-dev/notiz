@@ -218,7 +218,7 @@ Update your blog front matter to set `published` to `true`, add `publishedAt` wi
 
 <pre lang="md"><code class="language-markdown">---
 title: 2020-10-23-blog
-description: "blog description"
+description: 10 Top tips about your next Pizza Hawaii
 published: true
 publishedAt: 2020-10-31T13:37:00.000Z
 ---
@@ -228,7 +228,7 @@ publishedAt: 2020-10-31T13:37:00.000Z
 Eat **pizza** hawaii *everyday*. ~~Don't forget~~ the 🧀 on your `pizza`.
 
 ```
-var pizza = "Eat 🍕".
+var pizza = "Eat 🍕";
 alert(pizza);
 ```
 
@@ -297,5 +297,114 @@ Blog post content is now styled 😎. How easy was that? Feel free to further [c
 
 ![Prose markdown content using Tailwind Typography plugin](assets/img/blog/jamstack-angular-scully-tailwind-css/optimized/scully-typography-prose-content.png)
 
+Last thing is left, listing all available posts and navigating to the post slug.
+
 ## Blog Overview Page
 
+Generate a new component for your route `/blog` displaying all available posts using `ScullyRoutesService.available$`.
+
+```bash
+ng g module blogs --route blogs --module blog/blog.module
+```
+
+Change the path of your new route in `blog-routing.module.ts` from `blogs` to empty to match the `/blog` route.
+
+```diff
+const routes: Routes = [
+  {
++   path: '',
+-   path: 'blogs',
+    loadChildren: () =>
+      import('../blogs/blogs.module').then((m) => m.BlogsModule),
+  },
+  {
+    path: ':slug',
+    component: BlogComponent,
+  },
+  {
+    path: '**',
+    component: BlogComponent,
+  },
+];
+```
+
+If you like to automatically redirect to `/blog` open `app-routing.module.ts`
+
+```diff
+const routes: Routes = [
++ { path: '', redirectTo: 'blog', pathMatch: 'full' },
+  {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+];
+```
+
+Now create a reference for all available blog posts in `blogs.component.ts` filtering out pages with routes starting only with `/blog`.
+
+```ts
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+
+@Component({
+  selector: 'app-blogs',
+  templateUrl: './blogs.component.html',
+  styleUrls: ['./blogs.component.scss'],
+})
+export class BlogsComponent implements OnInit {
+  available$: Observable<ScullyRoute[]>;
+
+  constructor(private scully: ScullyRoutesService) {}
+
+  ngOnInit(): void {
+    this.available$ = this.scully.available$.pipe(
+      map((r) => r.filter((page) => page.route.startsWith('/blog')))
+    );
+  }
+}
+```
+
+Important to note you have to import `ScullyLibModule` in your `blogs.module.ts` to access `ScullyRoutesService`.
+
+Add your blog name and loop over all posts in your template
+
+```html
+<div class="pt-6 pb-8 space-y-2 md:space-y-5">
+  <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-yellow-400 to-yellow-200 tracking-tight sm:text-4xl md:text-6xl">Company Blog</h1>
+  <p class="text-lg leading-7 text-gray-500">All the latest Company news.</p>
+</div>
+
+<ul class="divide-y divide-gray-200">
+  <li *ngFor="let post of available$ | async">
+    <article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+      <dl>
+        <dt class="sr-only">Published on</dt>
+        <dd class="text-base leading-6 font-medium text-gray-500">
+          <time [dateTime]="post.publishedAt"> {{ post.publishedAt | date: "dd MMMM yyyy" }} </time>
+        </dd>
+      </dl>
+      <div class="space-y-5 xl:col-span-3">
+        <div class="space-y-6">
+          <h2 class="text-2xl leading-8 font-bold tracking-tight">
+            <a [routerLink]="post.route" class="text-gray-900 hover:text-gray-700"> {{ post.title }} </a>
+          </h2>
+          <div class="prose max-w-none text-gray-500">{{ post.description }}</div>
+        </div>
+        <div class="text-base leading-6 font-medium">
+          <a [routerLink]="post.route" class="text-orange-500 hover:text-orange-600"> Read more &rarr; </a>
+        </div>
+      </div>
+    </article>
+  </li>
+</ul>
+```
+
+![Blog overview page](assets/img/blog/jamstack-angular-scully-tailwind-css/optimized/blog-post-overview-page.png)
+
+What are you wait for? 😄 Now it's time for you to create your own blog 🚀. Use Scully schematics to generate new blog posts automatically for you 
+
+```bash
+ng generate @scullyio/init:post --name="Cool post"
+```
