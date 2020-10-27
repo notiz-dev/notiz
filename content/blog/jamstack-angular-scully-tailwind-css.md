@@ -2,8 +2,8 @@
 title: 'Jamstack: Angular + Scully + Tailwind CSS'
 description: Use Angular's static site generator Scully and style it with Tailwind CSS
 published: true
-publishedAt: 2020-10-23T15:27:00.000Z
-updatedAt: 2020-10-23T15:27:00.000Z
+publishedAt: 2020-10-27T10:23:00.000Z
+updatedAt: 2020-10-27T10:23:00.000Z
 tags:
   - Scully
   - Angular
@@ -125,6 +125,8 @@ src/assets/scully-routes.json
 scully/plugins/*.js
 scully/plugins/*.js.map
 ```
+
+`scully-routes.json` contains all information about your available routes including the front matter data which you will access later in your blog post page.
 
 ## Markdown blog
 
