@@ -3,7 +3,7 @@ title: 'Jamstack: Angular + Scully + Tailwind CSS'
 description: Use Angular's static site generator Scully and style it with Tailwind CSS
 published: true
 publishedAt: 2020-10-27T10:23:00.000Z
-updatedAt: 2020-10-27T10:23:00.000Z
+updatedAt: 2020-10-29T15:20:00.000Z
 tags:
   - Scully
   - Angular
@@ -26,8 +26,13 @@ Create a new Angular project, add Scully and Tailwind CSS using schematics. Angu
 ng new app-name --style=scss --routing true
 cd app-name
 
+## add scully
 ng add @scullyio/init
 
+## add scully blog
+ng generate @scullyio/init:blog
+
+## add tailwind
 ng add ngx-tailwind
 ```
 
