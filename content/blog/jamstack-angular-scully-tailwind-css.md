@@ -369,7 +369,7 @@ export class BlogsComponent implements OnInit {
   ngOnInit(): void {
     this.available$ = this.scully.available$.pipe(
       map((r) => r.filter((page) => page.route.startsWith('/blog'))),
-      map((r) => r.sort((page1, page2) => (page1.publishedAt < page2.publishedAt ? 1 : -1)))
+      map((r) => r.sort((page1, page2) => new Date(page2.publishedAt).getTime() - new Date(page1.publishedAt).getTime()))
     );
   }
 }
