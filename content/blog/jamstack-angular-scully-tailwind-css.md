@@ -348,7 +348,7 @@ const routes: Routes = [
 ];
 ```
 
-Now create a reference for all available blog posts in `blogs.component.ts` filtering out pages with routes starting only with `/blog`.
+Now create a reference for all available blog posts in `blogs.component.ts` filtering out pages with routes starting only with `/blog`. Additionally, sort your posts in descending order by the `publishedAt` date.
 
 ```ts
 import { Observable } from 'rxjs';
@@ -368,7 +368,8 @@ export class BlogsComponent implements OnInit {
 
   ngOnInit(): void {
     this.available$ = this.scully.available$.pipe(
-      map((r) => r.filter((page) => page.route.startsWith('/blog')))
+      map((r) => r.filter((page) => page.route.startsWith('/blog'))),
+      map((r) => r.sort((page1, page2) => (page1.publishedAt < page2.publishedAt ? 1 : -1)))
     );
   }
 }
