@@ -385,7 +385,7 @@ Add your blog name and loop over all posts in your template
 </div>
 
 <ul class="divide-y divide-gray-200">
-  <li *ngFor="let post of available$ | async">
+  <li *ngFor="let post of available$ | async" class="py-12">
     <article class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
       <dl>
         <dt class="sr-only">Published on</dt>
