@@ -26,13 +26,13 @@ Create a new Angular project, add Scully and Tailwind CSS using schematics. Angu
 ng new app-name --style=scss --routing true
 cd app-name
 
-## add scully
+# add scully
 ng add @scullyio/init
 
-## add scully blog
+# add scully blog
 ng generate @scullyio/init:blog
 
-## add tailwind
+# add tailwind
 ng add ngx-tailwind
 ```
 
