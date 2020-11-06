@@ -42,7 +42,7 @@ npm install -g firebase-tools
 firebase init hosting
 ```
 
-![Hosting Setup](assets/img/blog/firebase-hosting-preview-deploy/firebase-init-hosting.gif)
+![Hosting Setup](assets/img/blog/firebase-hosting-preview-deploy/firebase-hosting-setup.gif)
 
 ## Firebase Hosting Setup
 
