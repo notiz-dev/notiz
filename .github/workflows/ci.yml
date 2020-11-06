@@ -31,3 +31,11 @@ jobs:
       - run: npm run build:shortcodes
       - run: npm run build:prod
       - run: npm run scully:ci
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_TOKEN }}'
+          expires: 30d
+          projectId: notiz-dev
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
