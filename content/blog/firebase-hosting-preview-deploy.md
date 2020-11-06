@@ -2,8 +2,8 @@
 title: 'Firebase Hosting: Preview and Deploy via GitHub Actions'
 description: Preview and Deploy your Angular or Scully app on Firebase Hosting automated via GitHub Actions
 published: true
-publishedAt: 2020-11-05T17:00:00.000Z
-updatedAt: 2020-11-05T17:00:00.000Z
+publishedAt: 2020-11-06T19:10:00.000Z
+updatedAt: 2020-11-06T19:10:00.000Z
 tags:
   - Firebase
   - Angular
