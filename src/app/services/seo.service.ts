@@ -102,7 +102,6 @@ export class SeoService {
 
       return;
     } else {
-      console.warn('remove article tags');
       this.meta.removeTag('property="og:article:published_time"');
       this.meta.removeTag('property="og:article:modified_time"');
       this.meta.removeTag('property="og:article:tag"');
