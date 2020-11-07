@@ -15,14 +15,17 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '12.x'
-      - run: npm install
-      - run: cd projects/banner-generator && npm i
-      - run: cd projects/amp && npm i
+      - run: npm ci
+      - run: cd projects/banner-generator && npm ci
+      - run: cd projects/amp && npm ci
       - run: npm run build:shortcodes
       - run: npm run build:prod
       - run: npm run scully:ci
-      - uses: w9jds/firebase-action@master
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          args: deploy --only hosting
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTIZ_DEV }}'
+          channelId: live
+          projectId: notiz-dev
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_CLI_PREVIEWS: hostingchannels
