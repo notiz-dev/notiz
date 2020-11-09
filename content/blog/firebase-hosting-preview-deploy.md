@@ -2,8 +2,8 @@
 title: 'Firebase Hosting: Preview and Deploy via GitHub Actions'
 description: Preview and Deploy your Angular or Scully app on Firebase Hosting automated via GitHub Actions
 published: true
-publishedAt: 2020-11-07T18:10:00.000Z
-updatedAt: 2020-11-07T18:10:00.000Z
+publishedAt: 2020-11-09T11:58:00.000Z
+updatedAt: 2020-11-09T11:58:00.000Z
 tags:
   - Firebase
   - Angular
@@ -19,7 +19,7 @@ authors:
 github: https://github.com/notiz-dev/angular-scully-tailwindcss
 ---
 
-You start building an [Angular app w/ Tailwind CSS](https://notiz.dev/blog/angular-10-with-tailwindcss) or a [Jamstack Angular app w/ Scully](https://notiz.dev/blog/jamstack-angular-scully-tailwind-css) and at some point you want to invite colleagues,friends, family or customers to check it out. [Firebase Hosting](https://firebase.google.com/docs/hosting/use-cases#what_is_firebase_hosting) allows to host your static or dynamic web apps for **FREE** 💸. You are setting up a GitHub workflow deploying your Scully app (works with Angular and any other web framework) to **preview** and **live** channel. 
+You start building an [Angular](https://notiz.dev/blog/angular-10-with-tailwindcss) or a [Scully](https://notiz.dev/blog/jamstack-angular-scully-tailwind-css) application and at some point you want to invite colleagues, friends, family or customers to check it out. [Firebase Hosting](https://firebase.google.com/docs/hosting/use-cases#what_is_firebase_hosting) allows to host your static or dynamic web apps for **FREE** 💸. You are setting up a GitHub workflow deploying your Scully app (works with Angular and any other web framework) to **preview** and **live** channel. 
 
 Demo [source code](https://github.com/notiz-dev/angular-scully-tailwindcss) and [hosted](https://angular-scully-tailwindcss.web.app/blog) on Firebase 🔥.
 
@@ -28,7 +28,7 @@ Before you dive straight into this you will need a
 * [Firebase Account](https://console.firebase.google.com/)
 * [GitHub Account](https://github.com/join) and a private or public repo for your web app
 
-Need a web app to test it out? Follow [Angular 10 with Tailwind CSS](https://notiz.dev/blog/angular-10-with-tailwindcss) or [Jamstack: Angular + Scully + Tailwind CSS](https://notiz.dev/blog/jamstack-angular-scully-tailwind-css).
+Use your existing web application or create a new one by following [Angular 10 with Tailwind CSS](https://notiz.dev/blog/angular-10-with-tailwindcss) or [Jamstack: Angular + Scully + Tailwind CSS](https://notiz.dev/blog/jamstack-angular-scully-tailwind-css) to get started.
 
 ## Getting started
 
