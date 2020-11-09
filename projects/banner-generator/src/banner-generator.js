@@ -29,6 +29,7 @@ const bannerGeneratorPlugin = async (html, route) => {
         .replace(' ', '-')}.md`
     ).img;
     const logos = route.data.tags
+      .reverse()
       .map((t) =>
         resolve(`./src/assets/stack/${t.toLowerCase().replace(' ', '-')}.svg`)
       )

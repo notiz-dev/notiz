@@ -1,0 +1,35 @@
+name: Deploy a preview to Firebase on PR
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: cd projects/banner-generator && npm ci
+      - run: cd projects/amp && npm ci
+      - run: npm run build:shortcodes
+      - run: npm run build:prod
+      - run: npm run scully:ci
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTIZ_DEV }}'
+          expires: 30d
+          projectId: notiz-dev
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
