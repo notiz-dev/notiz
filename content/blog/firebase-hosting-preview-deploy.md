@@ -62,7 +62,7 @@ dist/<project-name>
 dist/static
 ```
 
-Change `public` directory later in `firebase.json` file.
+You can change the `public` directory anytime in `firebase.json` file.
 
 Answer the next question "Configure as a single-page app (rewrite all urls to /index.html)?" with **yes** for Angular apps (and other single-page apps) and **no** for Scully apps (and other static-site apps).
 
@@ -81,7 +81,7 @@ Select a GitHub repository to setup your secret token for your workflow and ente
 "scully:ci": "scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",
 ```
 
-If you want to deploy to the live channel for merged Pull Request answer with **yes** and enter your branch name for the live channel for example `main`. 
+If you like to deploy to live channel on merged Pull Request answer with **yes** and enter your branch name for the live channel for example `main`. 
 
 ## GitHub Workflow
 
