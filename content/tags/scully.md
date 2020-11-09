@@ -1,4 +1,4 @@
 ---
-title: scully
+title: Scully
 slug: scully
 ---
