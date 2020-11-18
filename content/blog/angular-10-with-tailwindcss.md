@@ -3,7 +3,7 @@ title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2020-10-23T15:27:00.000Z
+updatedAt: 2020-11-18T22:27:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -17,23 +17,25 @@ github: https://github.com/notiz-dev/angular-tailwindcss
 
 Learn how to use utility-first CSS framework [Tailwind CSS](https://tailwindcss.com) with [Angular](https://angular.io/) using [ngx-build-plus](https://github.com/manfredsteyer/ngx-build-plus).
 
+This guide works for both Tailwind CSS v1 and [v2](https://blog.tailwindcss.com/tailwindcss-v2) and Angular v10 and [v11](https://blog.angular.io/version-11-of-angular-now-available-74721b7952f7).
+
 ## Angular Project
 
-You need the [Angular CLI](https://cli.angular.io/) to create a new Angular project.
+You need the [Angular CLI](https://cli.angular.io/) to create a new Angular v10 or v11 application.
 
 ```bash
 ng new app-name --style=scss
 cd app-name
 ```
 
-Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or jump directly to the [shortcut](blog/angular-10-with-tailwindcss#shortcut-aka-angular-schematics).
+Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or jump directly to the [shortcut](https://notiz.dev/blog/angular-10-with-tailwindcss#shortcut-aka-angular-schematics).
 
 ## Setup
 
 Start by adding dependencies for Tailwind, Postcss and ngx-build-plus for angular.
 
 ```bash
-npm i -D tailwindcss postcss-import postcss-loader postcss-scss
+npm i -D tailwindcss autoprefixer postcss postcss-import postcss-loader postcss-scss
 
 ng add ngx-build-plus
 ```
@@ -43,8 +45,6 @@ Create a **webpack.config.js** in your root folder to configure Postcss with Tai
 ```bash
 touch webpack.config.js
 ```
-
-> **Note**: `autoprefixer` is provided by the Angular CLI
 
 ```js
 module.exports = {
@@ -139,7 +139,7 @@ Unused styles are removed by Tailwind when you run your build with `NODE_ENV` se
 Using CSS instead of SCSS? No problem. You don't need to install `postcss-scss`.
 
 ```bash
-npm i -D tailwindcss postcss-import postcss-loader 
+npm i -D tailwindcss autoprefixer postcss postcss-import postcss-loader 
 
 ng add ngx-build-plus
 ```
@@ -184,7 +184,7 @@ Finally add Tailwind base styles to `src/styles.css`.
 
 If you also think the steps above are tedious ... Don't look any further.
 
-Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/notiz-dev/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind:
+Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/notiz-dev/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind CSS:
 
 ```bash
 ng add ngx-tailwind
