@@ -144,7 +144,7 @@
       "prefix": "niz",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/design/tsconfig.lib.json",
             "project": "projects/design/ng-package.json"

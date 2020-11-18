@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { InlineSvgComponent } from './inline-svg.component';
 
@@ -6,7 +6,7 @@ describe('InlineSvgComponent', () => {
   let component: InlineSvgComponent;
   let fixture: ComponentFixture<InlineSvgComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ InlineSvgComponent ]
     })

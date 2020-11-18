@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NizChip } from './chip.component';
 
 describe('NizChip', () => {
   let component: NizChip;
   let fixture: ComponentFixture<NizChip>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NizChip],
     }).compileComponents();
