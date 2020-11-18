@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NewsletterUnsubscribeComponent } from './newsletter-unsubscribe.component';
 
@@ -6,7 +6,7 @@ describe('NewsletterUnsubscribeComponent', () => {
   let component: NewsletterUnsubscribeComponent;
   let fixture: ComponentFixture<NewsletterUnsubscribeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NewsletterUnsubscribeComponent ]
     })
