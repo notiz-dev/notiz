@@ -3,7 +3,7 @@ title: Angular 10 with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2020-11-18T22:27:00.000Z
+updatedAt: 2020-11-20T18:40:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -281,7 +281,19 @@ Add the following snippet to your `src/app.component.html` to see if Tailwind st
 
 In the next post you will create an Angular component for a floating form field based on my last post [Floating Form Field with Tailwind CSS](https://notiz.dev/blog/floating-form-field-with-tailwindcss).
 
-## Update postcss-loader from 3.x to 4.x
+## Migrations
+
+### Upgrading from Tailwind CSS v1 to v2
+
+To upgrade you project from [Tailwind CSS v1.x to v2.0](https://tailwindcss.com/docs/upgrading-to-v2) run the following install command
+
+```bash
+npm i -D tailwindcss@latest postcss@latest autoprefixer@latest postcss-import@latest
+```
+
+Read the full [Upgrade Guide](https://tailwindcss.com/docs/upgrading-to-v2) to update your custom `tailwind.config.js` (e.g. [your color palette](https://tailwindcss.com/docs/upgrading-to-v2#configure-your-color-palette-explicitly)) and replace removed classes from your template (e.g. [shadow-outline and shadow-xs](https://tailwindcss.com/docs/upgrading-to-v2#replace-shadow-outline-and-shadow-xs-with-ring-utilities)).
+
+### Update postcss-loader from 3.x to 4.x
 
 [postcss-loader](https://github.com/webpack-contrib/postcss-loader) has new [breaking changes](https://github.com/webpack-contrib/postcss-loader/blob/master/CHANGELOG.md#-breaking-changes) when updating from version 3.x to 4.x. Huge thanks to [@phileagleson](https://github.com/notiz-dev/notiz/issues/111#issuecomment-689249664) :clap: who pointed out that options for Postcss have moved to the `postcssOptions`. Therefore, update your `webpack.config.js` as follows when updating to `postcss-loader@4.x`
 

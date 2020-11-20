@@ -8,23 +8,39 @@ jobs:
   build-and-preview:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-      - uses: actions/cache@v2
+          node-version: ${{ matrix.node-version }}
+      - name: Use cached node_modules
+        id: cache
+        uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/package-lock.json') }}-${{ matrix.node-version }}
           restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm ci
-      - run: cd projects/banner-generator && npm ci
-      - run: cd projects/amp && npm ci
-      - run: npm run build:shortcodes
-      - run: npm run build:prod
-      - run: npm run scully:ci
+            nodeModules-
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+        env:
+          CI: true
+      - name: Install banner generator dependencies
+        run: cd projects/banner-generator && npm ci
+      - name: Install banner generator dependencies
+        run: cd projects/amp && npm ci
+      - name: Build shortcodes
+        run: npm run build:shortcodes
+      - name: Build Angular prod
+        run: npm run build:prod
+      - name: Build Scully CI
+        run: npm run scully:ci
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
