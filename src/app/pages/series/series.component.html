@@ -1,0 +1,39 @@
+<niz-seo title="Series - notiz" description="All series on notiz.dev"></niz-seo>
+
+<div class="responsive-container">
+  <div class="text-center py-8 space-y-2 md:space-y-5">
+    <h1
+      class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
+    >
+      Series
+    </h1>
+    <p
+      class="max-w-lg mx-auto text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11"
+    >
+      Collection of all our series covering the latest tech stack about web
+      technologies, devops and more.
+    </p>
+  </div>
+
+  <div
+    class="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4"
+  >
+    <a *ngFor="let s of series$ | async" class="group" [routerLink]="[s.route]">
+      <div class="bg-background-light rounded-xl overflow-hidden h-full">
+        <!-- TODO use series banner image  -->
+        <img
+          src="https://notiz.dev/assets/banners/blog/firebase-hosting-preview-deploy/twitter.png"
+          [alt]="s.title"
+        />
+        <div class="p-6 text-center">
+          <h2 class="text-2xl font-semibold group-hover:text-blue">
+            {{ s.title }}
+          </h2>
+          <p>
+            {{ s.description }}
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

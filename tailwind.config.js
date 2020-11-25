@@ -71,6 +71,7 @@ module.exports = {
   },
   variants: {
     borderWidth: ['responsive', 'hover'],
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   future: {
     removeDeprecatedGapUtilities: true,

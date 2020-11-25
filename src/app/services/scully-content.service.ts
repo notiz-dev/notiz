@@ -83,6 +83,10 @@ export class ScullyContentService {
     return filterRoute(this.scully.available$, '/tags/');
   }
 
+  series(): Observable<ScullyRoute[]> {
+    return filterRoute(this.scully.available$, '/series/');
+  }
+
   authorTags(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
     const authorPosts$ = this.authorPosts(author);
     const tags$ = this.tags();

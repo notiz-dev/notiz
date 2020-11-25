@@ -46,6 +46,11 @@ setPluginConfig(SitemapPlugin, {
       priority: '0.9',
       sitemapFilename: 'sitemap-links.xml',
     },
+    '/series/:slug': {
+      changeFreq: 'daily',
+      priority: '0.9',
+      sitemapFilename: 'sitemap-series.xml',
+    },
     '/tags/:slug': {
       changeFreq: 'daily',
       priority: '0.9',
@@ -78,6 +83,12 @@ export const config: ScullyConfig = {
       type: 'contentFolder',
       slug: {
         folder: './content/authors',
+      },
+    },
+    '/series/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/series',
       },
     },
     '/tags/:slug': {

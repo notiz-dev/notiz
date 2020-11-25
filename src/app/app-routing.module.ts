@@ -28,6 +28,11 @@ const routes: Routes = [
       import('./pages/tags/tags.module').then((m) => m.TagsModule),
   },
   {
+    path: 'series',
+    loadChildren: () =>
+      import('./pages/series/series.module').then((m) => m.SeriesModule),
+  },
+  {
     path: 'confirm-subscription',
     loadChildren: () =>
       import('./pages/newsletter-confirm/newsletter-confirm.module').then(

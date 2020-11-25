@@ -1,0 +1,30 @@
+<niz-seo
+  *ngIf="page$ | async as page"
+  [title]="page.title"
+  [description]="'All posts of ' + page.title"
+  [route]="page.route"
+  [tags]="[page.title]"
+></niz-seo>
+
+<div class="responsive-container">
+  <div class="text-center py-8 space-y-2 md:space-y-5">
+    <h1
+      class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-tight"
+    >
+      {{ (page$ | async)?.title }}
+    </h1>
+    <p
+      class="max-w-lg mx-auto text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11"
+    >
+      {{ (page$ | async)?.description }}
+    </p>
+  </div>
+
+  <!-- TODO display tags from series or all posts in series  -->
+  <div class="post">
+    <scully-content></scully-content>
+  </div>
+
+  <!-- TODO loop over chapters -->
+  <h2 class="text-xl font-semibold sm:text-2xl md:text-4xl">Chapters</h2>
+</div>
