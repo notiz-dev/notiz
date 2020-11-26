@@ -1,10 +1,18 @@
 ---
 title: Angular + Scully + Tailwind CSS Series
 description: Build Angular Jamstack application with Scully styled by Tailwind CSS
+slug: angular-scully-tailwind
 tags:
   - Angular
   - Scully
   - Tailwind CSS
+chapters:
+  - title: Getting Started
+    slug: getting-started
+  - title: RxJS tips
+    slug: rxjs-tips
+  - title: Hosting
+    slug: hosting
 ---
 
 ## What will you build?

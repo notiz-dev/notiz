@@ -12,6 +12,10 @@ keywords:
   - Utility-First CSS
 authors:
   - Marc Stammerjohann
+series:
+  - slug: angular-scully-tailwind
+    chapterSlug: getting-started
+    weight: 10
 github: https://github.com/notiz-dev/angular-tailwindcss
 ---
 

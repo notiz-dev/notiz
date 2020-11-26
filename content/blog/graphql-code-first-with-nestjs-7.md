@@ -12,6 +12,10 @@ keywords:
   - Code-First Approach
 authors:
   - Marc Stammerjohann
+series:
+  - slug: nestjs-prisma
+    chapterSlug: getting-started
+    weight: 30
 github: https://github.com/notiz-dev/nest-graphql-code-first
 ---
 

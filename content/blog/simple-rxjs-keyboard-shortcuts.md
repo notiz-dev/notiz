@@ -11,7 +11,11 @@ keywords:
   - Shortcuts
   - Angular
 authors:
-  - 'Gary Großgarten'
+  - Gary Großgarten
+series:
+  - slug: angular-scully-tailwind
+    chapterSlug: rxjs-tips
+    weight: 10
 github: https://github.com/garygrossgarten/rxjs-shortcuts
 ---
 

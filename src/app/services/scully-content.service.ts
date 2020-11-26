@@ -87,6 +87,14 @@ export class ScullyContentService {
     return filterRoute(this.scully.available$, '/series/');
   }
 
+  seriesPosts(series: ScullyRoute): Observable<ScullyRoute[]> {
+    return this.blogPosts().pipe(
+      map((posts) =>
+        posts.filter((post) => post.series?.find((s) => s.slug === series.slug))
+      )
+    );
+  }
+
   authorTags(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
     const authorPosts$ = this.authorPosts(author);
     const tags$ = this.tags();
