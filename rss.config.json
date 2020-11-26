@@ -13,5 +13,7 @@
     "atom": "https://notiz.dev/feed.atom"
   },
   "outDir": "./dist/static",
-  "categories": ["Web Development", "Blog", "Angular", "node"]
+  "categories": ["Web Development", "Blog", "Angular", "node"],
+  "blogPostRouteSlug": "/blog",
+  "newestPostsFirst": true
 }
