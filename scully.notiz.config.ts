@@ -65,14 +65,14 @@ export const config: ScullyConfig = {
       slug: {
         folder: './content/blog',
       },
-      postRenderers: [...defaultPostRenderers, 'amp', 'rss', 'bannerGenerator'],
+      postRenderers: [...defaultPostRenderers, 'amp', 'bannerGenerator'],
     },
     '/links/:slug': {
       type: 'contentFolder',
       slug: {
         folder: './content/links',
       },
-      postRenderers: [...defaultPostRenderers, 'rss', 'bannerGenerator'],
+      postRenderers: [...defaultPostRenderers, 'bannerGenerator'],
     },
     '/authors/:slug': {
       type: 'contentFolder',
