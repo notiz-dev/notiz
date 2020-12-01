@@ -48,7 +48,7 @@
   }
 
   .form-success {
-    --background: var(--tw-color-green-500);
+    --background: theme(colors.green.500);
     --color: var(--text-color);
   }
 }
