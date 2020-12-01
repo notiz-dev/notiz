@@ -67,7 +67,10 @@ module.exports = {
     },
   },
   variants: {
-    borderWidth: ['responsive', 'hover'],
+    extend: {
+      cursor: ['hover'],
+      borderWidth: ['hover'],
+    },
   },
   future: {
     removeDeprecatedGapUtilities: true,
