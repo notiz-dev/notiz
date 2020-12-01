@@ -1,11 +1,8 @@
 module.exports = {
   purge: [
-    './src/**/*.html',
-    './src/**/*.ts',
-    './projects/design/**/*.html',
-    './projects/design/**/*.ts',
-    './projects/shortcodes/**/*.html',
-    './projects/shortcodes/**/*.ts',
+    './src/**/*.{html,ts}',
+    './projects/design/**/*.{html,ts}',
+    './projects/shortcodes/**/*.{html,ts}',
   ],
   theme: {
     extend: {
@@ -75,6 +72,8 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
+    standardFontWeights: true,
+    defaultLineHeights: true,
   },
   plugins: [],
 };
