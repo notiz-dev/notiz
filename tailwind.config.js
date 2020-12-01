@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: [
     './src/**/*.{html,ts}',
@@ -7,6 +9,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        gray: { ...colors.coolGray, 950: '#141922' },
+        primary: {
+          light: '#55f3de',
+          DEFAULT: '#55b9f3',
+          dark: '#556af3',
+        },
         blue: 'var(--blue)',
         'blue-opacity-10': 'rgba(var(--blue-rgb), 0.1)',
         cyan: 'var(--cyan)',
@@ -20,7 +28,6 @@ module.exports = {
         color: 'var(--text)',
         'color-light': 'var(--text-light)',
         'color-shade': 'var(--text-shade)',
-        tabs: 'var(--tabs)',
         danger: 'var(--danger)',
         code: 'var(--code)',
       },

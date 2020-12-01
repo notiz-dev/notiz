@@ -1,6 +1,5 @@
 :root {
   //extensions
-  --tw-color-gray-950: #141922;
   --blue: #55b9f3;
   --blue-rgb: 85, 185, 243;
   --cyan: #55f3de;
@@ -11,30 +10,30 @@
 
   --gradient: linear-gradient(
     145deg,
-    var(--cyan),
-    var(--blue),
-    var(--dark-blue)
+    theme('colors.primary.light'),
+    theme('colors.primary.DEFAULT'),
+    theme('colors.primary.dark')
   );
 }
 
 body.dark {
-  --background: var(--tw-color-gray-950);
+  --background: theme('colors.gray.950');
   --background-opac: #141922dd;
-  --background-light: theme(colors.gray.900);
-  --background-shade: theme(colors.gray.800);
-  --text: theme(colors.gray.100);
-  --text-light: theme(colors.gray.300);
-  --text-shade: theme(colors.gray.400);
+  --background-light: theme('colors.gray.900');
+  --background-shade: theme('colors.gray.800');
+  --text: theme('colors.gray.100');
+  --text-light: theme('colors.gray.300');
+  --text-shade: theme('colors.gray.400');
   --code: #ffe9cd;
 }
 
 body:not(.dark) {
-  --background: theme(colors.gray.200);
+  --background: theme('colors.gray.200');
   --background-opac: #edf2f7dd;
-  --background-light: theme(colors.gray.100);
-  --background-shade: theme(colors.gray.400);
-  --text: theme(colors.gray.800);
-  --text-light: theme(colors.gray.700);
-  --text-shade: theme(colors.gray.500);
+  --background-light: theme('colors.gray.100');
+  --background-shade: theme('colors.gray.400');
+  --text: theme('colors.gray.800');
+  --text-light: theme('colors.gray.700');
+  --text-shade: theme('colors.gray.500');
   --code: #f38e54;
 }
