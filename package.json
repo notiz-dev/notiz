@@ -66,6 +66,7 @@
     "@notiz/scully-plugin-lazy-images": "0.3.0",
     "@notiz/scully-plugin-medium-zoom": "0.2.4",
     "@notiz/scully-plugin-rss": "1.0.0",
+    "@scullyio/scully-plugin-critical-css": "0.0.2",
     "@types/jasmine": "3.5.8",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "12.11.1",

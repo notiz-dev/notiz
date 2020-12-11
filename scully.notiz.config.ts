@@ -7,6 +7,7 @@ import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
 import './projects/amp';
 import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
+import { criticalCSS } from '@scullyio/scully-plugin-critical-css';
 
 const defaultPostRenderers = [
   'fouc',
@@ -14,6 +15,7 @@ const defaultPostRenderers = [
   'lazyImages',
   'mediumZoom',
   'copyStaticContent',
+  criticalCSS,
 ];
 
 const SitemapPlugin = getSitemapPlugin();
