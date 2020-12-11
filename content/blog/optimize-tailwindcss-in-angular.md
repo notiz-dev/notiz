@@ -75,7 +75,7 @@ module.exports = {
 };
 ```
 
-Trigger Tailwind to automatically purge your CSS by setting `NODE_ENV=production` during your `ng build` step. If you used [ngx-tailwind](https://github.com/notiz-dev/ngx-tailwind) schematics to setup Tailwind it automatically added a production script to your **package.json**. 
+Trigger Tailwind to automatically purge your CSS by setting `NODE_ENV=production` during your `ng build` step. If you used [ngx-tailwind](https://github.com/notiz-dev/ngx-tailwind) schematics to setup Tailwind it automatically added a production script to your **package.json**. Additionally, the latest release of [ngx-tailwind@1.1.0](https://github.com/notiz-dev/ngx-tailwind/releases/tag/v1.1.0) adds the above purge options automatically to your `tailwind.config.js`.
 
 ```json
 {
