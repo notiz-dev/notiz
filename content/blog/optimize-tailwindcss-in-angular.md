@@ -16,7 +16,7 @@ authors:
 github: https://github.com/notiz-dev/angular-scully-tailwindcss
 ---
 
-[Tailwind CSS](https://tailwindcss.com) generates a **large amount** of utility classes for your development build by design. For your Angular application you want the best performance by **only** including the classes you are actually using in your production build. Tailwind got you covered! [PurgeCSS](https://purgecss.com/) is build-in making it easy to remove unused Tailwind styles for your application.
+By design, [Tailwind CSS](https://tailwindcss.com) generates a **large amount** of utility classes for your development build. For your Angular application you want the best performance by **only** including the classes you are actually using in your production build. Tailwind got you covered! [PurgeCSS](https://purgecss.com/) is build-in making it easy to remove unused Tailwind styles for your application.
 
 You are learning how to [optimize](https://tailwindcss.com/docs/optimizing-for-production) Tailwind CSS in your [Angular](/blog/angular-10-with-tailwindcss) and [Scully](/blog/jamstack-angular-scully-tailwind-css) application.
 
@@ -85,7 +85,7 @@ Trigger Tailwind to automatically purge your CSS by setting `NODE_ENV=production
 }
 ```
 
-Now run `npm run build:prod` to **only** include used Tailwind CSS utilities in your Angular production build. This works even great in your Scully application.
+Now run `npm run build:prod` to **only** include used Tailwind CSS utilities in your Angular production build. This even works great in your Scully application
 
 ## Advanced Purge options
 
@@ -262,4 +262,4 @@ module.exports = {
 };
 ```
 
-Perfect, now your Angular or Scully applications are optimized for production and you are ready to it to [Firebase Hosting](/blog/firebase-hosting-preview-deploy) or other services.
+Perfect, now your Angular or Scully applications are optimized for production and you are ready to deploy it to [Firebase Hosting](/blog/firebase-hosting-preview-deploy) or other services.
