@@ -12,7 +12,7 @@
   [articleAuthors]="authors$ | async | mapPostAuthors"
 ></niz-seo>
 
-<article class="mt-10 responsive-container" *ngIf="post$ | async as route">
+<article class="mt-10 max-w-screen-xl mx-auto" *ngIf="post$ | async as route">
   <div class="max-w-3xl mx-auto px-4 space-y-4 sm:px-6 xl:max-w-5xl xl:px-0">
     <header class="space-y-4">
       <app-breadcrumb></app-breadcrumb>
@@ -28,11 +28,11 @@
           </div>
         </dl>
 
-        <h1 class="text-4xl font-extrabold md:text-5xl">
+        <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
           {{ route.title }}
         </h1>
 
-        <p class="text-xl text-color-light md:text-2xl">
+        <p class="text-lg text-color-light sm:text-xl md:text-2xl">
           {{ route.description }}
         </p>
       </div>
