@@ -10,7 +10,7 @@
       >{{ breadcrumb.text }}</a
     >
     <span *ngIf="!last" class="text-primary text-sm">/</span>
-    <span class="text-color-shade text-sm font-bold" *ngIf="last">{{
+    <span class="text-color-shade text-sm font-bold truncate" *ngIf="last">{{
       breadcrumb.text
     }}</span>
   </ng-container>

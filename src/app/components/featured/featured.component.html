@@ -13,9 +13,7 @@
       <span class="text-sm">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
     </div>
 
-    <h2
-      class="space-x-4 mt-1 text-4xl font-bold line-clamp-2 min leading-normal"
-    >
+    <h2 class="space-x-4 mt-1 text-4xl font-bold md:text-5xl">
       <span>{{ route.title }}</span>
       <niz-inline-svg
         class="icon"
@@ -23,7 +21,7 @@
       ></niz-inline-svg>
     </h2>
 
-    <div class="text-xl text-color-light description line-clamp-2 leading-6">
+    <div class="text-xl text-color-light md:text-2xl">
       {{ route.description }}
     </div>
   </a>

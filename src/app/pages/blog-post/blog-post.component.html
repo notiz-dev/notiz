@@ -12,29 +12,40 @@
   [articleAuthors]="authors$ | async | mapPostAuthors"
 ></niz-seo>
 
-<div
+<article
   class="responsive-container space-y-4 mt-10"
   *ngIf="post$ | async as route"
 >
-  <div class="flex flex-col md:flex-row">
+  <header class="space-y-4">
     <app-breadcrumb></app-breadcrumb>
-    <span class="flex-grow md:text-right text-sm">{{
-      route.updatedAt | date: 'MMMM dd, yyyy'
-    }}</span>
-  </div>
+    <div class="space-y-1">
+      <dl>
+        <div>
+          <dt class="sr-only">Published at</dt>
+          <dd class="text-base leading-6 font-medium text-color-light">
+            <time [dateTime]="route.publishedAt">
+              {{ route.publishedAt | date: 'dd MMMM yyyy' }}
+            </time>
+          </dd>
+        </div>
+      </dl>
+
+      <h1 class="text-4xl font-extrabold md:text-5xl">
+        {{ route.title }}
+      </h1>
+
+      <p class="text-xl text-color-light md:text-2xl">
+        {{ route.description }}
+      </p>
+    </div>
+  </header>
+
   <div class="flex flex-col space-y-4">
     <a
       #link
       class="flex flex-col space-y-4 featured"
       [routerLink]="[route.route]"
     >
-      <h2 class="space-x-4 text-4xl font-bold line-clamp-2 min leading-normal">
-        <span>{{ route.title }}</span>
-      </h2>
-
-      <div class="text-xl text-color-light description line-clamp-2 leading-6">
-        {{ route.description }}
-      </div>
     </a>
 
     <div class="line"></div>
@@ -85,4 +96,4 @@
     </app-card-stack>
   </div>
   <app-comments class="my-5" [route]="post$ | async"></app-comments>
-</div>
+</article>
