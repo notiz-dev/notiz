@@ -6,6 +6,7 @@ module.exports = {
     './projects/design/**/*.{html,ts}',
     './projects/shortcodes/**/*.{html,ts}',
   ],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       transparent: 'transparent',
@@ -27,7 +28,7 @@ module.exports = {
       color: 'var(--text)',
       'color-light': 'var(--text-light)',
       'color-shade': 'var(--text-shade)',
-      danger: 'var(--danger)',
+      danger: '#ff4961',
       code: 'var(--code)',
     },
     extend: {
@@ -70,8 +71,6 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
-      dark: { raw: '(prefers-color-scheme: dark)' },
-      light: { raw: '(prefers-color-scheme: light)' },
     },
   },
   variants: {
@@ -79,12 +78,6 @@ module.exports = {
       cursor: ['hover'],
       borderWidth: ['hover'],
     },
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-    standardFontWeights: true,
-    defaultLineHeights: true,
   },
   plugins: [],
 };

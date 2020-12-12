@@ -17,7 +17,7 @@
 }
 
 .newsletter.dirty {
-  border: 2px solid var(--danger);
+  border: 2px solid theme('colors.danger');
 }
 
 ::ng-deep {
@@ -43,7 +43,7 @@
   }
 
   .form-error {
-    --background: var(--danger);
+    --background: theme('colors.danger');
     --color: var(--text-color);
   }
 
