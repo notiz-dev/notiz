@@ -30,12 +30,26 @@ module.exports = {
       'color-shade': 'var(--text-shade)',
       danger: '#ff4961',
       code: 'var(--code)',
+      canvas: {
+        light: 'var(--canvas-light)',
+        DEFAULT: 'var(--canvas)',
+        dark: 'var(--canvas-dark)',
+        shade: 'var(--canvas-shade)',
+        opac: 'var(--canvas-opac)',
+      },
+      typography: {},
+      'canvas-code': {},
+      link: {},
     },
     extend: {
       colors: {},
       fontFamily: {
         sans: ['Muli'],
       },
+      // backgroundImage: (theme) => ({
+      //   'primary-gradient':
+      //     "linear-gradient(145deg, theme('colors.primary.light'), theme('colors.primary.DEFAULT'), theme('colors.primary.dark')",
+      // }),
       inset: {
         4: '1rem',
         8: '2rem',
@@ -63,6 +77,72 @@ module.exports = {
         24: '6rem',
         80: '20rem',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              color: theme('colors.color'),
+            },
+            h2: {
+              color: theme('colors.color'),
+            },
+            strong: {
+              color: theme('colors.color'),
+            },
+            'ul li:before': {
+              backgroundColor: theme('colors.primary.light'),
+            },
+            a: {
+              color: theme('colors.primary.light'),
+              textDecoration: 'none',
+              '&:hover': {
+                color: theme('colors.primary.DEFAULT'),
+              },
+            },
+            li: {
+              color: theme('colors.color'),
+            },
+            code: {
+              paddingTop: theme('spacing[0.5]'),
+              paddingBottom: theme('spacing[0.5]'),
+              paddingRight: theme('spacing.1'),
+              paddingLeft: theme('spacing.1'),
+              borderRadius: theme('borderRadius.md'),
+              color: theme('colors.code'),
+              backgroundColor: theme('colors.canvas-light'),
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            pre: {
+              color: theme('colors.color'),
+              backgroundColor: theme('colors.canvas-light'),
+            },
+          },
+        },
+        toc: {
+          css: {
+            h2: {
+              cursor: 'pointer',
+            },
+            'h2::before': {
+              opacity: 0,
+              content: '"#"',
+              display: 'inline-block',
+              marginLeft: '-18px',
+              paddingRight: '2px',
+              cursor: 'pointer',
+              color: theme('colors.primary.light'),
+            },
+            'h2:hover::before': {
+              opacity: 0.75,
+            },
+          },
+        },
+      }),
     },
     screens: {
       xx: '0px',
@@ -79,5 +159,5 @@ module.exports = {
       borderWidth: ['hover'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

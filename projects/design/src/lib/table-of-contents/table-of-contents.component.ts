@@ -43,7 +43,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.headers$ = fromEvent(window, 'AngularReady').pipe(
       map((ev) =>
-        Array.from(this.document.querySelectorAll('.post h2,.post h3'))
+        Array.from(this.document.querySelectorAll('.prose h2,.prose h3'))
       )
     );
 
