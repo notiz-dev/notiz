@@ -31,7 +31,7 @@
     .newsletter {
       --padding-start: 24px;
       border-radius: 50px;
-      --background: var(--dark-blue);
+      --background: theme('colors.primary.dark');
       --box-shadow: inset 11px 11px 22px #e6e6e6, inset -11px -11px 22px #ffffff;
     }
   }

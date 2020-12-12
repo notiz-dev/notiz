@@ -7,12 +7,10 @@
 }
 
 @screen lg {
-  :host:not(.stacked){
-    @apply w-1/2; 
+  :host:not(.stacked) {
+    @apply w-1/2;
   }
 }
-
-
 
 .article-card {
   @apply relative;
@@ -23,7 +21,7 @@
   @apply rounded-lg;
   @apply py-5;
   @apply px-4;
-  .tags{
+  .tags {
     @apply bg-background;
   }
   .icon {
@@ -36,18 +34,18 @@
 }
 .article-card:hover {
   h2 {
-    @apply text-blue;
+    @apply text-primary;
   }
 
   .icon {
     @apply flex;
     svg {
-      @apply text-blue;
+      @apply text-primary;
     }
   }
 }
 
-:host.stacked .article-card{
+:host.stacked .article-card {
   @apply m-0;
   @apply p-0;
 }

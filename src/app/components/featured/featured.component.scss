@@ -17,7 +17,7 @@
 // }
 .featured:hover {
   h2 span {
-    @apply text-blue;
+    @apply text-primary;
   }
 
   .icon {
@@ -40,7 +40,7 @@
   }
 }
 .icon {
-  @apply h-8 w-8 hidden text-blue;
+  @apply h-8 w-8 hidden text-primary;
 }
 
 .gradient {

@@ -73,7 +73,7 @@ body {
 .post {
   a,
   li:before {
-    @apply text-cyan;
+    @apply text-primary-light;
   }
 
   a:hover {
@@ -84,7 +84,7 @@ body {
   }
 
   h2 {
-    @apply text-blue;
+    @apply text-primary;
     @apply text-2xl;
   }
 
@@ -165,7 +165,7 @@ body {
   }
 
   h2 {
-    @apply font-semibold text-2xl text-blue mt-4 mb-2;
+    @apply font-semibold text-2xl text-primary mt-4 mb-2;
   }
 
   code[class*='language-'],
@@ -192,7 +192,7 @@ blockquote {
 
 blockquote::before {
   content: '';
-  @apply bg-blue;
+  @apply bg-primary;
   width: 4px;
   position: absolute;
   height: 100%;
@@ -235,7 +235,7 @@ blockquote::before {
 
 .about {
   a {
-    @apply text-cyan;
+    @apply text-primary-light;
   }
 
   a:hover {

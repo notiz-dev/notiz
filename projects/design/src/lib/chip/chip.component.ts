@@ -19,7 +19,7 @@ export class NizChip implements OnInit {
   @HostBinding('class')
   get classes(): string {
     return `${this.sizeStyles} ${this.shapeStyles} ${
-      this.hover ? 'hover:bg-blue-opacity-10' : ''
+      this.hover ? 'hover:bg-primary hover:opacity-10' : ''
     }`;
   }
 

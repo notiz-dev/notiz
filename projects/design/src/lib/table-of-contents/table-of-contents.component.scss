@@ -3,9 +3,9 @@
 }
 
 .cursor-pointer a {
-  @apply hover:cursor-pointer hover:text-blue;
+  @apply hover:cursor-pointer hover:text-primary;
 }
 
 .active {
-  @apply text-blue;
+  @apply text-primary;
 }

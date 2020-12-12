@@ -7,7 +7,7 @@
     <div class="flex flex-row items-center space-x-2">
       <niz-inline-svg
         *ngIf="type === 'LINK'"
-        class="h-4 w-4 text-cyan"
+        class="h-4 w-4 text-primary-light"
         svgSource="assets/img/link.svg"
       ></niz-inline-svg>
       <span class="text-sm">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
@@ -29,7 +29,7 @@
   </a>
   <div>
     <niz-chip
-    class="mb-1 mr-1 gradient"
+      class="mb-1 mr-1 gradient"
       *ngFor="let tag of route.tags | slice: 0:3"
       size="xl"
     >
@@ -43,7 +43,7 @@
     class="post overflow-hidden relative max-h-248 md:max-h-384 px-5"
   >
     <div
-      class="backdrop font-fold flex text-2xl text-blue justify-center items-center absolute inset-0 bg-background opacity-0"
+      class="backdrop font-fold flex text-2xl text-primary justify-center items-center absolute inset-0 bg-background opacity-0"
     ></div>
     <niz-inline-svg
       class="gradient absolute inset-0 transform rotate-180"

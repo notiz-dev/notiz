@@ -6,15 +6,17 @@
         <p class="my-4 text-color text-sm text-justify">
           <strong>*notiz.dev</strong> is created by
           <a
-            class="gradient text-cyan font-semibold"
+            class="gradient text-primary-light font-semibold"
             href="https://notiz.dev/authors/gary-grossgarten"
-            >Gary Großgarten</a
           >
+            Gary Großgarten
+          </a>
           and
           <a
-            class="gradient text-cyan font-semibold"
+            class="gradient text-primary-light font-semibold"
             href="https://notiz.dev/authors/marc-stammerjohann"
-            >Marc Stammerjohann</a
+          >
+            Marc Stammerjohann </a
           >. We love to share our experiences and findings working with Angular,
           NestJS, Web Components and more. 👀 We are excited about the upcoming
           years of web development and hope to make some friends along the way.
@@ -39,14 +41,14 @@
               (click)="analytics.ref(link.url)"
               target="_blank"
               rel="noreferrer"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-1"
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 p-1 mx-1"
             >
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
             <a
               [routerLink]="link.url"
               *ngIf="!link.external"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-blue hover:bg-blue-opacity-10 p-1 mx-1"
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 p-1 mx-1"
             >
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
