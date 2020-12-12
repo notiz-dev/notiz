@@ -21,5 +21,4 @@ github: https://github.com/garygrossgarten/observables
 Here's a demo tracking the scrolltop of the container element.
 
 <div shortcode="scroll"></div>
-<div shortcode="scroll/percent"></div>
 <div shortcode="scroll/container"></div>

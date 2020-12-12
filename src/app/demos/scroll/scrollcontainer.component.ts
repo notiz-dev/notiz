@@ -2,7 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'niz-scroll',
-  template: ` {{ (el | scroll | async)?.toFixed() }}%
+  template: ` <div class="flex flex-row space-x-2">
+      <span class="text-2xl w-16">{{ (el | scroll | async)?.toFixed() }}%</span>
+      <niz-inline-svg
+        class="h-8 w-8 transform inline-flex transition-transform duration-200 ease-in-out text-color"
+        [ngClass]="{ 'rotate-180': (el | scrolldir | async) === 'UP' }"
+        svgSource="assets/img/arrow_downward-black-18dp.svg"
+      ></niz-inline-svg>
+    </div>
     <div
       #el
       [style.height.px]="420"

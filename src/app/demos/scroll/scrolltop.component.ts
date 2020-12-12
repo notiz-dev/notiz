@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { scroll$, scrolltop$ } from './scroll';
+import { pageScroll$ } from './scroll';
 
 @Component({
   selector: 'niz-scroll',
@@ -9,7 +9,7 @@ import { scroll$, scrolltop$ } from './scroll';
   `,
 })
 export class ScrollComponent implements OnInit {
-  scroll$ = scrolltop$(document.documentElement).pipe(map((v) => v.toFixed()));
+  scroll$ = pageScroll$().pipe(map((v) => v.toFixed()));
   constructor() {}
 
   ngOnInit(): void {}

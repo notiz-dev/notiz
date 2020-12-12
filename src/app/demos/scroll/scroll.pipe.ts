@@ -1,13 +1,13 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { Observable } from "rxjs";
-import { scroll$ } from "./scroll";
+import { Pipe, PipeTransform } from '@angular/core';
+import { Observable } from 'rxjs';
+import { scrollPercent$ } from './scroll';
 
 @Pipe({
-  name: "scroll",
+  name: 'scroll',
   pure: true,
 })
 export class ScrollPipe implements PipeTransform {
   transform(el: HTMLElement): Observable<number> {
-    return scroll$(el);
+    return scrollPercent$(el);
   }
 }
