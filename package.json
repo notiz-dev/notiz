@@ -35,6 +35,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "11.0.0",
+    "@angular/cdk": "^11.0.2",
     "@angular/common": "11.0.0",
     "@angular/compiler": "11.0.0",
     "@angular/core": "11.0.0",
@@ -44,6 +45,7 @@
     "@angular/platform-browser-dynamic": "11.0.0",
     "@angular/router": "11.0.0",
     "@angular/service-worker": "11.0.0",
+    "@garygrossgarten/shortcodes": "0.0.1",
     "@scullyio/init": "1.0.1",
     "@scullyio/ng-lib": "1.0.0",
     "@scullyio/scully": "1.0.5",

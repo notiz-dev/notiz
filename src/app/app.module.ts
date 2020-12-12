@@ -21,6 +21,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { NizSearchComponentModule } from '@components/search/search.module';
 import { PipesModule } from '@pipes/pipes.module';
 import { NizFooterModule } from '@components/footer/footer.module';
+import { ShortcodeModule } from '@garygrossgarten/shortcodes';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +36,7 @@ import { NizFooterModule } from '@components/footer/footer.module';
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
     NizTabModule,
-    NizFooterModule, 
+    NizFooterModule,
     NizNavbarModule,
     NizToolbarModule,
     NizInlineSvgModule,
@@ -43,7 +44,14 @@ import { NizFooterModule } from '@components/footer/footer.module';
     NizSearchComponentModule,
     PipesModule,
     NizToastModule,
-    NizMenuModule
+    NizMenuModule,
+    ShortcodeModule.forRoot([
+      {
+        path: 'scroll',
+        loadChildren: () =>
+          import('./demos/scroll/scroll.module').then((d) => d.ScrollModule),
+      },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],
