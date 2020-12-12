@@ -109,7 +109,7 @@ module.exports = {
               paddingLeft: theme('spacing.1'),
               borderRadius: theme('borderRadius.md'),
               color: theme('colors.code'),
-              backgroundColor: theme('colors.canvas-light'),
+              backgroundColor: theme('colors.background-light'),
             },
             'code::before': {
               content: '""',
@@ -117,9 +117,18 @@ module.exports = {
             'code::after': {
               content: '""',
             },
+            blockquote: {
+              // borderLeftColor: theme('colors.primary'),
+            },
+            'blockquote p:first-of-type::before': {
+              content: '""',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '""',
+            },
             pre: {
               color: theme('colors.color'),
-              backgroundColor: theme('colors.canvas-light'),
+              backgroundColor: theme('colors.background-light'),
             },
           },
         },

@@ -12,52 +12,38 @@
   [articleAuthors]="authors$ | async | mapPostAuthors"
 ></niz-seo>
 
-<article
-  class="responsive-container space-y-4 mt-10"
-  *ngIf="post$ | async as route"
->
-  <header class="space-y-4">
-    <app-breadcrumb></app-breadcrumb>
-    <div class="space-y-1">
-      <dl>
-        <div>
-          <dt class="sr-only">Published at</dt>
-          <dd class="text-base leading-6 font-medium text-color-light">
-            <time [dateTime]="route.publishedAt">
-              {{ route.publishedAt | date: 'dd MMMM yyyy' }}
-            </time>
-          </dd>
-        </div>
-      </dl>
+<article class="mt-10 responsive-container" *ngIf="post$ | async as route">
+  <div class="max-w-3xl mx-auto px-4 space-y-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <header class="space-y-4">
+      <app-breadcrumb></app-breadcrumb>
+      <div class="space-y-1">
+        <dl>
+          <div>
+            <dt class="sr-only">Published at</dt>
+            <dd class="text-base leading-6 font-medium text-color-light">
+              <time [dateTime]="route.publishedAt">
+                {{ route.publishedAt | date: 'dd MMMM yyyy' }}
+              </time>
+            </dd>
+          </div>
+        </dl>
 
-      <h1 class="text-4xl font-extrabold md:text-5xl">
-        {{ route.title }}
-      </h1>
+        <h1 class="text-4xl font-extrabold md:text-5xl">
+          {{ route.title }}
+        </h1>
 
-      <p class="text-xl text-color-light md:text-2xl">
-        {{ route.description }}
-      </p>
-    </div>
-  </header>
-
-  <div class="flex flex-col space-y-4">
-    <a
-      #link
-      class="flex flex-col space-y-4 featured"
-      [routerLink]="[route.route]"
-    >
-    </a>
-
-    <div class="line"></div>
+        <p class="text-xl text-color-light md:text-2xl">
+          {{ route.description }}
+        </p>
+      </div>
+    </header>
     <div
-      class="max-w-screen-xl flex flex-col-reverse mt-10 md:flex-row md:space-x-5"
+      class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
     >
-      <div
-        class="prose prose-toc w-full flex flex-col space-y-4 md:w-9/12 xl:w-10/12"
-      >
+      <div class="prose prose-toc max-w-none md:col-span-2 lg:col-span-3">
         <scully-content></scully-content>
       </div>
-      <div class="top-32 w-full flex flex-col mt-5 md:w-3/12 xl:w-2/12 md:mt-0">
+      <div>
         <div class="sticky top-32 space-y-4">
           <niz-toc></niz-toc>
           <div>
@@ -75,25 +61,27 @@
         </div>
       </div>
     </div>
+    <div class="space-y-4">
+      <h2 class="ml-2 text-2xl">
+        {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
+      </h2>
 
-    <h2 class="ml-2 text-2xl">
-      {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
-    </h2>
-
-    <app-author [author]="(authors$ | async)[0]"></app-author>
+      <app-author [author]="(authors$ | async)[0]"></app-author>
+    </div>
   </div>
-  <div class="mx-auto flex">
-    <app-card-stack
-      title="Related Posts"
-      subtitle="Find more posts like this one."
-    >
-      <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
-        <app-article class="stacked" [route]="blogPost"></app-article>
-      </div>
-      <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
-        <app-coming-soon></app-coming-soon>
-      </div>
-    </app-card-stack>
-  </div>
-  <app-comments class="my-5" [route]="post$ | async"></app-comments>
 </article>
+
+<div class="mx-auto flex">
+  <app-card-stack
+    title="Related Posts"
+    subtitle="Find more posts like this one."
+  >
+    <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
+      <app-article class="stacked" [route]="blogPost"></app-article>
+    </div>
+    <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
+      <app-coming-soon></app-coming-soon>
+    </div>
+  </app-card-stack>
+</div>
+<app-comments class="my-5" [route]="post$ | async"></app-comments>
