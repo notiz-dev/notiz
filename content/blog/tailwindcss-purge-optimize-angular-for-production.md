@@ -1,12 +1,12 @@
 ---
-title: Optimize Tailwind CSS in Angular for deployment
-description: Remove unused Tailwind CSS utilities from your Angular production build for improved performance
+title: 'Tailwind CSS Purge: Optimize Angular for Production'
+description: Remove unused Tailwind CSS utilities from your Angular production build for best performance
 published: true
-publishedAt: 2020-12-11T17:20:00.000Z
-updatedAt: 2020-12-11T17:20:00.000Z
+publishedAt: 2020-12-15T09:00:00.000Z
+updatedAt: 2020-12-15T09:00:00.000Z
 tags:
-  - Angular
   - Tailwind CSS
+  - Angular
   - Scully
 keywords:
   - CSS
@@ -16,11 +16,11 @@ authors:
 github: https://github.com/notiz-dev/angular-scully-tailwindcss
 ---
 
-By design, [Tailwind CSS](https://tailwindcss.com) generates a **large amount** of utility classes for your development build. For your Angular application you want the best performance by **only** including the classes you are actually using in your production build. Tailwind got you covered! [PurgeCSS](https://purgecss.com/) is build-in making it easy to remove unused Tailwind styles for your application.
+By design, [Tailwind CSS](https://tailwindcss.com) generates a **large amount** of utility classes for your development build. For your Angular application you want the best performance by **only** including the classes you are actually using in your production build. Tailwind got you covered! [PurgeCSS](https://purgecss.com/) is build-in making it easy to tree-shake **unused** Tailwind styles for your application.
 
-You are learning how to [optimize](https://tailwindcss.com/docs/optimizing-for-production) Tailwind CSS in your [Angular](/blog/angular-10-with-tailwindcss) and [Scully](/blog/jamstack-angular-scully-tailwind-css) application.
+You are going to learn how to setup Tailwind's `purge` option to [optimize](https://tailwindcss.com/docs/optimizing-for-production) Tailwind CSS in your [Angular](/blog/angular-10-with-tailwindcss) and for your [Scully](/blog/jamstack-angular-scully-tailwind-css) Jamstack application.
 
-The optimizations in this post have been tested with Angular 11 and Tailwind CSS 2.0, also applies for Angular 10 and Tailwind CSS 1.9.x.
+The `purge` options in this post have been tested with Angular 11 and Tailwind CSS 2.0, it also works with Angular 10 and Tailwind CSS 1.9. 
 
 ## Get Started
 
@@ -112,7 +112,7 @@ module.exports = {
 };
 ```
 
-To take advantage let's migrate our example from above with `purge` as an array to an object using `content` for your template paths.
+Too use the object syntax for the `purge` option add the template paths to the `content` option
 
 ```js
 module.exports = {
@@ -130,7 +130,7 @@ module.exports = {
 };
 ```
 
-Now you can purge only specific [layers](https://tailwindcss.com/docs/functions-and-directives#layer), `enabled` it manually, go mad with `mode: 'all'` or pass `options` directly to [PurgeCSS](https://purgecss.com/configuration.html#options)
+Go ahead and provide additional options to the `purge` object to further optimize your production build based on your application. For specific configurations pass it directly to [PurgeCSS](https://purgecss.com/configuration.html#options) using the `options` key. You can provide `safelist`, `blocklist`, `extractors` and more.
 
 ```js
 module.exports = {
@@ -156,7 +156,7 @@ module.exports = {
 };
 ```
 
-Let's improve purging for a Scully application by writing an `extractor` for better optimizations of Markdown files.
+Let's improve purging for a Scully application by writing an `extractor` for your Markdown content files to detect which HTML tags and CSS classes are **actually** used.
 
 ## Purge Scully Markdown content
 
@@ -262,4 +262,4 @@ module.exports = {
 };
 ```
 
-Perfect, now your Angular or Scully applications are optimized for production and you are ready to deploy it to [Firebase Hosting](/blog/firebase-hosting-preview-deploy) or other services.
+Perfect, now your Angular or Scully applications are **optimized** for production and you are ready to deploy it to [Firebase Hosting](/blog/firebase-hosting-preview-deploy) or other services.
