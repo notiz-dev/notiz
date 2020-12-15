@@ -4,17 +4,6 @@
   @apply w-full;
 }
 
-// @screen md {
-//   :host {
-//     @apply w-9/12;
-//   }
-// }
-
-// @screen xl {
-//   :host {
-//     @apply w-10/12;
-//   }
-// }
 .featured:hover {
   h2 span {
     @apply text-primary;
@@ -25,16 +14,16 @@
   }
 }
 
-.post:hover {
+.prose:hover {
   cursor: pointer;
 }
 
-.post .backdrop {
+.prose .backdrop {
   @apply transition-opacity;
   @apply duration-150;
 }
 
-.post:hover {
+.prose:hover {
   .backdrop {
     @apply opacity-75;
   }

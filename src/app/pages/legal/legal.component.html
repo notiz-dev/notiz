@@ -5,7 +5,7 @@
   robots="nofollow, noindex"
 ></niz-seo>
 
-<div class="prose responsive-container space-y-5 mt-10">
-  <h2 *ngIf="page$ | async as page">{{ page.title }}</h2>
+<div class="prose responsive-container space-y-5 mt-10 md:prose-lg">
+  <h1 *ngIf="page$ | async as page">{{ page.title }}</h1>
   <scully-content></scully-content>
 </div>

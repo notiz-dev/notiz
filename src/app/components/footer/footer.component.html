@@ -1,34 +1,26 @@
-<footer class="w-full max-w-screen-xl mx-auto text-white px-5">
-  <div class="md:grid md:grid-cols-2">
+<footer class="max-w-screen-xl mx-auto w-full px-5">
+  <div class="md:grid md:grid-cols-2 md:gap-x-2">
     <div>
       <p class="text-sm font-semibold text-color-shade">about</p>
-      <div>
-        <p class="my-4 text-color text-sm text-justify">
+      <div class="prose my-4">
+        <p>
           <strong>*notiz.dev</strong> is created by
-          <a
-            class="gradient text-primary-light font-semibold"
-            href="https://notiz.dev/authors/gary-grossgarten"
-          >
+          <a href="https://notiz.dev/authors/gary-grossgarten">
             Gary Großgarten
           </a>
           and
-          <a
-            class="gradient text-primary-light font-semibold"
-            href="https://notiz.dev/authors/marc-stammerjohann"
-          >
-            Marc Stammerjohann </a
+          <a href="https://notiz.dev/authors/marc-stammerjohann">
+            Marc Stammerjohann</a
           >. We love to share our experiences and findings working with Angular,
           NestJS, Web Components and more. 👀 We are excited about the upcoming
           years of web development and hope to make some friends along the way.
         </p>
-        <p class="my-4">
-          <em class="text-color text-xs"
-            >* notiz [noˈtiːt͡s] - (german) short, brief, written record</em
-          >
+        <p>
+          <em>* notiz [noˈtiːt͡s] - (german) short, brief, written record</em>
         </p>
       </div>
     </div>
-    <div class="grid grid-cols-2 p-4">
+    <div class="grid grid-cols-2 px-4">
       <div *ngFor="let footerSection of footerSections">
         <p class="text-sm font-semibold text-color-shade text-center">
           {{ footerSection.title }}

@@ -86,6 +86,12 @@ module.exports = {
             h2: {
               color: theme('colors.color'),
             },
+            h3: {
+              color: theme('colors.color'),
+            },
+            h4: {
+              color: theme('colors.color'),
+            },
             strong: {
               color: theme('colors.color'),
             },
@@ -152,14 +158,14 @@ module.exports = {
           },
         },
       }),
-    },
-    screens: {
-      xx: '0px',
-      xs: '256px',
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
+      screens: {
+        xx: '0px',
+        xs: '256px',
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+      },
     },
   },
   variants: {
