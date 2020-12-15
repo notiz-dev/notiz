@@ -80,21 +80,13 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            h1: {
-              color: theme('colors.color'),
-            },
-            h2: {
-              color: theme('colors.color'),
-            },
-            h3: {
-              color: theme('colors.color'),
-            },
-            h4: {
-              color: theme('colors.color'),
-            },
-            strong: {
-              color: theme('colors.color'),
-            },
+            h1: { color: theme('colors.color') },
+            h2: { color: theme('colors.color') },
+            h3: { color: theme('colors.color') },
+            h4: { color: theme('colors.color') },
+            h5: { color: theme('colors.color') },
+            h6: { color: theme('colors.color') },
+            strong: { color: theme('colors.color') },
             'ul li:before': {
               backgroundColor: theme('colors.primary.DEFAULT'),
             },
@@ -105,24 +97,21 @@ module.exports = {
                 color: theme('colors.primary.light'),
               },
             },
-            li: {
-              color: theme('colors.color'),
-            },
+            li: { color: theme('colors.color') },
+            hr: { borderColor: theme('colors.color') },
             code: {
               paddingTop: theme('spacing[0.5]'),
               paddingBottom: theme('spacing[0.5]'),
               paddingRight: theme('spacing.1'),
               paddingLeft: theme('spacing.1'),
+              marginRight: theme('spacing.[0.5]'),
+              marginLeft: theme('spacing.[0.5]'),
               borderRadius: theme('borderRadius.md'),
               color: theme('colors.code'),
               backgroundColor: theme('colors.background-light'),
             },
-            'code::before': {
-              content: '""',
-            },
-            'code::after': {
-              content: '""',
-            },
+            'code::before': { content: '""' },
+            'code::after': { content: '""' },
             blockquote: {
               color: theme('colors.color'),
               borderLeftColor: theme('colors.primary.DEFAULT'),
@@ -141,9 +130,7 @@ module.exports = {
         },
         toc: {
           css: {
-            h2: {
-              cursor: 'pointer',
-            },
+            h2: { cursor: 'pointer' },
             'h2::before': {
               opacity: 0,
               content: '"#"',
