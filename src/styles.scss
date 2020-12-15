@@ -18,6 +18,16 @@
   font-family: 'Muli', sans-serif;
 }
 
+@layer components {
+  .max-w-container {
+    @apply max-w-3xl mx-auto px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
+  }
+
+  .responsive-container {
+    @apply max-w-3xl mx-auto flex flex-col px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
+  }
+}
+
 body {
   @apply bg-background;
 }
@@ -82,10 +92,6 @@ body {
   body {
     @apply px-0;
   }
-}
-
-.responsive-container {
-  @apply max-w-screen-xl mx-auto flex flex-col px-5;
 }
 
 .card {

@@ -4,7 +4,9 @@
   robots="nofollow, noindex"
 ></niz-seo>
 
-<div class="min-h-80 my-4 flex flex-col items-center justify-center">
+<div
+  class="max-w-container flex flex-col items-center justify-center min-h-80 my-4 space-y-5"
+>
   <ng-container *ngIf="!confirmed && !error">
     <niz-inline-svg
       class="h-6 w-6 spin"
@@ -17,8 +19,10 @@
       src="assets/img/cancel.svg"
       alt="Error while confirming subscription"
     />
-    <h2 class="text-2xl font-semibold mt-2">Oh no!</h2>
-    <p>Something went wrong, sorry! Please try again later.🙈</p>
+    <h2 class="mt-2 text-2xl font-semibold md:text-3xl">Oh no!</h2>
+    <p class="mt-1 text-lg md:text-xl">
+      Something went wrong, sorry! Please try again later.🙈
+    </p>
   </ng-container>
   <ng-container *ngIf="confirmed">
     <img
@@ -26,10 +30,17 @@
       src="assets/img/subscribed.svg"
       alt="Subscription confirmed"
     />
-    <h2 class="text-2xl font-semibold mt-2">Thanks for subscribing!</h2>
-    <p>
+    <h2 class="mt-2 text-2xl font-semibold md:text-3xl">
+      Thanks for subscribing!
+    </h2>
+    <p class="mt-1 text-lg md:text-xl">
       From now on we'll update you about new posts on notiz.dev. In the meantime
-      <a href="https://twitter.com/notiz_dev"> say hi on twitter.</a>
+      <a
+        href="https://twitter.com/notiz_dev"
+        class="text-primary hover:text-primary-dark"
+      >
+        say hi on twitter.</a
+      >
     </p>
   </ng-container>
 </div>
