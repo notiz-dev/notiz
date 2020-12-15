@@ -29,7 +29,11 @@ This guide shows how to setup a NestJS application querying data from a SQLite d
 
 Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or GraphQL resolvers to query your data models.
 
+Or use the [NestJS Prisma Schematics](/blog/nestjs-prisma-schematics) to automatically setup Prisma in your NestJS application and start defining your Prisma Schema.
 
+```bash
+nest add nestjs-prisma
+```
 
 ## Step 1: Start a new NestJS application
 
