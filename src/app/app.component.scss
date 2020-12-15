@@ -15,7 +15,7 @@
 }
 
 .router-link:hover {
-  @apply text-blue;
+  @apply text-primary;
 }
 
 .router-link-active {
@@ -24,18 +24,18 @@
 }
 
 .router-link::after {
-  content: " ";
+  content: ' ';
   position: absolute;
   width: 0;
   transition: width 160ms;
 }
 
 .router-link-active::after {
-  content: " ";
+  content: ' ';
   position: absolute;
   width: calc(100% - 4px);
   height: 4px;
-  background-color: var(--blue);
+  background-color: theme('colors.primary.DEFAULT');
   left: 2px;
   bottom: -8px;
   border-radius: 999px;

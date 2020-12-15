@@ -2,11 +2,10 @@
   width: calc(100% -12px);
 }
 
-.cursor-pointer:hover a {
-  @apply cursor-pointer;
-  @apply text-blue;
+.cursor-pointer a {
+  @apply hover:cursor-pointer hover:text-primary;
 }
 
 .active {
-  @apply text-blue;
+  @apply text-primary;
 }

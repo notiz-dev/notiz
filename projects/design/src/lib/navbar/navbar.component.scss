@@ -5,10 +5,9 @@
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  @apply bg-background;
+  @apply bg-canvas;
   z-index: 5;
   transition: transform 260ms ease;
-
 
   niz-inline-svg.gradient {
     position: absolute;
@@ -22,7 +21,6 @@
   ::ng-deep header niz-toolbar {
     height: 64px;
   }
-  
 }
 
 :host.out {

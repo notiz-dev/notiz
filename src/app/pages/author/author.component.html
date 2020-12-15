@@ -12,13 +12,17 @@
   [authorUserName]="author.twitter"
 ></niz-seo>
 
-<div class="responsive-container space-y-5 mt-10">
+<div class="max-w-container space-y-5 mt-10">
   <app-breadcrumb></app-breadcrumb>
   <h1 *ngIf="author$ | async as author" class="text-2xl text-semibold">
     More about the author
   </h1>
-
-  <app-author *ngIf="author$ | async as author" [author]="author"></app-author>
+  <div>
+    <app-author
+      *ngIf="author$ | async as author"
+      [author]="author"
+    ></app-author>
+  </div>
 </div>
 <div class="mx-auto flex">
   <app-card-stack

@@ -1,12 +1,12 @@
 <niz-navbar>
-  <niz-toolbar class="px-5">
+  <niz-toolbar class="px-4 xl:px-0">
     <div start class="flex flex-row space-x-8 items-center">
       <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
         <niz-inline-svg
           class="h-16 w-16"
           svgSource="assets/img/logo.svg"
         ></niz-inline-svg>
-        <span class="text-2xl font-black text-blue">notiz.dev </span>
+        <span class="text-2xl font-black text-primary">notiz.dev </span>
       </a>
       <div class="hidden md:flex flex-row space-x-4">
         <a
@@ -34,7 +34,7 @@
       <button
         [attr.aria-label]="'Open search'"
         (click)="openSearch(search)"
-        class="hidden md:flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+        class="hidden md:flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
       >
         <niz-inline-svg
           class="h-4 w-4 theme"
@@ -79,9 +79,9 @@
   <router-outlet></router-outlet>
 </main>
 
-<app-newsletter-signup #newsletter class="mt-10 px-5"></app-newsletter-signup>
+<app-newsletter-signup #newsletter class="mt-10"></app-newsletter-signup>
 <niz-footer
-  class="my-10 px-5"
+  class="my-10"
   [footerSections]="footerSections"
   [copyrightUrl]="copyrightUrl"
   [createdWithSvgSources]="createdWithSvgSources"
@@ -112,7 +112,7 @@
     <button
       (click)="openSearch(search)"
       [attr.aria-label]="'Open search'"
-      class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+      class="flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >
       <niz-inline-svg
         class="h-4 w-4 theme"
@@ -123,7 +123,7 @@
     <button
       (click)="toggleTheme(); $event.stopPropagation()"
       [attr.aria-label]="'Toggle theme'"
-      class="flex bg-background-light border-solid border-2 border-background-light hover:border-blue focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+      class="flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
     >
       <niz-inline-svg
         class="h-4 w-4 theme"

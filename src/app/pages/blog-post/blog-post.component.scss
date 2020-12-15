@@ -6,34 +6,11 @@
   width: fit-content;
 }
 
-.post {
-  margin-top: 16px;
-  h2::before {
-    visibility: hidden;
-    display: block;
-    content: '#';
-    position: absolute;
-    left: -14px;
-    font-size: 18px;
-    width: 20px;
-    padding-top: 6px;
-  }
-
-  h2:hover,
-  h2:hover::before {
-    visibility: visible;
-    background-image: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
-  }
-}
-
 .line {
   height: 1px;
   width: 100%;
   margin-top: 12px;
-  @apply bg-background;
+  @apply bg-canvas;
 }
 
 niz-toc {
