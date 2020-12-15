@@ -1,5 +1,5 @@
 <niz-navbar>
-  <niz-toolbar class="px-5">
+  <niz-toolbar class="px-4 xl:px-0">
     <div start class="flex flex-row space-x-8 items-center">
       <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
         <niz-inline-svg
@@ -79,9 +79,9 @@
   <router-outlet></router-outlet>
 </main>
 
-<app-newsletter-signup #newsletter class="mt-10 px-5"></app-newsletter-signup>
+<app-newsletter-signup #newsletter class="mt-10"></app-newsletter-signup>
 <niz-footer
-  class="my-10 px-5"
+  class="my-10"
   [footerSections]="footerSections"
   [copyrightUrl]="copyrightUrl"
   [createdWithSvgSources]="createdWithSvgSources"

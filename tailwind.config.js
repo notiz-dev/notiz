@@ -96,13 +96,13 @@ module.exports = {
               color: theme('colors.color'),
             },
             'ul li:before': {
-              backgroundColor: theme('colors.primary.light'),
+              backgroundColor: theme('colors.primary.DEFAULT'),
             },
             a: {
-              color: theme('colors.primary.light'),
+              color: theme('colors.primary.DEFAULT'),
               textDecoration: 'none',
               '&:hover': {
-                color: theme('colors.primary.DEFAULT'),
+                color: theme('colors.primary.light'),
               },
             },
             li: {
@@ -124,7 +124,8 @@ module.exports = {
               content: '""',
             },
             blockquote: {
-              // borderLeftColor: theme('colors.primary'),
+              color: theme('colors.color'),
+              borderLeftColor: theme('colors.primary.DEFAULT'),
             },
             'blockquote p:first-of-type::before': {
               content: '""',
