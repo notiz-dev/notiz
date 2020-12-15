@@ -18,8 +18,18 @@
   font-family: 'Muli', sans-serif;
 }
 
+@layer components {
+  .max-w-container {
+    @apply max-w-3xl mx-auto px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
+  }
+
+  .responsive-container {
+    @apply max-w-3xl mx-auto flex flex-col px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
+  }
+}
+
 body {
-  @apply bg-background;
+  @apply bg-canvas;
 }
 
 .gradient:hover {
@@ -34,10 +44,10 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-background-shade;
+  @apply bg-canvas-shade;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-background-light;
+  @apply bg-canvas-light;
   border-radius: 99px;
 }
 
@@ -70,134 +80,12 @@ body {
   color: #f2df62;
 }
 
-.post {
-  a,
-  li:before {
-    @apply text-cyan;
-  }
-
-  a:hover {
-    background: var(--gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  h2 {
-    @apply text-blue;
-    @apply text-2xl;
-  }
-
-  h3 {
-    @apply text-color;
-    @apply text-xl;
-  }
-
-  pre {
-    @apply bg-background-light;
-    border-radius: 16px;
-  }
-
-  p {
-    code {
-      @apply text-code;
-    }
-  }
-
-  hr {
-    @apply border-background-light;
-  }
-
-  hr {
-    border-top-width: 4px;
-    margin-top: 44px;
-    margin-bottom: 28px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  p {
-    code {
-      padding: 0px 6px;
-      border-radius: 0.2rem;
-    }
-  }
-
-  ul {
-    list-style: none; /* Remove default bullets */
-  }
-
-  ul li::before {
-    content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
-  }
-
-  ol {
-    list-style: none;
-    counter-reset: li;
-  }
-  ol li::before {
-    content: counter(li) '. ';
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-  }
-  ol li {
-    counter-increment: li;
-  }
-
-  p,
-  a,
-  li {
-    @apply text-lg;
-  }
-  p,
-  pre {
-    margin: 0 0 1.5rem;
-  }
-
-  blockquote p {
-    margin: 0.5rem 0;
-  }
-
-  h2 {
-    @apply font-semibold text-2xl text-blue mt-4 mb-2;
-  }
-
-  code[class*='language-'],
-  pre[class*='language-'] {
-    @apply text-color;
-  }
-
-  p img {
-    @apply m-auto;
-  }
-}
-
 .medium-zoom-overlay {
-  background-color: var(--background) !important;
+  background-color: var(--canvas) !important;
   z-index: 2;
 }
 .medium-zoom-image--opened {
   z-index: 3;
-}
-
-blockquote {
-  position: relative;
-}
-
-blockquote::before {
-  content: '';
-  @apply bg-blue;
-  width: 4px;
-  position: absolute;
-  height: 100%;
-  left: -18px;
-  border-radius: 2px;
 }
 
 @screen xl {
@@ -206,12 +94,8 @@ blockquote::before {
   }
 }
 
-.responsive-container {
-  @apply max-w-screen-xl mx-auto flex flex-col px-5;
-}
-
 .card {
-  @apply rounded-xl shadow-md bg-background-light p-4 overflow-y-hidden;
+  @apply rounded-xl shadow-md bg-canvas-light p-4 overflow-y-hidden;
   width: 280px;
   height: 340px;
 }
@@ -235,7 +119,7 @@ blockquote::before {
 
 .about {
   a {
-    @apply text-cyan;
+    @apply text-primary-light;
   }
 
   a:hover {

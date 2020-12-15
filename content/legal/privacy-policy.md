@@ -8,9 +8,8 @@ updatedAt: 2020-03-25T18:08:00.000Z
 
 ### Contact
 
-notiz.dev (Gary Großgarten, Marc Stammerjohann)
+notiz.dev (Gary Großgarten, Marc Stammerjohann)  
 Email: [hi@notiz.dev](mailto:hi@notiz.dev)
-
 ### Privacy
 
 The operator of this website takes the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the data protection regulations and this privacy policy.

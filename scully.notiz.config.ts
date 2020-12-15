@@ -6,7 +6,10 @@ import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
 import './projects/amp';
-import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
+import {
+  getSitemapPlugin,
+  SitemapConfig,
+} from '@gammastream/scully-plugin-sitemap';
 
 const defaultPostRenderers = [
   'fouc',
@@ -17,7 +20,7 @@ const defaultPostRenderers = [
 ];
 
 const SitemapPlugin = getSitemapPlugin();
-setPluginConfig(SitemapPlugin, {
+const sitemapConfig: SitemapConfig = {
   urlPrefix: 'https://notiz.dev',
   sitemapFilename: 'sitemap.xml',
   changeFreq: 'weekly',
@@ -57,7 +60,8 @@ setPluginConfig(SitemapPlugin, {
       sitemapFilename: 'sitemap-tags.xml',
     },
   },
-});
+};
+setPluginConfig(SitemapPlugin, sitemapConfig);
 
 export const config: ScullyConfig = {
   projectRoot: './src',
