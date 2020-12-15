@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with NestJS'
 description: 'Learn how to setup a database with Prisma 2.0 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-06-24T11:02:00.000Z
+updatedAt: 2020-12-15T10:00:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -28,6 +28,12 @@ This guide shows how to setup a NestJS application querying data from a SQLite d
 ## TLDR
 
 Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or GraphQL resolvers to query your data models.
+
+Or use the [NestJS Prisma Schematics](/blog/nestjs-prisma-schematics) to automatically setup Prisma in your NestJS application and start defining your Prisma Schema.
+
+```bash
+nest add nestjs-prisma
+```
 
 ## Step 1: Start a new NestJS application
 
@@ -88,12 +94,28 @@ For more complex models check out Prisma's [data modeling](https://www.prisma.io
 
 ## Step 5: Create SQLite database with Migrate
 
-We are creating our first database migration using the experimental Prisma Migrate.
-First we save a migration using `npx prisma migrate save --experimental`. Prisma asks us to create the `dev.db` database and we select `Yes`. Next we provide a name for the migration, for example `user` as we just define the `User` model.
+We are creating our first database migration using the Prisma Migrate [Preview](https://www.prisma.io/blog/prisma-migrate-preview-b5eno5g08d0b). To use Migrate during development use the new command
 
-Now we can apply the migration with `npx prisma migrate up --experimental`.
+```bash
+npx prisma migrate dev --preview-feature
+```
 
-> **Warning**: [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) is considered experimental those we need to provide the `--experimental` flag.
+This creates a `migration.sql` file containing changes you made to the `schema.prisma`, updates the database schema and generates a new Prisma Client.
+
+
+> **Note**: [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) is considered in preview those we need to provide the `--preview-feature` flag.
+
+Prisma Migrate is released as Preview since [v2.13](https://github.com/prisma/prisma/releases/tag/2.13.0). Upgrade to the latest Prisma version or you can use `save` and `up` command from the experimental version.
+
+```bash
+# since v2.13
+npx prisma migrate dev --preview-feature
+
+# before v2.13
+npx prisma migrate save --experimental
+
+npx prisma migrate up --experimental
+```
 
 ## Step 6: Generate PrismaClient
 
