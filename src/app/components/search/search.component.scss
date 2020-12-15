@@ -4,7 +4,7 @@ a {
 }
 
 a:hover:not(.activeItem) {
-  @apply bg-background-light rounded-lg;
+  @apply bg-canvas-light rounded-lg;
 
   #title {
     background-image: var(--gradient);
@@ -14,5 +14,5 @@ a:hover:not(.activeItem) {
 }
 
 .activeItem {
-  @apply bg-background-shade rounded-lg;
+  @apply bg-canvas-shade rounded-lg;
 }

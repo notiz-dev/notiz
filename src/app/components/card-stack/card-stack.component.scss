@@ -29,7 +29,7 @@
   .card:not(.title-card) {
     margin-left: -130px;
     transition: transform 200ms ease;
-    box-shadow: -1rem 0 2.4rem var(--background);
+    box-shadow: -1rem 0 2.4rem var(--canvas);
     position: relative;
 
     app-article {

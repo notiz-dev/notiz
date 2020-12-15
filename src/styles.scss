@@ -29,7 +29,7 @@
 }
 
 body {
-  @apply bg-background;
+  @apply bg-canvas;
 }
 
 .gradient:hover {
@@ -44,10 +44,10 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-background-shade;
+  @apply bg-canvas-shade;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-background-light;
+  @apply bg-canvas-light;
   border-radius: 99px;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .medium-zoom-overlay {
-  background-color: var(--background) !important;
+  background-color: var(--canvas) !important;
   z-index: 2;
 }
 .medium-zoom-image--opened {
@@ -95,7 +95,7 @@ body {
 }
 
 .card {
-  @apply rounded-xl shadow-md bg-background-light p-4 overflow-y-hidden;
+  @apply rounded-xl shadow-md bg-canvas-light p-4 overflow-y-hidden;
   width: 280px;
   height: 340px;
 }

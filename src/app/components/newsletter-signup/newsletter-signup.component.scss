@@ -3,7 +3,7 @@
 }
 
 .signup {
-  --background: var(--gradient);
+  --canvas: var(--gradient);
 }
 .input-wrapper {
   display: flex;
@@ -13,7 +13,7 @@
 .newsletter {
   width: 100%;
   --inner-padding-start: 24px;
-  border: 2px solid var(--background);
+  border: 2px solid var(--canvas);
 }
 
 .newsletter.dirty {
@@ -31,7 +31,7 @@
     .newsletter {
       --padding-start: 24px;
       border-radius: 50px;
-      --background: theme('colors.primary.dark');
+      --canvas: theme('colors.primary.dark');
       --box-shadow: inset 11px 11px 22px #e6e6e6, inset -11px -11px 22px #ffffff;
     }
   }
@@ -43,12 +43,12 @@
   }
 
   .form-error {
-    --background: theme('colors.danger');
+    --canvas: theme('colors.danger');
     --color: var(--text-color);
   }
 
   .form-success {
-    --background: theme('colors.green.500');
+    --canvas: theme('colors.green.500');
     --color: var(--text-color);
   }
 }

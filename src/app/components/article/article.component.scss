@@ -17,12 +17,12 @@
   @apply mb-6;
   @apply mr-6;
   @apply h-full;
-  @apply bg-background-light;
+  @apply bg-canvas-light;
   @apply rounded-lg;
   @apply py-5;
   @apply px-4;
   .tags {
-    @apply bg-background;
+    @apply bg-canvas;
   }
   .icon {
     @apply hidden;
