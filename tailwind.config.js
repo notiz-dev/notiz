@@ -14,6 +14,7 @@ module.exports = {
       black: '#000',
       white: '#fff',
       red: colors.red,
+      orange: colors.orange,
       green: colors.green,
       gray: {
         100: '#f7fafc',
@@ -43,9 +44,6 @@ module.exports = {
         shade: 'var(--canvas-shade)',
         opac: 'var(--canvas-opac)',
       },
-      typography: {},
-      'canvas-code': {},
-      link: {},
     },
     extend: {
       colors: {},
