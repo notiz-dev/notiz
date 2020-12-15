@@ -160,7 +160,6 @@ module.exports = {
         },
       }),
       screens: {
-        xx: '0px',
         xs: '256px',
         sm: '576px',
         md: '768px',
