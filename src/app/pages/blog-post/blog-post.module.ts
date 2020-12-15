@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 
 import { PipesModule } from '@pipes/pipes.module';
 import { SeoModule } from '@components/seo/seo.module';
+import { ShortcodeModule } from '@garygrossgarten/shortcodes';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -37,6 +38,7 @@ import { SeoModule } from '@components/seo/seo.module';
     NizChipModule,
     PipesModule,
     SeoModule,
+    ShortcodeModule
   ],
 })
 export class BlogPostModule {}
