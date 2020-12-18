@@ -1,6 +1,7 @@
 ---
 title: Angular + Scully + Tailwind CSS Series
 description: Build Angular Jamstack application with Scully styled by Tailwind CSS
+published: true
 slug: angular-scully-tailwind
 tags:
   - Angular

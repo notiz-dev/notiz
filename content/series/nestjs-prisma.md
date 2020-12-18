@@ -1,6 +1,7 @@
 ---
 title: NestJS + Prisma Series
 description: Build backend application with NestJS and access databases via Prisma
+published: true
 slug: nestjs-prisma
 tags:
   - NestJs

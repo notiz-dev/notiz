@@ -9,13 +9,11 @@
     </p>
   </header>
 
-  {{ series$ | async | json }}
-
   <div
     class="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4"
   >
     <a *ngFor="let s of series$ | async" class="group" [routerLink]="[s.route]">
-      <div class="bg-background-light rounded-xl overflow-hidden h-full">
+      <div class="bg-canvas-light rounded-xl overflow-hidden h-full">
         <!-- TODO use series banner image  -->
         <img
           src="https://notiz.dev/assets/banners/blog/simple-rxjs-keyboard-shortcuts/twitter.png"

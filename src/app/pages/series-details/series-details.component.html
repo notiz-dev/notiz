@@ -6,21 +6,17 @@
   [tags]="[page.title]"
 ></niz-seo>
 
-<div class="responsive-container">
-  <div class="text-center py-8 space-y-2 md:space-y-5">
-    <h1
-      class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-tight"
-    >
+<article class="max-w-container space-y-5 mt-10">
+  <header>
+    <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
       {{ (page$ | async)?.title }}
     </h1>
-    <p
-      class="max-w-lg mx-auto text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11"
-    >
+    <p class="mt-1 text-lg text-color-light sm:text-xl md:text-2xl">
       {{ (page$ | async)?.description }}
     </p>
-  </div>
+  </header>
 
-  <div class="post">
+  <div class="prose max-w-none md:prose-lg">
     <scully-content></scully-content>
   </div>
 
@@ -35,12 +31,12 @@
         {{ chapter.title }}
       </h3>
 
-      <div class="rounded-md overflow-hidden">
+      <div class="rounded-md shadow-md overflow-hidden">
         <a
           *ngFor="
             let post of seriesPosts$ | async | filterChapter: chapter.slug
           "
-          class="flex flex-col p-4 bg-background-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-background-shade"
+          class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-canvas-shade focus:outline-none focus:ring focus:ring-primary focus:ring-inset"
           [routerLink]="post.route"
         >
           <span>
@@ -65,4 +61,4 @@
       </div>
     </div>
   </div>
-</div>
+</article>
