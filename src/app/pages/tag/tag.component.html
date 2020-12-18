@@ -6,19 +6,25 @@
   [tags]="[page.title]"
 ></niz-seo>
 
-<div class="responsive-container space-y-5 mt-10">
-  <app-breadcrumb></app-breadcrumb>
-  <h1 class="text-2xl font-semibold">{{ (page$ | async)?.title }}</h1>
-
-  <scully-content></scully-content>
+<article class="max-w-container space-y-5 mt-10">
+  <header class="space-y-4">
+    <app-breadcrumb></app-breadcrumb>
+    <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
+      {{ (page$ | async)?.title }}
+    </h1>
+    <div class="prose">
+      <scully-content></scully-content>
+    </div>
+  </header>
 
   <app-featured
+    class="mt-5"
     *ngFor="let route of tagPosts$ | async | slice: 0:1"
     [route]="route"
   ></app-featured>
-</div>
+</article>
 <div
-  class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
+  class="max-w-container flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10"
 >
   <div class="w-full flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold">

@@ -3,11 +3,13 @@
   description="Latest articles on notiz.dev featuring Angular, Nestjs, Web Components and more"
 ></niz-seo>
 
-<div
+<article
   class="max-w-container flex flex-col space-y-5 mt-10 md:flex-row md:space-y-0 md:space-x-5"
 >
   <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
-    <h2 class="text-2xl font-semibold">All Posts</h2>
+    <header>
+      <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">All Posts</h1>
+    </header>
     <div class="flex flex-wrap">
       <app-article
         *ngFor="let blogPost of blogPosts$ | async"
@@ -22,4 +24,4 @@
     </h2>
     <app-tags-view limit="18" [tags]="tags$"></app-tags-view>
   </div>
-</div>
+</article>
