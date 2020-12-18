@@ -23,6 +23,10 @@
         <a
           class="router-link"
           [routerLink]="['/series']"
+          [ngClass]="{
+            'router-link-active':
+              (current$ | async)?.route | startswith: '/series/'
+          }"
           routerLinkActive="router-link-active"
         >
           Series
@@ -108,6 +112,16 @@
       routerLinkActive="router-link-active"
     >
       Blog
+    </a>
+    <a
+      class="router-link"
+      [routerLink]="['/series']"
+      [ngClass]="{
+        'router-link-active': (current$ | async)?.route | startswith: '/series/'
+      }"
+      routerLinkActive="router-link-active"
+    >
+      Series
     </a>
     <button
       class="router-link"
