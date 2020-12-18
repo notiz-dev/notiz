@@ -11,10 +11,6 @@ keywords:
   - Custom Elements
 authors:
   - Gary Großgarten
-series:
-  - slug: angular-scully-tailwind
-    chapterSlug: getting-started
-    weight: 30
 github: 'https://github.com/notiz-dev/design'
 ---
 

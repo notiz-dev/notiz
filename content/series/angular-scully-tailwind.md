@@ -1,6 +1,6 @@
 ---
 title: Angular + Scully + Tailwind CSS Series
-description: Build Angular Jamstack application with Scully styled by Tailwind CSS
+description: Build Angular Jamstack blog with Scully styled by Tailwind CSS
 published: true
 slug: angular-scully-tailwind
 tags:
@@ -10,8 +10,6 @@ tags:
 chapters:
   - title: Getting Started
     slug: getting-started
-  - title: RxJS tips
-    slug: rxjs-tips
   - title: Hosting
     slug: hosting
 ---
@@ -20,7 +18,14 @@ chapters:
 
 - Setting up Angular with Tailwind CSS
 - Jamstack with Scully
-- Deploy via GitHub Actions to firebase Hosting
+- Deploy via GitHub Actions to Firebase Hosting
+- SEO (coming soon)
+- Use and create Scully Plugin (coming soon)
+- Analytics (coming soon)
+- CMS (Netlify coming soon)
+- Cross posting to dev.to (coming soon)
+- Newsletter (coming soon)
+- Shortcodes in Markdown (coming soon)
 
 ## Live Demo
 
