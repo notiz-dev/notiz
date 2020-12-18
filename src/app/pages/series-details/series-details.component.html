@@ -18,46 +18,43 @@
 
   <div class="prose max-w-none md:prose-lg">
     <scully-content></scully-content>
-  </div>
 
-  <h2 class="text-xl font-semibold sm:text-2xl md:text-4xl">Chapters</h2>
+    <h2>Chapters</h2>
 
-  <div *ngIf="page$ | async as page" class="space-y-5">
-    <div *ngFor="let chapter of page.chapters" class="space-y-2">
-      <h3
-        class="text-lg font-medium sm:text-xl md:text-2xl"
-        [id]="chapter.slug"
-      >
-        {{ chapter.title }}
-      </h3>
+    <div *ngIf="page$ | async as page" class="space-y-5">
+      <div *ngFor="let chapter of page.chapters" class="space-y-2">
+        <h3 [id]="chapter.slug">
+          {{ chapter.title }}
+        </h3>
 
-      <div class="rounded-md shadow-md overflow-hidden">
-        <a
-          *ngFor="
-            let post of seriesPosts$ | async | filterChapter: chapter.slug
-          "
-          class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-canvas-shade focus:outline-none focus:ring focus:ring-primary focus:ring-inset"
-          [routerLink]="post.route"
-        >
-          <span>
-            <span
-              class="block text-base font-bold group-hover:text-blue sm:text-lg md:text-xl"
-            >
-              {{ post.title }}
+        <div class="rounded-md shadow-md overflow-hidden">
+          <a
+            *ngFor="
+              let post of seriesPosts$ | async | filterChapter: chapter.slug
+            "
+            class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-canvas-shade focus:outline-none focus:ring focus:ring-primary focus:ring-inset"
+            [routerLink]="post.route"
+          >
+            <span>
+              <span
+                class="block text-base font-bold group-hover:text-primary sm:text-lg md:text-xl"
+              >
+                {{ post.title }}
+              </span>
+              <span class="text-sm sm:text-base md:text-lg">
+                {{ post.description }}
+              </span>
             </span>
-            <span class="text-sm sm:text-base md:text-lg">
-              {{ post.description }}
-            </span>
-          </span>
 
-          <div class="flex space-x-2">
-            <niz-inline-svg
-              *ngFor="let tag of post.tags | slice: 0:3"
-              class="h-6 w-6"
-              [svgSource]="'assets/stack/' + tag + '.svg' | lowercase | dash"
-            ></niz-inline-svg>
-          </div>
-        </a>
+            <div class="flex space-x-2">
+              <niz-inline-svg
+                *ngFor="let tag of post.tags | slice: 0:3"
+                class="h-6 w-6"
+                [svgSource]="'assets/stack/' + tag + '.svg' | lowercase | dash"
+              ></niz-inline-svg>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>

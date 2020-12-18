@@ -24,6 +24,6 @@ chapters:
 
 ## Live Demo
 
-You are using right **now** a Scully application styled with Tailwind - notiz.dev uses the following stack: Angular, Scully, Tailwind CSS and Firebase Hosting. 
+You are using right **now** a Scully application styled with Tailwind - [notiz.dev](/) uses the following stack: Angular, Scully, Tailwind CSS and Firebase Hosting. 
 
 Try another [Live Demo](https://angular-scully-tailwindcss.web.app) of a Scully blog styled with Tailwind CSS. Find the full [source code](https://github.com/notiz-dev/angular-scully-tailwindcss) on GitHub. 

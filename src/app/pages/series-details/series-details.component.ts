@@ -7,7 +7,7 @@ import { takeUntil, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'niz-series-details',
   templateUrl: './series-details.component.html',
-  styleUrls: ['./series-details.component.css'],
+  styleUrls: ['./series-details.component.scss'],
 })
 export class SeriesDetailsComponent implements OnInit, OnDestroy {
   page$: Observable<ScullyRoute> = this.scullyContent.getCurrent();
