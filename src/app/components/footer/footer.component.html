@@ -5,11 +5,17 @@
       <div class="prose my-4">
         <p>
           <strong>*notiz.dev</strong> is created by
-          <a href="https://notiz.dev/authors/gary-grossgarten">
+          <a
+            href="https://notiz.dev/authors/gary-grossgarten"
+            class="focus-ring rounded-md"
+          >
             Gary Großgarten
           </a>
           and
-          <a href="https://notiz.dev/authors/marc-stammerjohann">
+          <a
+            href="https://notiz.dev/authors/marc-stammerjohann"
+            class="focus-ring rounded-md"
+          >
             Marc Stammerjohann</a
           >. We love to share our experiences and findings working with Angular,
           NestJS, Web Components and more. 👀 We are excited about the upcoming
@@ -33,14 +39,14 @@
               (click)="analytics.ref(link.url)"
               target="_blank"
               rel="noreferrer"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 p-1 mx-1"
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 focus-ring p-1 mx-1"
             >
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
             <a
               [routerLink]="link.url"
               *ngIf="!link.external"
-              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 p-1 mx-1"
+              class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 focus-ring p-1 mx-1"
             >
               <ng-container *ngTemplateOutlet="myTemplate"></ng-container>
             </a>
@@ -71,7 +77,8 @@
     </div>
 
     <p class="text-sm text-color-light text-center">
-      © <a [routerLink]="copyrightUrl">notiz.dev</a>
+      ©
+      <a [routerLink]="copyrightUrl" class="focus-ring rounded-md">notiz.dev</a>
       {{ now | date: 'yyyy' }}
     </p>
   </div>

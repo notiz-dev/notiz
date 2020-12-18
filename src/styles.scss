@@ -26,6 +26,10 @@
   .responsive-container {
     @apply max-w-3xl mx-auto flex flex-col px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
   }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring focus:ring-primary;
+  }
 }
 
 body {

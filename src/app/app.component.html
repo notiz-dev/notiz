@@ -1,7 +1,10 @@
 <niz-navbar>
   <niz-toolbar class="px-4 xl:px-0">
     <div start class="flex flex-row space-x-8 items-center">
-      <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
+      <a
+        class="flex items-center select-none space-x-2 rounded-md focus-ring"
+        [routerLink]="['/']"
+      >
         <niz-inline-svg
           class="h-16 w-16"
           svgSource="assets/img/logo.svg"
@@ -45,7 +48,7 @@
       <button
         [attr.aria-label]="'Open search'"
         (click)="openSearch(search)"
-        class="hidden md:flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+        class="hidden md:flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus-ring rounded-xl p-1 flex-row space-x-1 items-center"
       >
         <niz-inline-svg
           class="h-4 w-4 theme"
@@ -56,7 +59,7 @@
         >
       </button>
       <button
-        class="hidden md:flex h-6 w-6 theme focus:outline-none select-none"
+        class="hidden md:flex h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
         [attr.aria-label]="'Toggle theme'"
         [ngClass]="{
           dark: themeService.theme === 'dark',

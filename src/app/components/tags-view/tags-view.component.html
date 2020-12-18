@@ -2,7 +2,7 @@
   class="mb-1 mr-1 gradient"
   *ngFor="let tag of tags | async | slice: 0:limit"
 >
-  <a [routerLink]="'/tags/' + tag.slug">
+  <a [routerLink]="'/tags/' + tag.slug" class="focus-ring rounded-md">
     {{ tag.title }}
   </a>
 </niz-chip>
@@ -10,7 +10,7 @@
 <a
   *ngIf="(tags | async)?.length > limit"
   [routerLink]="'/tags/'"
-  class="text-sm font-bold uppercase text-color hover:text-primary mr-2"
+  class="text-sm font-bold uppercase text-color hover:text-primary mr-2 focus-ring rounded-md"
 >
   see all
 </a>

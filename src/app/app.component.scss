@@ -3,19 +3,7 @@
 }
 
 .router-link {
-  @apply relative;
-  @apply text-lg;
-  @apply font-semibold;
-  @apply h-6;
-  @apply select-none;
-}
-
-.router-link:focus {
-  @apply outline-none;
-}
-
-.router-link:hover {
-  @apply text-primary;
+  @apply relative text-lg font-semibold h-6 select-none rounded-md hover:text-primary focus:outline-none focus:ring focus:ring-primary;
 }
 
 .router-link-active {

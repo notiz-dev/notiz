@@ -1,7 +1,7 @@
 <div class="flex flex-col space-y-4">
   <a
     #link
-    class="flex flex-col space-y-4 featured"
+    class="flex flex-col space-y-4 featured rounded-md focus-ring focus:ring-offset-4 focus:ring-offset-canvas"
     [routerLink]="[route.route]"
   >
     <div class="flex flex-row items-center space-x-2">
@@ -31,7 +31,10 @@
       *ngFor="let tag of route.tags | slice: 0:3"
       size="xl"
     >
-      <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
+      <a
+        class="rounded-md focus-ring"
+        [routerLink]="'/tags/' + (tag | dash | lowercase)"
+      >
         {{ tag }}
       </a>
     </niz-chip>
