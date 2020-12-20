@@ -14,9 +14,8 @@ export class SimpleAnalyticsService {
    */
   event(eventName: string) {
     eventName = eventName.substring(0, 200);
-    console.log('sa event', eventName);
+    eventName.replace('/', '_');
     if ((window as any).sa_event) {
-      console.warn('sa_event available');
       (window as any).sa_event(eventName);
     }
   }

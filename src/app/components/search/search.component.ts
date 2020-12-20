@@ -126,7 +126,7 @@ export class NizSearch implements OnInit {
       'search',
       this.searchResult[index].url
     );
-    this.sa.event(`search_result_enter_${this.searchResult[index].url}`);
+    this.sa.event(`search_result_enter_url_${this.searchResult[index].url}`);
     this.router.navigateByUrl(this.searchResult[index].url);
   }
 
@@ -171,7 +171,7 @@ export class NizSearch implements OnInit {
     this.resetSearch();
     if (url) {
       this.analytics.trigger('search result click', 'search', url);
-      this.sa.event(`search_result_click_${url}`);
+      this.sa.event(`search_result_click_url_${url}`);
     }
   }
 }
