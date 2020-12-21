@@ -36,7 +36,7 @@
             <a
               [href]="link.url"
               *ngIf="link.external"
-              (click)="analytics.ref(link.url)"
+              (click)="sa.outboundLink(link.url)"
               target="_blank"
               rel="noreferrer"
               class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 focus-ring p-1 mx-1"

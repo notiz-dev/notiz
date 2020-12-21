@@ -8,7 +8,6 @@ import { merge, Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
-import { GoogleAnalyticsService } from '@services/google-analytics.service';
 import { NizSearch } from '@components/search/search.component';
 import { FooterSection } from '@components/footer/footer.component';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
@@ -80,7 +79,6 @@ export class AppComponent implements OnInit {
   constructor(
     public themeService: ThemeService,
     private content: ScullyContentService,
-    public analytics: GoogleAnalyticsService,
     private sa: SimpleAnalyticsService
   ) {}
 
@@ -106,13 +104,6 @@ export class AppComponent implements OnInit {
     )
       .pipe(
         tap(() => {
-          this.analytics.trigger(
-            'theme toggle',
-            'shortcut',
-            `from ${this.themeService.theme} to ${
-              this.themeService.theme === 'dark' ? 'light' : 'dark'
-            }`
-          );
           this.sa.event(
             `theme_toggle_shortcut_from_${this.themeService.theme}_to_${
               this.themeService.theme === 'dark' ? 'light' : 'dark'
@@ -128,24 +119,15 @@ export class AppComponent implements OnInit {
 
   scrollToNewsletter() {
     this.newsletter.focus();
-    this.analytics.trigger('newsletter click', 'engagement');
     this.sa.event('newsletter_focus_click');
   }
 
   openSearch(search: NizSearch) {
     search.openSearch();
-    this.analytics.trigger('search click', 'engagement');
     this.sa.event('search_open_click');
   }
 
   toggleTheme() {
-    this.analytics.trigger(
-      'theme toggle',
-      'engagement',
-      `from ${this.themeService.theme} to ${
-        this.themeService.theme === 'dark' ? 'light' : 'dark'
-      }`
-    );
     this.sa.event(
       `theme_toggle_click_from_${this.themeService.theme}_to_${
         this.themeService.theme === 'dark' ? 'light' : 'dark'
