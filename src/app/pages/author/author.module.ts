@@ -10,8 +10,8 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
-import { AuthorCardModule } from '@components/author/author.module';
 import { FeaturedModule } from '@components/featured/featured.module';
+import { NizChipModule, NizInlineSvgModule } from '@notiz/ngx-design';
 
 @NgModule({
   declarations: [AuthorComponent],
@@ -25,9 +25,10 @@ import { FeaturedModule } from '@components/featured/featured.module';
     TagsViewModule,
     ArticleModule,
     ComingSoonModule,
-    AuthorCardModule,
     FeaturedModule,
     SeoModule,
+    NizChipModule,
+    NizInlineSvgModule,
   ],
 })
 export class AuthorModule {}
