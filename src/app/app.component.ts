@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ThemeService } from '@services/theme.service';
 import { tap } from 'rxjs/operators';
