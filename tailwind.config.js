@@ -50,10 +50,19 @@ module.exports = {
       fontFamily: {
         sans: ['Muli'],
       },
-      // backgroundImage: (theme) => ({
-      //   'primary-gradient':
-      //     "linear-gradient(145deg, theme('colors.primary.light'), theme('colors.primary.DEFAULT'), theme('colors.primary.dark')",
-      // }),
+      backgroundImage: (theme) => ({
+        'gradient-145': 'linear-gradient(145deg, var(--tw-gradient-stops))',
+        'gradient-primary': `linear-gradient(145deg, ${theme(
+          'colors.primary.light'
+        )}, ${theme('colors.primary.DEFAULT')}, ${theme(
+          'colors.primary.dark'
+        )})`,
+        'gradient-primary-inverse': `linear-gradient(-145deg, ${theme(
+          'colors.primary.light'
+        )}, ${theme('colors.primary.DEFAULT')}, ${theme(
+          'colors.primary.dark'
+        )})`,
+      }),
       inset: {
         4: '1rem',
         8: '2rem',
@@ -164,6 +173,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      backgroundImage: ['hover'],
       cursor: ['hover'],
       borderWidth: ['hover'],
     },
