@@ -14,9 +14,16 @@ export class SimpleAnalyticsService {
    */
   event(eventName: string) {
     eventName = eventName.substring(0, 200);
-    eventName.replace('/', '_');
+    eventName = eventName.replace('/', '_');
     if ((window as any).sa_event) {
       (window as any).sa_event(eventName);
+    }
+  }
+
+  outboundLink(url: string) {
+    url = url.replace(/[\/.\:]/g, '_');
+    if ((window as any).sa_event) {
+      (window as any).sa_event(`outbound_link_click_${url}`);
     }
   }
 }

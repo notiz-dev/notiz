@@ -1,5 +1,5 @@
+import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { GoogleAnalyticsService } from '@services/google-analytics.service';
 
 export interface FooterSection {
   title: string;
@@ -16,7 +16,7 @@ export interface FooterLink {
 @Component({
   selector: 'niz-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class NizFooter implements OnInit {
   now = Date.now();
@@ -25,11 +25,11 @@ export class NizFooter implements OnInit {
   @Input() copyrightUrl: string;
   @Input() createdWithSvgSources: string[];
 
-  @HostBinding('class') get classes(): string{
+  @HostBinding('class') get classes(): string {
     return 'block';
   }
 
-  constructor(public analytics: GoogleAnalyticsService) {}
+  constructor(public sa: SimpleAnalyticsService) {}
 
   ngOnInit(): void {}
 }
