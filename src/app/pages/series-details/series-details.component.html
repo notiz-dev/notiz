@@ -18,10 +18,12 @@
 
   <div class="prose max-w-none md:prose-lg">
     <scully-content></scully-content>
+  </div>
 
+  <div *ngIf="page$ | async as page" class="prose max-w-none md:prose-lg">
     <h2>Chapters</h2>
 
-    <div *ngIf="page$ | async as page" class="space-y-5">
+    <div class="space-y-5">
       <div *ngFor="let chapter of page.chapters" class="space-y-2">
         <h3 [id]="chapter.slug">
           {{ chapter.title }}
