@@ -9,10 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./series.component.scss'],
 })
 export class SeriesComponent implements OnInit {
-  series$: Observable<ScullyRoute[]>;
+  series$: Observable<ScullyRoute[]> = this.scullyContent.series();
+
   constructor(private scullyContent: ScullyContentService) {}
 
-  ngOnInit(): void {
-    this.series$ = this.scullyContent.series();
-  }
+  ngOnInit(): void {}
 }

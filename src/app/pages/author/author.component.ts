@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
@@ -8,23 +8,18 @@ import { ScullyContentService } from '@services/scully-content.service';
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss'],
 })
-export class AuthorComponent implements OnInit {
-  author$: Observable<ScullyRoute>;
+export class AuthorComponent {
+  author$: Observable<ScullyRoute> = this.scullyContent.getCurrent();
 
-  latestAuthorPosts$: Observable<ScullyRoute[]>;
-  updatedAuthorPosts$: Observable<ScullyRoute[]>;
-  authorTags$: Observable<ScullyRoute[]>;
+  latestAuthorPosts$: Observable<
+    ScullyRoute[]
+  > = this.scullyContent.authorPosts(this.author$);
+  updatedAuthorPosts$: Observable<
+    ScullyRoute[]
+  > = this.scullyContent.lastUpdateAuthorPosts(this.author$);
+  authorTags$: Observable<ScullyRoute[]> = this.scullyContent.authorTags(
+    this.author$
+  );
 
   constructor(private scullyContent: ScullyContentService) {}
-
-  ngOnInit(): void {
-    this.author$ = this.scullyContent.getCurrent();
-
-    this.latestAuthorPosts$ = this.scullyContent.authorPosts(this.author$);
-    this.updatedAuthorPosts$ = this.scullyContent.lastUpdateAuthorPosts(
-      this.author$
-    );
-
-    this.authorTags$ = this.scullyContent.authorTags(this.author$);
-  }
 }

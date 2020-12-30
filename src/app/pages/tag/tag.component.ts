@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
@@ -8,16 +8,12 @@ import { ScullyContentService } from '@services/scully-content.service';
   templateUrl: './tag.component.html',
   styleUrls: ['./tag.component.scss'],
 })
-export class TagComponent implements OnInit {
+export class TagComponent {
   page$: Observable<ScullyRoute> = this.scullyContent.getCurrent();
 
-  tagPosts$: Observable<ScullyRoute[]>;
+  tagPosts$: Observable<ScullyRoute[]> = this.scullyContent.tagPosts(
+    this.page$
+  );
 
   constructor(private scullyContent: ScullyContentService) {}
-
-  ngOnInit(): void {
-    this.page$ = this.scullyContent.getCurrent();
-
-    this.tagPosts$ = this.scullyContent.tagPosts(this.page$);
-  }
 }

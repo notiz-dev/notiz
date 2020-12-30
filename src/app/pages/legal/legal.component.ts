@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
@@ -8,12 +8,8 @@ import { ScullyContentService } from '@services/scully-content.service';
   templateUrl: './legal.component.html',
   styleUrls: ['./legal.component.scss'],
 })
-export class LegalComponent implements OnInit {
-  page$: Observable<ScullyRoute>;
+export class LegalComponent {
+  page$: Observable<ScullyRoute> = this.content.getCurrent();
 
   constructor(public content: ScullyContentService) {}
-
-  ngOnInit(): void {
-    this.page$ = this.content.getCurrent();
-  }
 }

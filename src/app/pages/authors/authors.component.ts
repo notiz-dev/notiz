@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ScullyContentService } from '@services/scully-content.service';
@@ -8,12 +8,8 @@ import { ScullyContentService } from '@services/scully-content.service';
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss'],
 })
-export class AuthorsComponent implements OnInit {
-  authors$: Observable<ScullyRoute[]>;
+export class AuthorsComponent {
+  authors$: Observable<ScullyRoute[]> = this.scullyContentService.authors();
 
   constructor(private scullyContentService: ScullyContentService) {}
-
-  ngOnInit() {
-    this.authors$ = this.scullyContentService.authors();
-  }
 }
