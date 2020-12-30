@@ -19,13 +19,13 @@ chapters:
 - Setting up Angular with Tailwind CSS
 - Jamstack with Scully
 - Deploy via GitHub Actions to Firebase Hosting
-- SEO (coming soon)
-- Use and create Scully Plugin (coming soon)
-- Analytics (coming soon)
+- SEO <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Use and create Scully Plugin <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Analytics <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
 - CMS (Netlify coming soon)
-- Cross posting to dev.to (coming soon)
-- Newsletter (coming soon)
-- Shortcodes in Markdown (coming soon)
+- Cross posting to dev.to <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Newsletter <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Shortcodes in Markdown <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
 
 ## Live Demo
 

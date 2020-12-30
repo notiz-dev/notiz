@@ -21,11 +21,11 @@ chapters:
 - Build GraphQL endpoit with NestJS
 - Deployment of NestJS and Prisma to Heroku
 - Dockerize NestJS and Prisma application
-- Swagger API (coming soon)
-- Prisma Migrate, Native Types (coming soon)
-- Authentication with PassportJS (coming soon)
-- Pagination (coming soon)
-- Subscriptions (coming soon)
-- Mailing (coming soon)
-- Cloud Run (coming soon)
+- Swagger API <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Prisma Migrate, Native Types <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Authentication with PassportJS <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Pagination <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Subscriptions <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Mailing <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
+- Cloud Run <span class="inline ml-2 bg-primary bg-opacity-10 rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold"><span class="text-primary">Coming soon</span></span>
 - more to come
