@@ -22,12 +22,7 @@ export class ScullyContentService {
   }
 
   getCurrent(): Observable<ScullyRoute> {
-    return this.router.events.pipe(
-      startWith(new NavigationEnd(0, '/', '/')),
-      filter((event) => event instanceof NavigationEnd),
-      switchMap(() => this.scully.getCurrent()),
-      filter((route) => !!route)
-    );
+    return this.scully.getCurrent();
   }
 
   latestBlogPost(): Observable<ScullyRoute> {

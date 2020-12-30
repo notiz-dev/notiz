@@ -1,6 +1,6 @@
 import { ScullyContentService } from '@services/scully-content.service';
 import { Component } from '@angular/core';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -10,14 +10,11 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./series-details.component.scss'],
 })
 export class SeriesDetailsComponent {
-  page$: Observable<ScullyRoute> = this.scully.getCurrent();
+  page$: Observable<ScullyRoute> = this.scullyContent.getCurrent();
 
   seriesPosts$: Observable<ScullyRoute[]> = this.page$.pipe(
     switchMap((page) => this.scullyContent.seriesPosts(page))
   );
 
-  constructor(
-    private scullyContent: ScullyContentService,
-    private scully: ScullyRoutesService
-  ) {}
+  constructor(private scullyContent: ScullyContentService) {}
 }
