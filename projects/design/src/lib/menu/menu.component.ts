@@ -1,4 +1,11 @@
-import { Component, OnInit, ElementRef, HostBinding, HostListener } from '@angular/core';
+import { SimpleAnalyticsService } from '@services/simple-analytics.service';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  HostBinding,
+  HostListener,
+} from '@angular/core';
 
 @Component({
   selector: 'niz-menu',
@@ -7,15 +14,16 @@ import { Component, OnInit, ElementRef, HostBinding, HostListener } from '@angul
 })
 export class MenuComponent implements OnInit {
   private _open = false;
-  constructor(private el: ElementRef<HTMLElement>) {}
+  constructor(
+    private el: ElementRef<HTMLElement>,
+    private sa: SimpleAnalyticsService
+  ) {}
 
   ngOnInit(): void {}
 
   @HostBinding('class.open') get isOpen() {
     return this._open;
   }
-
-
 
   open() {
     this._open = true;
@@ -25,6 +33,7 @@ export class MenuComponent implements OnInit {
   }
 
   toggle() {
+    this.sa.event('mobile_menu_toggle');
     this._open = !this._open;
   }
 }

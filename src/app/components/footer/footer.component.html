@@ -6,14 +6,14 @@
         <p>
           <strong>*notiz.dev</strong> is created by
           <a
-            href="https://notiz.dev/authors/gary-grossgarten"
+            [routerLink]="'authors/gary-grossgarten/'"
             class="focus-ring rounded-md"
           >
             Gary Großgarten
           </a>
           and
           <a
-            href="https://notiz.dev/authors/marc-stammerjohann"
+            [routerLink]="'authors/marc-stammerjohann/'"
             class="focus-ring rounded-md"
           >
             Marc Stammerjohann</a
@@ -36,7 +36,7 @@
             <a
               [href]="link.url"
               *ngIf="link.external"
-              (click)="analytics.ref(link.url)"
+              (click)="sa.outboundLink(link.url)"
               target="_blank"
               rel="noreferrer"
               class="text-color flex items-center justify-center text-justify rounded-full hover:text-primary hover:bg-primary hover:bg-opacity-10 focus-ring p-1 mx-1"

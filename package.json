@@ -26,7 +26,7 @@
     "format": "prettier --write \"src/**/*.{ts,scss}\"",
     "scully": "scully",
     "serve:scully": "scully serve",
-    "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000 && sh 404.sh",
+    "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",
     "blick:serve": "blick open http://localhost:4200 & ng s",
     "optimize:images": "node optimize-images.js",
     "link:add": "node projects/link-generator && ng build && npm run scully",

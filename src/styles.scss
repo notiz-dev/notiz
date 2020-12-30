@@ -121,19 +121,6 @@ body {
   }
 }
 
-.about {
-  a {
-    @apply text-primary-light;
-  }
-
-  a:hover {
-    background: var(--gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
 body.dark {
   niz-toast.error {
     @apply bg-red-800;

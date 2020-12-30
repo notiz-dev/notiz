@@ -1,9 +1,9 @@
+import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { ToastService, ToastType, NizInput } from '@notiz/ngx-design';
-import { GoogleAnalyticsService } from '@services/google-analytics.service';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -22,7 +22,7 @@ export class NewsletterSignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toast: ToastService,
     public element: ElementRef<HTMLElement>,
-    private analytics: GoogleAnalyticsService
+    private sa: SimpleAnalyticsService
   ) {
     this.setupForm();
   }
@@ -37,7 +37,7 @@ export class NewsletterSignupComponent implements OnInit {
 
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
-      this.analytics.trigger('newsletter submit with email', 'engagement');
+      this.sa.event('newsletter_submit_with_email');
       this.pending = true;
       return this.http
         .post(
@@ -46,7 +46,9 @@ export class NewsletterSignupComponent implements OnInit {
         )
         .pipe(
           tap(() => (this.pending = false)),
-          tap(() => this.analytics.trigger('newsletter subscribe', 'engagement')),
+          tap(() => {
+            this.sa.event('newsletter_subscribed');
+          }),
           tap(() => {
             this.toast.show({
               type: ToastType.SUCCESS,
@@ -59,7 +61,7 @@ export class NewsletterSignupComponent implements OnInit {
         .subscribe();
     }
     this.invalid = true;
-    this.analytics.trigger('newsletter submit without email', 'engagement');
+    this.sa.event('newsletter_submit_without_email');
 
     this.toast.show({
       type: ToastType.ERROR,
@@ -74,6 +76,6 @@ export class NewsletterSignupComponent implements OnInit {
 
   nizFocus() {
     this.invalid = false;
-    this.analytics.trigger('newsletter focus', 'engagement');
+    this.sa.event('newsletter_focus');
   }
 }

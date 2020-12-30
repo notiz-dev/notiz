@@ -1,3 +1,4 @@
+import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import { Router } from '@angular/router';
 import { SearchItem } from './../../types/types';
 import {
@@ -22,7 +23,6 @@ import {
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { Subject, merge } from 'rxjs';
 import { SearchPipe } from '@pipes/search.pipe';
-import { GoogleAnalyticsService } from '@services/google-analytics.service';
 
 @Component({
   selector: 'niz-search',
@@ -81,7 +81,7 @@ export class NizSearch implements OnInit {
     public scully: ScullyRoutesService,
     private searchPipe: SearchPipe,
     private router: Router,
-    private analytics: GoogleAnalyticsService
+    private sa: SimpleAnalyticsService
   ) {}
 
   ngOnInit() {
@@ -92,9 +92,9 @@ export class NizSearch implements OnInit {
         debounceTime(250),
         distinctUntilChanged(),
         tap((search) => (this.search = search)),
-        tap((search) =>
-          this.analytics.trigger('search query', 'search', search)
-        ),
+        tap((search) => {
+          this.sa.event(`search_query_${search}`);
+        }),
         tap(() => (this.activeIndex = 0)),
         switchMap((search) =>
           this.scully.available$.pipe(
@@ -118,11 +118,7 @@ export class NizSearch implements OnInit {
 
   private openActive(index: number) {
     this.closeSearch();
-    this.analytics.trigger(
-      'search result enter',
-      'search',
-      this.searchResult[index].url
-    );
+    this.sa.event(`search_result_enter_url_${this.searchResult[index].url}`);
     this.router.navigateByUrl(this.searchResult[index].url);
   }
 
@@ -141,7 +137,9 @@ export class NizSearch implements OnInit {
     )
       .pipe(
         sequence(),
-        tap(() => this.analytics.trigger('search open', 'shortcut')),
+        tap(() => {
+          this.sa.event('search_open_shortcut');
+        }),
         filter(() => !this.isOpen),
         tap(() => this.openSearch())
       )
@@ -163,7 +161,7 @@ export class NizSearch implements OnInit {
     this.isOpen = false;
     this.resetSearch();
     if (url) {
-      this.analytics.trigger('search result click', 'search', url);
+      this.sa.event(`search_result_click_url_${url}`);
     }
   }
 }

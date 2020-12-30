@@ -14,18 +14,13 @@
     <link rel="apple-touch-icon" href="assets/icons/apple-icon-192x192.png" />
     <meta name="theme-color" content="#55b9f3" />
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-56561079-5"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'UA-56561079-5');
+      window.sa_event =
+        window.sa_event ||
+        function () {
+          a = [].slice.call(arguments);
+          sa_event.q ? sa_event.q.push(a) : (sa_event.q = [a]);
+        };
     </script>
   </head>
 
@@ -51,6 +46,11 @@
     </noscript>
 
     <script async defer src="https://sa.notiz.dev/latest.js"></script>
-    <noscript><img src="https://sa.notiz.dev/noscript.gif" alt="" /></noscript>
+    <noscript
+      ><img
+        src="https://sa.notiz.dev/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+    /></noscript>
   </body>
 </html>
