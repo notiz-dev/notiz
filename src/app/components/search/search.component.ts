@@ -1,3 +1,4 @@
+import { ScullyContentService } from '@services/scully-content.service';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import { Router } from '@angular/router';
 import { SearchItem } from './../../types/types';
@@ -79,6 +80,7 @@ export class NizSearch implements OnInit {
 
   constructor(
     public scully: ScullyRoutesService,
+    private scullyContent: ScullyContentService,
     private searchPipe: SearchPipe,
     private router: Router,
     private sa: SimpleAnalyticsService
