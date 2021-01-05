@@ -14,7 +14,7 @@ authors:
   - Marc Stammerjohann
 series:
   - slug: nestjs-prisma
-    chapterSlug: hosting
+    chapterSlug: deployment
     weight: 20
 github: https://github.com/notiz-dev/nestjs-prisma-docker
 ---

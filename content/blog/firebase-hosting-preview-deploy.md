@@ -18,8 +18,8 @@ authors:
   - Marc Stammerjohann
 series:
   - slug: angular-scully-tailwind
-    chapterSlug: hosting
-    weight: 10
+    chapterSlug: deployment
+    weight: 20
 github: https://github.com/notiz-dev/angular-scully-tailwindcss
 ---
 
