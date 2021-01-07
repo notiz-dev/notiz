@@ -6,10 +6,17 @@ import {
   NizChipModule,
   NizBanner,
   NizBannerModule,
+  NizBannerSeriesModule,
+  NizBannerSeries,
 } from '@notiz/ngx-design';
 
 @NgModule({
-  imports: [BrowserModule, NizChipModule, NizBannerModule],
+  imports: [
+    BrowserModule,
+    NizChipModule,
+    NizBannerModule,
+    NizBannerSeriesModule,
+  ],
   providers: [],
 })
 export class AppModule {
@@ -19,6 +26,7 @@ export class AppModule {
     const elements: any[] = [
       [NizChip, 'nizs-chip'],
       [NizBanner, 'nizs-banner'],
+      [NizBannerSeries, 'nizs-banner-series'],
     ];
 
     for (const [component, name] of elements) {

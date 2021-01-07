@@ -12,25 +12,17 @@
   <div class="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-x-8">
     <a
       *ngFor="let s of series$ | async"
-      class="bg-canvas-light rounded-xl shadow-md overflow-hidden group focus-ring transform hover:-translate-y-1"
+      class="bg-canvas-light rounded-xl shadow-md overflow-hidden group focus-ring transform transition-transform duration-300 hover:-translate-y-1"
       [routerLink]="[s.route]"
     >
-      <div class="h-full">
-        <div class="bg-canvas-shade flex justify-around py-8 px-4">
-          <niz-inline-svg
-            *ngFor="let tag of s.tags"
-            class="h-24 w-24"
-            [svgSource]="'assets/stack/' + tag + '.svg' | lowercase | dash"
-          ></niz-inline-svg>
-        </div>
-        <div class="p-6 space-y-2">
-          <h2 class="text-2xl font-semibold group-hover:text-primary">
-            {{ s.title }}
-          </h2>
-          <p>
-            {{ s.description }}
-          </p>
-        </div>
+      <img src="assets/banners{{ s.route }}/og.png" [alt]="s.title" />
+      <div class="p-6 space-y-2">
+        <h2 class="text-2xl font-semibold group-hover:text-primary">
+          {{ s.title }}
+        </h2>
+        <p>
+          {{ s.description }}
+        </p>
       </div>
     </a>
   </div>

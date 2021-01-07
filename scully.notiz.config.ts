@@ -94,6 +94,7 @@ export const config: ScullyConfig = {
       slug: {
         folder: './content/series',
       },
+      postRenderers: [...defaultPostRenderers, 'bannerGenerator'],
     },
     '/tags/:slug': {
       type: 'contentFolder',
