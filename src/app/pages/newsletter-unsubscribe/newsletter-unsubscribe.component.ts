@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-newsletter-unsubscribe',
@@ -21,7 +22,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
 
   unsubscribe(uuid: string) {
     this.http
-      .post('https://notiz-dev-api.herokuapp.com/unsubscribe', { uuid })
+      .put(`${environment.api}/unsubscribe`, { uuid })
       .pipe(first())
       .subscribe(
         () => {},

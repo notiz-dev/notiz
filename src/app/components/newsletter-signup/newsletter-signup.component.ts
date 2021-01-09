@@ -1,3 +1,4 @@
+import { environment } from '@environments/environment';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -40,10 +41,7 @@ export class NewsletterSignupComponent implements OnInit {
       this.sa.event('newsletter_submit_with_email');
       this.pending = true;
       return this.http
-        .post(
-          'https://notiz-dev-api.herokuapp.com/subscribe',
-          this.newsletterSignup.value
-        )
+        .post(`${environment.api}/subscribe`, this.newsletterSignup.value)
         .pipe(
           tap(() => (this.pending = false)),
           tap(() => {

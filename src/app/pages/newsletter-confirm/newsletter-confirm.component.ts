@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-newsletter-confirm',
@@ -21,7 +22,7 @@ export class NewsletterConfirmComponent implements OnInit {
 
   confirmSubscription(uuid: string) {
     this.http
-      .post('https://notiz-dev-api.herokuapp.com/confirm', { uuid })
+      .put(`${environment.api}/confirm`, { uuid })
       .pipe(first())
       .subscribe(
         () => {},

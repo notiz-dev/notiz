@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   url: 'https://notiz.dev',
+  api: 'https://notiz-dev-api.herokuapp.com',
   title: 'notiz',
   description:
     'Weeklyish articles about Angular, Nestjs, Web Components, and more things related to web development.',
@@ -11,6 +12,6 @@ export const environment = {
     'Angular',
     'Nestjs',
     'Web Components',
-    'Scully'
-  ]
+    'Scully',
+  ],
 };
