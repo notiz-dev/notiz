@@ -16,7 +16,7 @@
   <div class="max-w-container space-y-4">
     <header class="space-y-4">
       <app-breadcrumb></app-breadcrumb>
-      <div class="space-y-1">
+      <div class="prose max-w-none md:prose-lgspace-y-1">
         <dl>
           <div>
             <dt class="sr-only">Published at</dt>
@@ -28,11 +28,11 @@
           </div>
         </dl>
 
-        <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
+        <h1>
           {{ route.title }}
         </h1>
 
-        <p class="text-lg text-color-light sm:text-xl md:text-2xl">
+        <p class="text-lg md:text-2xl">
           {{ route.description }}
         </p>
       </div>
