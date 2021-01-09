@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsletterSignupComponent } from './newsletter-signup.component';
@@ -13,6 +14,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     NizPrimaryButtonModule,
     NizInputModule,
