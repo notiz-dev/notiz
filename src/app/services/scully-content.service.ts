@@ -75,7 +75,7 @@ export class ScullyContentService {
   }
 
   seriesPosts(series: ScullyRoute): Observable<ScullyRoute[]> {
-    return this.blogPosts().pipe(
+    return filterRoute(this.scully.allRoutes$, '/blog/').pipe(
       map((posts) =>
         posts.filter((post) => post.series?.find((s) => s.slug === series.slug))
       )

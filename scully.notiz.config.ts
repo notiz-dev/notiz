@@ -95,10 +95,7 @@ export const config: ScullyConfig = {
         folder: './content/series',
       },
       postRenderers: [
-        'fouc',
-        'seoHrefOptimise',
-        'mediumZoom',
-        'copyStaticContent',
+        ...defaultPostRenderers,
         'bannerGenerator',
       ],
     },

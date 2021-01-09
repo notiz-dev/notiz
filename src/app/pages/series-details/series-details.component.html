@@ -7,16 +7,15 @@
 ></niz-seo>
 
 <article class="max-w-container mt-10">
-  <header>
-    <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
-      {{ (page$ | async)?.title }}
-    </h1>
-    <p class="mt-1 text-lg text-color-light sm:text-xl md:text-2xl">
-      {{ (page$ | async)?.description }}
-    </p>
-  </header>
-
   <div class="prose max-w-none md:prose-lg">
+    <header>
+      <h1>
+        {{ (page$ | async)?.title }}
+      </h1>
+      <p class="text-xl md:text-2xl">
+        {{ (page$ | async)?.description }}
+      </p>
+    </header>
     <div>
       <scully-content></scully-content>
     </div>
@@ -31,37 +30,61 @@
           </h3>
 
           <div class="rounded-md shadow-md overflow-hidden">
-            <a
+            <ng-container
               *ngFor="
                 let post of seriesPosts$ | async | filterChapter: chapter.slug
               "
-              class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-canvas-shade focus:outline-none focus:ring focus:ring-primary focus:ring-inset"
-              [routerLink]="post.route"
             >
-              <span>
-                <span
-                  class="block text-base font-bold group-hover:text-primary sm:text-lg md:text-xl"
-                >
-                  {{ post.title }}
-                </span>
-                <span class="text-sm sm:text-base md:text-lg">
-                  {{ post.description }}
-                </span>
-              </span>
-
-              <div class="flex space-x-2">
-                <niz-inline-svg
-                  *ngFor="let tag of post.tags | slice: 0:3"
-                  class="h-6 w-6"
-                  [svgSource]="
-                    'assets/stack/' + tag + '.svg' | lowercase | dash
+              <a
+                *ngIf="post.published"
+                class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between group hover:bg-canvas-shade focus:outline-none focus:ring focus:ring-primary focus:ring-inset"
+                [routerLink]="post.route"
+              >
+                <ng-container
+                  *ngTemplateOutlet="
+                    chapterTemplate;
+                    context: { $implicit: post }
                   "
-                ></niz-inline-svg>
-              </div>
-            </a>
+                ></ng-container>
+              </a>
+
+              <span
+                *ngIf="!post.published"
+                class="flex flex-col p-4 bg-canvas-light space-y-2 md:space-y-0 md:flex-row md:items-center md:justify-between"
+              >
+                <ng-container
+                  *ngTemplateOutlet="
+                    chapterTemplate;
+                    context: { $implicit: post }
+                  "
+                ></ng-container>
+              </span>
+            </ng-container>
           </div>
         </div>
       </div>
     </div>
   </div>
 </article>
+
+<ng-template #chapterTemplate let-post>
+  <span>
+    <span
+      class="block text-base font-bold group-hover:text-primary sm:text-lg md:text-xl"
+    >
+      {{ post.title }}
+      <niz-badge *ngIf="!post.published">Coming soon</niz-badge>
+    </span>
+    <span class="text-sm line-clamp-2 sm:text-base md:text-lg">
+      {{ post.description }}
+    </span>
+  </span>
+
+  <div class="flex space-x-2">
+    <niz-inline-svg
+      *ngFor="let tag of post.tags | slice: 0:3"
+      class="h-6 w-6"
+      [svgSource]="'assets/stack/' + tag + '.svg' | lowercase | dash"
+    ></niz-inline-svg>
+  </div>
+</ng-template>

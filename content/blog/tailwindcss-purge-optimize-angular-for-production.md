@@ -12,7 +12,7 @@ keywords:
   - CSS
   - Utility-First CSS
 series:
-  - slug: angular-scully-tailwind
+  - slug: angular-jamstack
     chapterSlug: deployment
     weight: 10
 authors:

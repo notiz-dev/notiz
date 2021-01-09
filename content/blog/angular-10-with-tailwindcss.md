@@ -13,7 +13,7 @@ keywords:
 authors:
   - Marc Stammerjohann
 series:
-  - slug: angular-scully-tailwind
+  - slug: angular-jamstack
     chapterSlug: getting-started
     weight: 10
 github: https://github.com/notiz-dev/angular-tailwindcss

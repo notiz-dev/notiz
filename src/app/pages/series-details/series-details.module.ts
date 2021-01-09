@@ -7,6 +7,7 @@ import { SeriesDetailsComponent } from './series-details.component';
 import { SeoModule } from '@components/seo/seo.module';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { PipesModule } from '@pipes/pipes.module';
+import { BadgeModule } from '@components/badge/badge.module';
 
 @NgModule({
   declarations: [SeriesDetailsComponent],
@@ -17,6 +18,7 @@ import { PipesModule } from '@pipes/pipes.module';
     ScullyLibModule,
     PipesModule,
     NizInlineSvgModule,
+    BadgeModule
   ],
 })
 export class SeriesDetailsModule {}

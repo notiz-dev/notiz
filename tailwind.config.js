@@ -179,5 +179,8 @@ module.exports = {
       borderWidth: ['hover'],
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };
