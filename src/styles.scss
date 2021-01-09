@@ -1,7 +1,6 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'base-styles.scss';
-@import 'theme/line-clamp.utilities.scss';
 
 @import 'prismjs/themes/prism-tomorrow';
 @import 'prismjs/plugins/toolbar/prism-toolbar';
@@ -29,6 +28,10 @@
 
   .focus-ring {
     @apply focus:outline-none focus:ring focus:ring-primary;
+  }
+
+  .badge-coming-soon {
+    @apply inline align-middle ml-2 bg-primary bg-opacity-10 text-primary rounded-full px-2 py-0.5 text-xs tracking-wide uppercase font-semibold;
   }
 }
 

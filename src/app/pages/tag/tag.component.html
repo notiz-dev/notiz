@@ -32,7 +32,7 @@
     </h2>
     <div class="flex flex-wrap">
       <app-article
-        *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"
+        *ngFor="let blogPost of tagPosts$ | async | slice: 1:11"
         [route]="blogPost"
       >
       </app-article>

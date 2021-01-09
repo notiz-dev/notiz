@@ -1,16 +1,8 @@
-import { Router, NavigationEnd, RouteConfigLoadEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import {
-  map,
-  switchMap,
-  tap,
-  reduce,
-  filter,
-  startWith,
-  share,
-} from 'rxjs/operators';
-import { Observable, zip, concat } from 'rxjs';
+import { map, switchMap, filter, startWith } from 'rxjs/operators';
+import { Observable, zip } from 'rxjs';
 import { TagWeight } from '../types/types';
 
 @Injectable({
@@ -30,12 +22,7 @@ export class ScullyContentService {
   }
 
   getCurrent(): Observable<ScullyRoute> {
-    return this.router.events.pipe(
-      startWith(new NavigationEnd(0, '/', '/')),
-      filter((event) => event instanceof NavigationEnd),
-      switchMap(() => this.scully.getCurrent()),
-      filter((route) => !!route)
-    );
+    return this.scully.getCurrent();
   }
 
   latestBlogPost(): Observable<ScullyRoute> {
@@ -81,6 +68,18 @@ export class ScullyContentService {
 
   tags(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/tags/');
+  }
+
+  series(): Observable<ScullyRoute[]> {
+    return filterRoute(this.scully.available$, '/series/');
+  }
+
+  seriesPosts(series: ScullyRoute): Observable<ScullyRoute[]> {
+    return filterRoute(this.scully.allRoutes$, '/blog/').pipe(
+      map((posts) =>
+        posts.filter((post) => post.series?.find((s) => s.slug === series.slug))
+      )
+    );
   }
 
   authorTags(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {

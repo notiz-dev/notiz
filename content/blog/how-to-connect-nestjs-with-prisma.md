@@ -10,7 +10,11 @@ tags:
 keywords:
   - SQLite
 authors:
-  - 'Marc Stammerjohann'
+  - Marc Stammerjohann
+series:
+  - slug: nestjs-prisma
+    chapterSlug: getting-started
+    weight: 10
 github: 'https://github.com/notiz-dev/nestjs-prisma'
 versions:
   nestjs/cli: 7.1.2

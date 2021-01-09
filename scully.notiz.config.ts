@@ -49,6 +49,11 @@ const sitemapConfig: SitemapConfig = {
       priority: '0.9',
       sitemapFilename: 'sitemap-links.xml',
     },
+    '/series/:slug': {
+      changeFreq: 'daily',
+      priority: '0.9',
+      sitemapFilename: 'sitemap-series.xml',
+    },
     '/tags/:slug': {
       changeFreq: 'daily',
       priority: '0.9',
@@ -83,6 +88,16 @@ export const config: ScullyConfig = {
       slug: {
         folder: './content/authors',
       },
+    },
+    '/series/:slug': {
+      type: 'contentFolder',
+      slug: {
+        folder: './content/series',
+      },
+      postRenderers: [
+        ...defaultPostRenderers,
+        'bannerGenerator',
+      ],
     },
     '/tags/:slug': {
       type: 'contentFolder',

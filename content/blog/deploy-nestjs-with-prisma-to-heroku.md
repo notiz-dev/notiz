@@ -1,5 +1,5 @@
 ---
-title: 'Deploy NestJS with Prisma to Heroku'
+title: Deploy NestJS with Prisma to Heroku
 description: 'Deploy a NestJS application with Prisma 2.0 to Heroku and connect to a PostgreSQL database.'
 published: true
 publishedAt: 2020-03-12T09:11:00.000Z
@@ -11,7 +11,11 @@ tags:
 keywords:
   - PostgreSQL
 authors:
-  - 'Marc Stammerjohann'
+  - Marc Stammerjohann
+series:
+  - slug: nestjs-prisma
+    chapterSlug: deployment
+    weight: 10
 github: 'https://github.com/notiz-dev/deploy-nestjs-prisma-heroku'
 ---
 

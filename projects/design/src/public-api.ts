@@ -29,3 +29,5 @@ export * from './lib/menu/menu.module';
 export * from './lib/menu/menu.component';
 export * from './lib/banner/banner.module';
 export * from './lib/banner/banner.component';
+export * from './lib/banner-series/banner-series.module';
+export * from './lib/banner-series/banner-series.component';

@@ -1,6 +1,7 @@
 ---
 title: 'Angular Elements: Demo - Using Elements In Another Angular Project.'
 description: 'GitHub Repository for elements-in-angular-demo. Contribute on GitHub.'
+published: true
 publishedAt: 2020-06-04T13:28:39.082Z
 updatedAt: 2020-06-04T13:28:39.082Z
 url: https://github.com/garygrossgarten/elements-in-angular-demo

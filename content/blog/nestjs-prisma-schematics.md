@@ -11,6 +11,10 @@ keywords:
   - Schematics
 authors:
   - Marc Stammerjohann
+series:
+  - slug: nestjs-prisma
+    chapterSlug: getting-started
+    weight: 20
 github: https://github.com/marcjulian/nestjs-prisma
 ---
 

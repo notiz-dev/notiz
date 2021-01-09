@@ -20,7 +20,7 @@ import { ScullyContentService } from 'src/app/services/scully-content.service';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
-  post$: Observable<ScullyRoute>;
+  post$: Observable<ScullyRoute> = this.content.getCurrent();
   related$: Observable<ScullyRoute[]>;
   authors$: Observable<ScullyRoute[]>;
 
@@ -49,8 +49,6 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
         tap(() => (this.allowHighlight = false))
       )
       .subscribe();
-
-    this.post$ = this.content.getCurrent();
 
     this.related$ = this.content
       .posts()

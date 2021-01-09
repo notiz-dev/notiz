@@ -18,19 +18,26 @@
       (ngModelChange)="searchChange($event)"
     />
     <div [class.hidden]="searchResult.length === 0">
-      <ul class="max-h-384 overflow-y-auto space-y-2 py-4">
-        <li #searchItem *ngFor="let searchItem of searchResult; index as i">
+      <ul class="max-h-384 overflow-y-auto space-y-2">
+        <li
+          #searchItem
+          class="searchItem px-4"
+          *ngFor="let searchItem of searchResult; index as i"
+        >
           <a
-            class="relative inline-block px-6 py-1 no-hover"
+            class="relative inline-block w-full px-4 py-1"
             [class.activeItem]="i === activeIndex"
             [routerLink]="[searchItem.url]"
             (click)="closeSearch(searchItem.url)"
           >
             <span class="flex flex-col pr-10">
-              <span id="title" class="text-lg font-semibold">
-                {{ searchItem.title }}
+              <span class="text-lg font-semibold">
+                <span id="title">{{ searchItem.title }}</span>
+                <niz-badge [type]="searchItem.type">{{
+                  searchItem.type
+                }}</niz-badge>
               </span>
-              <span class="text-color-light" *ngIf="searchItem.description">
+              <span class="text-color-light line-clamp-2" *ngIf="searchItem.description">
                 {{ searchItem.description }}
               </span>
             </span>

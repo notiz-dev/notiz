@@ -35,7 +35,7 @@ import { NizFooterModule } from '@components/footer/footer.module';
     MarkdownModule.forRoot({ loader: HttpClient }),
     NizTabsModule,
     NizTabModule,
-    NizFooterModule, 
+    NizFooterModule,
     NizNavbarModule,
     NizToolbarModule,
     NizInlineSvgModule,
@@ -43,7 +43,7 @@ import { NizFooterModule } from '@components/footer/footer.module';
     NizSearchComponentModule,
     PipesModule,
     NizToastModule,
-    NizMenuModule
+    NizMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

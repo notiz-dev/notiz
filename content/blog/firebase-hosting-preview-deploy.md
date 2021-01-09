@@ -16,6 +16,10 @@ keywords:
   - Tailwind CSS
 authors:
   - Marc Stammerjohann
+series:
+  - slug: angular-jamstack
+    chapterSlug: deployment
+    weight: 20
 github: https://github.com/notiz-dev/angular-scully-tailwindcss
 ---
 

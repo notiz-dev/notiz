@@ -1,8 +1,5 @@
 :host {
-  @apply flex;
-  @apply flex-col;
-  @apply bg-canvas;
-  @apply relative;
+  @apply flex flex-col bg-canvas;
 }
 
 .footer {

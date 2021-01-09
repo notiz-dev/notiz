@@ -1,3 +1,4 @@
+import { BadgeModule } from './../badge/badge.module';
 import { NizInlineSvgModule } from '@notiz/ngx-design';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { PipesModule } from '@pipes/pipes.module';
     RouterModule,
     NizInlineSvgModule,
     PipesModule,
+    BadgeModule,
   ],
   declarations: [NizSearch],
   exports: [NizSearch],

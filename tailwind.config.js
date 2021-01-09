@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   purge: [
     './src/**/*.{html,ts}',
+    './content/**/*.md',
     './projects/design/**/*.{html,ts}',
     './projects/shortcodes/**/*.{html,ts}',
   ],
@@ -178,5 +179,8 @@ module.exports = {
       borderWidth: ['hover'],
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };

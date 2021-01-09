@@ -11,7 +11,7 @@ keywords:
   - Shortcuts
   - Angular
 authors:
-  - 'Gary Großgarten'
+  - Gary Großgarten
 github: https://github.com/garygrossgarten/rxjs-shortcuts
 ---
 

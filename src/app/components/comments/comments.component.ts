@@ -8,12 +8,7 @@ import {
 } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ThemeService } from '@services/theme.service';
-import {
-  distinctUntilChanged,
-  tap,
-  startWith,
-  takeUntil,
-} from 'rxjs/operators';
+import { distinctUntilChanged, tap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -30,10 +25,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private theme: ThemeService
   ) {}
-  ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
-  }
 
   ngOnInit(): void {
     this.theme.themeChange
@@ -57,5 +48,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
         takeUntil(this.onDestroy$)
       )
       .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }

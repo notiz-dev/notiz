@@ -11,6 +11,10 @@ tags:
 keywords:
   - CSS
   - Utility-First CSS
+series:
+  - slug: angular-jamstack
+    chapterSlug: deployment
+    weight: 10
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/angular-scully-tailwindcss

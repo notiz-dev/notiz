@@ -11,6 +11,10 @@ keywords:
   - Entity-Relationship Diagram
 authors:
   - Marc Stammerjohann
+series:
+  - slug: nestjs-prisma
+    chapterSlug: prisma
+    weight: 10
 github: https://github.com/notiz-dev/prisma-dbml-generator
 ---
 

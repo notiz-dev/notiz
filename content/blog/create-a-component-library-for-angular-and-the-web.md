@@ -10,7 +10,7 @@ tags:
 keywords:
   - Custom Elements
 authors:
-  - 'Gary Großgarten'
+  - Gary Großgarten
 github: 'https://github.com/notiz-dev/design'
 ---
 
