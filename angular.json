@@ -15,12 +15,11 @@
       "prefix": "niz",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
               "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
             ],
-            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/notiz",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -50,11 +49,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "extraWebpackConfig": "webpack.config.js",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -77,14 +74,12 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "notiz:build"
           },
           "configurations": {
             "production": {
-              "extraWebpackConfig": "webpack.config.js",
               "browserTarget": "notiz:build:production"
             }
           }
@@ -96,9 +91,8 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
@@ -189,7 +183,6 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/shortcodes",
             "index": "projects/shortcodes/src/index.html",
             "main": "projects/shortcodes/src/main.ts",
@@ -211,11 +204,9 @@
                   "with": "projects/shortcodes/src/environments/environment.prod.ts"
                 }
               ],
-              "extraWebpackConfig": "webpack.config.js",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -236,14 +227,12 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "browserTarget": "shortcodes:build"
           },
           "configurations": {
             "production": {
-              "extraWebpackConfig": "webpack.config.js",
               "browserTarget": "shortcodes:build:production"
             }
           }
@@ -255,9 +244,8 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "main": "projects/shortcodes/src/test.ts",
             "polyfills": "projects/shortcodes/src/polyfills.ts",
             "tsConfig": "projects/shortcodes/tsconfig.spec.json",
