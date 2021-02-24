@@ -12,12 +12,6 @@
 
 @import 'tailwindcss/utilities';
 
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-
-:root {
-  font-family: 'Muli', sans-serif;
-}
-
 @layer components {
   .max-w-container {
     @apply max-w-3xl mx-auto px-4 md:max-w-4xl md:px-2 xl:max-w-5xl xl:px-0;
