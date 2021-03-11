@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
+import { ScullyContentService } from '@services/scully-content.service';
 import { ContentType } from 'src/app/types/types';
 
 
@@ -13,7 +14,7 @@ export class ArticleComponent implements OnInit {
   type: ContentType;
 
 
-
+  constructor(public content: ScullyContentService){}
   ngOnInit(): void {
     const type = this.route.route.split('/')[1];
     switch (type) {

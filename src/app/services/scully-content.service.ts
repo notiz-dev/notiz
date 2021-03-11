@@ -82,6 +82,17 @@ export class ScullyContentService {
   tags(): Observable<ScullyRoute[]> {
     return filterRoute(this.scully.available$, '/tags/');
   }
+  
+  tagLink(tagTitle:string): Observable<string>{
+    return this.tags().pipe(
+      map(tag=>tag.filter(
+        (tag:ScullyRoute) => {
+          return tag.title.includes(tagTitle);
+        }
+      )),
+      map(tag=>tag[0].slug)
+    );
+  }
 
   authorTags(author: Observable<ScullyRoute>): Observable<ScullyRoute[]> {
     const authorPosts$ = this.authorPosts(author);

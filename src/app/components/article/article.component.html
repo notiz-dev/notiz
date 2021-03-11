@@ -20,7 +20,7 @@
     *ngFor="let tag of route.tags | slice: 0:3"
     size="xl"
   >
-    <a [routerLink]="'/tags/' + tag | dash | lowercase">{{ tag }}</a>
+    <a [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)">{{ tag }}</a>
   </niz-chip>
   <span class="absolute bottom-4 flex flow-row space-x-2 items-center h-6">
     <span class="font-bold text-color-light">Read More</span>

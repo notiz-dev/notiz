@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ContentType } from 'src/app/types/types';
 import { Observable } from 'rxjs';
+import { ScullyContentService } from '@services/scully-content.service';
 
 @Component({
   selector: 'app-featured',
@@ -13,7 +14,7 @@ export class FeaturedComponent implements OnInit {
   type: ContentType;
   @Input() route: ScullyRoute;
   sneakpeak$: Observable<string>;
-
+  constructor(public content: ScullyContentService){}
   ngOnInit(): void {
     const type = this.route.route.split('/')[1];
     switch (type) {

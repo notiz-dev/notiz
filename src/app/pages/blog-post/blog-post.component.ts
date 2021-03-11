@@ -30,7 +30,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   constructor(
     private highlightService: HighlightService,
-    private content: ScullyContentService,
+    public content: ScullyContentService,
     private router: Router
   ) {}
 

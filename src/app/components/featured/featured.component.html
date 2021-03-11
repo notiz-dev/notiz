@@ -33,7 +33,7 @@
     >
       <a
         class="rounded-md focus-ring"
-        [routerLink]="'/tags/' + (tag | dash | lowercase)"
+        [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
       >
         {{ tag }}
       </a>

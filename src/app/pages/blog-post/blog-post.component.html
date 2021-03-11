@@ -55,7 +55,7 @@
               *ngFor="let tag of route.tags | slice: 0:3"
               size="xl"
             >
-              <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
+              <a [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)">
                 {{ tag }}
               </a>
             </niz-chip>
