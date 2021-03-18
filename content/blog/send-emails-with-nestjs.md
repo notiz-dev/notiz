@@ -2,8 +2,8 @@
 title: Send Emails with NestJS
 description: Create Email Templates and send it via nodemailer from your Nest application. 
 published: true
-publishedAt: 2021-03-16T18:00:00.000Z
-updatedAt: 2021-03-16T18:00:00.000Z
+publishedAt: 2021-03-18T11:00:00.000Z
+updatedAt: 2021-03-18T11:00:00.000Z
 tags:
   - NestJS
 keywords:
@@ -14,13 +14,11 @@ authors:
 github: https://github.com/notiz-dev/nestjs-mailer
 ---
 
-You most likely need to send emails from your backend to your users. For user confirmation, inform of new features or maintenances, newsletter or engaging otherwise with your users. 
-
-This posts gets you up and running with everything you need to know about sending emails using [nest-modules/mailer](https://github.com/nest-modules/mailer) with your [NestJS](https://github.com/nestjs/nest) backend. 👇
+This post gets you up and running with everything you need to know about sending Emails using [nest-modules/mailer](https://github.com/nest-modules/mailer) with your [NestJS](https://github.com/nestjs/nest) backend. 👇
 
 📧 Sending emails using [Nodemailer](https://nodemailer.com/about/)  
 🧩 Creating email templates with [handlebars](https://handlebarsjs.com/) (alternatives: pug or ejs)  
-⚙️ Configure smtp via `.env` files
+⚙️ Configure smtp via `.env` file
 
 ## Install Dependencies
 
@@ -54,7 +52,7 @@ nest g service mail
 mkdir src/mail/templates
 ```
 
-Import the `MailerModule` into your `MailModule` and configure your mail server transport via `smtp`. Provide a default `from` email address to use the same mail consistent throughout your application. No worries, you can always override the default when ever necessary. Last step, configure templates folder and the adapter in this case `HandlebarsAdapter`. Find out more in the [Mailer documentation](https://nest-modules.github.io/mailer/docs/mailer#configuration) about the other template adapters. 
+Import the `MailerModule` into your `MailModule` and configure your mail server transport via `smtp`. Provide a default `from` email address to consistently use the same mail throughout your application. No worries, you can always override the default whenever necessary. Last step, configure the templates folder and the adapter in this case `HandlebarsAdapter`. Find out more about the other template adapters in the [Mailer documentation](https://nest-modules.github.io/mailer/docs/mailer#configuration). 
 
 ```ts
 import { MailerModule } from '@nestjs-modules/mailer';
@@ -98,7 +96,7 @@ Export the `MailService` to provide it via Dependency Injection (DI) for your co
 
 ## Handlebars Mail Template
 
-Create your first email template `confirmation.hbs` in the `src/mail/templates` folder. Add the following simple template for a user confirmation
+Create your first email template `confirmation.hbs` in the `src/mail/templates` folder. Add the following simple template for a user confirmation.
 
 ```html
 <p>Hey {{ name }},</p>
@@ -112,11 +110,11 @@ Create your first email template `confirmation.hbs` in the `src/mail/templates` 
 
 Those curly brackets are [handlebars expressions](https://handlebarsjs.com/guide/#what-is-handlebars) and you will provide the `context` later while sending an email.
 
-Run `npm run build` you one thing to notice is that `dist/mail/templates` is missing. 
+When you build your Nest application you will notice that the build output is missing your template files (`dist/mail/templates`).
 
 ![handlebars templates missing in compilation output](assets/img/blog/send-emails-with-nestjs/optimized/handlebars-templates-missing-in-compilation.png)
 
-Nest by default **only** distributes TypeScript files during compilation. Open your `nest-cli.json` and add your `templates` file to the [assets](https://docs.nestjs.com/cli/monorepo#assets) key in the global `compilerOptions`.
+By default, Nest **only** distributes TypeScript compiled files (`.js` and `.d.ts`) during the build step. To distribute your `.hbs` files, open your `nest-cli.json` and add your `templates` directory to the [assets](https://docs.nestjs.com/cli/monorepo#assets) property in the global `compilerOptions`.
 
 ```json
 {
@@ -128,6 +126,8 @@ Nest by default **only** distributes TypeScript files during compilation. Open y
   }
 }
 ```
+
+Build your Nest application again and now your template files are included in the build output.
 
 ![handlebars templates included in compilation output](assets/img/blog/send-emails-with-nestjs/optimized/handlebars-templates-included-in-compilation.png)
 
@@ -208,15 +208,16 @@ export class AuthService {
 
 ## Move configurations to dotenv file
 
-Currently, the mail server config is hard coded in to the `MailModule`. Nest provides a [configuration module](https://docs.nestjs.com/techniques/configuration) loading the values from `.env` files. Install the `@nestjs/config` dependency
+Currently, the mail server configurations are hardcoded in to the `MailModule`. Nest provides a [configuration module](https://docs.nestjs.com/techniques/configuration) which enables you to load your configurations and credentials from `.env` files. 
 
+Install the `@nestjs/config` dependency.
 
 ```bash
 # config 
 npm i --save @nestjs/config
 ```
 
-Add the `ConfigModule` to the `imports` list of `AppModule`
+Add the `ConfigModule` to the `imports` list of your `AppModule`.
 
 ```ts
 import { Module } from '@nestjs/common';
@@ -238,7 +239,7 @@ import { AuthModule } from './auth/auth.module';
 export class AppModule {}
 ```
 
-Create a `.env` file and add it to the `.gitingore` as well, don't commit your secrets to git.
+Create a `.env` file in your root directory and don't forget to add in your `.gitingore` file.
 
 ```bash
 # mail
@@ -251,7 +252,7 @@ MAIL_FROM=noreply@example.com
 MAIL_TRANSPORT=smtp://${MAIL_USER}:${MAIL_PASSWORD}@${MAIL_HOST}
 ```
 
-Open again `MailModule` and change `MailerModule.forRoot` to `MailerModule.forRootAsync`, this allows you to inject and use the `ConfigService`.
+Reopen `MailModule` and change `MailerModule.forRoot` to `MailerModule.forRootAsync`, this allows you to inject and use the `ConfigService`.
 
 ```ts
 import { MailerModule } from '@nestjs-modules/mailer';
