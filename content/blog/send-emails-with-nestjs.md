@@ -1,6 +1,6 @@
 ---
 title: Send Emails with NestJS
-description: Create Email Templates and send it via nodemailer from your Nest application. 
+description: Create Email Templates and send them with nodemailer from your Nest application 
 published: true
 publishedAt: 2021-03-18T11:00:00.000Z
 updatedAt: 2021-03-18T11:00:00.000Z
