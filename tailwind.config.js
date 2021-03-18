@@ -142,6 +142,10 @@ module.exports = {
             'blockquote p:last-of-type::after': {
               content: '""',
             },
+            img: {
+              marginRight: 'auto',
+              marginLeft: 'auto',
+            },
           },
         },
         toc: {

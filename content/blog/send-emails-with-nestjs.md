@@ -2,8 +2,8 @@
 title: Send Emails with NestJS
 description: Create Email Templates and send them with nodemailer from your Nest application 
 published: true
-publishedAt: 2021-03-18T11:00:00.000Z
-updatedAt: 2021-03-18T11:00:00.000Z
+publishedAt: 2021-03-18T11:15:00.000Z
+updatedAt: 2021-03-18T11:15:00.000Z
 tags:
   - NestJS
 keywords:
@@ -14,7 +14,7 @@ authors:
 github: https://github.com/notiz-dev/nestjs-mailer
 ---
 
-This post gets you up and running with everything you need to know about sending Emails using [nest-modules/mailer](https://github.com/nest-modules/mailer) with your [NestJS](https://github.com/nestjs/nest) backend. 👇
+This post gets you up and running with everything you need to know about sending Emails using [nest-modules/mailer](https://github.com/nest-modules/mailer) in your [NestJS](https://github.com/nestjs/nest) backend. 👇
 
 📧 Sending emails using [Nodemailer](https://nodemailer.com/about/)  
 🧩 Creating email templates with [handlebars](https://handlebarsjs.com/) (alternatives: pug or ejs)  
