@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FeaturedComponent } from './featured.component';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '@pipes/pipes.module';
-import { NizInlineSvgModule, NizChipModule, NizPrimaryButtonModule } from '@notiz/ngx-design';
-import { MarkdownModule } from 'ngx-markdown';
-
-
+import {
+  NizInlineSvgModule,
+  NizChipModule,
+  NizPrimaryButtonModule,
+} from '@notiz/ngx-design';
 
 @NgModule({
   declarations: [FeaturedComponent],
@@ -16,9 +17,8 @@ import { MarkdownModule } from 'ngx-markdown';
     RouterModule,
     NizChipModule,
     PipesModule,
-    MarkdownModule.forChild(),
     NizInlineSvgModule,
-    NizPrimaryButtonModule
-  ]
+    NizPrimaryButtonModule,
+  ],
 })
-export class FeaturedModule { }
+export class FeaturedModule {}
