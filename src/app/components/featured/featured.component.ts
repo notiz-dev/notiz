@@ -1,8 +1,9 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ContentType } from 'src/app/types/types';
-import { Observable } from 'rxjs';
+import { ScullyContentService } from '@services/scully-content.service';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-featured',
@@ -12,9 +13,23 @@ import { Observable } from 'rxjs';
 export class FeaturedComponent implements OnInit {
   type: ContentType;
   @Input() route: ScullyRoute;
-  sneakpeak$: Observable<string>;
+
+  author$: Observable<ScullyRoute>;
+
+  constructor(private content: ScullyContentService) {}
 
   ngOnInit(): void {
+    this.author$ = this.content
+      .authors()
+      .pipe(
+        map((authors) =>
+          authors.filter((author) =>
+            this.route.authors.some((a) => a === author.title)
+          )
+        ),
+        map(authors => authors[0])
+      );
+
     const type = this.route.route.split('/')[1];
     switch (type) {
       case 'blog':
