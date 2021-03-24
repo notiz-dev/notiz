@@ -39,18 +39,6 @@
       </a>
     </niz-chip>
   </div>
-  <div
-    (click)="link.click()"
-    class="prose max-w-none overflow-hidden relative max-h-248 md:prose-lg md:max-h-384"
-  >
-    <div
-      class="backdrop font-fold flex text-2xl text-primary justify-center items-center absolute inset-0 bg-canvas opacity-0"
-    ></div>
-    <niz-inline-svg
-      class="gradient absolute inset-0 transform rotate-180"
-      svgSource="assets/img/gradient.svg"
-    ></niz-inline-svg>
 
-    <markdown [src]="'assets/content/' + route.route + '.md'"></markdown>
-  </div>
+  <niz-author-small [author]="author$ | async"></niz-author-small>
 </div>

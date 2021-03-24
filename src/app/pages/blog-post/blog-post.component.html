@@ -16,16 +16,14 @@
   <div class="max-w-container space-y-4">
     <header class="space-y-4">
       <app-breadcrumb></app-breadcrumb>
-      <div class="prose max-w-none md:prose-lgspace-y-1">
+      <div class="prose max-w-none md:prose-lg space-y-2">
         <dl>
-          <div>
-            <dt class="sr-only">Published at</dt>
-            <dd class="text-base leading-6 font-medium text-color-light">
-              <time [dateTime]="route.publishedAt">
-                {{ route.publishedAt | date: 'dd MMMM yyyy' }}
-              </time>
-            </dd>
-          </div>
+          <dt class="sr-only">Published at</dt>
+          <dd class="text-base leading-6 font-medium text-color-light">
+            <time [dateTime]="route.publishedAt">
+              {{ route.publishedAt | date: 'dd MMMM yyyy' }}
+            </time>
+          </dd>
         </dl>
 
         <h1>
@@ -35,6 +33,9 @@
         <p class="text-lg md:text-2xl">
           {{ route.description }}
         </p>
+      </div>
+      <div>
+        <niz-author-small [author]="(authors$ | async)[0]"></niz-author-small>
       </div>
     </header>
     <div
@@ -62,13 +63,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="space-y-4">
-      <h2 class="ml-2 text-2xl">
-        {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
-      </h2>
-
-      <app-author [author]="(authors$ | async)[0]"></app-author>
     </div>
   </div>
 </article>
