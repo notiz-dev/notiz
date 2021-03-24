@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 
 import { PipesModule } from '@pipes/pipes.module';
 import { SeoModule } from '@components/seo/seo.module';
+import { AuthorSmallModule } from '@components/author-small/author-small.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -31,12 +32,12 @@ import { SeoModule } from '@components/seo/seo.module';
     TableOfContentsModule,
     CommentsModule,
     ComingSoonModule,
-    AuthorCardModule,
     RouterModule,
     NizInlineSvgModule,
     NizChipModule,
     PipesModule,
     SeoModule,
+    AuthorSmallModule,
   ],
 })
 export class BlogPostModule {}
