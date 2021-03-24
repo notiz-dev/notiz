@@ -1,0 +1,15 @@
+<dl>
+  <dt class="sr-only">Authors</dt>
+  <dd>
+    <a class="flex items-center space-x-4 group" [routerLink]="author.route">
+      <img
+        class="h-10 w-10 rounded-full group-hover:opacity-80"
+        [src]="author.img"
+        [alt]="author.title"
+      />
+      <span class="text-base font-medium leading-5 group-hover:text-primary">
+        {{ author.title }}
+      </span>
+    </a>
+  </dd>
+</dl>

@@ -8,6 +8,7 @@ import {
   NizChipModule,
   NizPrimaryButtonModule,
 } from '@notiz/ngx-design';
+import { AuthorSmallModule } from '@components/author-small/author-small.module';
 
 @NgModule({
   declarations: [FeaturedComponent],
@@ -19,6 +20,7 @@ import {
     PipesModule,
     NizInlineSvgModule,
     NizPrimaryButtonModule,
+    AuthorSmallModule,
   ],
 })
 export class FeaturedModule {}

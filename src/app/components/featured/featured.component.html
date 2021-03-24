@@ -40,18 +40,5 @@
     </niz-chip>
   </div>
 
-  <a
-    *ngIf="author$ | async as author"
-    class="flex items-center space-x-4 group"
-    [routerLink]="author.route"
-  >
-    <img
-      class="h-12 w-12 rounded-full group-hover:opacity-80"
-      [src]="author.img"
-      [alt]="author.title"
-    />
-    <span class="text-lg font-semibold leading-8 group-hover:text-primary">
-      {{ author.title }}
-    </span>
-  </a>
+  <niz-author-small [author]="author$ | async"></niz-author-small>
 </div>
