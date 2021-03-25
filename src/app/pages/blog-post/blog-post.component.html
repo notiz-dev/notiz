@@ -16,7 +16,13 @@
   <div class="max-w-container space-y-4">
     <header class="space-y-4">
       <app-breadcrumb></app-breadcrumb>
-      <div class="prose max-w-none md:prose-lgspace-y-1">
+    </header>
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
+    >
+      <div
+        class="max-w-none content md:col-span-2 lg:col-span-3 space-y-2"
+      >
         <dl>
           <div>
             <dt class="sr-only">Published at</dt>
@@ -28,22 +34,17 @@
           </div>
         </dl>
 
-        <h1>
+        <h1 class="text-4xl font-bold md:text-5xl">
           {{ route.title }}
         </h1>
 
         <p class="text-lg md:text-2xl">
           {{ route.description }}
         </p>
-      </div>
-    </header>
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
-    >
-      <div
-        class="prose prose-toc max-w-none md:prose-lg md:col-span-2 lg:col-span-3"
-      >
-        <scully-content></scully-content>
+
+        <div shortcodes>
+          <scully-content></scully-content>
+        </div>
       </div>
       <div class="order-first md:order-none">
         <div class="sticky top-32 space-y-4">

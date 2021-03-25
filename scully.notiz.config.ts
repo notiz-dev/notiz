@@ -6,6 +6,8 @@ import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
 import './projects/amp';
+import '@notiz/shortcodes/plugin/plugin';
+
 import {
   getSitemapPlugin,
   SitemapConfig,
@@ -17,6 +19,7 @@ const defaultPostRenderers = [
   'lazyImages',
   'mediumZoom',
   'copyStaticContent',
+  'shortcodes',
 ];
 
 const SitemapPlugin = getSitemapPlugin();
