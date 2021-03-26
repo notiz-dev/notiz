@@ -5,7 +5,8 @@
   robots="nofollow, noindex"
 ></niz-seo>
 
-<div class="prose max-w-container mt-10 md:prose-lg">
+<div class="prose container mt-8 space-y-6">
+  <app-breadcrumb></app-breadcrumb>
   <h1 *ngIf="page$ | async as page">{{ page.title }}</h1>
   <scully-content></scully-content>
 </div>

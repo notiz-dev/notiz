@@ -5,7 +5,6 @@ import '@notiz/scully-plugin-fouc';
 import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
-import './projects/amp';
 import '@notiz/shortcodes/plugin/plugin';
 
 import {
@@ -47,11 +46,6 @@ const sitemapConfig: SitemapConfig = {
       priority: '0.9',
       sitemapFilename: 'sitemap-blog.xml',
     },
-    '/links/:slug': {
-      changeFreq: 'daily',
-      priority: '0.9',
-      sitemapFilename: 'sitemap-links.xml',
-    },
     '/tags/:slug': {
       changeFreq: 'daily',
       priority: '0.9',
@@ -71,13 +65,6 @@ export const config: ScullyConfig = {
       type: 'contentFolder',
       slug: {
         folder: './content/blog',
-      },
-      postRenderers: [...defaultPostRenderers, 'amp', 'bannerGenerator'],
-    },
-    '/links/:slug': {
-      type: 'contentFolder',
-      slug: {
-        folder: './content/links',
       },
       postRenderers: [...defaultPostRenderers, 'bannerGenerator'],
     },

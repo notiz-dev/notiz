@@ -1,0 +1,34 @@
+<h2 class="text-xl font-semibold">Table of Contents</h2>
+<span
+  class="cursor-pointer hover:text-primary"
+  [ngClass]="[headerClasses('h3')]"
+  *ngIf="(content.getCurrent() | async)?.route as route"
+  (click)="scrollToTop(route)"
+>
+  Top of Page
+</span>
+<ng-container *ngFor="let header of headers$ | async">
+  <span
+    class="cursor-pointer hover:text-primary"
+    [ngClass]="[headerClasses(header.localName), active(route, header.id)]"
+    *ngIf="(content.getCurrent() | async)?.route as route"
+    (click)="scrollTo(route, header.id)"
+  >
+    {{ header.innerHTML }}
+  </span>
+</ng-container>
+<span
+  class="cursor-pointer hover:text-primary"
+  [ngClass]="[headerClasses('h3')]"
+  (click)="scrollToRelated()"
+>
+  
+Comments
+</span>
+<span
+  class="cursor-pointer hover:text-primary"
+  [ngClass]="[headerClasses('h3')]"
+  (click)="scrollToRelated()"
+>
+  Related Articles
+</span>

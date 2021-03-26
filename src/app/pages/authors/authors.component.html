@@ -3,14 +3,15 @@
   description="All authors writing on notiz.dev"
 ></niz-seo>
 
-<div class="max-w-container space-y-5 mt-10">
-  <h1 class="text-4xl font-bold md:text-5xl">Authors</h1>
+<div class="container mt-8 space-y-6">
+  <app-breadcrumb></app-breadcrumb>
+  <h1>Authors</h1>
   <p class="text-lg text-color-light sm:text-xl md:text-2xl">
     See who's writing on notiz.dev
   </p>
 
   <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
-    <app-author
+    <app-author class="h-full"
       *ngFor="let link of authors$ | async"
       [author]="link"
     ></app-author>

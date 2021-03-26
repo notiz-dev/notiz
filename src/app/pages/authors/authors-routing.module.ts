@@ -6,20 +6,21 @@ import { AuthorComponent } from '@pages/author/author.component';
 import { IsAvailable } from 'src/app/guards/available.guard';
 
 const routes: Routes = [
-  { path: '', component: AuthorsComponent },
+  { path: '', component: AuthorsComponent, data: { breadcrumb: '' } },
   {
     path: ':slug',
     component: AuthorComponent,
-    canActivate: [IsAvailable]
+    canActivate: [IsAvailable],
+    data: { breadcrumb: (data) => data.title },
   },
   {
     path: '**',
-    component: AuthorComponent
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AuthorsRoutingModule {}

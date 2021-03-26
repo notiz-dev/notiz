@@ -1,8 +1,8 @@
-<niz-navbar>
-  <niz-toolbar class="px-4 xl:px-0">
+<header class="container py-4">
+  <div class=" flex justify-between px-4 xl:px-0">
     <div start class="flex flex-row space-x-8 items-center">
       <a
-        class="flex items-center select-none space-x-2 rounded-md focus-ring focus:ring-inset"
+        class="flex items-center select-none space-x-2"
         [routerLink]="['/']"
       >
         <niz-inline-svg
@@ -75,14 +75,14 @@
         ></niz-inline-svg>
       </button>
     </div>
-  </niz-toolbar>
-</niz-navbar>
+  </div>
+</header>
 
 <main class="pt-10">
   <router-outlet></router-outlet>
 </main>
 
-<app-newsletter-signup #newsletter class="mt-10"></app-newsletter-signup>
+<app-newsletter-signup #newsletter class="mt-8"></app-newsletter-signup>
 <niz-footer
   class="my-10"
   [footerSections]="footerSections"

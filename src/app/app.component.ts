@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
   }
 
   scrollToNewsletter() {
-    this.newsletter.focus();
+    this.newsletter.input.nativeElement.focus();
     this.sa.event('newsletter_focus_click');
   }
 

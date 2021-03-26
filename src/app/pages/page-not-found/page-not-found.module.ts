@@ -6,6 +6,7 @@ import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [PageNotFoundComponent],
@@ -15,6 +16,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     ComponentsModule,
     NewsletterSignupModule,
     SeoModule,
+    BreadcrumbModule
   ],
 })
 export class PageNotFoundModule {}

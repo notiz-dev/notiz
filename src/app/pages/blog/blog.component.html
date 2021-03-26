@@ -2,26 +2,27 @@
   title="Latest articles - notiz"
   description="Latest articles on notiz.dev featuring Angular, Nestjs, Web Components and more"
 ></niz-seo>
+<article class="container mt-8 space-y-6">
+  <app-breadcrumb></app-breadcrumb>
 
-<article
-  class="max-w-container flex flex-col space-y-5 mt-10 md:flex-row md:space-y-0 md:space-x-5"
->
-  <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
-    <header>
-      <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">All Posts</h1>
-    </header>
-    <div class="flex flex-wrap">
-      <app-article
-        *ngFor="let blogPost of blogPosts$ | async"
-        [route]="blogPost"
-      >
-      </app-article>
+  <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+    <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
+      <h1 class="text-3xl">Posts</h1>
+      <div class="flex flex-wrap">
+        <app-article
+          *ngFor="let blogPost of blogPosts$ | async"
+          [route]="blogPost"
+        >
+        </app-article>
+      </div>
     </div>
-  </div>
-  <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
-    <h2 class="text-2xl font-semibold">
-      <a routerLink="/tags">Tags</a>
-    </h2>
-    <app-tags-view limit="18" [tags]="tags$"></app-tags-view>
+    <div
+      class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0"
+    >
+      <a routerLink="/tags">
+        <h2 class="text-2xl font-semibold">Tags</h2>
+      </a>
+      <app-tags-view limit="18" [tags]="tags$"></app-tags-view>
+    </div>
   </div>
 </article>

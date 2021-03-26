@@ -236,7 +236,7 @@ Add the following snippet to your `src/app.component.html` to see if Tailwind st
 
 
 ```html
-<div class="max-w-sm mx-auto mt-10 rounded overflow-hidden shadow-lg space-y-4">
+<div class="max-w-sm mx-auto mt-8 rounded overflow-hidden shadow-lg space-y-4">
   <img
     class="h-64 w-full object-cover object-center"
     src="https://source.unsplash.com/random"

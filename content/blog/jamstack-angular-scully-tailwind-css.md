@@ -380,7 +380,7 @@ Important to note you have to import `ScullyLibModule` in your `blogs.module.ts`
 Add your blog name and loop over all posts in your template
 
 ```html
-<div class="pt-6 pb-8 space-y-2 md:space-y-5">
+<div class="pt-6 pb-8 space-y-2 md:space-y-4">
   <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-yellow-400 to-yellow-200 tracking-tight sm:text-4xl md:text-6xl">Company Blog</h1>
   <p class="text-lg leading-7 text-gray-500">All the latest Company news.</p>
 </div>
@@ -394,7 +394,7 @@ Add your blog name and loop over all posts in your template
           <time [dateTime]="post.publishedAt"> {{ post.publishedAt | date: "dd MMMM yyyy" }} </time>
         </dd>
       </dl>
-      <div class="space-y-5 xl:col-span-3">
+      <div class="space-y-4 xl:col-span-3">
         <div class="space-y-6">
           <h2 class="text-2xl leading-8 font-bold tracking-tight">
             <a [routerLink]="post.route" class="text-gray-900 hover:text-gray-700"> {{ post.title }} </a>

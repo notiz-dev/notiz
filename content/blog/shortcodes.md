@@ -19,11 +19,16 @@ github: https://github.com/garygrossgarten/shortcodes
 
 ## Notes 
 
-<div shortcode="note" title="Info Note">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
+<div shortcode="note" title="Info Note">  
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
+
+* A
+* B
+* C
 </div>
 
-<div shortcode="note" type="success" title="Success Note">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
+<div shortcode="note" type="success" title="Success Note">  Lorem ipsum dolor **sit amet** consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
 </div>
 
-<div shortcode="note" type="warn" title="Warn Note">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
+<div shortcode="note" type="warn" title="Warn Note">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique *veniam*.
 </div>

@@ -12,9 +12,9 @@
   [authorUserName]="author.twitter"
 ></niz-seo>
 
-<div class="max-w-container space-y-5 mt-10">
-  <app-breadcrumb></app-breadcrumb>
-  <h1 *ngIf="author$ | async as author" class="text-2xl text-semibold">
+<div class="container mt-8 space-y-6">
+  <app-breadcrumb *ngIf="author$ | async as author" [data]="author"></app-breadcrumb>
+  <h1 *ngIf="author$ | async as author">
     More about the author
   </h1>
   <div
@@ -44,38 +44,33 @@
     </div>
 
     <div class="space-x-2" *ngIf="author$ | async as author">
-      <niz-chip size="xl">
-        <a
-          class="flex items-center space-x-2"
-          href="https://twitter.com/{{ author.twitter }}"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <niz-inline-svg
-            class="h-4 w-4"
-            svgSource="assets/img/twitter-white.svg"
-          ></niz-inline-svg>
-          <span>@{{ author.twitter }}</span>
-        </a>
-      </niz-chip>
-      <niz-chip size="xl">
-        <a
-          class="flex items-center space-x-2"
-          href="https://github.com/{{ author.github }}"
-          target="_blank"
-          rel="noreferrer"
-          ><niz-inline-svg
-            class="h-4 w-4"
-            svgSource="assets/stack/github.svg"
-          ></niz-inline-svg>
-          <span>@{{ author.github }}</span>
-        </a>
-      </niz-chip>
+      <a
+        class="chip space-x-2"
+        href="https://twitter.com/{{ author.twitter }}"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <niz-inline-svg
+          class="h-4 w-4"
+          svgSource="assets/img/twitter-white.svg"
+        ></niz-inline-svg>
+        <span>@{{ author.twitter }}</span>
+      </a>
+      <a
+        class="chip space-x-2"
+        href="https://github.com/{{ author.github }}"
+        target="_blank"
+        rel="noreferrer"
+        ><niz-inline-svg
+          class="h-4 w-4"
+          svgSource="assets/stack/github.svg"
+        ></niz-inline-svg>
+        <span>@{{ author.github }}</span>
+      </a>
     </div>
   </div>
 </div>
-<div class="mx-auto flex">
-  <app-card-stack
+  <app-card-stack class="mt-12"
     *ngIf="author$ | async as author"
     title="Latest Articles"
     [subtitle]="'Latest posts by ' + author.title"
@@ -90,10 +85,9 @@
       <app-coming-soon></app-coming-soon>
     </div>
   </app-card-stack>
-</div>
 
 <div
-  class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10 max-w-screen-xl mx-auto px-5"
+  class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-8 max-w-screen-xl mx-auto px-5"
 >
   <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold">Recently Updated</h2>
@@ -106,9 +100,11 @@
     </div>
   </div>
   <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
+    <a routerLink="/tags">
     <h2 class="text-2xl font-semibold">
-      <a routerLink="/tags">Tags</a>
+      Tags
     </h2>
+  </a>
     <app-tags-view limit="18" [tags]="authorTags$"></app-tags-view>
   </div>
 </div>

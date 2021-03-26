@@ -1,16 +1,10 @@
 :host {
-  @apply flex;
-  @apply flex-col;
-  @apply w-full;
+  @apply flex flex-col w-full;
 }
 
 .featured:hover {
-  h2 span {
+  h2 {
     @apply text-primary;
-  }
-
-  .icon {
-    @apply inline-flex;
   }
 }
 
@@ -27,9 +21,6 @@
   .backdrop {
     @apply opacity-75;
   }
-}
-.icon {
-  @apply h-8 w-8 hidden text-primary;
 }
 
 .gradient {

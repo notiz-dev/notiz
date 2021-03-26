@@ -6,11 +6,11 @@ publishedAt: 2020-03-25T18:08:00.000Z
 updatedAt: 2020-03-25T18:08:00.000Z
 ---
 
-### Contact
+## Contact
 
 notiz.dev (Gary Großgarten, Marc Stammerjohann)  
 Email: [hi@notiz.dev](mailto:hi@notiz.dev)
-### Privacy
+## Privacy
 
 The operator of this website takes the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the data protection regulations and this privacy policy.
 
@@ -18,13 +18,13 @@ The use of our website is generally possible without providing personal data. As
 
 We would like to point out that data transmission over the Internet (e.g. communication by e-mail) can have security gaps. A complete protection of data against access by third parties is not possible.
 
-### Newsletter
+## Newsletter
 
 If you would like to subscribe to the newsletter offered on the website, we require an e-mail address from you as well as information that allows us to verify that you are the owner of the e-mail address provided and that you agree to receive the newsletter. Further data will not be collected. We use this data exclusively for the dispatch of the requested information and do not pass them on to third parties.
 
 You can revoke your consent to the storage of the data, the e-mail address and its use for sending the newsletter at any time, for example via the “unsubscribe” link in the newsletter.
 
-### SSL encryption
+## SSL encryption
 
 This site uses SSL encryption for security reasons and to protect the transmission of confidential content, such as requests you send to us as a site operator. You can recognize an encrypted connection by the fact that the address line of the browser changes from “http://” to “https://” and by the lock symbol in your browser line.
 

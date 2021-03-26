@@ -3,11 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsletterSignupComponent } from './newsletter-signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  NizPrimaryButtonModule,
-  NizInputModule,
-  NizInlineSvgModule,
-} from '@notiz/ngx-design';
+import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
+
 
 @NgModule({
   declarations: [NewsletterSignupComponent],
@@ -16,8 +13,6 @@ import {
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    NizPrimaryButtonModule,
-    NizInputModule,
     NizInlineSvgModule,
   ],
   exports: [NewsletterSignupComponent],

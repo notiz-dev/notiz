@@ -57,13 +57,9 @@
               "src/assets",
               "src/manifest.webmanifest"
             ],
-            "styles": ["src/styles.scss", "src/theme/variables.scss"],
+            "styles": ["src/styles.scss"],
             "scripts": [
-              "node_modules/marked/lib/marked.js",
-              "dist/shortcodes/main-es5.js",
-              "dist/shortcodes/main-es2015.js",
-              "dist/shortcodes/polyfills-es5.js",
-              "dist/shortcodes/polyfills-es2015.js"
+              "node_modules/marked/lib/marked.js"
             ]
           },
           "configurations": {
@@ -165,77 +161,39 @@
         }
       }
     },
-    "design": {
-      "projectType": "library",
-      "root": "projects/design",
-      "sourceRoot": "projects/design/src",
-      "prefix": "niz",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/design/tsconfig.lib.json",
-            "project": "projects/design/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/design/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/design/src/test.ts",
-            "tsConfig": "projects/design/tsconfig.spec.json",
-            "karmaConfig": "projects/design/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/design/tsconfig.lib.json",
-              "projects/design/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        }
-      }
-    },
-    "shortcodes": {
+    "elements": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/shortcodes",
-      "sourceRoot": "projects/shortcodes/src",
+      "root": "projects/elements",
+      "sourceRoot": "projects/elements/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/shortcodes",
-            "index": "projects/shortcodes/src/index.html",
-            "main": "projects/shortcodes/src/main.ts",
-            "polyfills": "projects/shortcodes/src/polyfills.ts",
-            "tsConfig": "projects/shortcodes/tsconfig.app.json",
+            "outputPath": "dist/elements",
+            "index": "projects/elements/src/index.html",
+            "main": "projects/elements/src/main.ts",
+            "polyfills": "projects/elements/src/polyfills.ts",
+            "tsConfig": "projects/elements/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/shortcodes/src/favicon.ico",
-              "projects/shortcodes/src/assets"
+              "projects/elements/src/favicon.ico",
+              "projects/elements/src/assets"
             ],
-            "styles": ["src/styles.scss", "src/theme/variables.scss"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/shortcodes/src/environments/environment.ts",
-                  "with": "projects/shortcodes/src/environments/environment.prod.ts"
+                  "replace": "projects/elements/src/environments/environment.ts",
+                  "with": "projects/elements/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -263,32 +221,32 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shortcodes:build"
+            "browserTarget": "elements:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shortcodes:build:production"
+              "browserTarget": "elements:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shortcodes:build"
+            "browserTarget": "elements:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/shortcodes/src/test.ts",
-            "polyfills": "projects/shortcodes/src/polyfills.ts",
-            "tsConfig": "projects/shortcodes/tsconfig.spec.json",
-            "karmaConfig": "projects/shortcodes/karma.conf.js",
+            "main": "projects/elements/src/test.ts",
+            "polyfills": "projects/elements/src/polyfills.ts",
+            "tsConfig": "projects/elements/tsconfig.spec.json",
+            "karmaConfig": "projects/elements/karma.conf.js",
             "assets": [
-              "projects/shortcodes/src/favicon.ico",
-              "projects/shortcodes/src/assets"
+              "projects/elements/src/favicon.ico",
+              "projects/elements/src/assets"
             ],
-            "styles": ["projects/shortcodes/src/styles.scss"],
+            "styles": ["projects/elements/src/styles.scss"],
             "scripts": []
           }
         },
@@ -296,9 +254,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/shortcodes/tsconfig.app.json",
-              "projects/shortcodes/tsconfig.spec.json",
-              "projects/shortcodes/e2e/tsconfig.json"
+              "projects/elements/tsconfig.app.json",
+              "projects/elements/tsconfig.spec.json",
+              "projects/elements/e2e/tsconfig.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -306,12 +264,12 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/shortcodes/e2e/protractor.conf.js",
-            "devServerTarget": "shortcodes:serve"
+            "protractorConfig": "projects/elements/e2e/protractor.conf.js",
+            "devServerTarget": "elements:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "shortcodes:serve:production"
+              "devServerTarget": "elements:serve:production"
             }
           }
         }

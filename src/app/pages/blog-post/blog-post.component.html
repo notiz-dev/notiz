@@ -12,79 +12,66 @@
   [articleAuthors]="authors$ | async | mapPostAuthors"
 ></niz-seo>
 
-<article class="mt-10 max-w-screen-xl mx-auto" *ngIf="post$ | async as route">
-  <div class="max-w-container space-y-4">
-    <header class="space-y-4">
-      <app-breadcrumb></app-breadcrumb>
-    </header>
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
-    >
-      <div
-        class="max-w-none content md:col-span-2 lg:col-span-3 space-y-2"
-      >
-        <dl>
-          <div>
-            <dt class="sr-only">Published at</dt>
-            <dd class="text-base leading-6 font-medium text-color-light">
-              <time [dateTime]="route.publishedAt">
-                {{ route.publishedAt | date: 'dd MMMM yyyy' }}
-              </time>
-            </dd>
-          </div>
-        </dl>
+<article class="container mt-8 space-y-6" *ngIf="post$ | async as route">
+  <app-breadcrumb [data]="route"></app-breadcrumb>
+  <div class="space-y-6 max-w-3xl">
+    <h1>
+      {{ route.title }}
+    </h1>
 
-        <h1 class="text-4xl font-bold md:text-5xl">
-          {{ route.title }}
-        </h1>
-
-        <p class="text-lg md:text-2xl">
-          {{ route.description }}
-        </p>
-
-        <div shortcodes>
-          <scully-content></scully-content>
-        </div>
-      </div>
-      <div class="order-first md:order-none">
-        <div class="sticky top-32 space-y-4">
-          <niz-toc></niz-toc>
-          <div>
-            <h2 class="text-xl font-semibold">Tags</h2>
-            <niz-chip
-              class="mb-1 mr-1 gradient"
-              *ngFor="let tag of route.tags | slice: 0:3"
-              size="xl"
-            >
-              <a [routerLink]="'/tags/' + (tag | dash | lowercase)">
-                {{ tag }}
-              </a>
-            </niz-chip>
-          </div>
-        </div>
-      </div>
+    <p class="text-lg md:text-2xl">
+      {{ route.description }}
+    </p>
+    <div class="flex justify-between items-center">
+      <niz-author-small [author]="(authors$ | async)[0]"></niz-author-small>
+      <dl>
+        <dt class="sr-only">Published at</dt>
+        <dd class="text-base font-medium text-color-light">
+          <time [dateTime]="route.publishedAt">
+            {{ route.publishedAt | date: 'dd MMMM yyyy' }}
+          </time>
+        </dd>
+      </dl>
     </div>
-    <div class="space-y-4">
-      <h2 class="ml-2 text-2xl">
-        {{ (authors$ | async)?.length > 1 ? 'Authors' : 'Author' }}
-      </h2>
+  </div>
 
-      <app-author [author]="(authors$ | async)[0]"></app-author>
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
+  >
+    <div shortcodes class="max-w-3xl prose md:col-span-2 lg:col-span-3">
+      <scully-content></scully-content>
+
+      <app-comments [route]="post$ | async"></app-comments>
+    </div>
+    <div class="order-first md:order-none">
+      <div class="sticky top-32 space-y-4 flex flex-col">
+        <niz-toc></niz-toc>
+        <div class="space-y-4 flex flex-col">
+          <h2 class="text-xl font-semibold">Tags</h2>
+          <div>
+            <a
+              [routerLink]="'/tags/' + (tag | dash | lowercase)"
+              class="chip mb-1 mr-1 gradient"
+              *ngFor="let tag of route.tags | slice: 0:3"
+            >
+              {{ tag }}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </article>
 
-<div class="mx-auto flex">
-  <app-card-stack
-    title="Related Posts"
-    subtitle="Find more posts like this one."
-  >
-    <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
-      <app-article class="stacked" [route]="blogPost"></app-article>
-    </div>
-    <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
-      <app-coming-soon></app-coming-soon>
-    </div>
-  </app-card-stack>
-</div>
-<app-comments class="my-5" [route]="post$ | async"></app-comments>
+<app-card-stack
+  class="mt-12"
+  title="Related Posts"
+  subtitle="Find more posts like this one."
+>
+  <div class="card" *ngFor="let blogPost of related$ | async | slice: 0:8">
+    <app-article class="stacked" [route]="blogPost"></app-article>
+  </div>
+  <div class="card" *ngIf="(related$ | async | slice: 0:8)?.length < 7">
+    <app-coming-soon></app-coming-soon>
+  </div>
+</app-card-stack>

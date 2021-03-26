@@ -8,20 +8,13 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MarkdownModule } from 'ngx-markdown';
-import {
-  NizTabsModule,
-  NizTabModule,
-  NizNavbarModule,
-  NizToolbarModule,
-  NizInlineSvgModule,
-  NizToastModule,
-  NizMenuModule,
-} from '@notiz/ngx-design';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { NizSearchComponentModule } from '@components/search/search.module';
 import { PipesModule } from '@pipes/pipes.module';
 import { NizFooterModule } from '@components/footer/footer.module';
 import { ShortcodeModule } from '@notiz/shortcodes';
+import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
+import { NizMenuModule } from '@components/menu/menu.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,16 +27,11 @@ import { ShortcodeModule } from '@notiz/shortcodes';
       enabled: environment.production,
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
-    NizTabsModule,
-    NizTabModule,
     NizFooterModule,
-    NizNavbarModule,
-    NizToolbarModule,
     NizInlineSvgModule,
     NewsletterSignupModule,
     NizSearchComponentModule,
     PipesModule,
-    NizToastModule,
     NizMenuModule,
     ShortcodeModule.forRoot([
       {

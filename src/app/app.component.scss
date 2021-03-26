@@ -3,7 +3,7 @@
 }
 
 .router-link {
-  @apply relative text-lg font-semibold h-6 select-none rounded-md hover:text-primary focus:outline-none focus:ring focus:ring-primary;
+  @apply relative text-lg font-semibold h-6 select-none rounded-md hover:text-primary focus:outline-none;
 }
 
 .router-link-active {

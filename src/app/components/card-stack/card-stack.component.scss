@@ -1,14 +1,13 @@
 :host {
-  @apply flex items-center  pl-10 py-4 mx-auto;
-  max-width: calc(100vw - 6px);
+  @apply flex w-full pt-4 pb-8 md:pl-20 bg-canvas-light rounded-tl-xl rounded-br-xl;
 }
 
 .title-card {
-  width: 64px;
-  flex: 0 0 64px;
+  width: 82px;
+  flex: 0 0 82px;
   display: flex;
 
-  h2 {
+  h3 {
     transform: rotateZ(180deg);
     writing-mode: tb-rl;
   }
@@ -18,7 +17,7 @@
   .title-card {
     width: 240px;
     flex: 0 0 240px;
-    h2 {
+    h3 {
       transform: rotateZ(0deg);
       writing-mode: lr;
     }
@@ -35,7 +34,11 @@
     app-article {
       @apply h-full;
 
-      h2 {
+      .article-card {
+        @apply p-4;
+      }
+
+      h3 {
         @apply min-h-24;
       }
 

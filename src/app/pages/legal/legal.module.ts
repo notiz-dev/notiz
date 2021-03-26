@@ -6,6 +6,7 @@ import { LegalRoutingModule } from './legal-routing.module';
 import { ScullyContentModule } from '@scullyio/ng-lib';
 import { ComponentsModule } from '@components/components.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [LegalComponent],
@@ -16,6 +17,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
     ComponentsModule,
     NewsletterSignupModule,
     SeoModule,
+    BreadcrumbModule
   ],
 })
 export class LegalModule {}
