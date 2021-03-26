@@ -43,6 +43,8 @@ body.dark {
   --code-class: theme('colors.yellow.300');
   --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
+
+  --hot-toast-bg: theme('colors.canvas.shade');
 }
 
 body:not(.dark) {
@@ -63,6 +65,8 @@ body:not(.dark) {
   --code-class: theme('colors.yellow.500');
   --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
+
+  --hot-toast-bg: theme('colors.canvas.light');
 }
 
 * {
@@ -71,6 +75,22 @@ body:not(.dark) {
 
 body {
   @apply bg-canvas text-color overflow-x-hidden;
+
+  --hot-toast-color: theme('colors.color');
+  --hot-toast-shadow: theme('boxShadow.lg');
+  --hot-toast-border-radius: theme('borderRadius.md');
+
+  .hot-toast-icon {
+    @apply self-auto pt-0 #{!important};
+  }
+
+  .hot-toast-error-icon {
+    --error-primary: theme('colors.red.500') !important;
+  }
+
+  .hot-toast-checkmark-icon {
+    --check-primary: theme('colors.green.500') !important;
+  }
 }
 
 .card {
