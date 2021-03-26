@@ -10,6 +10,7 @@ import {
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -26,7 +27,8 @@ export class NewsletterSignupComponent implements OnInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     public element: ElementRef<HTMLElement>,
-    private sa: SimpleAnalyticsService
+    private sa: SimpleAnalyticsService,
+    private toast: HotToastService
   ) {
     this.setupForm();
   }
@@ -45,13 +47,16 @@ export class NewsletterSignupComponent implements OnInit {
       return this.http
         .post(`${environment.api}/subscribe`, this.newsletterSignup.value)
         .pipe(
+          this.toast.observe({
+            loading: 'Signing you up...',
+            success: 'Successfully signed up. Thank you!',
+            error: 'Oh no, something went wrong! Please try again.',
+          }),
           tap(() => {
             this.sa.event('newsletter_subscribed');
           })
         )
-        .subscribe();
+        .subscribe({ complete: () => this.newsletterSignup.reset() });
     }
-    this.sa.event('newsletter_submit_without_email');
   }
-
 }

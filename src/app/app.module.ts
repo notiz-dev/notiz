@@ -15,6 +15,7 @@ import { NizFooterModule } from '@components/footer/footer.module';
 import { ShortcodeModule } from '@notiz/shortcodes';
 import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { NizMenuModule } from '@components/menu/menu.module';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +41,13 @@ import { NizMenuModule } from '@components/menu/menu.module';
           import('./shortcodes/note/note.module').then((m) => m.NoteModule),
       },
     ]),
+    HotToastModule.forRoot({
+      position: 'bottom-center',
+      iconTheme: {
+        primary: 'var(--primary)',
+        secondary: '#F9FAFB'
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
