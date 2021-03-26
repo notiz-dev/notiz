@@ -145,7 +145,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     if (header === 'h2') {
       return 'text-lg text-semibold';
     } else if (header === 'h3') {
-      return 'text-base';
+      return 'text-base ml-3';
     }
   }
 }

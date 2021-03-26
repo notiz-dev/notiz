@@ -122,6 +122,7 @@ ol {
 
 ul,
 ol {
+  @apply list-inside;
   li:before {
     @apply text-primary;
   }
@@ -152,7 +153,7 @@ blockquote {
   }
 
   img {
-    @apply mx-auto max-w-xl;
+    @apply mx-auto w-xl max-w-full;
   }
 }
 

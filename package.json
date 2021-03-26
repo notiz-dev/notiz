@@ -40,7 +40,7 @@
     "@angular/platform-browser-dynamic": "11.2.2",
     "@angular/router": "11.2.2",
     "@angular/service-worker": "11.2.2",
-    "@notiz/shortcodes": "0.0.9",
+    "@notiz/shortcodes": "0.1.0",
     "@scullyio/init": "1.1.1",
     "@scullyio/ng-lib": "1.1.0",
     "@scullyio/scully": "1.1.0",
