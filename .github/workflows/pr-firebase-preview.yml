@@ -38,7 +38,9 @@ jobs:
       - name: Build Angular prod
         run: npm run build:prod
       - name: Build Scully CI
-        run: npm run scully:ci
+        run: |
+        npm run scully:ci
+        npm run scully:ci
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
