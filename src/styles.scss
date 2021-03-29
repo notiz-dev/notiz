@@ -3,6 +3,7 @@
 @import 'prismjs/themes/prism-tomorrow';
 @import 'prismjs/plugins/toolbar/prism-toolbar';
 @import 'prismjs/plugins/diff-highlight/prism-diff-highlight';
+@import 'code';
 
 @import 'tailwindcss/components';
 /* purgecss end ignore */
@@ -44,6 +45,11 @@ body.dark {
   --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
 
+  --markup-deleted-text: theme('colors.red.300');
+  --markup-deleted-canvas: theme('colors.red.800');
+  --markup-inserted-text: theme('colors.green.300');
+  --markup-inserted-canvas: theme('colors.green.800');
+
   --hot-toast-bg: theme('colors.canvas.shade');
 }
 
@@ -65,6 +71,11 @@ body:not(.dark) {
   --code-class: theme('colors.yellow.500');
   --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
+
+  --markup-deleted-text: theme('colors.red.800');
+  --markup-deleted-canvas: theme('colors.red.300');
+  --markup-inserted-text: theme('colors.green.800');
+  --markup-inserted-canvas: theme('colors.green.300');
 
   --hot-toast-bg: theme('colors.canvas.light');
 }
@@ -200,45 +211,6 @@ blockquote {
 }
 .theme niz-inline-svg {
   transition: transform 150ms ease;
-}
-
-// markdown
-code[class*='language-'] {
-  @apply text-color;
-}
-
-pre[class*='language-'] {
-  @apply p-6 rounded-xl bg-canvas-shade;
-}
-
-.token.boolean,
-.token.function,
-.token.number {
-  color: var(--code-function);
-}
-
-.token.attr-value,
-.token.char,
-.token.regex,
-.token.string,
-.token.variable {
-  color: var(--code-variable);
-}
-.token.class-name,
-.token.constant,
-.token.property,
-.token.symbol {
-  color: var(--code-class);
-}
-
-.token.keyword {
-  color: var(--code-keyword);
-}
-.token.comment {
-  color: var(--code-comment);
-}
-.token.punctuation {
-  @apply text-color;
 }
 
 .medium-zoom-overlay {
