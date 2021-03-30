@@ -1,11 +1,15 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  purge: [
-    './src/**/*.{html,ts}',
-    './projects/design/**/*.{html,ts}',
-    './projects/shortcodes/**/*.{html,ts}',
-  ],
+  purge: {
+    layers: ['components', 'utilities'],
+    content: [
+      './src/**/*.{html,ts}',
+      './projects/design/**/*.{html,ts}',
+      './projects/shortcodes/**/*.{html,ts}',
+    ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -29,11 +33,11 @@ module.exports = {
           900: '#1a202c',
           950: '#141922',
         },
+        cyan: colors.cyan,
         orange: colors.orange,
         color: 'var(--text)',
         'color-light': 'var(--text-light)',
         'color-shade': 'var(--text-shade)',
-        code: 'var(--code)',
         canvas: {
           light: 'var(--canvas-light)',
           DEFAULT: 'var(--canvas)',
@@ -92,24 +96,24 @@ module.exports = {
         xl: '1200px',
       },
       minWidth: {
-        xxs: "16rem",
-        xs: "20rem",
-        sm: "24rem",
-        md: "28rem",
-        lg: "32rem",
-        xl: "36rem",
-        "2xl": "42rem",
-        "3xl": "48rem",
+        xxs: '16rem',
+        xs: '20rem',
+        sm: '24rem',
+        md: '28rem',
+        lg: '32rem',
+        xl: '36rem',
+        '2xl': '42rem',
+        '3xl': '48rem',
       },
       width: {
-        xxs: "16rem",
-        xs: "20rem",
-        sm: "24rem",
-        md: "28rem",
-        lg: "32rem",
-        xl: "36rem",
-        "2xl": "42rem",
-        "3xl": "48rem",
+        xxs: '16rem',
+        xs: '20rem',
+        sm: '24rem',
+        md: '28rem',
+        lg: '32rem',
+        xl: '36rem',
+        '2xl': '42rem',
+        '3xl': '48rem',
       },
     },
   },
@@ -119,11 +123,15 @@ module.exports = {
       borderWidth: ['hover'],
     },
   },
+  corePlugins: {
+    container: false,
+  },
   plugins: [
     require('@tailwindcss/line-clamp'),
     require('./tailwind/container'),
     require('./tailwind/min-w-container'),
     require('./tailwind/buttons'),
     require('./tailwind/chips'),
+    require('./tailwind/prism'),
   ],
 };
