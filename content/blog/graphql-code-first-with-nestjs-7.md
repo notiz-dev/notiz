@@ -127,7 +127,8 @@ export class Hobby {
   ...
 }
 ```
-</diiv>
+
+</div>
 
 Next we use the `@Field` decorator on each class property providing additional information about the type and state (required or optional).
 
@@ -470,7 +471,7 @@ export class Hobby {
 
 </div>
 
-<div shortcode="code" tabs="user.ts,hobby.ts">
+<div shortcode="note">
 Hiding properties from the schema requires the `@HideField` decorator.
 </div>
 
