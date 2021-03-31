@@ -1,5 +1,16 @@
 const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
+
+function cssVarRgbHelper(cssVariable) {
+  return ({ opacityVariable, opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(--${cssVariable}), ${opacityValue})`;
+    }
+    if (opacityVariable !== undefined) {
+      return `rgba(var(--${cssVariable}), var(${opacityVariable}, 1))`;
+    }
+    return `rgb(var(--${cssVariable}))`;
+  };
+}
 
 module.exports = {
   purge: {
@@ -17,20 +28,11 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         primary: {
-          light: 'var(--primary-light)',
-          DEFAULT: 'var(--primary)',
-          dark: 'var(--primary-dark)',
+          light: cssVarRgbHelper('primary-light'),
+          DEFAULT: cssVarRgbHelper('primary'),
+          dark: cssVarRgbHelper('primary-dark'),
         },
         gray: {
-          100: '#f7fafc',
-          200: '#edf2f7',
-          300: '#e2e8f0',
-          400: '#cbd5e0',
-          500: '#a0aec0',
-          600: '#718096',
-          700: '#4a5568',
-          800: '#2d3748',
-          900: '#1a202c',
           950: '#141922',
         },
         cyan: colors.cyan,

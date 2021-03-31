@@ -4,7 +4,7 @@
 
 @layer components {
   .focus-ring {
-    @apply focus:outline-none focus:ring focus:ring-primary;
+    @apply focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50;
   }
 }
 
@@ -18,9 +18,9 @@
 }
 
 body.dark {
-  --primary-light: #55f3de;
-  --primary: #55b9f3;
-  --primary-dark: #556af3;
+  --primary-light: 85, 243, 222;
+  --primary: 85, 185, 243;
+  --primary-dark: 85, 106, 243;
 
   --canvas: theme('colors.gray.950');
   --canvas-opac: #141922dd;
@@ -46,9 +46,10 @@ body.dark {
 }
 
 body:not(.dark) {
-  --primary-light: #55f3de;
-  --primary: #556af3;
-  --primary-dark: #55b9f3;
+  --primary-light: 85, 243, 222;
+  --primary: 85, 106, 243;
+  --primary-dark: 85, 185, 243;
+
   --canvas: theme('colors.gray.50');
   --canvas-opac: #edf2f7dd;
   --canvas-light: theme('colors.white');
@@ -71,8 +72,6 @@ body:not(.dark) {
 
   --hot-toast-bg: theme('colors.canvas.light');
 }
-
-
 
 body {
   @apply bg-canvas text-color overflow-x-hidden;
@@ -133,22 +132,6 @@ h4 {
   @apply font-medium text-lg;
 }
 
-ul {
-  @apply list-disc;
-}
-
-ol {
-  @apply list-decimal;
-}
-
-ul,
-ol {
-  @apply list-inside;
-  li:before {
-    @apply text-primary;
-  }
-}
-
 blockquote {
   @apply bg-blue-100 border-l-4 border-blue-800 px-4 py-6;
   p {
@@ -163,7 +146,10 @@ blockquote {
 
   h3,
   h4,
-  pre,
+  niz-code,
+  niz-github-repo,
+  niz-note,
+  niz-article-shortcode,
   img,
   blockquote {
     @apply mt-8 mb-4;
@@ -175,6 +161,22 @@ blockquote {
 
   img {
     @apply mx-auto w-xl max-w-full;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+  
+  ol {
+    @apply list-decimal;
+  }
+  
+  ul,
+  ol {
+    @apply list-inside;
+    li:before {
+      @apply text-primary;
+    }
   }
 }
 
