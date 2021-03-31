@@ -10,8 +10,6 @@ import { ScullyRoute } from '@scullyio/ng-lib';
 export class ArticleComponent implements OnInit {
   @Input() route: ScullyRoute;
 
-
-
   ngOnInit(): void {
    
   }

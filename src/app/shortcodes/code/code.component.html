@@ -1,0 +1,26 @@
+<nav class="flex justify-between py-2 px-3" aria-label="Tabs">
+  <div class="flex flex-wrap md:space-x-4">
+    <button
+      [ngClass]="{
+        'bg-canvas-light': index === i,
+        'text-primary': index === i,
+        'text-color-light': index !== i
+      }"
+      (click)="updateTab(i)"
+      *ngFor="let tab of _tabs; let i = index"
+      class="hover:text-primary px-3 py-2 font-medium text-sm rounded-xl focus:outline-none"
+    >
+      {{ tab.name }}
+    </button>
+  </div>
+
+  <button #copyButton (click)="copy()"
+    class="self-start hover:text-primary px-3 py-2 font-medium text-sm rounded-xl border border-primary focus:outline-none"
+  >
+    {{copyText}}
+  </button>
+</nav>
+<ng-template #codeblock *ngFor="let tab of _tabs; let i = index">
+    <div class="code-block" [innerHTML]="tab.content | sanitize"></div>
+  </ng-template>
+<ng-container *ngTemplateOutlet="content"></ng-container>

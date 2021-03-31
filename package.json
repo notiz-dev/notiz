@@ -40,7 +40,7 @@
     "@angular/platform-browser-dynamic": "11.2.2",
     "@angular/router": "11.2.2",
     "@angular/service-worker": "11.2.2",
-    "@notiz/shortcodes": "0.1.0",
+    "@notiz/shortcodes": "0.1.2",
     "@ngneat/hot-toast": "2.0.1",
     "@ngneat/overview": "1.0.0",
     "@scullyio/init": "1.1.1",

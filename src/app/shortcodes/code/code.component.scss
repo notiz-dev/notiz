@@ -1,0 +1,7 @@
+::ng-deep {
+  .code-block {
+    pre[class*='language-'] {
+      margin-top: 0;
+    }
+  }
+}

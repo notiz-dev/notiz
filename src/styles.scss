@@ -80,9 +80,7 @@ body:not(.dark) {
   --hot-toast-bg: theme('colors.canvas.light');
 }
 
-* {
-  @apply transition-colors duration-100 ease-in;
-}
+
 
 body {
   @apply bg-canvas text-color overflow-x-hidden;

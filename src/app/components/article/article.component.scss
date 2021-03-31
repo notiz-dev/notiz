@@ -9,7 +9,7 @@
 }
 
 .article-card {
-  @apply relative mb-6 mr-6 h-full bg-canvas-light hover:bg-canvas-shade rounded-lg py-5 px-4 transition-colors duration-100 ease-in;
+  @apply relative mb-6 mr-6 h-full bg-canvas-light hover:bg-canvas-shade rounded-lg py-5 px-4;
   .tags {
     @apply bg-canvas-shade;
   }

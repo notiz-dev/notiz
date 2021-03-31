@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {
+  NgModule,
+  CUSTOM_ELEMENTS_SCHEMA,
+  SecurityContext,
+} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +31,10 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
-    MarkdownModule.forRoot({ loader: HttpClient }),
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      sanitize: SecurityContext.NONE,
+    }),
     NizFooterModule,
     NizInlineSvgModule,
     NewsletterSignupModule,
@@ -36,16 +43,33 @@ import { HotToastModule } from '@ngneat/hot-toast';
     NizMenuModule,
     ShortcodeModule.forRoot([
       {
-        path: 'note',
+        shortcode: 'note',
         loadChildren: () =>
           import('./shortcodes/note/note.module').then((m) => m.NoteModule),
+      },
+      {
+        shortcode: 'article',
+        loadChildren: () =>
+          import('./shortcodes/article/article.module').then(
+            (m) => m.ArticleShortcodeModule
+          ),
+      },
+      {
+        shortcode: 'code',
+        loadChildren: () =>
+          import('./shortcodes/code/code.module').then((m) => m.CodeModule),
+      },
+      {
+        shortcode: 'repo',
+        loadChildren: () =>
+          import('./shortcodes/github-repo/github-repo.module').then((m) => m.GithubRepoModule),
       },
     ]),
     HotToastModule.forRoot({
       position: 'bottom-center',
       iconTheme: {
         primary: 'var(--primary)',
-        secondary: '#F9FAFB'
+        secondary: '#F9FAFB',
       },
     }),
   ],
