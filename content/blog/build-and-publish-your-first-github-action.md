@@ -220,8 +220,9 @@ Check if all requirements are checked and proceed to file the release.
 ![publish to marketplace](assets/img/blog/build-and-publish-your-first-github-action/optimized/release.png)
 
 </div>
- 
-Enter a **tag** and **release** title. Optionally specify a release description before clicking **Publish release**. 
+ <br>
+
+Enter a **tag** and **release** title. Optionally specify a release description before clicking **Publish release**.
 
 <div shortcode="note">
 
