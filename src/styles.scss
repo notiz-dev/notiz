@@ -1,4 +1,7 @@
 @import 'tailwindcss/base';
+/* purgecss start ignore */
+@import 'prismjs/themes/prism-tomorrow';
+/* purgecss end ignore */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
