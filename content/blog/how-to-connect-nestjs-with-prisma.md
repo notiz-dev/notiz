@@ -14,7 +14,7 @@ authors:
 github: 'https://github.com/notiz-dev/nestjs-prisma'
 ---
 
-[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/more/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
+[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/reference/database-reference/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
 
 [NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architecture and enables to create a REST and [GraphQL](https://graphql.org) backend.
 
@@ -53,7 +53,7 @@ Change your directory into the newly created Nest application and open up your p
 
 ## Step 2: Add Prisma 2.0
 
-[Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project) Prisma 2.0, create an empty `prisma.schema` file and install [prisma-client-js](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api) to your Nest application.
+[Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project-typescript-postgres) Prisma 2.0, create an empty `schema.prisma` file and install [Prisma Clint](https://www.prisma.io/docs/concepts/components/prisma-client) to your Nest application.
 
 <div shortcode="code" tabs="BASH">
 
@@ -68,7 +68,7 @@ npm install @prisma/client
 
 ## Step 3: Update Prisma datasource
 
-In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/schema.prisma` to `sqlite` and change the `url` environment to `file:./dev.db`. [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
+In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/schema.prisma` to `sqlite` and change the `url` environment to `file:./dev.db`. [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
 
 The `schema.prisma` should look like:
 
@@ -103,49 +103,52 @@ model User {
 
 </div>
 
-We are adding the above model to `prisma.schema` below the generator.
+We are adding the above model to `schema.prisma` below the generator.
 
-For more complex models check out Prisma's [data modeling](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-model) definition.
+For more complex models check out Prisma's [data modeling](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model) definition.
 
 ## Step 5: Create SQLite database with Migrate
 
-We are creating our first database migration using the Prisma Migrate [Preview](https://www.prisma.io/blog/prisma-migrate-preview-b5eno5g08d0b). To use Migrate during development use the new command
+We are creating our first database migration using the [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate). To use Migrate during development use the new command
 
 <div shortcode="code" tabs="BASH">
 
 ```bash
-npx prisma migrate dev --preview-feature
+npx prisma migrate dev
 ```
 
 </div>
 
 This creates a `migration.sql` file containing changes you made to the `schema.prisma`, updates the database schema and generates a new Prisma Client.
 
-<div shortcode="note">
-[Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) is considered in preview those we need to provide the `--preview-feature` flag.
-</div>
-
-Prisma Migrate is released as Preview since [v2.13](https://github.com/prisma/prisma/releases/tag/2.13.0). Upgrade to the latest Prisma version or you can use `save` and `up` command from the experimental version.
+Prisma Migrate has been released as stable with [v2.19](https://github.com/prisma/prisma/releases/tag/2.19.0). Upgrade to the latest Prisma version and you can use the following migrate commands.
 
 <div shortcode="code" tabs="BASH">
 
 ```bash
-# since v2.13
-npx prisma migrate dev --preview-feature
+# since v2.19
+npx prisma migrate <COMMAND>
 
-# before v2.13
-npx prisma migrate save --experimental
-
-npx prisma migrate up --experimental
+npx prisma migrate dev
+npx prisma migrate reset
+npx prisma migrate deploy
+npx prisma migrate resolve
+npx prisma migrate status
 ```
+
+</div>
+
+<div shortcode="note">
+
+[Hassle-Free Database Migrations with Prisma Migrate](https://www.prisma.io/blog/prisma-migrate-ga-b5eno5g08d0b) is highly recommended 🚀 for more information about the stable release of Prisma Migrate. 
 
 </div>
 
 ## Step 6: Generate PrismaClient
 
-For each change we make to the data model of `prisma.schema`, we have to generate the `PrismaClient` again.
+For each change we make to the data model of `schema.prisma`, we have to generate the `PrismaClient` again.
 
-Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud) operations for the new `User` model:
+Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/concepts/components/prisma-client/crud) operations for the new `User` model:
 
 <div shortcode="code" tabs="BASH">
 
