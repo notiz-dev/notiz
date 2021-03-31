@@ -121,6 +121,7 @@ Now open **angular.json** file to apply the extra webpack config to generate Tai
 </div>
 
 Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or for full config `npx tailwindcss init --full`. Almost there. Add Tailwind base styles to your `src/styles.scss` file
+
 <div shortcode="code" tabs="styles.scss">
 
 ```css
@@ -130,7 +131,9 @@ Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or
 
 @import 'tailwindcss/utilities';
 ```
+
 </div>
+
 Now go ahead serve your app, you are ready to style 🎨 your Angular app with Tailwind utility classes.
 
 ... wait a moment, we need to purge the unused CSS styles from Tailwind.
@@ -138,6 +141,7 @@ Now go ahead serve your app, you are ready to style 🎨 your Angular app with T
 ## Remove unused CSS Styles
 
 We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in **tailwind.config.js**.
+
 <div shortcode="code" tabs="tailwind.config.json">
 
 ```js
@@ -152,11 +156,13 @@ module.exports = {
 ```
 
 </div>
+
 Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in **package.json**. Now run `npm run build:prod` for a production build **only** with used Tailwind styles.
 
 ## CSS instead of SCSS
 
 Using CSS instead of SCSS? No problem. You don't need to install `postcss-scss`.
+
 <div shortcode="code" tabs="BASH,webpack.config.js">
 
 ```bash
@@ -191,6 +197,7 @@ module.exports = {
 </div>
 
 Finally add Tailwind base styles to `src/styles.css`.
+
 <div shortcode="code" tabs="styles.scss">
 
 ```css
@@ -212,6 +219,7 @@ Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-gro
 <div shortcode="repo" repo="notiz-dev/ngx-tailwind"></div>
 
 Simply run the schematic to automatically configure Tailwind CSS:
+
 <div shortcode="code" tabs="BASH">
 
 ```bash
@@ -219,11 +227,13 @@ ng add ngx-tailwind
 ```
 
 </div>
+
 ## Use Tailwind CSS utility classes
 
 Now go crazy with Tailwind's CSS utility classes in your Angular app.
 
-Add them to your HTML template `class`, `[class.hover:...]="true"` or use them with `ngClass` 
+Add them to your HTML template `class`, `[class.hover:...]="true"` or use them with `ngClass`
+
 <div shortcode="code" tabs="HTML,CSS">
 
 ```html
@@ -248,6 +258,7 @@ span:hover {
 </div>
 
 Or use `@HostBinding` in your `*.ts` files
+
 <div shortcode="code" tabs="TS">
 
 ```ts
@@ -263,9 +274,14 @@ get classes() {
 ```
 
 </div>
+
 Add the following snippet to your `src/app.component.html` to see if Tailwind styles the following card. (Don't worry about the picture its random)
 
+<div shortcode="figure" caption="Angular Tailwind Card">
+
 ![Angular Tailwind Card](assets/img/blog/angular-10-with-tailwindcss/optimized/angular-tailwind-card.png)
+
+</div>
 
 <div shortcode="code" tabs="HTML">
 
@@ -314,6 +330,7 @@ Add the following snippet to your `src/app.component.html` to see if Tailwind st
 ```
 
 </div>
+
 In the next post you will create an Angular component for a floating form field based on my last post [Floating Form Field with Tailwind CSS](https://notiz.dev/blog/floating-form-field-with-tailwindcss).
 
 ## Migrations
@@ -321,6 +338,7 @@ In the next post you will create an Angular component for a floating form field 
 ### Upgrading from Tailwind CSS v1 to v2
 
 To upgrade you project from [Tailwind CSS v1.x to v2.0](https://tailwindcss.com/docs/upgrading-to-v2) run the following install command
+
 <div shortcode="code" tabs="BASH">
 
 ```bash

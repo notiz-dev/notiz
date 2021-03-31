@@ -26,7 +26,7 @@ Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `P
 
 Or use the [NestJS Prisma Schematics](/blog/nestjs-prisma-schematics) to automatically setup Prisma in your NestJS application and start defining your Prisma Schema.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma
@@ -40,7 +40,7 @@ Generate a new Nest application or skip to the next step if you follow along wit
 
 To generate a new Nest application use the nest cli:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm i -g @nestjs/cli
@@ -55,7 +55,7 @@ Change your directory into the newly created Nest application and open up your p
 
 [Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project) Prisma 2.0, create an empty `prisma.schema` file and install [prisma-client-js](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api) to your Nest application.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm install @prisma/cli --save-dev
@@ -72,7 +72,7 @@ In this guide we are connecting to a SQLite database. Update the `provider` in t
 
 The `schema.prisma` should look like:
 
-<div shortcode="code" title="schema.prisma">
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 datasource db {
@@ -91,7 +91,7 @@ generator client {
 
 Now we define a model for the database. A simple `User` model looks like:
 
-<div shortcode="code" title="schema.prisma">
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 model User {
@@ -111,7 +111,7 @@ For more complex models check out Prisma's [data modeling](https://www.prisma.io
 
 We are creating our first database migration using the Prisma Migrate [Preview](https://www.prisma.io/blog/prisma-migrate-preview-b5eno5g08d0b). To use Migrate during development use the new command
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npx prisma migrate dev --preview-feature
@@ -127,7 +127,7 @@ This creates a `migration.sql` file containing changes you made to the `schema.p
 
 Prisma Migrate is released as Preview since [v2.13](https://github.com/prisma/prisma/releases/tag/2.13.0). Upgrade to the latest Prisma version or you can use `save` and `up` command from the experimental version.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 # since v2.13
@@ -147,7 +147,7 @@ For each change we make to the data model of `prisma.schema`, we have to generat
 
 Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud) operations for the new `User` model:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npx prisma generate
@@ -161,7 +161,7 @@ SQLite database is setup and a `User` model is defined with Prisma. Now its time
 
 We are creating a NestJS service `prisma` which will extend the `PrismaClient` to instantiate the connection.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest generate service prisma
@@ -171,7 +171,7 @@ nest generate service prisma
 
 Our `PrismaService` looks like this:
 
-<div shortcode="code" title="prisma.service.ts">
+<div shortcode="code" tabs="prisma.service.ts">
 
 ```ts
 import { Injectable } from '@nestjs/common';
@@ -191,7 +191,7 @@ export class PrismaService extends PrismaClient {
 
 Our updated `PrismaService` with the lifecycle events looks like:
 
-<div shortcode="code" title="prisma.service.ts">
+<div shortcode="code" tabs="prisma.service.ts">
 
 ```typescript
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
@@ -222,7 +222,7 @@ Now we can inject the `PrismaService` into any REST controller, GraphQL resolver
 
 Note we are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
 
-<div shortcode="code" title="app.controller.ts">
+<div shortcode="code" tabs="app.controller.ts">
 
 ```typescript
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';

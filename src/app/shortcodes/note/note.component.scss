@@ -1,4 +1,11 @@
+
 ::ng-deep{
+  niz-note .content{
+    :first-child{
+      margin-top: 0;
+    }
+  }
+
   .success {
     @apply text-green-700 bg-green-100 border-green-800;
     p,

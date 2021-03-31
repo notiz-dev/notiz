@@ -211,7 +211,9 @@ export class AppModule {}
 
 ## Notes 
 
-<div shortcode="note" title="Info Note">  
+<div shortcode="note">  
+
+### Info Note
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
 
 * A
@@ -219,8 +221,14 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum
 * C
 </div>
 
-<div shortcode="note" type="success" title="Success Note">  Lorem ipsum dolor **sit amet** consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
+<div shortcode="note" type="success"> 
+
+### Success Note
+ Lorem ipsum dolor **sit amet** consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
 </div>
 
-<div shortcode="note" type="warn" title="Warn Note">  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique *veniam*.
+<div shortcode="note" type="warn"> 
+
+### Warn Note
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique *veniam*.
 </div>

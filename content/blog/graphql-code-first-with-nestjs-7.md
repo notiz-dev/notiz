@@ -25,7 +25,7 @@ In this guide we are using [Prisma](https://prisma.io) to easily access a databa
 
 To start a GraphQL API install the following packages into your Nest application.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm i --save @nestjs/graphql graphql-tools graphql
@@ -40,7 +40,7 @@ npm i --save apollo-server-fastify
 
 Import the `GraphQLModule` into your `AppModule`.
 
-<div shortcode="code" title="app.module.ts">
+<div shortcode="code" tabs="app.module.ts">
 
 ```ts
 import { Module } from '@nestjs/common';
@@ -87,7 +87,7 @@ A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Q
 
 Start with creating your objects as a TypeScript `class`.
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 
 ```ts
 export class User {
@@ -111,7 +111,7 @@ export class Hobby {
 
 Let's add [decorators](https://docs.nestjs.com/graphql/resolvers#code-first) to expose this model in our GraphQL schema. Start adding `@ObjectType()` to the TypeScript class.
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 
 ```ts
 import { ObjectType } from '@nestjs/graphql';
@@ -131,7 +131,7 @@ export class Hobby {
 
 Next we use the `@Field` decorator on each class property providing additional information about the type and state (required or optional).
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 
 ```ts
 import { ObjectType, Field, Int } from '@nestjs/graphql';
@@ -174,7 +174,7 @@ export class Hobby {
 
 The following GraphQL type is generated if this class is used in a resolver.
 
-<div shortcode="code" title="schema.gql">
+<div shortcode="code" tabs="schema.gql">
 
 ```graphql
 type User {
@@ -206,7 +206,7 @@ We have added a bit of boilerplate to our `User` model and other models we will 
 
 Great our models are in place! Now we use the Nest CLI to generate our resolvers.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest generate resolver <name>
@@ -223,7 +223,7 @@ nest g r hobby
 
 Our resolvers are added to the `providers` array in the `app.module.ts`.
 
-<div shortcode="code" title="user.resolver.ts">
+<div shortcode="code" tabs="user.resolver.ts">
 
 ```ts
 import { Resolver } from '@nestjs/graphql';
@@ -245,7 +245,7 @@ Add `@Query` to your resolvers to create new GraphQL queries in your schema. Let
 Prisma is used in this example, but can be replaced easily with an ORM of your choice like [TypeORM](https://docs.nestjs.com/recipes/sql-typeorm), [Mongoose](https://docs.nestjs.com/recipes/mongodb) or [Sequelize](https://docs.nestjs.com/recipes/sql-sequelize). See the full database setup in the [example repo](https://github.com/notiz-dev/nest-graphql-code-first).
 </div>
 
-<div shortcode="code" title="user.resolver.ts">
+<div shortcode="code" tabs="user.resolver.ts">
 
 ```ts
 import { Resolver, Query } from '@nestjs/graphql';
@@ -267,7 +267,7 @@ export class UserResolver {
 
 The above code generates the following query to our schema:
 
-<div shortcode="code" title="schema.gql">
+<div shortcode="code" tabs="schema.gql">
 
 ```graphql
 type Query {
@@ -279,7 +279,7 @@ type Query {
 
 A `User` has a relation to many hobbies. To resolve the `hobbies` property from a user, we make use of the `@ResolveField` decorator. Add `@ResolveField` to a function with the **exact** same name of the property we want to resolve. Here we add a `hobbies()` function and provide a `User` object as the parent.
 
-<div shortcode="code" title="user.resolver.ts">
+<div shortcode="code" tabs="user.resolver.ts">
 
 ```ts
 import { Resolver, Query, ResolveField, Parent } from '@nestjs/graphql';
@@ -323,7 +323,7 @@ The playground shows us our GraphQL schema and the docs for our queries.
 Additionally, we can "play" with queries inside the playground. Try out the **autocomplete** feature in the playground to create your own queries based on your schema and queries.
 Let's query all users using the following query:
 
-<div shortcode="code" title="schema.gql">
+<div shortcode="code" tabs="schema.gql">
 
 ```graphql
 query AllUsers {
@@ -355,7 +355,7 @@ The response will look like this with a different data set. I prepared the datab
 
 Nest 7 provides a new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers#cli-plugin) to reduce the boilerplate of decorators for our **models**, **inputs**, **args** and **entity** files. Enable the plugin by adding `compilerOptions` to `nest-cli.json`:
 
-<div shortcode="code" title="nest-cli.json">
+<div shortcode="code" tabs="nest-cli.json">
 
 ```json
 {
@@ -371,7 +371,7 @@ Nest 7 provides a new [GraphQL plugin](https://docs.nestjs.com/graphql/resolvers
 
 The plugin automatically handles the decorators for the files with the suffix `['.input.ts', '.args.ts', '.entity.ts', '.model.ts']`. If you like to use custom suffixes add those to the plugins option:
 
-<div shortcode="code" title="nest-cli.json">
+<div shortcode="code" tabs="nest-cli.json">
 
 ```json
 "plugins": [
@@ -388,7 +388,7 @@ The plugin automatically handles the decorators for the files with the suffix `[
 
 Let's clean up the boilerplate of our models. Before the plugin the models look like this:
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 
 ```ts
 import { ObjectType, Field, Int } from '@nestjs/graphql';
@@ -432,7 +432,7 @@ export class Hobby {
 
 After removing the extra boilerplate decorators the models looks like this:
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 
 ```ts
 import { ObjectType, Field, Int, HideField } from '@nestjs/graphql';
@@ -470,7 +470,7 @@ export class Hobby {
 
 </div>
 
-<div shortcode="code" title="user.ts,hobby.ts">
+<div shortcode="code" tabs="user.ts,hobby.ts">
 Hiding properties from the schema requires the `@HideField` decorator.
 </div>
 

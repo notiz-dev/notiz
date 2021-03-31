@@ -19,23 +19,28 @@ import { GitHubRepo } from './github-repo.types';
     </svg>
     <div class="space-y-2 flex-grow">
       <h4>
-        <a [href]="(repo$ | async)?.html_url" target="_blank" rel="noreferrer"
-          >{{ (repo$ | async)?.owner.login }}/{{ (repo$ | async)?.name }}</a
+        <a
+          [href]="'https://github.com/' + repo"
+          target="_blank"
+          rel="noreferrer"
+          >{{ repo }}</a
         >
       </h4>
-      <p class="line-clamp-2 text-color-light">
-        {{ (repo$ | async)?.description }}
-      </p>
-      <div class="flex space-x-4">
-        <span class="flex space-x-2 hover:color-primary text-color">
-          <i class="material-icons-outlined">star_rate</i>
-          <span>{{ (repo$ | async)?.stargazers_count }}</span>
-        </span>
-        <span class="flex text-color space-x-2 hover:color-primary">
-          <i class="material-icons-outlined">error_outline</i>
-          <span>{{ (repo$ | async)?.open_issues_count }}</span>
-        </span>
-      </div>
+      <ng-container *ngIf="repo$ | async as repo">
+        <p class="line-clamp-2 text-color-light">
+          {{ repo.description }}
+        </p>
+        <div class="flex space-x-4">
+          <span class="flex space-x-2 hover:color-primary text-color">
+            <i class="material-icons-outlined">star_rate</i>
+            <span>{{ repo.stargazers_count }}</span>
+          </span>
+          <span class="flex text-color space-x-2 hover:color-primary">
+            <i class="material-icons-outlined">error_outline</i>
+            <span>{{ repo.open_issues_count }}</span>
+          </span>
+        </div>
+      </ng-container>
     </div>
   `,
   styleUrls: ['github-repo.component.scss'],

@@ -9,10 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
           <i class="material-icons">{{ icon }}</i>
         </div>
         <div class="ml-3">
-          <h3 *ngIf="title" [id]="title.toLocaleLowerCase().replace(' ', '-')">
-            {{ title }}
-          </h3>
-          <div class="mt-2 content" markdown>
+          <div class="content" markdown>
             <ng-content></ng-content>
           </div>
         </div>
@@ -23,7 +20,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
   @Input() type: 'success' | 'info' | 'warn' = 'info';
-  @Input() title: string;
   @Input() icon: string;
   constructor() {}
 

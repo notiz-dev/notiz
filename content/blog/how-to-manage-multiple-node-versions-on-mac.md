@@ -20,7 +20,7 @@ Here is a quick tip on how to install multiple [Node.js](https://nodejs.org/en/)
 
 Install multiple Node versions using [Homebrew](https://brew.sh/). To install Homebrew run:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -30,7 +30,7 @@ Install multiple Node versions using [Homebrew](https://brew.sh/). To install Ho
 
 Now install the Node versions you need using `brew`:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 brew install node@<version>
@@ -49,7 +49,7 @@ brew install node@10
 
 To check the default node version and installation path:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 node -v # v13.11.0
@@ -62,7 +62,7 @@ which node # /usr/local/bin/node => /usr/local/opt/node@<version>/bin/node
 
 Add an alias to your `.zshrc` or `.bash_profile` for each installed Node version. Node is installed at `/usr/local/opt/node@<version>/bin`
 
-<div shortcode="code" title=".zshrc/.bash_profile">
+<div shortcode="code" tabs=".zshrc/.bash_profile">
 
 ```bash
 alias node13='export PATH="/usr/local/opt/node@13/bin:$PATH"'

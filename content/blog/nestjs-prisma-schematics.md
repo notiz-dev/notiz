@@ -22,7 +22,7 @@ I am excited to release [`nestjs-prisma`](https://github.com/marcjulian/nestjs-p
 
 All you need to do is run the following command in your Nest app:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma
@@ -38,7 +38,7 @@ nest add nestjs-prisma
 
 Do you need more options? I got you covered, you can go a step further and specify a Prisma version if you like:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma --prismaVersion 2.4.1
@@ -48,7 +48,7 @@ nest add nestjs-prisma --prismaVersion 2.4.1
 
 Or go crazy by adding a `Dockerfile` for your Nest app and a `docker-compose.yaml` with a **PostgreSQL** database.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma --addDocker

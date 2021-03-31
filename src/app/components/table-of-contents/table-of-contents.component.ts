@@ -22,7 +22,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   onDestroy$ = new Subject();
   headers$: Observable<Element[]>;
   @HostBinding('class') class = 'flex flex-col space-y-2';
-  collapsed = this.document.documentElement.clientWidth < 640;
+  collapsed = true;
   md$ = media$(`(min-width: 768px)`);
   constructor(
     @Inject(DOCUMENT) private document: Document,

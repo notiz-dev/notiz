@@ -21,7 +21,7 @@ Here is a quick tip on how to install multiple [Java JDK](https://www.oracle.com
 Install multiple Java JDK versions using [Homebrew](https://brew.sh/). To install Homebrew run:
 
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -31,7 +31,7 @@ Install multiple Java JDK versions using [Homebrew](https://brew.sh/). To instal
 
 Now install the Java JDK version **11** or above using `brew cask`:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 brew cask install java<version>
@@ -48,7 +48,7 @@ JDK versions  **8**, **9**, **10** and **11** are no longer supported.
 
 [AdoptOpenJDK](https://adoptopenjdk.net/) provides older Java versions. To install the Java JDKs from AdoptOpenJDK:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 # install from third party repository
@@ -75,7 +75,7 @@ brew cask install adoptopenjdk11
 
 Setup your `JAVA_HOME` path in your `.zshrc` or `.bash_profile` for your primary Java version and add an export for each installed Java version.
 
-<div shortcode="code" title=".zshrc/.bash_profile">
+<div shortcode="code" tabs=".zshrc/.bash_profile">
 
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v14)
@@ -89,7 +89,7 @@ export JAVA_14_HOME=$(/usr/libexec/java_home -v14)
 
 To check the default Java version and installation path:
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 java -version # 14
@@ -99,7 +99,7 @@ java -version # 14
 
 Add an alias to your `.zshrc` or `.bash_profile` for each installed Java version. The alias exports `JAVA_HOME` with the selected `JAVA_VERSION_HOME`.
 
-<div shortcode="code" title=".zshrc/.bash_profile">
+<div shortcode="code" tabs=".zshrc/.bash_profile">
 
 ```bash
 alias java8='export JAVA_HOME=$JAVA_8_HOME'

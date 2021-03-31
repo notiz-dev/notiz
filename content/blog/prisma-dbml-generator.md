@@ -22,7 +22,7 @@ Introducing 🥳 [Prisma DBML Generator](https://github.com/notiz-dev/prisma-dbm
 
 Simply install the DBML generator
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm install -D prisma-dbml-generator
@@ -32,7 +32,7 @@ npm install -D prisma-dbml-generator
 
 Add the generator to your `schema.prisma`
 
-<div shortcode="code" title="schema.prisma">
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 generator dbml {
@@ -44,7 +44,7 @@ generator dbml {
 
 Running `npx prisma generate` for the following Prisma schema
 
-<div shortcode="code" title="schema.prisma">
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 model User {
@@ -94,7 +94,7 @@ enum Role {
 
 generates the following `schema.dbml` to `prisma/dbml`
 
-<div shortcode="code" title="schema.dbml">
+<div shortcode="code" tabs="schema.dbml">
 
 ```dbml
 Table User {
@@ -160,7 +160,7 @@ Copy the `schema.dbml` content and [visualize](https://dbdiagram.io/d) it as an 
 
 You should see this output each time you run `npx prisma generate`
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 $ npx prisma generate
@@ -189,7 +189,7 @@ Explore the full API: http://pris.ly/d/client
 Do you like to configure the output directory or even the output name 🤓?
 You can play around with the following options:
 
-<div shortcode="code" title="schema.prisma">
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 generator dbml {

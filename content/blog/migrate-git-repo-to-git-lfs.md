@@ -24,7 +24,7 @@ If you ever come across this error while pushing an existing repository or a lar
 
 Download and install the [Git LFS](https://git-lfs.github.com/) extension, you can also install it using [Homebrew](https://brew.sh/).
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 brew install git-lfs
@@ -34,7 +34,7 @@ brew install git-lfs
 
 ## 2. Setup Git LFS for your current user account
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 git lfs install
@@ -44,7 +44,7 @@ git lfs install
 
 ## 3. Select files to be managed by Git LFS
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 # track files by file type
@@ -64,7 +64,7 @@ git lfs track "path/to/file"
 
 `git lfs track` will add the files tracked by Git LFS to `.gitattributes`. It is important to add `.gitattributes` to Git.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 git add .gitattributes
@@ -83,7 +83,7 @@ Before performing your migration you can perform a dry run with `git lfs migrate
 
 Here is an example which performs a migration for all Zip-files.
 
-<div shortcode="code" title="BASH">
+<div shortcode="code" tabs="BASH">
 
 ```bash
 # dry run of your migration
