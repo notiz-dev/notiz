@@ -20,7 +20,7 @@
       (ngModelChange)="searchChange($event)"
       />
       
-    <button (click)="closeSearch()" class="bg-canvas-shade mr-1 px-2 py-1 rounded-md">esc</button>
+    <button (click)="closeSearch()" class="bg-canvas-shade px-2 py-1 rounded-md">esc</button>
   </div>
     <div [class.hidden]="searchResult.length === 0">
       <ul class="max-h-384 overflow-y-auto space-y-2 py-4">
