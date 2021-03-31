@@ -21,9 +21,9 @@
       {{ tag }}
     </a>
   </div>
-  <div class="flex justify-between">
+  <div class="flex justify-between items-center">
     <niz-author-small [author]="author$ | async"></niz-author-small>
-    <span class="text-base h-8">{{
+    <span class="text-base">{{
       route.updatedAt | date: 'MMMM dd, yyyy'
     }}</span>
   </div>
