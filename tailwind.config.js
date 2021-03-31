@@ -17,9 +17,33 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         primary: {
-          light: 'var(--primary-light)',
-          DEFAULT: 'var(--primary)',
-          dark: 'var(--primary-dark)',
+          light: ({ opacityVariable, opacityValue }) => {
+            if (opacityValue !== undefined) {
+              return `rgba(var(--primary-light), ${opacityValue})`;
+            }
+            if (opacityVariable !== undefined) {
+              return `rgba(var(--primary-light), var(${opacityVariable}, 1))`;
+            }
+            return `rgb(var(--primary-light))`;
+          },
+          DEFAULT: ({ opacityVariable, opacityValue }) => {
+            if (opacityValue !== undefined) {
+              return `rgba(var(--primary), ${opacityValue})`;
+            }
+            if (opacityVariable !== undefined) {
+              return `rgba(var(--primary), var(${opacityVariable}, 1))`;
+            }
+            return `rgb(var(--primary))`;
+          },
+          dark: ({ opacityVariable, opacityValue }) => {
+            if (opacityValue !== undefined) {
+              return `rgba(var(--primary-dark), ${opacityValue})`;
+            }
+            if (opacityVariable !== undefined) {
+              return `rgba(var(--primary-dark), var(${opacityVariable}, 1))`;
+            }
+            return `rgb(var(--primary-dark))`;
+          },
         },
         gray: {
           100: '#f7fafc',
