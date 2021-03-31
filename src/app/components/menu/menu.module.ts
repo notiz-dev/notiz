@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
-import { NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 
 
 
@@ -9,8 +8,7 @@ import { NizInlineSvgModule } from '../inline-svg/inline-svg.module';
   declarations: [MenuComponent],
   exports: [MenuComponent],
   imports: [
-    CommonModule,
-    NizInlineSvgModule
+    CommonModule
   ]
 })
-export class NizMenuModule { }
+export class MenuModule { }

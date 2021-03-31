@@ -1,16 +1,5 @@
 :host {
-  @apply flex w-full pt-4 pb-8 md:pl-20 bg-canvas-light rounded-tl-xl rounded-br-xl;
-}
-
-.title-card {
-  width: 82px;
-  flex: 0 0 82px;
-  display: flex;
-
-  h3 {
-    transform: rotateZ(180deg);
-    writing-mode: tb-rl;
-  }
+  @apply flex flex-col md:flex-row w-full pt-4 pb-8 md:pl-20 bg-canvas-light rounded-tl-xl rounded-br-xl;
 }
 
 @screen md {
@@ -58,5 +47,17 @@
 }
 
 .horizontal-cards {
-  padding-left: 174px;
+  padding-left: 50%;
+}
+
+@screen sm {
+  .horizontal-cards {
+    padding-left: 40%;
+  }
+}
+
+@screen md {
+  .horizontal-cards {
+    padding-left: 174px;
+  }
 }

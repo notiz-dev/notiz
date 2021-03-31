@@ -3,7 +3,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumb',
-  template: ` <nav class="flex" aria-label="Breadcrumb">
+  template: ` <nav class="flex flex-wrap" aria-label="Breadcrumb">
     <div class="flex items-center space-x-2">
       <a
         class="cursor-pointer text-primary hover:text-primary-shade text-2xl"
@@ -35,7 +35,7 @@ import { ActivatedRoute, Data } from '@angular/router';
         >
           {{ crumb.label }}
         </a>
-        <span *ngIf="last" class="ml-2 text-sm font-medium text-color-light">
+        <span *ngIf="last" class="ml-2 text-sm font-medium text-color-light line-clamp-1">
           {{ crumb.label }}
         </span>
       </div>

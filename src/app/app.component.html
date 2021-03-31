@@ -1,10 +1,7 @@
 <header class="container py-4">
-  <div class=" flex justify-between px-4 xl:px-0">
+  <div class="flex justify-between md:px-4 xl:px-0">
     <div start class="flex flex-row space-x-8 items-center">
-      <a
-        class="flex items-center select-none space-x-2"
-        [routerLink]="['/']"
-      >
+      <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
         <niz-inline-svg
           class="h-16 w-16"
           svgSource="assets/img/logo.svg"
@@ -59,17 +56,17 @@
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
       </button>
       <button
-        (click)="menu.toggle()"
+        (click)="menuOpen = !menuOpen; $event.stopPropagation()"
         [attr.aria-label]="'Toggle menu'"
         class="md:hidden h-8 w-8 focus:outline-none focus:select-none"
       >
         <niz-inline-svg
-          *ngIf="!menu.isOpen"
+          *ngIf="!menuOpen"
           class="text-color"
           svgSource="assets/img/menu.svg"
         ></niz-inline-svg>
         <niz-inline-svg
-          *ngIf="menu.isOpen"
+          *ngIf="menuOpen"
           class="text-color"
           svgSource="assets/img/close.svg"
         ></niz-inline-svg>
@@ -78,7 +75,7 @@
   </div>
 </header>
 
-<main class="pt-10">
+<main class="mt-2">
   <router-outlet></router-outlet>
 </main>
 
@@ -93,46 +90,69 @@
 <niz-search #search></niz-search>
 <niz-toast></niz-toast>
 
-<niz-menu #menu>
-  <div class="h-full flex flex-col space-y-4 items-end justify-center pr-8">
+<niz-menu [(open)]="menuOpen">
+  <div class="px-2 pt-2 flex items-center justify-between">
     <a
-      class="router-link"
-      [routerLink]="['/blog']"
-      [ngClass]="{
-        'router-link-active': (current$ | async)?.route | startswith: '/links/'
-      }"
-      routerLinkActive="router-link-active"
+      class="flex items-center select-none space-x-2"
+      (click)="menuOpen = false"
+      [routerLink]="['/']"
     >
-      Blog
+      <niz-inline-svg
+        class="h-16 w-16"
+        svgSource="assets/img/logo.svg"
+      ></niz-inline-svg>
+      <span class="text-2xl font-black text-primary">notiz.dev </span>
     </a>
+    <div class="-mr-2">
+      <button
+        (click)="menuOpen = false"
+        type="button"
+        class="bg-canvas-shade rounded-md p-2 mr-2 inline-flex items-center justify-center text-color hover:text-color-shade hover:bg-canvas focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+      >
+        <span class="sr-only">Close menu</span>
+        <i class="material-icons-outlined">close</i>
+      </button>
+    </div>
+  </div>
+  <div class="px-2 py-6 pb-3">
+    <a
+      (click)="menuOpen = false"
+      [routerLink]="['/blog']"
+      class="block px-3 py-2 rounded-md text-lg font-medium text-color-light hover:text-color-shade hover:bg-canvas"
+      routerLinkActive="router-link-active"
+      >Blog</a
+    >
+
     <button
-      class="router-link"
+      (click)="scrollToNewsletter(); menuOpen = false"
       [attr.aria-label]="'Scroll to Newsletter'"
-      (click)="scrollToNewsletter()"
+      class="block px-3 py-2 w-full text-lg text-left rounded-md font-medium text-color-light hover:text-color-shade hover:bg-canvas"
     >
       Newsletter
     </button>
-    <button
-      (click)="openSearch(search)"
-      [attr.aria-label]="'Open search'"
-      class="flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
-    >
-      <niz-inline-svg
-        class="h-4 w-4 theme"
-        svgSource="assets/img/search.svg"
-      ></niz-inline-svg>
-      <span class="px-2 outline-none font-semibold"> Tap to focus</span>
-    </button>
-    <button
-      (click)="toggleTheme(); $event.stopPropagation()"
-      [attr.aria-label]="'Toggle theme'"
-      class="flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
-    >
-      <niz-inline-svg
-        class="h-4 w-4 theme"
-        svgSource="assets/img/adjust.svg"
-      ></niz-inline-svg>
-      <span class="px-2 outline-none font-semibold"> Toggle theme</span>
-    </button>
+    <div class="mt-4 space-y-3">
+      <button
+        (click)="openSearch(search); menuOpen = false"
+        [attr.aria-label]="'Open search'"
+        class="flex self-start bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+      >
+        <niz-inline-svg
+          class="h-4 w-4 theme"
+          svgSource="assets/img/search.svg"
+        ></niz-inline-svg>
+        <span class="px-2 outline-none font-semibold"> Tap to focus</span>
+      </button>
+      <button
+        (click)="toggleTheme(); $event.stopPropagation()"
+        [attr.aria-label]="'Toggle theme'"
+        class="flex self-start bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
+      >
+        <niz-inline-svg
+          class="h-4 w-4 theme"
+          svgSource="assets/img/adjust.svg"
+        ></niz-inline-svg>
+        <span class="px-2 outline-none font-semibold"> Toggle theme</span>
+      </button>
+    </div>
   </div>
 </niz-menu>

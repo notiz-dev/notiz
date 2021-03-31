@@ -20,6 +20,7 @@ import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 export class AppComponent implements OnInit {
   @ViewChild('newsletter', { read: NewsletterSignupComponent })
   newsletter: NewsletterSignupComponent;
+  menuOpen = false;
 
   copyrightUrl = 'legal/privacy-policy';
   current$: Observable<ScullyRoute>;

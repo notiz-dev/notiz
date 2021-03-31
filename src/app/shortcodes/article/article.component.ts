@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
   styles: [],
 })
 export class ArticleShortcodeComponent implements OnInit {
-  @HostBinding('class') class = 'flex flex-wrap';
+  @HostBinding('class') class = 'grid lg:grid-cols-2 gap-4';
   @Input() routes: string;
   routes$: Observable<ScullyRoute[]>;
 

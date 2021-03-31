@@ -8,16 +8,10 @@ import {
 } from '@angular/core';
 import { DOCUMENT, Location } from '@angular/common';
 import { fromEvent, Subject, Observable, merge } from 'rxjs';
-import {
-  tap,
-  map,
-  takeUntil,
-  switchMap,
-  withLatestFrom,
-  filter,
-} from 'rxjs/operators';
+import { tap, map, takeUntil, switchMap, filter } from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { ActivatedRoute } from '@angular/router';
+import { media$ } from '@utils/media';
 
 @Component({
   selector: 'niz-toc',
@@ -27,9 +21,9 @@ import { ActivatedRoute } from '@angular/router';
 export class TableOfContentsComponent implements OnInit, OnDestroy {
   onDestroy$ = new Subject();
   headers$: Observable<Element[]>;
-
   @HostBinding('class') class = 'flex flex-col space-y-2';
-
+  collapsed = this.document.documentElement.clientWidth < 640;
+  md$ = media$(`(min-width: 768px)`);
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public scully: ScullyRoutesService,

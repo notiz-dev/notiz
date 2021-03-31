@@ -18,7 +18,7 @@ import { PipesModule } from '@pipes/pipes.module';
 import { NizFooterModule } from '@components/footer/footer.module';
 import { ShortcodeModule } from '@notiz/shortcodes';
 import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
-import { NizMenuModule } from '@components/menu/menu.module';
+import { MenuModule } from '@components/menu/menu.module';
 import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
@@ -40,7 +40,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     NewsletterSignupModule,
     NizSearchComponentModule,
     PipesModule,
-    NizMenuModule,
+    MenuModule,
     ShortcodeModule.forRoot([
       {
         shortcode: 'note',
