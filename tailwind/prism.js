@@ -71,35 +71,6 @@ const prism = plugin(function ({ addBase, theme }) {
     '.token.deleted.prefix': {
       color: 'var(--markup-deleted-text)',
     },
-    // toolbar
-    'div.code-toolbar': {
-      position: 'relative',
-    },
-    'div.code-toolbar > .toolbar': {
-      position: 'absolute',
-      top: theme('inset.2'),
-      right: theme('inset.3'),
-      transition: 'opacity 0.3s ease-in-out',
-      opacity: '0',
-    },
-    [`div.code-toolbar:hover > .toolbar, 
-      div.code-toolbar:focus-within > .toolbar`]: {
-      opacity: '1',
-    },
-    [`div.code-toolbar > .toolbar a, 
-      div.code-toolbar > .toolbar button, 
-      div.code-toolbar > .toolbar span`]: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignSelf: 'flex-start',
-      padding: `${theme('spacing.1')} ${theme('spacing.3')}`,
-      boxShadow: theme('boxShadow.md'),
-      borderRadius: theme('borderRadius.full'),
-      backgroundColor: 'var(--canvas-light)',
-      color: 'var(--text)',
-      fontSize: theme('fontSize.sm'),
-    },
   });
 });
 
