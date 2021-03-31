@@ -132,22 +132,6 @@ h4 {
   @apply font-medium text-lg;
 }
 
-ul {
-  @apply list-disc;
-}
-
-ol {
-  @apply list-decimal;
-}
-
-ul,
-ol {
-  @apply list-inside;
-  li:before {
-    @apply text-primary;
-  }
-}
-
 blockquote {
   @apply bg-blue-100 border-l-4 border-blue-800 px-4 py-6;
   p {
@@ -174,6 +158,22 @@ blockquote {
 
   img {
     @apply mx-auto w-xl max-w-full;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+  
+  ol {
+    @apply list-decimal;
+  }
+  
+  ul,
+  ol {
+    @apply list-inside;
+    li:before {
+      @apply text-primary;
+    }
   }
 }
 
