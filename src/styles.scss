@@ -4,7 +4,7 @@
 
 @layer components {
   .focus-ring {
-    @apply focus:outline-none focus:ring focus:ring-primary;
+    @apply focus:outline-none focus:ring focus:ring-primary focus:ring-opacity-50;
   }
 }
 
