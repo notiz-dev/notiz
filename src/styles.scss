@@ -1,7 +1,7 @@
 @import 'tailwindcss/base';
-/* purgecss start ignore */
-@import 'prismjs/themes/prism-tomorrow';
-/* purgecss end ignore */
+// /* purgecss start ignore */
+// @import 'prismjs/themes/prism-tomorrow';
+// /* purgecss end ignore */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
@@ -37,7 +37,6 @@ body.dark {
   --code-function: theme('colors.orange.300');
   --code-variable: theme('colors.green.300');
   --code-class: theme('colors.yellow.300');
-  --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
 
   --markup-deleted-text: theme('colors.red.300');
@@ -65,7 +64,6 @@ body:not(.dark) {
   --code-function: theme('colors.orange.600');
   --code-variable: theme('colors.green.600');
   --code-class: theme('colors.yellow.500');
-  --code-keyword: var(--primary);
   --code-comment: theme('colors.gray.600');
 
   --markup-deleted-text: theme('colors.red.800');
@@ -82,6 +80,7 @@ body {
   --hot-toast-color: theme('colors.color');
   --hot-toast-shadow: theme('boxShadow.lg');
   --hot-toast-border-radius: theme('borderRadius.md');
+  --code-keyword: theme('colors.primary.DEFAULT');
 
   .hot-toast-icon {
     @apply self-auto pt-0 #{!important};
