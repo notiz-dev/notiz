@@ -2,12 +2,12 @@
   width: 1px;
   height: 1px;
   background: transparent;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
 
 .meteor {
-  position: absolute;
+  position: fixed;
   width: 300px;
   height: 1px;
   opacity: 0;
@@ -16,7 +16,7 @@
   background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
   &:before {
     content: '';
-    position: absolute;
+    position: fixed;
     width: 4px;
     height: 5px;
     border-radius: 50%;

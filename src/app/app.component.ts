@@ -7,7 +7,7 @@ import {
   filter,
   map,
   shareReplay,
-  skipWhile,
+  startWith,
   takeUntil,
   tap,
 } from 'rxjs/operators';
@@ -20,7 +20,6 @@ import { NewsletterSignupComponent } from '@components/newsletter-signup/newslet
 import { NizSearch } from '@components/search/search.component';
 import { FooterSection } from '@components/footer/footer.component';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
-import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -88,14 +87,14 @@ export class AppComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
   stars$: Observable<string> = merge(
     fromEvent(window, 'resize'),
-    this.router.events.pipe(filter((ev) => ev instanceof NavigationEnd)),
   ).pipe(
+    startWith(true),
     debounceTime(200),
     map(() => {
       let shadow = '';
-      const height = document.body.clientHeight;
-      const width = document.body.clientWidth;
-      for (let index = 0; index < height / 10; index++) {
+      const height = window.outerHeight;
+      const width = window.outerWidth;
+      for (let index = 0; index < width / height * 45; index++) {
         shadow += `${Math.random() * width}px ${
           Math.random() * height
         }px #fff, `;
@@ -108,12 +107,11 @@ export class AppComponent implements OnInit, OnDestroy {
     public themeService: ThemeService,
     private content: ScullyContentService,
     private sa: SimpleAnalyticsService,
-    private router: Router
   ) {
-    interval(4000)
+    interval(6000)
       .pipe(
         filter(() => this.themeService.theme === 'dark'),
-        delay(Math.random() * 12000),
+        delay(Math.random() * 16000),
         tap(() => this.shower()),
         takeUntil(this.destroy$)
       )
@@ -125,8 +123,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   shower(): void {
-    const left = Math.random() * document.body.clientWidth;
-    const top = Math.random() * document.body.clientHeight;
+    const left = Math.random() * window.outerWidth;
+    const top = Math.random() * window.outerHeight;
     const duration = (Math.random() * 70000) / 10 + 3000;
     const div = document.createElement('div');
     div.className = 'meteor';
