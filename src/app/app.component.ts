@@ -1,27 +1,36 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { ThemeService } from '@services/theme.service';
-import { tap } from 'rxjs/operators';
+import {
+  debounceTime,
+  delay,
+  filter,
+  map,
+  shareReplay,
+  skipWhile,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
-import { merge, Observable } from 'rxjs';
+import { fromEvent, interval, merge, Observable, Subject, timer } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
 import { NizSearch } from '@components/search/search.component';
 import { FooterSection } from '@components/footer/footer.component';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('newsletter', { read: NewsletterSignupComponent })
   newsletter: NewsletterSignupComponent;
   menuOpen = false;
-
   copyrightUrl = 'legal/privacy-policy';
   current$: Observable<ScullyRoute>;
   createdWithSvgSources = [
@@ -76,12 +85,76 @@ export class AppComponent implements OnInit {
       ],
     },
   ];
-
+  destroy$ = new Subject();
+  stars$: Observable<string> = merge(
+    fromEvent(window, 'resize'),
+    this.router.events.pipe(filter((ev) => ev instanceof NavigationEnd)),
+  ).pipe(
+    debounceTime(200),
+    map(() => {
+      let shadow = '';
+      const height = document.body.clientHeight;
+      const width = document.body.clientWidth;
+      for (let index = 0; index < height / 10; index++) {
+        shadow += `${Math.random() * width}px ${
+          Math.random() * height
+        }px #fff, `;
+      }
+      return shadow.slice(0, shadow.length - 2);
+    }),
+    shareReplay()
+  );
   constructor(
     public themeService: ThemeService,
     private content: ScullyContentService,
-    private sa: SimpleAnalyticsService
-  ) {}
+    private sa: SimpleAnalyticsService,
+    private router: Router
+  ) {
+    interval(4000)
+      .pipe(
+        filter(() => this.themeService.theme === 'dark'),
+        delay(Math.random() * 12000),
+        tap(() => this.shower()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  shower(): void {
+    const left = Math.random() * document.body.clientWidth;
+    const top = Math.random() * document.body.clientHeight;
+    const duration = (Math.random() * 70000) / 10 + 3000;
+    const div = document.createElement('div');
+    div.className = 'meteor';
+    div.style.top = top - 300 + 'px';
+    div.style.left = left + 'px';
+    document.body.append(div);
+    const animation = div.animate(
+      [
+        {
+          offset: 0,
+          opacity: 1,
+          marginTop: '-300px',
+          marginRight: '-300px',
+        },
+        { offset: 0.12, opacity: 0 },
+        {
+          offset: 0.15,
+          opacity: 0,
+          marginTop: '300px',
+          marginLeft: '-600px',
+        },
+        { offset: 1, opacity: 0, width: 0 },
+      ],
+      { duration: duration, easing: 'linear' }
+    );
+
+    animation.onfinish = () => div.remove();
+  }
 
   ngOnInit() {
     const notiz =

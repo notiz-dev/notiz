@@ -1,5 +1,10 @@
+<div
+  *ngIf="themeService.theme === 'dark'"
+  class="star"
+  [ngStyle]="{ 'box-shadow': stars$ | async }"
+></div>
 <header class="container py-4">
-  <div class="flex justify-between md:px-4 xl:px-0">
+  <div class="flex justify-between">
     <div start class="flex flex-row space-x-8 items-center">
       <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
         <niz-inline-svg
