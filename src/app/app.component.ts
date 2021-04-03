@@ -4,6 +4,7 @@ import { ThemeService } from '@services/theme.service';
 import {
   debounceTime,
   delay,
+  distinctUntilChanged,
   filter,
   map,
   shareReplay,
@@ -85,19 +86,15 @@ export class AppComponent implements OnInit, OnDestroy {
     },
   ];
   destroy$ = new Subject();
-  stars$: Observable<string> = merge(
-    fromEvent(window, 'resize'),
-  ).pipe(
+  stars$: Observable<string> = merge(fromEvent(window, 'resize')).pipe(
     startWith(true),
-    debounceTime(200),
-    map(() => {
+    map(() => ({ w: window.outerWidth, h: window.outerHeight })),
+    distinctUntilChanged((x, y) => x.w === y.w && x.h === y.h),
+    map((p) => {
       let shadow = '';
-      const height = window.outerHeight;
-      const width = window.outerWidth;
-      for (let index = 0; index < width / height * 45; index++) {
-        shadow += `${Math.random() * width}px ${
-          Math.random() * height
-        }px #fff, `;
+      const count = Math.floor(Math.sqrt(p.w * p.h) / 24);
+      for (let index = 0; index < count; index++) {
+        shadow += `${Math.random() * p.w}px ${Math.random() * p.h}px #fff, `;
       }
       return shadow.slice(0, shadow.length - 2);
     }),
@@ -106,7 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public themeService: ThemeService,
     private content: ScullyContentService,
-    private sa: SimpleAnalyticsService,
+    private sa: SimpleAnalyticsService
   ) {
     interval(6000)
       .pipe(
