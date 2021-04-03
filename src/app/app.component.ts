@@ -2,19 +2,19 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { ThemeService } from '@services/theme.service';
 import {
-  debounceTime,
   delay,
-  distinctUntilChanged,
   filter,
-  map,
-  shareReplay,
-  startWith,
   takeUntil,
   tap,
 } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
-import { fromEvent, interval, merge, Observable, Subject, timer } from 'rxjs';
+import {
+  interval,
+  merge,
+  Observable,
+  Subject,
+} from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
@@ -86,25 +86,21 @@ export class AppComponent implements OnInit, OnDestroy {
     },
   ];
   destroy$ = new Subject();
-  stars$: Observable<string> = merge(fromEvent(window, 'resize')).pipe(
-    startWith(true),
-    map(() => ({ w: window.outerWidth, h: window.outerHeight })),
-    distinctUntilChanged((x, y) => x.w === y.w && x.h === y.h),
-    map((p) => {
-      let shadow = '';
-      const count = Math.floor(Math.sqrt(p.w * p.h) / 24);
-      for (let index = 0; index < count; index++) {
-        shadow += `${Math.random() * p.w}px ${Math.random() * p.h}px #fff, `;
-      }
-      return shadow.slice(0, shadow.length - 2);
-    }),
-    shareReplay()
-  );
+  stars: string;
   constructor(
     public themeService: ThemeService,
     private content: ScullyContentService,
     private sa: SimpleAnalyticsService
   ) {
+    let shadow = '';
+    const w = window.screen.width;
+    const h = window.screen.height;
+    const count = Math.floor(Math.sqrt(w * h) / 14);
+    for (let index = 0; index < count; index++) {
+      shadow += `${Math.random() * w}px ${Math.random() * h}px #fff, `;
+    }
+    this.stars = shadow.slice(0, shadow.length - 2);
+
     interval(6000)
       .pipe(
         filter(() => this.themeService.theme === 'dark'),
