@@ -16,7 +16,7 @@ import {
   Subject,
 } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
-import { ScullyRoute } from '@scullyio/ng-lib';
+import { ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
 import { NizSearch } from '@components/search/search.component';
 import { FooterSection } from '@components/footer/footer.component';

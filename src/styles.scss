@@ -128,6 +128,7 @@ h1  {
 h2 {
   @apply font-semibold text-2xl;
 }
+
 h3 {
   @apply font-medium text-xl;
 }
@@ -158,6 +159,17 @@ blockquote {
   img,
   blockquote {
     @apply mt-8 mb-4;
+  }
+
+  h3:hover::before,
+  h2:hover::before {
+    content: '#';
+    @apply absolute -left-6 text-primary;
+  }
+
+  h2,
+  h3 {
+    @apply cursor-pointer relative;
   }
 
   p {

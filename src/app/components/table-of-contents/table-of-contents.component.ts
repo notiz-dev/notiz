@@ -12,6 +12,7 @@ import { tap, map, takeUntil, switchMap, filter } from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { ActivatedRoute } from '@angular/router';
 import { media$ } from '@utils/media';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'niz-toc',
@@ -24,12 +25,14 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   @HostBinding('class') class = 'flex flex-col space-y-2';
   collapsed = true;
   md$ = media$(`(min-width: 768px)`);
+  url: string;
   constructor(
     @Inject(DOCUMENT) private document: Document,
     public scully: ScullyRoutesService,
     public content: ScullyContentService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private toast: HotToastService
   ) {}
 
   ngOnInit(): void {
@@ -77,7 +80,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
         switchMap((el) =>
           this.content.getCurrent().pipe(map((c) => [el.id, c.route]))
         ),
-        tap(([el, route]) => this.location.replaceState(`${route}#${el}`)),
+        tap(([el, route]) => (this.url = `${route}#${el}`)),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
@@ -95,7 +98,12 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
             )
           )
         ),
-        tap(([id, route]) => this.scrollTo(route, id)),
+        tap(([id, route]) => this.location.replaceState(`${route}#${id}`)),
+        tap(() =>
+          this.toast.success('URL updated!', {
+            duration: 4000,
+          })
+        ),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
@@ -107,13 +115,12 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
   }
 
   scrollTo(url: string, id: string) {
-    console.log('scroll to', id, this.document.getElementById(id));
-    this.location.replaceState(`${url}#${id}`);
+    this.url = `${url}#${id}`;
     this.document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
   active(url: string, id: string) {
-    return this.location.path(true) === `${url}#${id}` ? 'active' : '';
+    return this.url === `${url}#${id}` ? 'active' : '';
   }
 
   scrollToTop(url: string) {
