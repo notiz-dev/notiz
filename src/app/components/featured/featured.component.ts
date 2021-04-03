@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
-import { ContentType } from 'src/app/types/types';
 import { ScullyContentService } from '@services/scully-content.service';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -11,7 +10,6 @@ import { map, switchMap } from 'rxjs/operators';
   styleUrls: ['./featured.component.scss'],
 })
 export class FeaturedComponent implements OnInit {
-  type: ContentType;
   @Input() route: ScullyRoute;
 
   author$: Observable<ScullyRoute>;
@@ -29,15 +27,5 @@ export class FeaturedComponent implements OnInit {
         ),
         map(authors => authors[0])
       );
-
-    const type = this.route.route.split('/')[1];
-    switch (type) {
-      case 'blog':
-        this.type = ContentType.ARTICLE;
-        break;
-      case 'links':
-        this.type = ContentType.LINK;
-        break;
-    }
   }
 }

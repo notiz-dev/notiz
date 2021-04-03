@@ -16,15 +16,23 @@ github: https://github.com/notiz-dev/prisma-dbml-generator
 
 Introducing 🥳 [Prisma DBML Generator](https://github.com/notiz-dev/prisma-dbml-generator) **automatically** generating a [DBML](https://www.dbml.org/home) schema based on your Prisma Schema. 
 
+<div shortcode="repo" repo="notiz-dev/prisma-dbml-generator"></div>
+
 ## DBML Generator
 
 Simply install the DBML generator
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm install -D prisma-dbml-generator
 ```
 
+</div>
+
 Add the generator to your `schema.prisma`
+
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 generator dbml {
@@ -32,7 +40,11 @@ generator dbml {
 }
 ```
 
+</div>
+
 Running `npx prisma generate` for the following Prisma schema
+
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 model User {
@@ -78,7 +90,11 @@ enum Role {
 }
 ```
 
+</div>
+
 generates the following `schema.dbml` to `prisma/dbml`
+
+<div shortcode="code" tabs="schema.dbml">
 
 ```dbml
 Table User {
@@ -132,11 +148,19 @@ Ref: Profile.userId - User.id
 Ref: Post.authorId > User.id
 ```
 
+</div>
+
 Copy the `schema.dbml` content and [visualize](https://dbdiagram.io/d) it as an Entity-Relationship Diagram:
+
+<div shortcode="figure" caption="Entity-Relationship Diagram">
 
 ![Entity-Relationship Diagram](assets/img/blog/prisma-dbml-generator/optimized/db-diagram.png)
 
+</div>
+
 You should see this output each time you run `npx prisma generate`
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 $ npx prisma generate
@@ -158,10 +182,14 @@ const prisma = new PrismaClient()
 Explore the full API: http://pris.ly/d/client
 ```
 
+</div>
+
 ## Additional Options
 
 Do you like to configure the output directory or even the output name 🤓?
 You can play around with the following options:
+
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 generator dbml {
@@ -170,5 +198,7 @@ generator dbml {
   outputName = "awesome.dbml"
 }
 ```
+
+</div>
 
 [Check out all options](https://github.com/notiz-dev/prisma-dbml-generator#additional-options) and give it a try with your own Prisma Schema 😎.

@@ -1,0 +1,7 @@
+a:hover {
+  @apply cursor-pointer hover:text-primary;
+}
+
+.active {
+  @apply text-primary;
+}

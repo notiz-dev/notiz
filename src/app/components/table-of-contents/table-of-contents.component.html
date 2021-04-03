@@ -1,0 +1,49 @@
+<h2
+  (click)="collapsed = !collapsed"
+  class="text-xl font-semibold text-primary flex space-x-2 items-center cursor-pointer md:cursor-default"
+>
+  <span class="text-primary">Table of Contents</span
+  ><i
+    *ngIf="!(md$ | async)"
+    class="material-icons-outlined transform"
+    [ngClass]="{ 'rotate-180': !collapsed }"
+    >expand_more</i
+  >
+</h2>
+<div
+  [ngClass]="{ 'h-0': collapsed && !(md$ | async) }"
+  class="flex flex-col space-y-2 overflow-hidden"
+>
+  <span
+    class="cursor-pointer hover:text-primary"
+    [ngClass]="[headerClasses('h3')]"
+    *ngIf="(content.getCurrent() | async)?.route as route"
+    (click)="scrollToTop(route)"
+  >
+    Top of Page
+  </span>
+  <ng-container *ngFor="let header of headers$ | async">
+    <span
+      class="cursor-pointer hover:text-primary"
+      [ngClass]="[headerClasses(header.localName), active(route, header.id)]"
+      *ngIf="(content.getCurrent() | async)?.route as route"
+      (click)="scrollTo(route, header.id)"
+    >
+      {{ header.innerHTML }}
+    </span>
+  </ng-container>
+  <span
+    class="cursor-pointer hover:text-primary"
+    [ngClass]="[headerClasses('h3')]"
+    (click)="scrollToRelated()"
+  >
+    Comments
+  </span>
+  <span
+    class="cursor-pointer hover:text-primary"
+    [ngClass]="[headerClasses('h3')]"
+    (click)="scrollToRelated()"
+  >
+    Related Articles
+  </span>
+</div>

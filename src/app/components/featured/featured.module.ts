@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FeaturedComponent } from './featured.component';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '@pipes/pipes.module';
-import {
-  NizInlineSvgModule,
-  NizChipModule,
-  NizPrimaryButtonModule,
-} from '@notiz/ngx-design';
+import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 import { AuthorSmallModule } from '@components/author-small/author-small.module';
 
 @NgModule({
@@ -16,10 +12,8 @@ import { AuthorSmallModule } from '@components/author-small/author-small.module'
   imports: [
     CommonModule,
     RouterModule,
-    NizChipModule,
     PipesModule,
     NizInlineSvgModule,
-    NizPrimaryButtonModule,
     AuthorSmallModule,
   ],
 })

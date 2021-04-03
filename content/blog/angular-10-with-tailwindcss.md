@@ -23,10 +23,14 @@ This guide works for both Tailwind CSS v1 and [v2](https://blog.tailwindcss.com/
 
 You need the [Angular CLI](https://cli.angular.io/) to create a new Angular v10 or v11 application.
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 ng new app-name --style=scss
 cd app-name
 ```
+
+</div>
 
 Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or jump directly to the [shortcut](https://notiz.dev/blog/angular-10-with-tailwindcss#shortcut-aka-angular-schematics).
 
@@ -34,18 +38,24 @@ Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or
 
 Start by adding dependencies for Tailwind, Postcss and ngx-build-plus for angular.
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 npm i -D tailwindcss autoprefixer postcss postcss-import postcss-loader postcss-scss
 
 ng add ngx-build-plus
 ```
 
+</div>
+
+
 Create a **webpack.config.js** in your root folder to configure Postcss with Tailwind.
+
+<div shortcode="code" tabs="BASH,webpack.config.js">
 
 ```bash
 touch webpack.config.js
 ```
-
 ```js
 module.exports = {
   module: {
@@ -70,7 +80,12 @@ module.exports = {
 };
 ```
 
+</div>
+
+
 Now open **angular.json** file to apply the extra webpack config to generate Tailwind styles during `ng build`, `ng serve` and `ng test`. If you used the schematics `ng add ngx-build-plus` it automatically replaces `@angular-devkit/build-angular` with `ngx-build-plus` in your `angular.json`. Additionally, add the `extraWebpackConfig` to each build step. In the end your **angular.json** should look like this:
+
+<div shortcode="code" tabs="angular.json">
 
 ```diff
 "architect": {
@@ -103,7 +118,11 @@ Now open **angular.json** file to apply the extra webpack config to generate Tai
   },
 ```
 
+</div>
+
 Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or for full config `npx tailwindcss init --full`. Almost there. Add Tailwind base styles to your `src/styles.scss` file
+
+<div shortcode="code" tabs="styles.scss">
 
 ```css
 @import 'tailwindcss/base';
@@ -113,6 +132,8 @@ Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or
 @import 'tailwindcss/utilities';
 ```
 
+</div>
+
 Now go ahead serve your app, you are ready to style 🎨 your Angular app with Tailwind utility classes.
 
 ... wait a moment, we need to purge the unused CSS styles from Tailwind.
@@ -120,6 +141,8 @@ Now go ahead serve your app, you are ready to style 🎨 your Angular app with T
 ## Remove unused CSS Styles
 
 We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in **tailwind.config.js**.
+
+<div shortcode="code" tabs="tailwind.config.json">
 
 ```js
 module.exports = {
@@ -132,20 +155,21 @@ module.exports = {
 };
 ```
 
+</div>
+
 Unused styles are removed by Tailwind when you run your build with `NODE_ENV` set to `production`. Add `"build:prod": "NODE_ENV=production ng build --prod",` to your scripts in **package.json**. Now run `npm run build:prod` for a production build **only** with used Tailwind styles.
 
 ## CSS instead of SCSS
 
 Using CSS instead of SCSS? No problem. You don't need to install `postcss-scss`.
 
+<div shortcode="code" tabs="BASH,webpack.config.js">
+
 ```bash
 npm i -D tailwindcss autoprefixer postcss postcss-import postcss-loader 
 
 ng add ngx-build-plus
 ```
-
-Update also your `webpack.config.js`:
-
 ```js
 module.exports = {
   module: {
@@ -170,7 +194,11 @@ module.exports = {
 };
 ```
 
+</div>
+
 Finally add Tailwind base styles to `src/styles.css`.
+
+<div shortcode="code" tabs="styles.scss">
 
 ```css
 @import 'tailwindcss/base';
@@ -180,30 +208,39 @@ Finally add Tailwind base styles to `src/styles.css`.
 @import 'tailwindcss/utilities';
 ```
 
+</div>
+
 ## Shortcut aka Angular Schematics
 
 If you also think the steps above are tedious ... Don't look any further.
 
-Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a [schematic](https://github.com/notiz-dev/ngx-tailwind) to add Tailwind to an Angular project. Simply run the schematic to automatically configure Tailwind CSS:
+Angular Schematics 💪 to the rescue. [Gary](https://notiz.dev/authors/gary-grossgarten) created a schematic to add Tailwind to an Angular project.
+
+<div shortcode="repo" repo="notiz-dev/ngx-tailwind"></div>
+
+Simply run the schematic to automatically configure Tailwind CSS:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 ng add ngx-tailwind
 ```
 
+</div>
+
 ## Use Tailwind CSS utility classes
 
 Now go crazy with Tailwind's CSS utility classes in your Angular app.
 
-Add them to your HTML template `class`, `[class.hover:...]="true"` or use them with `ngClass` 
+Add them to your HTML template `class`, `[class.hover:...]="true"` or use them with `ngClass`
+
+<div shortcode="code" tabs="HTML,CSS">
 
 ```html
 <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-white" [class.hover:bg-red-700]="hoverMe">
   #angular
 </span>
 ```
-
-Add it to your stylesheet
-
 ```css
 span {
   @apply inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-white;
@@ -214,9 +251,15 @@ span:hover {
 } 
 ```
 
-> **Note**: @apply is not compiled when using it in an Angular library due to [missing support for postcss](https://github.com/ng-packagr/ng-packagr/issues/1471) of ng-packagr
+</div>
+
+<div shortcode="note">
+@apply is not compiled when using it in an Angular library due to [missing support for postcss](https://github.com/ng-packagr/ng-packagr/issues/1471) of ng-packagr.
+</div>
 
 Or use `@HostBinding` in your `*.ts` files
+
+<div shortcode="code" tabs="TS">
 
 ```ts
 @HostBinding('class')
@@ -230,13 +273,20 @@ get classes() {
 }
 ```
 
+</div>
+
 Add the following snippet to your `src/app.component.html` to see if Tailwind styles the following card. (Don't worry about the picture its random)
+
+<div shortcode="figure" caption="Angular Tailwind Card">
 
 ![Angular Tailwind Card](assets/img/blog/angular-10-with-tailwindcss/optimized/angular-tailwind-card.png)
 
+</div>
+
+<div shortcode="code" tabs="HTML">
 
 ```html
-<div class="max-w-sm mx-auto mt-10 rounded overflow-hidden shadow-lg space-y-4">
+<div class="max-w-sm mx-auto mt-8 rounded overflow-hidden shadow-lg space-y-4">
   <img
     class="h-64 w-full object-cover object-center"
     src="https://source.unsplash.com/random"
@@ -279,6 +329,8 @@ Add the following snippet to your `src/app.component.html` to see if Tailwind st
 </div>
 ```
 
+</div>
+
 In the next post you will create an Angular component for a floating form field based on my last post [Floating Form Field with Tailwind CSS](https://notiz.dev/blog/floating-form-field-with-tailwindcss).
 
 ## Migrations
@@ -287,15 +339,21 @@ In the next post you will create an Angular component for a floating form field 
 
 To upgrade you project from [Tailwind CSS v1.x to v2.0](https://tailwindcss.com/docs/upgrading-to-v2) run the following install command
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 npm i -D tailwindcss@latest postcss@latest autoprefixer@latest postcss-import@latest
 ```
+
+</div>
 
 Read the full [Upgrade Guide](https://tailwindcss.com/docs/upgrading-to-v2) to update your custom `tailwind.config.js` (e.g. [your color palette](https://tailwindcss.com/docs/upgrading-to-v2#configure-your-color-palette-explicitly)) and replace removed classes from your template (e.g. [shadow-outline and shadow-xs](https://tailwindcss.com/docs/upgrading-to-v2#replace-shadow-outline-and-shadow-xs-with-ring-utilities)).
 
 ### Update postcss-loader from 3.x to 4.x
 
 [postcss-loader](https://github.com/webpack-contrib/postcss-loader) has new [breaking changes](https://github.com/webpack-contrib/postcss-loader/blob/master/CHANGELOG.md#-breaking-changes) when updating from version 3.x to 4.x. Huge thanks to [@phileagleson](https://github.com/notiz-dev/notiz/issues/111#issuecomment-689249664) :clap: who pointed out that options for Postcss have moved to the `postcssOptions`. Therefore, update your `webpack.config.js` as follows when updating to `postcss-loader@4.x`
+
+<div shortcode="code" tabs="webpack.config.js">
 
 ```diff
 module.exports = {
@@ -327,5 +385,7 @@ module.exports = {
   },
 };
 ```
+
+</div>
 
 All `webpack.config.js` examples are updated to use the new `postcssOptions` for `postcss-loader@4.x`.

@@ -24,17 +24,32 @@ To get started quickly, you can initialize your own Action repository by generat
 
 Visit [GitHub Action Template](https://github.com/notiz-dev/github-action-template) and click on **[Use this template](https://github.com/notiz-dev/github-action-template/generate)**.
 
+<div shortcode="figure" caption="Use this template on GitHub">
+
 ![Use this template on GitHub](assets/img/blog/build-and-publish-your-first-github-action/optimized/template.png)
+
+</div>
 
 Fill out the form and click on **Create repository from template**.
 
+<div shortcode="figure" caption="Create Repository from template">
+
 ![Create Repository from template](assets/img/blog/build-and-publish-your-first-github-action/optimized/create_repository.png)
+
+</div>
 
 Next clone your newly created repository and open it with your favorite IDE.
 
-`git clone git@github.com:<USERNAME/ORG>/<REPOSITORY>.git`
+<div shortcode="code" tabs="BASH">
 
-Install all dependencies by running `npm i`. 
+```bash
+git clone git@github.com:<USERNAME/ORG>/<REPOSITORY>.git`
+
+# Install all dependencies
+npm i
+```
+
+</div>
 
 Great! Everything is set up! 🚀 In the next section of this guide you'll get an overview of the most important files.
 
@@ -42,13 +57,19 @@ Great! Everything is set up! 🚀 In the next section of this guide you'll get a
 
 First, inspect `index.ts`:
 
+<div shortcode="figure" caption="main project files">
+
 ![main project files](assets/img/blog/build-and-publish-your-first-github-action/optimized/overview.png)
 
+</div>
 
 The template Action is a simple script that receives an input string and outputs a hello world like greeting. (E.g. input `World` ➡ output `Hello World`). 
 See how the `actions/core` api is being used to receive the value of the `my_input` input and to set the resulting string as an output. Also, `setFailed` can be called to set the running workflow as failed and stop the execution. [API Documentation](https://www.npmjs.com/package/@actions/core)
 
 Most toolkit and CI/CD operations involve async operations so your `run` function will most likely be async.
+Second, see `action.yml` in the root of your project.
+
+<div shortcode="code" tabs="TS,action.yml">
 
 ```typescript
 import * as core from '@actions/core';
@@ -63,9 +84,6 @@ async function run() {
 
 run();
 ```
-
-Second, see `action.yml` in the root of your project.
-
 ```yaml
 name: 'GitHub Action Template'
 description: 'simple typescript template for building GitHub Actions'
@@ -82,6 +100,8 @@ branding:
   icon: 'bell'
 ```
 
+</div>
+
 The `action.yml` file defines some metadata that is mandatory to run and publish your Action on GitHub. 
 Besides general information like name, description and author, you'll want to define all the necessary inputs for your Action. The entrypoint of the Action is set to run `dist/index.js` using version 12 of node. This file will be created once you build and pack the project. 
 
@@ -89,6 +109,8 @@ To publish the Action, you additionally need to define a branding for how your A
 For more information on the configuration of your Action see [Metadata syntax for GitHub Actions](https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions).
 
 Lastly, you'll find a workflow file under `.github/workflows/test.yml`.
+
+<div shortcode="code" tabs="test.yml">
 
 ```yaml
 name: 'test'
@@ -115,15 +137,25 @@ jobs:
 
 ```
 
+</div>
+
 Essentially, this will start a workflow testing your Action on every push to `master/release` or on PRs. The `test` job will checkout and run your Action, defining `World` as the input value for `my_input`. 
 
 Finally, the `log action output` step of your job will echo the output set by your GitHub Action. Note the id that is defined in the `run action` step and later used to retrieve the output value.
 
 By creating your repository from the template earlier, the workflow already got invoked once:
 
+<div shortcode="figure" caption="invoked workflow">
+
 ![invoked workflow](assets/img/blog/build-and-publish-your-first-github-action/optimized/workflow.png)
 
+</div>
+
+<div shortcode="figure" caption="workflow result">
+
 ![workflow result](assets/img/blog/build-and-publish-your-first-github-action/optimized/workflow_result.png)
+
+</div>
 
 As you can see in the image above, the `log action output` step successfully echoed `Hello World` to the console.
 
@@ -135,16 +167,26 @@ Implement your own Typescript code in `src/index.ts`. Just remember to update th
 
 To build changes to your Typescript code run:
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 npm run build
 ```
 
+</div>
+
 This will compile your Typescript to a lib folder.
 
 Next, run:
+
+<div shortcode="code" tabs="BASH">
+
 ```bash
 npm run pack
 ```
+
+</div>
+
 This script will bundle your lib together with the required production node_modules. The bundled package can now be found in the `dist` folder containing the `index.js` that's been declared as the entrypoint in your `action.yml`.
 
 See [JSON Property GitHub Action](https://github.com/notiz-dev/github-action-json-property) for another example.
@@ -157,19 +199,36 @@ Check if your test workflow is working as expected. If you are happy with the re
 
 Hit the **release** tab of your repository to create a new version of your Action.
 
+<div shortcode="figure" caption="create release">
+
 ![create release](assets/img/blog/build-and-publish-your-first-github-action/optimized/create_release.png)
+
+</div>
 
 Click on **Create a new release** and select **Publish this Action to the GitHub Marketplace**.
 
+<div shortcode="figure" caption="publish to marketplace">
+
 ![publish to marketplace](assets/img/blog/build-and-publish-your-first-github-action/optimized/publish.png)
+
+</div>
 
 Check if all requirements are checked and proceed to file the release.
 
+<div shortcode="figure" caption="publish to marketplace">
+
 ![publish to marketplace](assets/img/blog/build-and-publish-your-first-github-action/optimized/release.png)
 
- 
-Enter a **tag** and **release** title. Optionally specify a release description before clicking **Publish release**. 
-> To make it easy for users to always use the latest release of your Action you can tag the newly created version with a `release` tag. Next time you release a version you can move the `release` tag from the previous to the latest version.
+</div>
+ <br>
+
+Enter a **tag** and **release** title. Optionally specify a release description before clicking **Publish release**.
+
+<div shortcode="note">
+
+To make it easy for users to always use the latest release of your Action you can tag the newly created version with a `release` tag. Next time you release a version you can move the `release` tag from the previous to the latest version.
+
+</div>
 
 ## Using your Action
 
@@ -177,14 +236,24 @@ By now you should have a published version of your Action on the GitHub Marketpl
 
 You should see the Marketplace banner on your repository page:
 
+<div shortcode="figure" caption="GitHub Marketplace">
+
 ![marketplace banner](assets/img/blog/build-and-publish-your-first-github-action/optimized/marketplace_banner.png)
+
+</div>
 
 Inspect the Action entry in GitHub Marketplace:
 
+<div shortcode="figure" caption="Marketplace entry">
+
 ![marketplace entry](assets/img/blog/build-and-publish-your-first-github-action/optimized/marketplace.png)
+
+</div>
 
 
 Use your Action by creating a **workflow** file in a repository of your choice. In case you tagged the version with the `release` tag, include your Action as follows:
+
+<div shortcode="code" tabs="workflow">
 
 ```yaml
 ...
@@ -204,6 +273,8 @@ jobs:
 
 ...    
 ```
+
+</div>
 
 Please replace `<USERNAME/ORG>` and `<REPOSITORY>` with your repository details.
 

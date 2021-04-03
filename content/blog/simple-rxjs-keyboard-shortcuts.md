@@ -24,14 +24,15 @@ I recently tried to add some keyboard shortcuts to my Angular app. 🤯 **But do
 In this [Quick Tip](https://notiz.dev/tags/quick-tip), I'll show you what I came up with, using [RxJS](https://rxjs-dev.firebaseapp.com/).
 This demonstration is done in an Angular Workspace scaffolded with the [Angular CLI](https://cli.angular.io/).
 
-
 ## Implementation
 
 The `shortcut` function below can be used to effortlessly create `Observables` for any keyboard shortcut. A keyboard shortcut is an array of keycodes (`event.code`), each representing a key of your keyboard. Grab the [KeyCode Enum here](https://github.com/garygrossgarten/rxjs-shortcuts/blob/master/projects/shortcuts/src/lib/keycodes.ts).
 
 See the comments in the code for explanation:
 
-```typescript
+<div shortcode="code" tabs="TS">
+
+```ts
 export const shortcut = (shortcut: KeyCode[]): Observable<KeyboardEvent[]> => {
   // Observables for all keydown and keyup events
   const keyDown$ = fromEvent<KeyboardEvent>(document, 'keydown');
@@ -59,13 +60,19 @@ export const shortcut = (shortcut: KeyCode[]): Observable<KeyboardEvent[]> => {
 };
 ```
 
-> **[combineLatest](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest)**: Whenever any input `Observable` emits, `combineLatest` will compute and emit all the latest values of all inputs. However, `combineLatest` will wait for all input `Observables` to emit at least once, before it starts emitting results.
+</div>
+
+<div shortcode="note">
+**[combineLatest](https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest)**: Whenever any input `Observable` emits, `combineLatest` will compute and emit all the latest values of all inputs. However, `combineLatest` will wait for all input `Observables` to emit at least once, before it starts emitting results.
+</div>
 
 ## Usage
 
 **Usage is simple**. Just call the `shortcut` function with your desired `KeyCode` combination. Then subscribe to the result and handle the keyboard shortcut. More examples can be found in the [repo](https://github.com/garygrossgarten/rxjs-shortcuts).
 
-```typescript
+<div shortcode="code" tabs="TS">
+
+```ts
 const commaDot$ = shortcut([KeyCode.Comma, KeyCode.Period]);
 
 const ctrlO$ = merge(
@@ -76,11 +83,15 @@ const ctrlO$ = merge(
 commaDot$.pipe(tap(() => doSomething())).subscribe();
 ```
 
+</div>
+
 ## Bonus
 
 The `shortcut` function emits whenever the specified keys are pressed simultaneously, no matter in which order they were pressed. If the sequence of the key presses is also important to you, you can use the pipeable operator below.
 
-```typescript
+<div shortcode="code" tabs="TS">
+
+```ts
 export function sequence() {
   return (source: Observable<KeyboardEvent[]>) => {
     return source.pipe(
@@ -97,7 +108,11 @@ export function sequence() {
 }
 ```
 
+</div>
+
 Then use it like this
+
+<div shortcode="code" tabs="TS">
 
 ```typescript
 const abc$ = shortcut([KeyCode.KeyA, KeyCode.KeyB, KeyCode.KeyC]).pipe(
@@ -105,14 +120,14 @@ const abc$ = shortcut([KeyCode.KeyA, KeyCode.KeyB, KeyCode.KeyC]).pipe(
 );
 ```
 
+</div>
+
 Now the `abc$` `Observable` will only emit when the keys are pressed sequentially (a->b->c).
 
 ## Limitations
 
 Beware that keyboard shortcuts could collide with global shortcuts specified by your OS or Browser (e.g. Spotlight on Mac for Cmd+Space). Also there are cases where `keyup` events will be skipped when certain keys are pressed down. This is particularly the case with the cmd key (`KeyCode.MetaRight` and `KeyCode.MetaLeft`) on mac.
 
-
 ---
-
 
 If you have further questions on the article or just want to say hi, feel free to slide into my [twitter dms](https://twitter.com/garygrossgarten).🐦

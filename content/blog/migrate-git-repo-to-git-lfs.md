@@ -24,17 +24,27 @@ If you ever come across this error while pushing an existing repository or a lar
 
 Download and install the [Git LFS](https://git-lfs.github.com/) extension, you can also install it using [Homebrew](https://brew.sh/).
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 brew install git-lfs
 ```
 
+</div>
+
 ## 2. Setup Git LFS for your current user account
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 git lfs install
 ```
 
+</div>
+
 ## 3. Select files to be managed by Git LFS
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 # track files by file type
@@ -50,13 +60,20 @@ git lfs track "assets/**/*"
 git lfs track "path/to/file"
 ```
 
+</div>
+
 `git lfs track` will add the files tracked by Git LFS to `.gitattributes`. It is important to add `.gitattributes` to Git.
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 git add .gitattributes
 ```
+</div>
 
-> **Note**: Tracking files are **not** automatically converting these files from your Git history or other branches.
+<div shortcode="note" type="warn">
+Tracking files are **not** automatically converting these files from your Git history or other branches.
+</div>
 
 ## 4. Migrate Git History
 
@@ -66,6 +83,8 @@ Before performing your migration you can perform a dry run with `git lfs migrate
 
 Here is an example which performs a migration for all Zip-files.
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 # dry run of your migration
 git lfs migrate info --everything --include="*.zip"
@@ -74,6 +93,12 @@ git lfs migrate info --everything --include="*.zip"
 git lfs migrate import --everything --include="*.zip" --verbose
 ```
 
+</div>
+
 Now go ahead and push your repository to GitHub. If successfully pushed and setup GitHub displays the following tag for each file tracked by Git LFS.
 
+<div shortcode="figure" caption="Stored with Git LFS on GitHub">
+
 ![Stored with Git LFS on GitHub](assets/img/blog/migrate-git-repo-to-git-lfs/optimized/stored-with-git-lfs.png)
+
+</div>

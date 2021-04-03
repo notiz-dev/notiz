@@ -1,31 +1,30 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
+    data: { breadcrumb: '' },
   },
   {
     path: 'blog',
     loadChildren: () =>
       import('./pages/blog/blog.module').then((m) => m.BlogModule),
-  },
-  {
-    path: 'links',
-    loadChildren: () =>
-      import('./pages/links/links.module').then((m) => m.LinksModule),
+    data: { breadcrumb: 'Blog' },
   },
   {
     path: 'authors',
     loadChildren: () =>
       import('./pages/authors/authors.module').then((m) => m.AuthorsModule),
+    data: { breadcrumb: 'Authors' },
   },
   {
     path: 'tags',
     loadChildren: () =>
       import('./pages/tags/tags.module').then((m) => m.TagsModule),
+    data: { breadcrumb: 'Tags' },
   },
   {
     path: 'confirm-subscription',
@@ -33,6 +32,7 @@ const routes: Routes = [
       import('./pages/newsletter-confirm/newsletter-confirm.module').then(
         (m) => m.NewsletterConfirmModule
       ),
+    data: { breadcrumb: 'Confirm Subscription' },
   },
   {
     path: 'unsubscribe',
@@ -40,11 +40,13 @@ const routes: Routes = [
       import(
         './pages/newsletter-unsubscribe/newsletter-unsubscribe.module'
       ).then((m) => m.NewsletterUnsubscribeModule),
+    data: { breadcrumb: 'Unsubscribe' },
   },
   {
     path: 'legal',
     loadChildren: () =>
       import('./pages/legal/legal.module').then((m) => m.LegalModule),
+    data: { breadcrumb: 'Legal' },
   },
   {
     path: '404',
@@ -52,6 +54,7 @@ const routes: Routes = [
       import('./pages/page-not-found/page-not-found.module').then(
         (m) => m.PageNotFoundModule
       ),
+    data: { breadcrumb: '404' },
   },
   {
     path: '**',
@@ -65,9 +68,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       initialNavigation: 'enabled',
       scrollPositionRestoration: 'enabled',
-      preloadingStrategy: PreloadAllModules,
       anchorScrolling: 'enabled',
-      onSameUrlNavigation: 'ignore',
+      onSameUrlNavigation: 'reload',
     }),
   ],
   exports: [RouterModule],

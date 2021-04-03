@@ -20,7 +20,6 @@
       "@services/*": ["src/app/services/*"],
       "@utils/*": ["src/app/utils/*"],
       "@environments/*": ["src/environments/*"],
-      "@notiz/ngx-design": ["projects/design/src/public-api"]
     }
   },
   "angularCompilerOptions": {

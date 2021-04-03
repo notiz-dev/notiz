@@ -18,24 +18,42 @@ Until now, adding [Prisma to a NestJS application](https://notiz.dev/blog/how-to
 
 I am excited to release [`nestjs-prisma`](https://github.com/marcjulian/nestjs-prisma) - a set of schematics to perform all steps necessary to add Prisma to your NestJS application **automatically**.
 
+<div shortcode="repo" repo="marcjulian/nestjs-prisma"></div>
+
 All you need to do is run the following command in your Nest app:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma
 ```
 
+</div>
+
+<div shortcode="figure" caption="Schematics in action">
+
 ![Schematics in action](assets/img/blog/nestjs-prisma-schematics/schematics-in-action.gif)
 
+</div>
+
 Do you need more options? I got you covered, you can go a step further and specify a Prisma version if you like:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma --prismaVersion 2.4.1
 ```
 
+</div>
+
 Or go crazy by adding a `Dockerfile` for your Nest app and a `docker-compose.yaml` with a **PostgreSQL** database.
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma --addDocker
 ```
+
+</div>
 
 [Check out all options](https://github.com/marcjulian/nestjs-prisma#additional-options) and give it a try with your Nest app.

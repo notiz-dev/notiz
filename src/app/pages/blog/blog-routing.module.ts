@@ -10,16 +10,17 @@ const routes: Routes = [
   {
     path: ':slug',
     component: BlogPostComponent,
-    canActivate: [IsAvailable]
+    canActivate: [IsAvailable],
+    data: { breadcrumb: (route) => route.title },
   },
   {
     path: '**',
-    component: BlogComponent
-  }
+    component: BlogComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class BlogRoutingModule {}

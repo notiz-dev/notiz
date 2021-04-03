@@ -1,24 +1,12 @@
 :host {
-  @apply flex items-center  pl-10 py-4 mx-auto;
-  max-width: calc(100vw - 6px);
-}
-
-.title-card {
-  width: 64px;
-  flex: 0 0 64px;
-  display: flex;
-
-  h2 {
-    transform: rotateZ(180deg);
-    writing-mode: tb-rl;
-  }
+  @apply flex flex-col md:flex-row w-full pt-4 pb-8 md:pl-20 bg-canvas-light rounded-tl-xl rounded-br-xl;
 }
 
 @screen md {
   .title-card {
     width: 240px;
     flex: 0 0 240px;
-    h2 {
+    h3 {
       transform: rotateZ(0deg);
       writing-mode: lr;
     }
@@ -35,7 +23,11 @@
     app-article {
       @apply h-full;
 
-      h2 {
+      .article-card {
+        @apply p-4;
+      }
+
+      h3 {
         @apply min-h-24;
       }
 
@@ -55,5 +47,17 @@
 }
 
 .horizontal-cards {
-  padding-left: 174px;
+  padding-left: 50%;
+}
+
+@screen sm {
+  .horizontal-cards {
+    padding-left: 40%;
+  }
+}
+
+@screen md {
+  .horizontal-cards {
+    padding-left: 174px;
+  }
 }
