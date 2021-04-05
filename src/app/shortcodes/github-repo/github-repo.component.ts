@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { GitHubRepo } from './github-repo.types';
@@ -52,7 +53,7 @@ export class GithubRepoComponent implements OnInit {
 
   ngOnInit(): void {
     this.repo$ = this.http
-      .get<GitHubRepo>(`https://api.github.com/repos/${this.repo}`)
+      .get<GitHubRepo>(`${environment.api}/github/repos/${this.repo}`)
       .pipe(shareReplay());
   }
 }
