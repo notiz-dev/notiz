@@ -1,0 +1,33 @@
+<div
+  class="w-1/5 bg-red-400 py-2 px-4 rounded-full transition-opacity duration-100"
+  [ngClass]="{ 'opacity-30': !(sm$ | async) }"
+>
+  sm
+</div>
+<div
+  class="w-2/5 bg-yellow-400 py-2 px-4 rounded-full transition-opacity duration-100"
+  [ngClass]="{ 'opacity-30': !(md$ | async) }"
+>
+  md
+</div>
+<div
+  class="w-3/5 bg-green-400 py-2 px-4 rounded-full transition-opacity duration-100"
+  [ngClass]="{ 'opacity-30': !(lg$ | async) }"
+>
+  lg
+</div>
+<div
+  class="w-4/5 bg-indigo-400 py-2 px-4 rounded-full transition-opacity duration-100"
+  [ngClass]="{ 'opacity-30': !(xl$ | async) }"
+>
+  xl
+</div>
+<div
+  class="w-full bg-purple-400 py-2 px-4 rounded-full transition-opacity duration-100"
+  [ngClass]="{ 'opacity-30': !(xl2$ | async) }"
+>
+  2xl
+</div>
+<demo-description
+  >Default Tailwind Breakpoints tracked with media Observable.</demo-description
+>

@@ -69,6 +69,11 @@ import { HotToastModule } from '@ngneat/hot-toast';
         loadChildren: () =>
           import('./shortcodes/figure/figure.module').then((m) => m.FigureModule),
       },
+      {
+        shortcode: 'demos',
+        loadChildren: () =>
+          import('demos').then((m) => m.MediaObservableModule),
+      },
     ]),
     HotToastModule.forRoot({
       position: 'bottom-center',

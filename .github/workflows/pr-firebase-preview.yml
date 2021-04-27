@@ -35,6 +35,8 @@ jobs:
         run: cd projects/banner-generator && npm ci
       - name: Build Elements
         run: npm run build:elements
+      - name: Build Demos
+        run: ng build demos
       - name: Build Angular prod
         run: npm run build:prod
       - name: Build Scully CI
