@@ -1,6 +1,6 @@
 ---
-title: 'Track the State of a Media Query with RxJS'
-description: 'Media Queries | Practical Examples in RxJS'
+title: 'Media queries with RxJS'
+description: 'Media queries | Practical examples with RxJS'
 published: true
 publishedAt: 2021-04-27T08:55:00.000Z
 updatedAt: 2021-04-27T18:40:00.000Z
@@ -17,7 +17,24 @@ authors:
 github: 'https://github.com/garygrossgarten/shortcodes'
 ---
 
-<div shortcode="code" tabs="usual.css">
+## TLDR
+
+Observables are a great way of using media queries programmatically! 
+
+<div shortcode="scroll-to" fragment="media-queries-with-rxjs">
+<button class="btn btn-primary capitalize">Take me to the code!</a>
+</div>
+
+<div shortcode="demos/breakpoints"></div>
+
+## Introduction
+### Media queries in CSS
+
+[Media queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tool when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
+
+In CSS media queries are used like so.
+
+<div shortcode="code" tabs="styles.css">
 
 ```css
 @media (max-width: 767px) {
@@ -27,15 +44,42 @@ github: 'https://github.com/garygrossgarten/shortcodes'
 
 </div>
 
+Although this is already pretty great, we sometimes want to **handle the state of a media query programmatically**. For example, preventing the render of some components or dom elements on certain viewport sizes instead of just hiding things with `display: none` could lead to a better performance and less network requests to your server.
+
+### Media queries in Javascript
+
+The vanilla javascript way of implementing such a functionality would be to use the window's `matchMedia` function. The function takes a string query and returns a `MediaQueryList` that can be used to get the current result of the query and listen to changes to the media query.
+
+<div shortcode="code" tabs="JS">
+
+```js
+const mediaQueryList = window.matchMedia(`(min-width: 767px)`);
+
+console.log(mediaQueryList.matches); // true or false
+
+mediaQueryList.addEventListener('change', (event) =>
+  console.log(event.matches) // true or false
+);
+
+// don't forget to remove the event listener ;)
+```
+
+</div>
+
+## Media queries with RxJS
+
+As an Angular developer, I make heavy use of [RxJS](https://rxjs.dev/) in my applications. To neatly integrate media queries in my workflow I came up with the media Observable. 
+
 <div shortcode="code" tabs="media.ts">
 
 ```ts
-import { fromEvent } from 'rxjs';
+import { fromEvent, Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
-export function media(query: string) {
-  return fromEvent(window.matchMedia(query), 'change').pipe(
-    startWith(window.matchMedia(query)),
+export function media(query: string): Observable<boolean> {
+  const mediaQuery = window.matchMedia(query);
+  return fromEvent(mediaQuery, 'change').pipe(
+    startWith(mediaQuery),
     map((list: MediaQueryList) => list.matches)
   );
 }
@@ -48,13 +92,24 @@ media('(max-width: 767px)').subscribe((matches) =>
 
 </div>
 
+We use RxJS `fromEvent` Observable creation function to listen for all changes to the `MediaQueryList`. To get the inital `MediaQueryList`, we use the `startWith` operator. The `MediaQueryList` is then mapped to the actual result of the query by using the `matches` function.
+
+<div shortcode="note">
+
+The `media` function returns a `Observable<boolean>` stream which can be used to subscribe to the current state and 
+future changes of the media query.
+
+</div>
+
 ## Demos
 
-### Breakpoints
+The demos were built in an Angular workspace. As you can see, I make use of Angular's `async` pipe to subscribe to the media Observables.
 
-In this demo we use the media observable to track the default Tailwind CSS screen breakpoints. Resize your browser window to see the breakpoints change.
+### Breakpoints demo
 
-<div shortcode="demos/breakpoints"></div>
+In this demo we use the media Observable to track the default Tailwind CSS screen breakpoints. Depending on the viewport dimensions certain elements are hidden using `*ngIf`. Resize your browser window to see the breakpoints change.
+
+<div shortcode="demos/responsive"></div>
 
 <div shortcode="code" tabs="TS,HTML">
 
@@ -67,52 +122,27 @@ import { media } from './media';
   templateUrl: 'breakpoints.component.ts',
 })
 export class BreakPointsComponent {
-  @HostBinding('class') class = 'block relative space-y-4 py-4';
 
   sm$ = media(`(max-width: 767px)`);
   md$ = media(`(min-width: 768px) and (max-width: 1023px)`);
   lg$ = media(`(min-width: 1024px) and (max-width: 1279px)`);
   xl$ = media(`(min-width: 1280px) and (max-width: 1535px)`);
   xl2$ = media(`(min-width: 1536px)`);
+
 }
 ```
 ```html
-<div
-  class="w-1/5 bg-red-400 py-2 px-4 rounded-full transition-opacity duration-100"
-  [ngClass]="{ 'opacity-30': !(sm$ | async) }"
->
-  sm
-</div>
-<div
-  class="w-2/5 bg-yellow-400 py-2 px-4 rounded-full transition-opacity duration-100"
-  [ngClass]="{ 'opacity-30': !(md$ | async) }"
->
-  md
-</div>
-<div
-  class="w-3/5 bg-green-400 py-2 px-4 rounded-full transition-opacity duration-100"
-  [ngClass]="{ 'opacity-30': !(lg$ | async) }"
->
-  lg
-</div>
-<div
-  class="w-4/5 bg-indigo-400 py-2 px-4 rounded-full transition-opacity duration-100"
-  [ngClass]="{ 'opacity-30': !(xl$ | async) }"
->
-  xl
-</div>
-<div
-  class="w-full bg-purple-400 py-2 px-4 rounded-full transition-opacity duration-100"
-  [ngClass]="{ 'opacity-30': !(xl2$ | async) }"
->
-  2xl
-</div>
+<div *ngIf="sm$ | async">sm</div>
+<div *ngIf="md$ | async">md</div>
+<div *ngIf="lg$ | async">lg</div>
+<div *ngIf="xl$ | async">xl</div>
+<div *ngIf="xl2$ | async">2xl</div>
 ```
 
 </div>
 
 
-### Device / Browser preferences
+### Device / Browser preferences demo
 
 This demo watches device / browser preferences and the viewport orientation.
 
@@ -169,3 +199,9 @@ export class PreferencesComponent {
   </div>
 </div>
 ```
+
+</div>
+
+If you have further questions, feel free to contact me! 
+
+<div shortcode="author" name="Gary Großgarten"></div>

@@ -36,7 +36,7 @@ import { media } from './media';
   styles: [],
 })
 export class PreferencesComponent implements OnInit {
-  @HostBinding('class') class = 'block relative space-y-4';
+  @HostBinding('class') class = 'demo block relative space-y-4';
   prefersLight$ = media('(prefers-color-scheme: light)');
   prefersDark$ = media('(prefers-color-scheme: dark)');
   prefersReducedMotion$ = media('(prefers-reduced-motion:reduce)');

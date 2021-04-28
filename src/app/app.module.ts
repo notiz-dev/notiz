@@ -55,6 +55,13 @@ import { HotToastModule } from '@ngneat/hot-toast';
           ),
       },
       {
+        shortcode: 'author',
+        loadChildren: () =>
+          import('./shortcodes/author/author.module').then(
+            (m) => m.AuthorModule
+          ),
+      },
+      {
         shortcode: 'code',
         loadChildren: () =>
           import('./shortcodes/code/code.module').then((m) => m.CodeModule),
@@ -62,12 +69,23 @@ import { HotToastModule } from '@ngneat/hot-toast';
       {
         shortcode: 'repo',
         loadChildren: () =>
-          import('./shortcodes/github-repo/github-repo.module').then((m) => m.GithubRepoModule),
+          import('./shortcodes/github-repo/github-repo.module').then(
+            (m) => m.GithubRepoModule
+          ),
       },
       {
         shortcode: 'figure',
         loadChildren: () =>
-          import('./shortcodes/figure/figure.module').then((m) => m.FigureModule),
+          import('./shortcodes/figure/figure.module').then(
+            (m) => m.FigureModule
+          ),
+      },
+      {
+        shortcode: 'scroll-to',
+        loadChildren: () =>
+          import('./shortcodes/scroll-to/scroll-to.module').then(
+            (m) => m.ScrollToModule
+          ),
       },
       {
         shortcode: 'demos',

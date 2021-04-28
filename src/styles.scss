@@ -113,7 +113,8 @@ span {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   @apply text-primary;
 }
 
@@ -145,8 +146,11 @@ blockquote {
 }
 
 .prose {
+  h2:not(:first-child) {
+    @apply mt-14;
+  }
   h2 {
-    @apply mt-10 mb-6;
+    @apply mb-6;
   }
 
   h3,
@@ -155,10 +159,12 @@ blockquote {
   niz-github-repo,
   niz-note,
   niz-article-shortcode,
+  niz-author-shortcode,
   niz-figure,
+  .demo,
   img,
   blockquote {
-    @apply mt-8 mb-4;
+    @apply mt-6 mb-4;
   }
 
   h3:hover::before,
@@ -172,8 +178,9 @@ blockquote {
     @apply cursor-pointer relative;
   }
 
-  p {
-    @apply mt-4 mb-2;
+  p,
+  niz-scroll-to {
+    @apply mt-4 mb-4;
   }
 
   img {

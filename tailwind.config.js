@@ -20,6 +20,7 @@ module.exports = {
       './projects/design/**/*.{html,ts}',
       './projects/shortcodes/**/*.{html,ts}',
       './projects/demos/**/*.{html,ts}',
+      './content/**/*.md',
     ],
   },
   darkMode: false, // or 'media' or 'class'

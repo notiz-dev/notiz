@@ -6,7 +6,7 @@ import { media } from './media';
   templateUrl: 'breakpoints.component.html',
 })
 export class BreakPointsComponent {
-  @HostBinding('class') class = 'block relative space-y-4 py-4';
+  @HostBinding('class') class = 'demo block relative space-y-4 py-4';
   sm$ = media(`(max-width: 767px)`);
 
   md$ = media(`(min-width: 768px) and (max-width: 1023px)`);
