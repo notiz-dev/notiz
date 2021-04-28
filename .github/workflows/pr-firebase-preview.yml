@@ -36,7 +36,7 @@ jobs:
       - name: Build Elements
         run: npm run build:elements
       - name: Build Demos
-        run: ng build demos --prod
+        run: npm run build:elements
       - name: Build Angular prod
         run: npm run build:prod
       - name: Build Scully CI
