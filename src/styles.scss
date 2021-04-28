@@ -146,6 +146,9 @@ blockquote {
 }
 
 .prose {
+  h2:first-child {
+    @apply mt-6;
+  }
   h2:not(:first-child) {
     @apply mt-14;
   }
