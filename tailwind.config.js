@@ -17,8 +17,7 @@ module.exports = {
     layers: ['components', 'utilities'],
     content: [
       './src/**/*.{html,ts}',
-      './projects/design/**/*.{html,ts}',
-      './projects/shortcodes/**/*.{html,ts}',
+      './projects/elements/**/*.{html,ts}',
       './projects/demos/**/*.{html,ts}',
       './content/**/*.md',
     ],

@@ -149,7 +149,7 @@ By default, Nest **only** distributes TypeScript compiled files (`.js` and `.d.t
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "assets": ["mail/templates/**/*"] // 👈  or "**/*.hbs" all files ending with .hbs
+    "assets": ["mail/templates/**/*"], // 👈  or "**/*.hbs" all files ending with .hbs
     "watchAssets": true // 🤖 copy assets in watch mode
   }
 }

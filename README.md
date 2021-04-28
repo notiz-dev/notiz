@@ -13,7 +13,7 @@ _\* notiz [noˈtiːt͡s] - (german) short, brief, written record_
 ```bash
 npm install
 
-npm run build:shortcodes
+npm run build:elements
 npm run build:scully
 
 npm run serve:scully
