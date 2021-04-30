@@ -339,7 +339,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           },
         },
         defaults: {
-          from: `"No Reply" <${config.get('MAIL_USER')}>`,
+          from: `"No Reply" <${config.get('MAIL_FROM')}>`,
         },
         template: {
           dir: join(__dirname, 'templates'),
