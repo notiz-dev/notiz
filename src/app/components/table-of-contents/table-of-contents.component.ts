@@ -148,5 +148,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     } else if (header === 'h3') {
       return 'text-base ml-3';
     }
+
+    return '';
   }
 }

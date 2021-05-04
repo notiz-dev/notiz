@@ -44,7 +44,7 @@ export class NewsletterSignupComponent implements OnInit {
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
       this.sa.event('newsletter_submit_with_email');
-      return this.http
+      this.http
         .post(`${environment.api}/subscribe`, this.newsletterSignup.value)
         .pipe(
           this.toast.observe({
