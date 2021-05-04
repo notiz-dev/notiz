@@ -3,10 +3,9 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
 @Component({
   selector: 'lib-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.scss']
+  styleUrls: ['./banner.component.scss'],
 })
 export class NizBanner {
-
   @Input() title = 'image-template';
   @Input() updatedAt = new Date().toDateString();
   @Input() logo = 'https://notiz.dev/assets/img/logo.svg';

@@ -3,7 +3,7 @@
     <img class="h-20 w-20" [src]="logo" />
     <span class="text-2xl font-black text-primary">notiz.dev</span>
   </a>
-  <span class="title text-6xl font-bold text-color leading-normal w-4/5">{{
+  <span class="text-6xl font-bold text-color leading-normal w-4/5">{{
     title
   }}</span>
 </div>
@@ -13,15 +13,13 @@
     class="avatar rounded-full w-20 h-20 border-primary border-solid border-2"
   />
   <div class="flex flex-col space-y-2">
-    <span class="author text-2xl font-sub font-bold text-color">{{
-      author
-    }}</span>
-    <span class="date text-base text-color-shade">{{
+    <span class="text-2xl font-sub font-bold text-color">{{ author }}</span>
+    <span class="text-base text-color-shade">{{
       updatedAt | date: 'MMMM dd, yyyy'
     }}</span>
   </div>
 
-  <div class="logos flex flex-row-reverse flex-auto space-x-4">
+  <div class="flex flex-row-reverse flex-auto space-x-4 space-x-reverse">
     <img class="h-20 w-auto" *ngFor="let l of _logos.reverse()" [src]="l" />
   </div>
 </div>
