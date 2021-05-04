@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors');
 
-function cssVarRgbHelper(cssVariable) {
+function withOpacity(cssVariable) {
   return ({ opacityVariable, opacityValue }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(--${cssVariable}), ${opacityValue})`;
@@ -15,10 +15,7 @@ function cssVarRgbHelper(cssVariable) {
 module.exports = {
   purge: {
     layers: ['components', 'utilities'],
-    content: [
-      './src/**/*.{html,ts}',
-      './projects/elements/**/*.{html,ts}',
-    ],
+    content: ['./src/**/*.{html,ts}', './projects/elements/**/*.{html,ts}'],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -27,9 +24,9 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         primary: {
-          light: cssVarRgbHelper('primary-light'),
-          DEFAULT: cssVarRgbHelper('primary'),
-          dark: cssVarRgbHelper('primary-dark'),
+          light: withOpacity('primary-light'),
+          DEFAULT: withOpacity('primary'),
+          dark: withOpacity('primary-dark'),
         },
         gray: {
           100: '#f7fafc',
