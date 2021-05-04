@@ -41,7 +41,6 @@
     "@notiz/shortcodes": "0.1.2",
     "@ngneat/hot-toast": "2.0.1",
     "@ngneat/overview": "1.0.0",
-    "@scullyio/init": "1.1.3",
     "@scullyio/ng-lib": "1.1.1",
     "@scullyio/scully": "1.1.1",
     "document-register-element": "1.14.10",
@@ -52,11 +51,9 @@
     "zone.js": "0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1102.11",
     "@angular-devkit/build-angular": "0.1102.11",
     "@angular/cli": "11.2.11",
     "@angular/compiler-cli": "11.2.12",
-    "@angular/language-service": "11.2.12",
     "@gammastream/scully-plugin-sitemap": "1.0.7",
     "@notiz/scully-plugin-copy-static-content": "file:projects/copy-static-content",
     "@notiz/scully-plugin-fouc": "0.2.0",
@@ -75,11 +72,12 @@
     "ng-packagr": "11.2.4",
     "ngx-build-plus": "11.0.0",
     "prettier": "2.2.1",
-    "stylelint-config-recommended": "3.0.0",
+    "stylelint": "13.13.1",
+    "stylelint-config-recommended": "5.0.0",
     "tailwindcss": "2.0.3",
     "ts-node": "8.3.0",
     "tslint": "6.1.3",
     "typescript": "4.1.5",
-    "xmlbuilder": "^15.1.1"
+    "xmlbuilder": "^13.0.2"
   }
 }

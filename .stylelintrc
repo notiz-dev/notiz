@@ -5,7 +5,8 @@
         "extends",
         "tailwind",
         "screen",
-        "apply"
+        "apply",
+        "layer"
       ]
     }],
     "block-no-empty": null,
