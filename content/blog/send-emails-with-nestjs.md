@@ -3,7 +3,7 @@ title: Send Emails with NestJS
 description: Create Email Templates and send them with nodemailer from your Nest application 
 published: true
 publishedAt: 2021-03-18T11:15:00.000Z
-updatedAt: 2021-03-18T11:15:00.000Z
+updatedAt: 2021-05-18T15:48:00.000Z
 tags:
   - NestJS
 keywords:
@@ -361,3 +361,26 @@ export class MailModule {}
 </div>
 
 Time to add your own mail server configuration, start Nest and send your first mails 📧 to your users.
+
+## Breaking Changes
+
+The latest version of nest-modules/mailer [v1.6.0](https://github.com/nest-modules/mailer/releases/tag/v1.6.0) contains a [breaking change how templates are looked up](https://github.com/nest-modules/mailer/issues/550#issuecomment-822249747). 
+
+You need to add `./` to your template names when using v1.6.0, see example below.
+
+<div shortcode="code" tabs="mail.service.ts">
+
+```diff
+await this.mailerService.sendMail({
+  to: user.email,
+  subject: 'Welcome to Nice App! Confirm your Email',
+- template: 'confirmation', // ❌ template not found in v1.6.0, works fine in v1.5.x
++ template: './confirmation', // ✅ template found again in v1.6.0
+  context: { 
+    name: user.name,
+    url,
+  },
+});
+```
+
+</div>
