@@ -9,7 +9,7 @@ import { GitHubRepo } from './github-repo.types';
   selector: 'niz-github-repo',
   template: `
     <svg
-      class="w-8 text-color"
+      class="w-8 text-color flex-shrink-0"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
