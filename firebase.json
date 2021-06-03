@@ -5,6 +5,13 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/blog/angular-10-with-tailwindcss",
+        "destination": "/blog/angular-with-tailwindcss",
+        "type": 301
+      }
     ]
   }
 }
