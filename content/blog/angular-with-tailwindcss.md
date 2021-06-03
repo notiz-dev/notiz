@@ -22,7 +22,7 @@ This guide works for both Tailwind CSS v1 and [v2](https://blog.tailwindcss.com/
 ## Angular Version 11.2.0 or higher
 
 <div shortcode="note" type="warn">
-Follow this instructions if your Angular version is 11.2 or higher, otherwise follow [Angular Version below 11.2](#angular-version-below-112) instructions.
+Follow this instructions if your Angular version is 11.2 or higher, otherwise follow [Angular Version below 11.2](blog/angular-with-tailwindcss#angular-version-below-112) instructions.
 </div>
 
 Angular added native support for Tailwind CSS with the release of [v11.2](https://twitter.com/angular/status/1359736376581840896). Enable Tailwind CSS with the following 3 steps
