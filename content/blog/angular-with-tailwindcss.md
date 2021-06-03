@@ -3,7 +3,7 @@ title: Angular with Tailwind CSS
 description: Learn how to style Angular applications with Tailwind CSS
 published: true
 publishedAt: 2020-07-13T08:55:00.000Z
-updatedAt: 2021-06-03T15:45:00.000Z
+updatedAt: 2021-06-03T16:20:00.000Z
 tags:
   - Angular
   - Tailwind CSS
@@ -19,7 +19,73 @@ Learn how to use utility-first CSS framework [Tailwind CSS](https://tailwindcss.
 
 This guide works for both Tailwind CSS v1 and [v2](https://blog.tailwindcss.com/tailwindcss-v2) and Angular v10 and [v11](https://blog.angular.io/version-11-of-angular-now-available-74721b7952f7).
 
-## Angular Project
+## Angular Version 11.2.0 or higher
+
+<div shortcode="note" type="warn">
+Follow this instructions if your Angular version is 11.2 or higher, otherwise follow [Angular Version below 11.2](https://notiz.dev/blog/angular-10-with-tailwindcss#angular-version-below-11.2) instructions.
+</div>
+
+Angular added native support for Tailwind CSS with the release of [v11.2](https://twitter.com/angular/status/1359736376581840896). Enable Tailwind CSS with the following 3 steps
+
+📦 Install Tailwind dependencies 
+
+<div shortcode="code" tabs="BASH">
+
+```bash
+npm install -D tailwindcss autoprefixer postcss
+```
+
+</div>
+
+🏗  Create Tailwind config file via the Tailwind CLI
+
+<div shortcode="code" tabs="BASH">
+
+```bash
+npx tailwindcss init
+```
+
+</div>
+
+Or create `tailwind.config.js` in your root folder and copy the following content. It already includes purge for your HTML and TS files.
+
+<div shortcode="code" tabs="tailwind.config.js">
+
+```js
+module.exports = {
+  // mode: 'jit',
+  purge: ['./src/**/*.{html,ts}'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+</div>
+
+🖌️ Add Tailwind in your styles file, either `src/styles.css` or `src/styles.scss`
+
+<div shortcode="code" tabs="src/styles.css,src/styles.scss">
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+```css
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+</div>
+
+## Angular Version below 11.2
 
 You need the [Angular CLI](https://cli.angular.io/) to create a new Angular v10 or v11 application.
 
@@ -47,7 +113,6 @@ ng add ngx-build-plus
 ```
 
 </div>
-
 
 Create a **webpack.config.js** in your root folder to configure Postcss with Tailwind.
 
@@ -126,9 +191,7 @@ Perfect, now it's time to generate the Tailwind config `npx tailwindcss init` or
 
 ```css
 @import 'tailwindcss/base';
-
 @import 'tailwindcss/components';
-
 @import 'tailwindcss/utilities';
 ```
 
@@ -142,7 +205,7 @@ Now go ahead serve your app, you are ready to style 🎨 your Angular app with T
 
 We can use the new [purge](https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css) option in **tailwind.config.js**.
 
-<div shortcode="code" tabs="tailwind.config.json">
+<div shortcode="code" tabs="tailwind.config.js">
 
 ```js
 module.exports = {
@@ -198,14 +261,12 @@ module.exports = {
 
 Finally add Tailwind base styles to `src/styles.css`.
 
-<div shortcode="code" tabs="styles.scss">
+<div shortcode="code" tabs="styles.css">
 
 ```css
-@import 'tailwindcss/base';
-
-@import 'tailwindcss/components';
-
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 </div>
