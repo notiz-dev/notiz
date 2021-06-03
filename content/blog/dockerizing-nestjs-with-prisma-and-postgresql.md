@@ -280,7 +280,7 @@ Create the Docker compose file
 touch docker-compose.yml
 ```
 ```yaml
-version: '3.7'
+version: '3.8'
 services:
   nest-api:
     container_name: nest-api
