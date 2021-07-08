@@ -9,6 +9,7 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
 import { SeoModule } from '@components/seo/seo.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [BlogComponent],
@@ -22,6 +23,7 @@ import { SeoModule } from '@components/seo/seo.module';
     TagsViewModule,
     ArticleModule,
     SeoModule,
+    BreadcrumbModule
   ],
 })
 export class BlogModule {}

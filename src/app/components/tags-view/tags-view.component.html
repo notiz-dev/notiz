@@ -1,11 +1,10 @@
-<niz-chip
-  class="mb-1 mr-1 gradient"
+<a
+  [routerLink]="'/tags/' + tag.slug"
+  class="chip chip-small mb-1 mr-1 gradient"
   *ngFor="let tag of tags | async | slice: 0:limit"
 >
-  <a [routerLink]="'/tags/' + tag.slug" class="focus-ring rounded-md">
-    {{ tag.title }}
-  </a>
-</niz-chip>
+  {{ tag.title }}
+</a>
 
 <a
   *ngIf="(tags | async)?.length > limit"

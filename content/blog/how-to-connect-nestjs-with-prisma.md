@@ -3,7 +3,7 @@ title: 'How to query your database using Prisma with NestJS'
 description: 'Learn how to setup a database with Prisma 2.0 and query data using NestJS.'
 published: true
 publishedAt: 2020-03-02T10:12:00.000Z
-updatedAt: 2020-12-15T10:00:00.000Z
+updatedAt: 2021-06-17T10:50:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -12,28 +12,27 @@ keywords:
 authors:
   - 'Marc Stammerjohann'
 github: 'https://github.com/notiz-dev/nestjs-prisma'
-versions:
-  nestjs/cli: 7.1.2
-  nestjs: 7.0.x
-  prisma2: 2.0.0
-  prisma/client: 2.0.0
 ---
 
-[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/more/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
+[Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/reference/database-reference/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
 
 [NestJS](https://nestjs.com) is a popular typescript server-side application framework. It is heavily influenced by Angular's architecture and enables to create a REST and [GraphQL](https://graphql.org) backend.
 
-This guide shows how to setup a NestJS application querying data from a SQLite database using Prisma 2.0.
+This guide shows you how to setup a NestJS application querying data from a SQLite database using Prisma 2.0.
 
-## TLDR
+## TL;DR
 
-Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or GraphQL resolvers to query your data models.
+Add Prisma to a Nest application and generate a `PrismaClient`. Create a Nest `PrismaModule` and `PrismaService` which extends `PrismaClient` and handles the connection using Nest lifecycle events. Inject `PrismaService` into REST controllers or GraphQL resolvers to query your data models.
 
 Or use the [NestJS Prisma Schematics](/blog/nestjs-prisma-schematics) to automatically setup Prisma in your NestJS application and start defining your Prisma Schema.
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 nest add nestjs-prisma
 ```
+
+</div>
 
 ## Step 1: Start a new NestJS application
 
@@ -41,29 +40,39 @@ Generate a new Nest application or skip to the next step if you follow along wit
 
 To generate a new Nest application use the nest cli:
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 npm i -g @nestjs/cli
 nest new project-name
 ```
 
+</div>
+
 Change your directory into the newly created Nest application and open up your preferred IDE.
 
 ## Step 2: Add Prisma 2.0
 
-[Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project) Prisma 2.0, create an empty `prisma.schema` file and install [prisma-client-js](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api) to your Nest application.
+[Add](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project-typescript-postgres) Prisma 2.0, initialize Prisma Schema and install [Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client) to your Nest application.
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
-npm install @prisma/cli --save-dev
+npm install prisma --save-dev
 npx prisma init
 
 npm install @prisma/client
 ```
 
+</div>
+
 ## Step 3: Update Prisma datasource
 
-In this guide we are connecting to a SQLite database. Update the `provider` in the `prisma/prisma.schema` to `sqlite` and change the `url` environment to `file:./dev.db`. [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
+In this guide you are connecting to a SQLite database. Update the `provider` in the `prisma/schema.prisma` to `sqlite` and change the `url` environment to `file:./dev.db`. [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate) will create a SQLite database at `prisma/dev.db`.
 
-The `prisma.schema` should look like:
+The `schema.prisma` should look like:
+
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 datasource db {
@@ -76,9 +85,13 @@ generator client {
 }
 ```
 
-## Step 4: Define a model
+</div>
 
-Now we define a model for the database. A simple `User` model looks like:
+## Step 4: First Prisma model
+
+Now add a model for the database. A simple `User` model looks like:
+
+<div shortcode="code" tabs="schema.prisma">
 
 ```prisma
 model User {
@@ -88,58 +101,106 @@ model User {
 }
 ```
 
-We are adding the above model to `prisma.schema` below the generator.
+</div>
 
-For more complex models check out Prisma's [data modeling](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-model) definition.
+Add the above model to `schema.prisma` below the generator section.
+
+For more complex models check out Prisma's [data modeling](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model) definition.
 
 ## Step 5: Create SQLite database with Migrate
 
-We are creating our first database migration using the Prisma Migrate [Preview](https://www.prisma.io/blog/prisma-migrate-preview-b5eno5g08d0b). To use Migrate during development use the new command
+Create your first database migration using the [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate). To use Migrate during development use the new command called:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
-npx prisma migrate dev --preview-feature
+npx prisma migrate dev
 ```
+
+</div>
 
 This creates a `migration.sql` file containing changes you made to the `schema.prisma`, updates the database schema and generates a new Prisma Client.
 
+Prisma Migrate has been released as stable with [v2.19](https://github.com/prisma/prisma/releases/tag/2.19.0). Upgrade to the latest Prisma version and you can use the following migrate commands.
 
-> **Note**: [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) is considered in preview those we need to provide the `--preview-feature` flag.
-
-Prisma Migrate is released as Preview since [v2.13](https://github.com/prisma/prisma/releases/tag/2.13.0). Upgrade to the latest Prisma version or you can use `save` and `up` command from the experimental version.
+<div shortcode="code" tabs="BASH">
 
 ```bash
-# since v2.13
-npx prisma migrate dev --preview-feature
+# since v2.19
+npx prisma migrate <COMMAND>
 
-# before v2.13
-npx prisma migrate save --experimental
-
-npx prisma migrate up --experimental
+npx prisma migrate dev
+npx prisma migrate reset
+npx prisma migrate deploy
+npx prisma migrate resolve
+npx prisma migrate status
 ```
+
+</div>
+
+<div shortcode="note">
+
+[Hassle-Free Database Migrations with Prisma Migrate](https://www.prisma.io/blog/prisma-migrate-ga-b5eno5g08d0b) is highly recommended 🚀 for more information about the stable release of Prisma Migrate. 
+
+</div>
 
 ## Step 6: Generate PrismaClient
 
-For each change we make to the data model of `prisma.schema`, we have to generate the `PrismaClient` again.
+For each change you make to the data model of `schema.prisma`, you need to generate the `PrismaClient` again.
 
-Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud) operations for the new `User` model:
+Run the following command to generate a new `PrismaClient` which contains the [CRUD](https://www.prisma.io/docs/concepts/components/prisma-client/crud) operations for the new `User` model:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npx prisma generate
 ```
 
-## Step 7: Create a Prisma service
+</div>
 
-SQLite database is setup and a `User` model is defined with Prisma. Now its time to prepare our NestJS application to query the database using `prisma-client-js`.
+<div shortcode="note">
 
-We are creating a NestJS service `prisma` which will extend the `PrismaClient` to instantiate the connection.
+If you run `npx prisma migrate dev` the client will be generated automatically after performing the migration.
+
+</div>
+
+## Step 7: Create a Nest Module and Service for PrismaClient
+
+SQLite database is setup and a `User` model is defined with Prisma. Now its time to prepare our NestJS application to query the database using `PrismaClient`.
+
+First, generate a Nest module and service called `prisma` via the NestJS CLI.
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
+nest generate module prisma
 nest generate service prisma
 ```
 
-Our `PrismaService` looks like this:
+</div>
 
-```typescript
+Open the `PrismaModule` and add `PrismaService` to the `exports` list to be available for dependency injection. Add the `PrismaModule` to the `imports` list of your modules which need to use the `PrismaService`.
+
+<div shortcode="code" tabs="prisma.module.ts">
+
+```ts
+import { Module } from '@nestjs/common';
+import { PrismaService } from './prisma.service';
+
+@Module({
+  providers: [PrismaService],
+  exports: [PrismaService] // 👈 export PrismaService for DI
+})
+export class PrismaModule {}
+```
+
+</div>
+
+Open `PrismaService` and extend it with the `PrismaClient`
+
+<div shortcode="code" tabs="prisma.service.ts">
+
+```ts
 import { Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
@@ -151,9 +212,16 @@ export class PrismaService extends PrismaClient {
 }
 ```
 
-`PrismaClient` allows us to handle the connection ourselves using `connect()` and `disconnect()`. We will make use of Nest [Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events) `OnModuleInit` and `OnModuleDestroy` to take care of the connection for us.
+</div>
 
-Our updated `PrismaService` with the lifecycle events looks like:
+`PrismaClient` has two different ways to start a connection to your database: **lazy** or **explicit**.
+After you run your **first** query, `PrismaClient` automatically creates a connection (**lazy**) to the database. If needed rapid response after application start, you can **explicitly** start or stop a connection using `$connect()` and `$disconnect()`.
+
+Use the Nest [Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events) `OnModuleInit` and `OnModuleDestroy` to take care of starting **explicit** the connection for you. Implement `OnModuleInit` and `OnModuleDestroy` in your `PrismaService`.
+
+The `PrismaService` with the **explicit** connection and lifecycle events looks like:
+
+<div shortcode="code" tabs="prisma.service.ts">
 
 ```typescript
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
@@ -167,20 +235,24 @@ export class PrismaService extends PrismaClient
   }
 
   async onModuleInit() {
-    await this.connect();
+    await this.$connect();
   }
 
   async onModuleDestroy() {
-    await this.disconnect();
+    await this.$disconnect();
   }
 }
 ```
 
+</div>
+
 ## Step 8: Query data model
 
-Now we can inject the `PrismaService` into any REST controller, GraphQL resolver or service to query our data model. We will inject it into a controller and create REST endpoints querying and creating `User` models.
+Now you can inject the `PrismaService` into any REST controller, GraphQL resolver or service to query our data model. Make sure you add `PrismaModule` to the `imports` list of the module. Inject it into a controller and create REST endpoints querying and creating `User` models.
 
-Note we are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
+Note you are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
+
+<div shortcode="code" tabs="app.controller.ts">
 
 ```typescript
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
@@ -217,6 +289,10 @@ export class AppController {
 }
 ```
 
+</div>
+
 Now its time to continue updating your data model, generating `PrismaClient` and adding queries to your Nest application.
 
-Checkout [nestjs-prisma-starter](https://github.com/fivethree-team/nestjs-prisma-starter) to get started quickly with Nest and Prisma.
+Checkout [nestjs-prisma-starter](https://github.com/fivethree-team/nestjs-prisma-starter) to get started quickly with Nest and Prisma, if you like it leave a ⭐.
+
+<div shortcode="repo" repo="fivethree-team/nestjs-prisma-starter"></div>

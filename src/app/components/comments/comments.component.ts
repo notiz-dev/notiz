@@ -11,7 +11,6 @@ import { ThemeService } from '@services/theme.service';
 import {
   distinctUntilChanged,
   tap,
-  startWith,
   takeUntil,
 } from 'rxjs/operators';
 import { Subject } from 'rxjs';

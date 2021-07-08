@@ -52,11 +52,11 @@ const bannerGeneratorPlugin = async (html, route) => {
         dom.serialize()
       );
       copyFileSync(
-        resolve('./dist/shortcodes/styles.css'),
+        resolve('./dist/elements/styles.css'),
         resolve(`${outDir}/${route.route}/styles.css`)
       );
       copyFileSync(
-        resolve('./dist/shortcodes/main-es5.js'),
+        resolve('./dist/elements/main-es5.js'),
         resolve(`${outDir}/${route.route}/main-es5.js`)
       );
       await generateImage(route, size);

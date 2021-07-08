@@ -1,5 +1,5 @@
 <div
-  class="max-w-sm bg-canvas-light rounded-lg overflow-hidden px-4 py-5 space-y-6 md:max-w-lg"
+  class="max-w-sm bg-canvas-light rounded-lg overflow-hidden px-4 py-5 space-y-6 md:max-w-lg h-full"
 >
   <div class="flex items-center space-x-4">
     <img
@@ -25,32 +25,28 @@
   </div>
 
   <div class="space-x-2">
-    <niz-chip size="xl">
-      <a
-        class="flex items-center space-x-2"
-        href="https://twitter.com/{{ author.twitter }}"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <niz-inline-svg
-          class="h-4 w-4"
-          svgSource="assets/img/twitter-white.svg"
-        ></niz-inline-svg>
-        <span>@{{ author.twitter }}</span>
-      </a>
-    </niz-chip>
-    <niz-chip size="xl">
-      <a
-        class="flex items-center space-x-2"
-        href="https://github.com/{{ author.github }}"
-        target="_blank"
-        rel="noreferrer"
-        ><niz-inline-svg
-          class="h-4 w-4"
-          svgSource="assets/stack/github.svg"
-        ></niz-inline-svg>
-        <span>@{{ author.github }}</span>
-      </a>
-    </niz-chip>
+    <a
+      class="chip space-x-2"
+      href="https://twitter.com/{{ author.twitter }}"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <niz-inline-svg
+        class="h-4 w-4"
+        svgSource="assets/img/twitter-white.svg"
+      ></niz-inline-svg>
+      <span>@{{ author.twitter }}</span>
+    </a>
+    <a
+      class="chip space-x-2"
+      href="https://github.com/{{ author.github }}"
+      target="_blank"
+      rel="noreferrer"
+      ><niz-inline-svg
+        class="h-4 w-4"
+        svgSource="assets/stack/github.svg"
+      ></niz-inline-svg>
+      <span>@{{ author.github }}</span>
+    </a>
   </div>
 </div>

@@ -1,40 +1,43 @@
-<form
-  class="max-w-container flex flex-col space-y-5"
-  [formGroup]="newsletterSignup"
-  (ngSubmit)="signupNewsletter()"
+<div
+  class="px-6 py-6 bg-gradient-primary-inverse rounded-xl md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center"
 >
-  <div class="prose max-w-none">
-    <h2>Weeklyish Newsletter</h2>
-    <p>
-      Stay up to date with <a [routerLink]="'tags/angular'">Angular</a>,
-      <a [routerLink]="'tags/nestjs'">NestJS</a>
-      and more! Sign up to receive updates on our latest posts.
+  <div class="xl:w-0 xl:flex-1">
+    <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+      Sign up for our newsletter
+    </h2>
+    <p class="mt-3 max-w-3xl text-lg leading-6 text-gray-50">
+      Sign up for our newsletter to stay up to date. Sent every other week.
     </p>
   </div>
-
-  <div
-    class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 items-center max-w-screen-lg"
-  >
-    <niz-input
-      class="w-full md:w-8/12"
-      label="Email Address"
-      type="email"
-      formControlName="email"
-      [invalid]="invalid"
-      (nizFocus)="nizFocus()"
-    ></niz-input>
-    <niz-primary-button class="w-full md:w-4/12" type="submit">
-      <niz-inline-svg
-        *ngIf="!pending"
-        class="h-6 w-6 mr-2"
-        svgSource="assets/img/paper-plane.svg"
-      ></niz-inline-svg>
-      <niz-inline-svg
-        *ngIf="pending"
-        class="h-6 w-6 mr-2 spin"
-        svgSource="assets/img/spinner.svg"
-      ></niz-inline-svg>
-      Subscribe
-    </niz-primary-button>
+  <div class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8">
+    <form
+      class="sm:flex"
+      [formGroup]="newsletterSignup"
+      (ngSubmit)="signupNewsletter()"
+    >
+      <label for="emailAddress" class="sr-only">Email address</label>
+      <input
+      #emailAddress
+        id="emailAddress"
+        name="emailAddress"
+        type="email"
+        autocomplete="email"
+        formControlName="email"
+        required
+        class="w-full text-gray-950 placeholder-gray-600 border-white px-5 py-3 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white rounded-md"
+        placeholder="Enter your email"
+      />
+      <button
+        [disabled]="newsletterSignup.invalid"
+        type="submit"
+        class="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent shadow text-base font-medium rounded-md text-white bg-primary-dark hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+      >
+        Notify me
+      </button>
+    </form>
+    <p class="mt-3 text-sm text-white">
+      We care about the protection of your data. Read our
+      <a routerLink="/legal/privacy-policy" class="font-medium underline"> Privacy Policy. </a>
+    </p>
   </div>
-</form>
+</div>

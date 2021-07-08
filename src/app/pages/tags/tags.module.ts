@@ -9,6 +9,7 @@ import { ComponentsModule } from '@components/components.module';
 import { TagModule } from '@pages/tag/tag.module';
 import { NewsletterSignupModule } from 'src/app/components/newsletter-signup/newsletter-signup.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [TagsComponent],
@@ -21,6 +22,7 @@ import { TagsViewModule } from '@components/tags-view/tags-view.module';
     NewsletterSignupModule,
     TagsViewModule,
     SeoModule,
+    BreadcrumbModule
   ],
 })
 export class TagsModule {}

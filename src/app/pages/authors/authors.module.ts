@@ -7,6 +7,7 @@ import { ComponentsModule } from '@components/components.module';
 import { AuthorModule } from '@pages/author/author.module';
 import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter-signup.module';
 import { AuthorCardModule } from '@components/author/author.module';
+import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [AuthorsComponent],
@@ -18,6 +19,7 @@ import { AuthorCardModule } from '@components/author/author.module';
     NewsletterSignupModule,
     AuthorCardModule,
     SeoModule,
+    BreadcrumbModule
   ],
 })
 export class AuthorsModule {}

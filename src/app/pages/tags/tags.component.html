@@ -1,14 +1,12 @@
 <niz-seo title="Tags - notiz" description="All tags on notiz.dev"></niz-seo>
+<article class="container mt-8 space-y-6">
+  <app-breadcrumb></app-breadcrumb>
+  <h1>Tags</h1>
+  <p class="text-lg text-color-light sm:text-xl md:text-2xl">
+    See what we are writing about.
+  </p>
 
-<article class="max-w-container space-y-5 mt-10">
-  <header>
-    <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">Tags</h1>
-    <p class="mt-1 text-lg text-color-light sm:text-xl md:text-2xl">
-      See what we are writing about.
-    </p>
-  </header>
-
-  <div>
+  <div class="max-w-3xl">
     <app-tags-view [tags]="tags$"></app-tags-view>
   </div>
 </article>

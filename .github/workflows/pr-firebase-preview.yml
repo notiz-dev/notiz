@@ -33,14 +33,14 @@ jobs:
           CI: true
       - name: Install banner generator dependencies
         run: cd projects/banner-generator && npm ci
-      - name: Install banner generator dependencies
-        run: cd projects/amp && npm ci
-      - name: Build shortcodes
-        run: npm run build:shortcodes
+      - name: Build Elements
+        run: npm run build:elements
       - name: Build Angular prod
         run: npm run build:prod
       - name: Build Scully CI
-        run: npm run scully:ci
+        run: |
+          npm run scully:ci
+          npm run scully:ci
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

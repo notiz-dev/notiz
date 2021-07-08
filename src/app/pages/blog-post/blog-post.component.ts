@@ -35,6 +35,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
   ) {}
 
   ngOnInit() {
+
     this.router.events
       .pipe(
         takeUntil(this.destroy$),

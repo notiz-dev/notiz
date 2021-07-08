@@ -1,4 +1,4 @@
-import { NizInlineSvgModule } from '@notiz/ngx-design';
+import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

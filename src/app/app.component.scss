@@ -2,29 +2,14 @@
   transition: transform 180ms ease;
 }
 
-.router-link {
-  @apply relative text-lg font-semibold h-6 select-none rounded-md hover:text-primary focus:outline-none focus:ring focus:ring-primary;
-}
-
 .router-link-active {
-  @apply text-color-shade;
-  position: relative;
+  @apply text-primary;
 }
 
-.router-link::after {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  transition: width 160ms;
+.router-link {
+  @apply text-xl font-semibold focus:outline-none;
 }
 
-.router-link-active::after {
-  content: ' ';
-  position: absolute;
-  width: calc(100% - 4px);
-  height: 4px;
-  background-color: theme('colors.primary.DEFAULT');
-  left: 2px;
-  bottom: -8px;
-  border-radius: 999px;
+.router-link:hover{
+  @apply text-primary;
 }

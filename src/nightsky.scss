@@ -1,0 +1,27 @@
+.star {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  position: fixed;
+  z-index: -1;
+}
+
+.meteor {
+  position: fixed;
+  width: 300px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+  transform: rotate(-45deg);
+  background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  &:before {
+    content: '';
+    position: fixed;
+    width: 4px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: -2px;
+    background: rgba(#fff, 0.7);
+    box-shadow: 0 0 15px 3px #fff;
+  }
+}

@@ -6,16 +6,17 @@
   [tags]="[page.title]"
 ></niz-seo>
 
-<article class="max-w-container space-y-5 mt-10">
-  <header class="space-y-4">
-    <app-breadcrumb></app-breadcrumb>
-    <h1 class="text-3xl font-extrabold sm:text-4xl md:text-5xl">
-      {{ (page$ | async)?.title }}
-    </h1>
-    <div class="prose">
-      <scully-content></scully-content>
-    </div>
-  </header>
+<article class="container mt-8 space-y-6">
+  <app-breadcrumb
+    *ngIf="page$ | async as page"
+    [data]="page.title"
+  ></app-breadcrumb>
+  <h1>
+    {{ (page$ | async)?.title }}
+  </h1>
+  <div class="max-w-3-xl">
+    <scully-content></scully-content>
+  </div>
 
   <app-featured
     class="mt-5"
@@ -24,13 +25,13 @@
   ></app-featured>
 </article>
 <div
-  class="max-w-container flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 mt-10"
+  class="container flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-8"
 >
   <div class="w-full flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold">
       Latest posts for {{ (page$ | async)?.title }}
     </h2>
-    <div class="flex flex-wrap">
+    <div class="grid lg:grid-cols-2 gap-4">
       <app-article
         *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"
         [route]="blogPost"

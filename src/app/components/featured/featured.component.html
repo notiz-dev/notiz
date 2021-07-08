@@ -1,24 +1,11 @@
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col space-y-4 max-w-3xl">
   <a
     #link
-    class="flex flex-col space-y-4 featured rounded-md focus-ring focus:ring-offset-4 focus:ring-offset-canvas"
+    class="flex flex-col space-y-4 featured rounded-md"
     [routerLink]="[route.route]"
   >
-    <div class="flex flex-row items-center space-x-2">
-      <niz-inline-svg
-        *ngIf="type === 'LINK'"
-        class="h-4 w-4 text-primary-light"
-        svgSource="assets/img/link.svg"
-      ></niz-inline-svg>
-      <span class="text-sm">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
-    </div>
-
     <h2 class="space-x-4 mt-1 text-4xl font-bold md:text-5xl">
-      <span>{{ route.title }}</span>
-      <niz-inline-svg
-        class="icon"
-        svgSource="assets/img/arrow-right.svg"
-      ></niz-inline-svg>
+      {{ route.title }}
     </h2>
 
     <div class="text-xl text-color-light md:text-2xl">
@@ -26,31 +13,18 @@
     </div>
   </a>
   <div>
-    <niz-chip
-      class="mb-1 mr-1 gradient"
+    <a
+      [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
+      class="mb-1 mr-1 gradient chip chip-small"
       *ngFor="let tag of route.tags | slice: 0:3"
-      size="xl"
     >
-      <a
-        class="rounded-md focus-ring"
-        [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
-      >
-        {{ tag }}
-      </a>
-    </niz-chip>
+      {{ tag }}
+    </a>
   </div>
-  <div
-    (click)="link.click()"
-    class="prose max-w-none overflow-hidden relative max-h-248 md:prose-lg md:max-h-384"
-  >
-    <div
-      class="backdrop font-fold flex text-2xl text-primary justify-center items-center absolute inset-0 bg-canvas opacity-0"
-    ></div>
-    <niz-inline-svg
-      class="gradient absolute inset-0 transform rotate-180"
-      svgSource="assets/img/gradient.svg"
-    ></niz-inline-svg>
-
-    <markdown [src]="'assets/content/' + route.route + '.md'"></markdown>
+  <div class="flex justify-between items-center">
+    <niz-author-small [author]="author$ | async"></niz-author-small>
+    <span class="text-base">{{
+      route.updatedAt | date: 'MMMM dd, yyyy'
+    }}</span>
   </div>
 </div>

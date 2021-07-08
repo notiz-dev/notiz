@@ -1,4 +1,4 @@
-import { NizChipModule, NizInlineSvgModule } from '@notiz/ngx-design';
+import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgModule } from '@angular/core';
@@ -11,7 +11,6 @@ import { AuthorComponent } from './author.component';
     CommonModule,
     RouterModule,
     MarkdownModule.forChild(),
-    NizChipModule,
     NizInlineSvgModule,
   ],
   exports: [AuthorComponent],

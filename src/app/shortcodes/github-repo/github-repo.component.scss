@@ -1,0 +1,7 @@
+:host {
+  @apply w-full max-w-xl flex space-x-4 p-4 mx-auto rounded-xl bg-canvas-shade;
+
+  h4 {
+    @apply text-2xl my-0;
+  }
+}

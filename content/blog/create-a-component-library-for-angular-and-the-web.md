@@ -34,40 +34,67 @@ Open the newly created project in your favorite IDE.
 
 Next, run: 
 
+<div shortcode="code" tabs="BASH">
+
 ```bash
 ng g library components
 ```
+
+</div>
+
 This step will generate a new **library** under `./projects/components` and add an example component. The library is ready to be shared and used in all of your Angular applications without further configuration. 💆
 
 Perform an initial build of the component library by running: 
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 ng build components
 ```
 
-> Currently, **Angular Elements** only supports projects of type `application` to create Custom Elements. This means you need to generate an _additional_ application. The sole purpose of the application is to import your angular components and output them as Custom Elements.
+</div>
+
+<div shortcode="note">
+
+Currently, **Angular Elements** only supports projects of type `application` to create Custom Elements. This means you need to generate an _additional_ application. The sole purpose of the application is to import your angular components and output them as Custom Elements.
+
+</div>
 
 To generate the elements application run:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 ng g application elements
 ```
 
+</div>
+
 Additionally, run the `@angular/elements` schematic:
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 ng add @angular/elements --project elements
 ```
 
+</div>
+
 This will create a new app in the subfolder `./projects/elements` and install all the necessary dependencies and polyfills needed to set up Angular Elements.
 
 If you want to publish your components as Custom Elements cd into `./projects/elements` and create a package.json using 
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm init
 ```
 
+</div>
+
 Then, add the following to the newly created **package.json**:
+
+<div shortcode="code" tabs="package.json">
 
 ```js
 {
@@ -78,9 +105,15 @@ Then, add the following to the newly created **package.json**:
 
 ```
 
+</div>
+
 Your project should now look something like this:
 
+<div shortcode="figure" caption="folder structure and package.json content">
+
 ![folder structure and package.json content](assets/img/blog/create-a-component-library-for-angular-and-the-web/optimized/structure.png)
+
+</div>
 
 ## Configure Angular Elements
 
@@ -94,6 +127,7 @@ Do some changes to your elements `app.module.ts`:
 * Add `ngDoBootstrap` hook.
 * For every component create an element using the `createCustomElement` function from `@angular/elements`. Then define the element using web's native `customElemments.define` function, specifying a selector.
 
+<div shortcode="code" tabs="app.module.ts">
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -120,10 +154,17 @@ export class AppModule {
  }
 ```
 
-Remove `zone.js` (optional):
+</div>
 
-> Removing `zone.js` is probably a good idea. Read more about it [in this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
 
+<div shortcode="note">
+
+### Remove `zone.js` (optional)
+Removing `zone.js` is probably a good idea. Read more about it [in this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
+
+</div>
+
+<div shortcode="code" tabs="main.ts">
 
 ```typescript
 import { enableProdMode } from '@angular/core';
@@ -142,9 +183,13 @@ platformBrowserDynamic()
 
 ```
 
+</div>
+
 ## Time to build ⚙ 
 
 In your root package.json add the following scripts:
+
+<div shortcode="code" tabs="package.json">
 
 ```js
 {
@@ -160,20 +205,32 @@ In your root package.json add the following scripts:
 }
 
 ```
+
+</div>
+
 To build the elements application run: 
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 npm run build:elements
 ```
 
+</div>
+
 The script exports your Angular components as Custom Elements during the build process. Also it will run the `pack:elements` script and copy the previously created `package.json` to `./dist/elements`.
-> The `pack:elements` script is optional yet very useful because it will bundle the js build outputs into a single `elements.js` file. This makes it easier to include your library in other applications.
+
+<div shortcode="note">
+
+The `pack:elements` script is optional yet very useful because it will bundle the js build outputs into a single `elements.js` file. This makes it easier to include your library in other applications.
+
+</div>
 
 ## Try it out
 
 Use your Angular components by including them in the root Angular application:
 
-In app.module.ts:
+<div shortcode="code" tabs="app.module.ts,app.component.html">
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -196,19 +253,24 @@ import { ComponentsModule } from 'components';
 export class AppModule { }
 
 ```
-
-In `app.component.html`:
-
 ```html
 <h1>angular component</h1>
 <lib-components></lib-components>
 ```
 
+</div>
+
 Run the root application with `ng s`.
+
+<div shortcode="figure" caption="Angular app running and displaying the component">
 
 ![angular app running and displaying the component](assets/img/blog/create-a-component-library-for-angular-and-the-web/optimized/angular-component.png)
 
+</div>
+
 Using your Custom Elements is simple. Create an index.html in the root of your project and add following code snippet:
+
+<div shortcode="code" tabs="index.html">
 
 ```html
 <!DOCTYPE html>
@@ -228,22 +290,35 @@ Using your Custom Elements is simple. Create an index.html in the root of your p
 </html>
 ```
 
+</div>
+
 To test, serve it on a http server and open the index.html. I'm using [serve](https://www.npmjs.com/package/serve).
+
+<div shortcode="code" tabs="BASH">
 
 ```bash
 serve .
 ```
 
+</div>
+
+<div shortcode="figure" caption="Web Component result">
 
 ![web component](assets/img/blog/create-a-component-library-for-angular-and-the-web/optimized/custom-element.png)
 
+</div>
 
 ## Publish to npm
 
 The only thing left to do is to publish your components and Custom Elements to npm.
 This is fairly easy. Either run `npm publish dist/components` or `npm publish dist/elements`.
 
-> Reminder: Before releasing, you probably want to update `./projects/components/package.json` and `./projects/elements/package.json` to include your libraries' name and version. A way to name your libraries could be `ngx-<NAME>` for angular and `wc-<NAME>` for the Custom Elements.
+<div shortcode="note" type="warn">
+
+### Reminder
+Before releasing, you probably want to update `./projects/components/package.json` and `./projects/elements/package.json` to include your libraries' name and version. A way to name your libraries could be `ngx-<NAME>` for angular and `wc-<NAME>` for the Custom Elements.
+
+</div>
 
 ✨ Congratulations! You successfully created and published a custom Angular component library that can be used almost everywhere!
 

@@ -23,9 +23,9 @@ jobs:
             ${{ runner.os }}-node-
       - run: npm ci
       - run: cd projects/banner-generator && npm ci
-      - run: cd projects/amp && npm ci
-      - run: npm run build:shortcodes
+      - run: npm run build:elements
       - run: npm run build:prod
+      - run: npm run scully:ci
       - run: npm run scully:ci
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

@@ -1,10 +1,16 @@
 import { environment } from '@environments/environment';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  HostBinding,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { ToastService, ToastType, NizInput } from '@notiz/ngx-design';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -12,18 +18,17 @@ import { ToastService, ToastType, NizInput } from '@notiz/ngx-design';
   styleUrls: ['./newsletter-signup.component.scss'],
 })
 export class NewsletterSignupComponent implements OnInit {
+  @HostBinding('class') class =
+    'max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8';
+  @ViewChild('emailAddress') input: ElementRef<HTMLInputElement>;
   newsletterSignup: FormGroup;
-  pending = false;
-  invalid = false;
-
-  @ViewChild(NizInput) input: NizInput;
 
   constructor(
     private http: HttpClient,
     private formBuilder: FormBuilder,
-    private toast: ToastService,
     public element: ElementRef<HTMLElement>,
-    private sa: SimpleAnalyticsService
+    private sa: SimpleAnalyticsService,
+    private toast: HotToastService
   ) {
     this.setupForm();
   }
@@ -39,41 +44,19 @@ export class NewsletterSignupComponent implements OnInit {
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
       this.sa.event('newsletter_submit_with_email');
-      this.pending = true;
-      return this.http
+      this.http
         .post(`${environment.api}/subscribe`, this.newsletterSignup.value)
         .pipe(
-          tap(() => (this.pending = false)),
-          tap(() => {
-            this.sa.event('newsletter_subscribed');
+          this.toast.observe({
+            loading: 'Signing you up...',
+            success: 'Successfully signed up. Thank you!',
+            error: 'Oh no, something went wrong! Please try again.',
           }),
           tap(() => {
-            this.toast.show({
-              type: ToastType.SUCCESS,
-              duration: 4000,
-              text:
-                'Successfully subscribed to notiz.dev. Check your email. 📮',
-            });
+            this.sa.event('newsletter_subscribed');
           })
         )
-        .subscribe();
+        .subscribe({ complete: () => this.newsletterSignup.reset() });
     }
-    this.invalid = true;
-    this.sa.event('newsletter_submit_without_email');
-
-    this.toast.show({
-      type: ToastType.ERROR,
-      duration: 4000,
-      text: 'Please enter your mail address. 📧',
-    });
-  }
-
-  focus() {
-    this.input.input.nativeElement.focus();
-  }
-
-  nizFocus() {
-    this.invalid = false;
-    this.sa.event('newsletter_focus');
   }
 }
