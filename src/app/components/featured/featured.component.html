@@ -14,7 +14,7 @@
   </a>
   <div>
     <a
-      [routerLink]="'/tags/' + (tag | dash | lowercase)"
+      [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
       class="mb-1 mr-1 gradient chip chip-small"
       *ngFor="let tag of route.tags | slice: 0:3"
     >

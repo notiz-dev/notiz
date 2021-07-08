@@ -1,6 +1,8 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
+import { ContentType } from 'src/app/types/types';
+import { Observable } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -12,6 +14,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class FeaturedComponent implements OnInit {
   @Input() route: ScullyRoute;
 
+  sneakpeak$: Observable<string>;
   author$: Observable<ScullyRoute>;
 
   constructor(private content: ScullyContentService) {}

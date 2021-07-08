@@ -11,7 +11,7 @@
     {{ route.description }}
   </div>
   <a
-    [routerLink]="'/tags/' + tag | dash | lowercase"
+    [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
     class="chip chip-small mb-1 mr-1"
     *ngFor="let tag of route.tags | slice: 0:3"
   >

@@ -50,7 +50,7 @@
           <h2 class="text-xl font-semibold">Tags</h2>
           <div>
             <a
-              [routerLink]="'/tags/' + (tag | dash | lowercase)"
+              [routerLink]="'/tags/' + (this.content.tagLink(tag) | async | dash | lowercase)"
               class="chip mb-1 mr-1 gradient"
               *ngFor="let tag of route.tags | slice: 0:3"
             >
