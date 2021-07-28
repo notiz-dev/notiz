@@ -1,16 +1,8 @@
-import { Router, NavigationEnd, RouteConfigLoadEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import {
-  map,
-  switchMap,
-  tap,
-  reduce,
-  filter,
-  startWith,
-  share,
-} from 'rxjs/operators';
-import { Observable, zip, concat } from 'rxjs';
+import { map, switchMap, filter, startWith } from 'rxjs/operators';
+import { Observable, zip } from 'rxjs';
 import { TagWeight } from '../types/types';
 
 @Injectable({
