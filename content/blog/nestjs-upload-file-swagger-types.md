@@ -1,9 +1,9 @@
 ---
 title: 'NestJS: Upload Files type safe with Swagger'
 description: 'Learn how to apply Swagger decorators for type safe file upload endpoints.'
-published: false
-publishedAt: 2021-07-27T18:30:00.000Z
-updatedAt: 2021-07-27T18:30:00.000Z
+published: true
+publishedAt: 2021-07-28T18:30:00.000Z
+updatedAt: 2021-07-28T18:30:00.000Z
 tags:
     - NestJS
 keywords:
@@ -13,14 +13,16 @@ keywords:
     - 'Upload File'
 authors:
     - 'Marc Stammerjohann'
-github: 'https://github.com/...'
-slugs:
-    - ___UNPUBLISHED___krnbvekx_pb8psKKd5LcgVi59nzrRtNDI5C0kL14k
+github: https://github.com/notiz-dev/nestjs-swagger
 ---
 
-Before you start follow this guide to setup Swagger in your NestJS application
+Before you start follow this guide to setup Swagger in your NestJS application.
 
-<div shortcode="article" routes="/blog/openapi-documentation-in-nestjs"></div>
+<div shortcode="article" routes="/blog/openapi-in-nestjs"></div>
+
+The source code for this post is available in this repo on GitHub.
+
+<div shortcode="repo" repo="notiz-dev/nestjs-swagger"></div>
 
 ## Upload File(s)
 

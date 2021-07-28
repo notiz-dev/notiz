@@ -467,3 +467,10 @@ export class UsersController {
 ```
 
 </div>
+
+
+## Advanced Swagger Types
+
+Check out the following article for swagger types for upload file endpoints. This allows you to directly test file upload in your Swagger documentation and is perfect for client generation tools to pick up the correct input values.
+
+<div shortcode="article" routes="/blog/nestjs-upload-file-swagger-types"></div>
