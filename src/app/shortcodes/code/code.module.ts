@@ -5,15 +5,11 @@ import { ShortcodeModule } from '@notiz/shortcodes';
 import { MarkdownModule } from 'ngx-markdown';
 import { SanitizePipe } from './sanitize.pipe';
 
-
-
 @NgModule({
   declarations: [CodeComponent, SanitizePipe],
   imports: [
     CommonModule,
-    ShortcodeModule.forChild([
-      { shortcode: '', component: CodeComponent },
-    ]),
-  ]
+    ShortcodeModule.forChild([{ shortcode: '', component: CodeComponent }]),
+  ],
 })
-export class CodeModule { }
+export class CodeModule {}

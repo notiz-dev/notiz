@@ -3,7 +3,7 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   Router,
-  UrlTree
+  UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,8 +17,8 @@ export class IsAvailable implements CanActivate {
     const url = getResolvedUrl(route);
     return this.routes.available$.pipe(
       map(
-        posts =>
-          posts.some(p => p.route === url) || this.router.parseUrl('/404')
+        (posts) =>
+          posts.some((p) => p.route === url) || this.router.parseUrl('/404')
       )
     );
   }
@@ -26,7 +26,7 @@ export class IsAvailable implements CanActivate {
 
 function getResolvedUrl(route: ActivatedRouteSnapshot): string {
   return route.pathFromRoot
-    .map(v => v.url.map(segment => segment.toString()).join('/'))
+    .map((v) => v.url.map((segment) => segment.toString()).join('/'))
     .join('/');
 }
 
@@ -34,8 +34,8 @@ function getConfiguredUrl(route: ActivatedRouteSnapshot): string {
   return (
     '/' +
     route.pathFromRoot
-      .filter(v => v.routeConfig)
-      .map(v => v.routeConfig!.path)
+      .filter((v) => v.routeConfig)
+      .map((v) => v.routeConfig!.path)
       .join('/')
   );
 }

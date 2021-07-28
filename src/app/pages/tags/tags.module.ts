@@ -22,7 +22,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
     NewsletterSignupModule,
     TagsViewModule,
     SeoModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
 })
 export class TagsModule {}

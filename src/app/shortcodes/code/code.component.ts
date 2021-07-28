@@ -17,7 +17,8 @@ import { takeUntil, tap } from 'rxjs/operators';
   styleUrls: ['code.component.scss'],
 })
 export class CodeComponent implements OnInit {
-  @HostBinding('class') class = 'block bg-canvas-shade rounded-xl overflow-x-hidden';
+  @HostBinding('class') class =
+    'block bg-canvas-shade rounded-xl overflow-x-hidden';
   shortcodeEl: HTMLElement;
   tabs: string = '';
   _tabs: { name: string; content: string }[] = [];

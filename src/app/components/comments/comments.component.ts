@@ -8,11 +8,7 @@ import {
 } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ThemeService } from '@services/theme.service';
-import {
-  distinctUntilChanged,
-  tap,
-  takeUntil,
-} from 'rxjs/operators';
+import { distinctUntilChanged, tap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -42,9 +38,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
           (this.el.nativeElement as HTMLElement)
             .querySelector('.utterances')
             ?.remove();
-          const script: HTMLScriptElement = this.renderer.createElement(
-            'script'
-          );
+          const script: HTMLScriptElement =
+            this.renderer.createElement('script');
           script.src = 'https://utteranc.es/client.js';
           script.setAttribute('repo', 'notiz-dev/notiz');
           script.setAttribute('issue-term', this.route.title);

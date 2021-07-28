@@ -59,7 +59,7 @@ export class BreadcrumbComponent implements OnInit, OnChanges {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
-  
+
   ngOnChanges(changes: SimpleChanges): void {
     this.crumbs = this.route.pathFromRoot
       .filter((route) => route.routeConfig)

@@ -1,20 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { ThemeService } from '@services/theme.service';
-import {
-  delay,
-  filter,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
+import { delay, filter, takeUntil, tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
-import {
-  interval,
-  merge,
-  Observable,
-  Subject,
-} from 'rxjs';
+import { interval, merge, Observable, Subject } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';

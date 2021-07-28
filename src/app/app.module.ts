@@ -62,12 +62,16 @@ import { HotToastModule } from '@ngneat/hot-toast';
       {
         shortcode: 'repo',
         loadChildren: () =>
-          import('./shortcodes/github-repo/github-repo.module').then((m) => m.GithubRepoModule),
+          import('./shortcodes/github-repo/github-repo.module').then(
+            (m) => m.GithubRepoModule
+          ),
       },
       {
         shortcode: 'figure',
         loadChildren: () =>
-          import('./shortcodes/figure/figure.module').then((m) => m.FigureModule),
+          import('./shortcodes/figure/figure.module').then(
+            (m) => m.FigureModule
+          ),
       },
     ]),
     HotToastModule.forRoot({

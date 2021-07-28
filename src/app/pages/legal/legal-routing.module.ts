@@ -7,12 +7,12 @@ const routes: Routes = [
   {
     path: ':slug',
     component: LegalComponent,
-    canActivate: [IsAvailable]
-  }
+    canActivate: [IsAvailable],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class LegalRoutingModule {}

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 
-
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -10,7 +9,5 @@ import { ScullyRoute } from '@scullyio/ng-lib';
 export class ArticleComponent implements OnInit {
   @Input() route: ScullyRoute;
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 }
