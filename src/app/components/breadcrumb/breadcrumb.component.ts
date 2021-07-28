@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
@@ -35,7 +41,10 @@ import { ActivatedRoute, Data } from '@angular/router';
         >
           {{ crumb.label }}
         </a>
-        <span *ngIf="last" class="ml-2 text-sm font-medium text-color-light line-clamp-1">
+        <span
+          *ngIf="last"
+          class="ml-2 text-sm font-medium text-color-light line-clamp-1"
+        >
           {{ crumb.label }}
         </span>
       </div>
@@ -43,13 +52,15 @@ import { ActivatedRoute, Data } from '@angular/router';
   </nav>`,
   styles: [],
 })
-export class BreadcrumbComponent implements OnInit {
+export class BreadcrumbComponent implements OnInit, OnChanges {
   @Input() home: Breadcrumb = { label: 'Start', url: '' };
   @Input() data: any;
   crumbs: Breadcrumb[];
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  
+  ngOnChanges(changes: SimpleChanges): void {
     this.crumbs = this.route.pathFromRoot
       .filter((route) => route.routeConfig)
       .filter((route) => route.routeConfig.data?.breadcrumb)
