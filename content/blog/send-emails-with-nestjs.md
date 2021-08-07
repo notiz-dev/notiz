@@ -3,7 +3,7 @@ title: Send Emails with NestJS
 description: Create Email Templates and send them with nodemailer from your Nest application 
 published: true
 publishedAt: 2021-03-18T11:15:00.000Z
-updatedAt: 2021-05-18T15:48:00.000Z
+updatedAt: 2021-08-07T22:43:00.000Z
 tags:
   - NestJS
 keywords:
@@ -30,6 +30,7 @@ Add the `@nestjs-modules/mailer` and the peer dependency `nodemailer` to your Ne
 
 ```bash
 npm install --save @nestjs-modules/mailer nodemailer
+npm install --save-dev @types/nodemailer
 
 # pick one template adapter and install
 npm install --save handlebars
@@ -47,6 +48,7 @@ In this guide, you are creating email templates using handlebars.
 
 ```bash
 npm install --save @nestjs-modules/mailer nodemailer handlebars
+npm install --save-dev @types/nodemailer
 ```
 
 </div>
