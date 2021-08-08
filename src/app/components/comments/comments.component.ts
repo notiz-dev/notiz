@@ -18,7 +18,7 @@ import { Subject } from 'rxjs';
 })
 export class CommentsComponent implements OnInit, OnDestroy {
   @Input() route: ScullyRoute;
-  private onDestroy$ = new Subject();
+  private onDestroy$ = new Subject<void>();
 
   constructor(
     private el: ElementRef,

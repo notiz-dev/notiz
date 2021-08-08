@@ -75,7 +75,7 @@ export class AppComponent implements OnInit, OnDestroy {
       ],
     },
   ];
-  destroy$ = new Subject();
+  destroy$ = new Subject<void>();
   stars: string;
   constructor(
     public themeService: ThemeService,
