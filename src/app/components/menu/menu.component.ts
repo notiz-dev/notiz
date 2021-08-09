@@ -27,7 +27,7 @@ import { filter, tap, takeUntil } from 'rxjs/operators';
 export class MenuComponent implements OnInit, OnDestroy {
   @Input() open = false;
   @Output() openChange = new EventEmitter<boolean>();
-  private destroy$ = new Subject();
+  private destroy$ = new Subject<void>();
   constructor(private el: ElementRef) {}
 
   ngOnInit(): void {

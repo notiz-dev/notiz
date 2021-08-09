@@ -26,7 +26,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   allowHighlight = true;
 
-  private destroy$ = new Subject();
+  private destroy$ = new Subject<void>();
 
   constructor(
     private highlightService: HighlightService,
