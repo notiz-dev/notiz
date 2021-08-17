@@ -1,6 +1,6 @@
 ---
-title: Introducing NestJS Prisma Schematics
-description: Schematics to easily add Prisma support to a NestJS application 
+title: Introducing NestJS Prisma Library and Schematics
+description: Library and schematics to add Prisma integration to a NestJS application  
 published: true
 publishedAt: 2020-08-07T09:30:00.000Z
 updatedAt: 2021-08-17T17:45:00.000Z
