@@ -2,8 +2,8 @@
 title: 'NestJS: Upload Files type safe with Swagger'
 description: 'Learn how to apply Swagger decorators for type safe file upload endpoints.'
 published: true
-publishedAt: 2021-08-25T15:30:00.000Z
-updatedAt: 2021-08-25T15:30:00.000Z
+publishedAt: 2021-08-25T17:45:00.000Z
+updatedAt: 2021-08-25T17:45:00.000Z
 tags:
     - NestJS
 keywords:
@@ -776,7 +776,7 @@ export class FilesController {
 
   @Post('upload')
   @ApiFile() 
-  // 🔎 ParseFile 
+  // 🔎 ParseFile and throw 400 if file not provided
   uploadFile(@UploadedFile(ParseFile) file: Express.Multer.File) {
     console.log(file);
   }
