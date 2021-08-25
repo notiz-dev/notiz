@@ -1,9 +1,9 @@
 ---
-title: 'NestJS: Upload Files type safe with Swagger'
-description: 'Learn how to apply Swagger decorators for type safe file upload endpoints.'
+title: 'Type-safe File Uploads'
+description: 'Learn how to apply Swagger decorators for type-safe file upload endpoints.'
 published: true
-publishedAt: 2021-08-25T17:45:00.000Z
-updatedAt: 2021-08-25T17:45:00.000Z
+publishedAt: 2021-08-26T09:15:00.000Z
+updatedAt: 2021-08-26T09:15:00.000Z
 tags:
     - NestJS
 keywords:
@@ -30,7 +30,7 @@ The source code for this post is available in this repo on GitHub.
 
 Nest uses [multer](https://github.com/expressjs/multer) for handling file uploads using the `multipart/form-data` [format](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST).
 
-Add the multer typings to improve type safety.
+Add the multer typings to improve type-safety.
 
 <div shortcode="code" tabs="BASH">
 
@@ -76,7 +76,7 @@ Start the Nest application `npm run start:dev` and checkout the new endpoint in 
 
 <div shortcode="figure" caption="Upload file without Swagger types">
 
-![Upload file without Swagger types](assets/img/blog/nestjs-upload-file-swagger-types/optimized/upload-file-without-swagger-types.png)
+![Upload file without Swagger types](assets/img/blog/type-safe-file-uploads/optimized/upload-file-without-swagger-types.png)
 
 </div>
 
@@ -132,7 +132,7 @@ Swagger provides you now with a file selection 🎉.
 
 <div shortcode="figure" caption="Upload file with Swagger types">
 
-![Upload file without Swagger types](assets/img/blog/nestjs-upload-file-swagger-types/optimized/upload-file-with-swagger-types.png)
+![Upload file without Swagger types](assets/img/blog/type-safe-file-uploads/optimized/upload-file-with-swagger-types.png)
 
 </div>
 
@@ -236,13 +236,13 @@ Checkout the new endpoints in your Swagger API.
 
 <div shortcode="figure" caption="Upload array of files with Swagger types">
 
-![Upload array of files with Swagger types](assets/img/blog/nestjs-upload-file-swagger-types/optimized/upload-files-with-swagger-types.png)
+![Upload array of files with Swagger types](assets/img/blog/type-safe-file-uploads/optimized/upload-files-with-swagger-types.png)
 
 </div>
 
 <div shortcode="figure" caption="Upload multiple files with different field names with Swagger types">
 
-![Upload array of files with Swagger types](assets/img/blog/nestjs-upload-file-swagger-types/optimized/upload-file-fields-with-swagger-types.png)
+![Upload array of files with Swagger types](assets/img/blog/type-safe-file-uploads/optimized/upload-file-fields-with-swagger-types.png)
 
 </div>
 
