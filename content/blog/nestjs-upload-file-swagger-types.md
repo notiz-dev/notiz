@@ -587,7 +587,135 @@ export class FilesController {
 
 </div>
 
-## Custom file filter decorator
+## Custom file filter
+
+What if you like to allow only images or PDF's to upload? Thats where the `MulterOptions.fileFilter` come into action. You can filter based on the file properties such as `originalname`, `mimetype`, `size` and more. 
+
+Let's create a filter for mimetypes call the function `fileMimetypeFilter` which receives one or more mimetypes to match, use the spread operator for the parameter. The `fileMimetypeFilter` return and implements the multer filter signature.
+
+<div shortcode="code" tabs="file-mimetype-filter.ts">
+
+```ts
+import { UnsupportedMediaTypeException } from '@nestjs/common';
+
+export function fileMimetypeFilter(...mimetypes: string[]) {
+  return (
+    req,
+    file: Express.Multer.File,
+    callback: (error: Error | null, acceptFile: boolean) => void,
+  ) => {
+    if (mimetypes.some((m) => file.mimetype.includes(m))) {
+      callback(null, true);
+    } else {
+      callback(
+        new UnsupportedMediaTypeException(
+          `File type is not matching: ${mimetypes.join(', ')}`,
+        ),
+        false,
+      );
+    }
+  };
+}
+```
+
+</div>
+
+Add the filter to the `@ApiFile()`, `@ApiFiles()` or `@ApiFileFields()` decorators `localOptions` object.
+
+<div shortcode="code" tabs="files.controller.ts">
+
+```ts
+import {
+  Controller,
+  Post,
+  UploadedFile,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { ApiFile } from './api-file.decorator';
+import { FilesService } from './files.service';
+import { fileMimetypeFilter } from './file-mimetype-filter';
+
+@Controller('files')
+@ApiTags('files')
+export class FilesController {
+  constructor(private readonly filesService: FilesService) {}
+
+  @Post('upload')
+  @ApiFile('avatar', true, { fileFilter: fileMimetypeFilter('image') }) 
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+  }
+}
+```
+
+</div>
+
+This endpoint only accepts files which include the mimetype `image` such as `image/jpeg` or `image/png`. This is already very quick and the `fileMimetypeFilter` can be reused. 
+
+But heck why not create custom decorators based on the supported mimetype. Let's create two example decorators: `ApiImageFile` and `ApiPdfFile`. They are simple functions returning the previous created `ApiFile` (or `ApiFiles`) decorator and specifying the `fileMimetypeFilter()`.
+
+<div shortcode="code" tabs="api-file.decorator.ts">
+
+```ts
+import { fileMimetypeFilter } from './file-mimetype-filter';
+
+export function ApiImageFile(
+  fileName: string = 'image',
+  required: boolean = false,
+) {
+  return ApiFile(fileName, required, {
+    fileFilter: fileMimetypeFilter('image'),
+  });
+}
+
+export function ApiPdfFile(
+  fileName: string = 'document',
+  required: boolean = false,
+) {
+  return ApiFile(fileName, required, {
+    fileFilter: fileMimetypeFilter('pdf'),
+  });
+}
+```
+
+</div>
+
+Now simply use `@ApiImageFile` or `@ApiPdfFile` to handle file uploads.
+
+<div shortcode="code" tabs="files.controller.ts">
+
+```ts
+import {
+  Controller,
+  Post,
+  UploadedFile,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { ApiImageFile, ApiPdfFile  } from './api-file.decorator';
+import { FilesService } from './files.service';
+
+@Controller('files')
+@ApiTags('files')
+export class FilesController {
+  constructor(private readonly filesService: FilesService) {}
+
+  @Post('avatar')
+  @ApiImageFile('avatar', true)
+  uploadAvatar(@UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+  }
+  
+  @Post('document')
+  @ApiPdfFile('document', true)
+  uploadDocument(@UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+  }
+}
+```
+
+</div>
+
+
 
 ## File validation
 
