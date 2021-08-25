@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 function withOpacity(cssVariable) {
   return ({ opacityVariable, opacityValue }) => {
@@ -53,7 +54,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Muli'],
+        sans: ['Muli', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: (theme) => ({
         'gradient-145': 'linear-gradient(145deg, var(--tw-gradient-stops))',
