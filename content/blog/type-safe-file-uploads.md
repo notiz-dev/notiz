@@ -1,5 +1,5 @@
 ---
-title: 'Type-safe File Uploads'
+title: 'NestJS: Type-safe File Uploads'
 description: 'Learn how to apply Swagger decorators for type-safe file upload endpoints.'
 published: true
 publishedAt: 2021-08-26T09:55:00.000Z
