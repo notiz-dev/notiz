@@ -2,8 +2,9 @@
 title: OpenApi for your REST APIs in NestJS
 description: Setup Swagger to generate an OpenApi documentation for your REST endpoints. 
 published: true
+
 publishedAt: 2021-07-28T14:00:00.000Z
-updatedAt: 2021-07-28T14:00:00.000Z
+updatedAt: 2021-08-26T09:45:00.000Z
 tags:
   - NestJS
 keywords:
@@ -466,3 +467,12 @@ export class UsersController {
 ```
 
 </div>
+
+
+## Advanced Swagger Types
+
+Check out the following post for type-safe file uploads.
+
+<div shortcode="article" routes="/blog/type-safe-file-uploads"></div>
+
+This allows you to directly test file upload in your Swagger documentation and is perfect for client generation tools to pick up the correct input values for file(s).
