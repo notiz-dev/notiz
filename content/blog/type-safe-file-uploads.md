@@ -2,8 +2,8 @@
 title: 'Type-safe File Uploads'
 description: 'Learn how to apply Swagger decorators for type-safe file upload endpoints.'
 published: true
-publishedAt: 2021-08-26T09:15:00.000Z
-updatedAt: 2021-08-26T09:15:00.000Z
+publishedAt: 2021-08-26T09:55:00.000Z
+updatedAt: 2021-08-26T09:55:00.000Z
 tags:
     - NestJS
 keywords:
