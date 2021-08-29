@@ -38,26 +38,11 @@ export class CommentsComponent implements OnInit, OnDestroy {
       .pipe(
         distinctUntilChanged(),
         tap((theme) => {
-          this.addUtterances(theme);
           this.addGiscus(theme);
         }),
         takeUntil(this.onDestroy$)
       )
       .subscribe();
-  }
-
-  private addUtterances(theme: Theme) {
-    (this.el.nativeElement as HTMLElement)
-      .querySelector('.utterances')
-      ?.remove();
-    const script: HTMLScriptElement = this.renderer.createElement('script');
-    script.src = 'https://utteranc.es/client.js';
-    script.setAttribute('repo', 'notiz-dev/notiz');
-    script.setAttribute('issue-term', this.route.title);
-    script.setAttribute('theme', `github-${theme}`);
-    script.setAttribute('crossorin', 'anonymous');
-    script.async = true;
-    this.renderer.appendChild(this.el.nativeElement, script);
   }
 
   private addGiscus(theme: Theme) {
