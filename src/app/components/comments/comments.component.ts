@@ -1,11 +1,12 @@
 import {
   Component,
-  OnInit,
   Input,
   ElementRef,
   Renderer2,
   OnDestroy,
   HostBinding,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { Theme, ThemeService } from '@services/theme.service';
@@ -17,10 +18,11 @@ import { Subject } from 'rxjs';
   template: ``,
   styles: [``],
 })
-export class CommentsComponent implements OnInit, OnDestroy {
-  @HostBinding('class') classes = 'block';
+export class CommentsComponent implements OnChanges, OnDestroy {
+  @HostBinding('class') classes = 'block mt-4';
 
   @Input() route: ScullyRoute;
+
   private onDestroy$ = new Subject<void>();
 
   constructor(
@@ -28,12 +30,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private theme: ThemeService
   ) {}
-  ngOnDestroy(): void {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
-  }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     this.theme.themeChange
       .pipe(
         distinctUntilChanged(),
@@ -45,8 +43,14 @@ export class CommentsComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+
   private addGiscus(theme: Theme) {
     (this.el.nativeElement as HTMLElement).querySelector('.giscus')?.remove();
+    (this.el.nativeElement as HTMLElement).querySelector('script')?.remove();
     const script: HTMLScriptElement = this.renderer.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo', 'notiz-dev/notiz');
