@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+export type Theme = 'dark' | 'light';
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  _theme: 'dark' | 'light' = 'dark';
-  themeChange = new BehaviorSubject<'dark' | 'light'>(this._theme);
-  set theme(theme: 'dark' | 'light') {
+  _theme: Theme = 'dark';
+  themeChange = new BehaviorSubject<Theme>(this._theme);
+  set theme(theme: Theme) {
     this._theme = theme;
     this.themeChange.next(theme);
 
