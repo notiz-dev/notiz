@@ -8,7 +8,7 @@ import { AnalyticsService } from 'src/api/services';
   selector: 'niz-popular-posts',
   template: `
     <h2>Trending Posts</h2>
-    <a
+    <a  [routerLink]="[post.route]"
       *ngFor="let post of posts$ | async | slice : 0 : 6"
       class="flex text-color group cursor-pointer items-center space-x-6"
     >
