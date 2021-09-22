@@ -1,8 +1,8 @@
 <niz-seo></niz-seo>
 <div class="container grid lg:grid-cols-7 grid-cols-1 gap-x-12">
   <div class="lg:col-span-5 space-y-8">
-    <niz-hire-us class="md:hidden"></niz-hire-us>
-    <div class="grid lg:grid-cols-2 gap-4">
+    <niz-hire-us class="lg:hidden"></niz-hire-us>
+    <div class="grid md:grid-cols-2 gap-4">
       <app-article
         *ngFor="let blogPost of blogPosts$ | async | slice: 0:pageSize"
         [route]="blogPost"
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="lg:col-span-2 space-y-8">
-    <niz-hire-us class="hidden md:block"></niz-hire-us>
+    <niz-hire-us class="hidden lg:block"></niz-hire-us>
     <niz-popular-posts></niz-popular-posts>
     <div class="flex flex-col space-y-4">
       <h2>Most Used Tags</h2>
