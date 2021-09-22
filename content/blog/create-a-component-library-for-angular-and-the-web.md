@@ -159,7 +159,7 @@ export class AppModule {
 
 <div shortcode="note">
 
-### Remove `zone.js` (optional)
+### Remove zone.js (optional)
 Removing `zone.js` is probably a good idea. Read more about it [in this great article](https://www.angulararchitects.io/aktuelles/angular-elements-part-iii/). Just keep in mind that you need to handle [change detection](https://angular.io/api/core/ChangeDetectorRef) yourself.
 
 </div>

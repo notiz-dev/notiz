@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'niz-note',
@@ -19,6 +19,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./note.component.scss'],
 })
 export class NoteComponent implements OnInit {
+  @HostBinding('class') class = "block relative";
   @Input() type: 'success' | 'info' | 'warn' = 'info';
   @Input() icon: string;
   constructor() {}

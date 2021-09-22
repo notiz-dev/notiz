@@ -199,6 +199,46 @@
           }
         }
       }
+    },
+    "demos": {
+      "projectType": "library",
+      "root": "projects/demos",
+      "sourceRoot": "projects/demos/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/demos/tsconfig.lib.json",
+            "project": "projects/demos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/demos/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/demos/src/test.ts",
+            "tsConfig": "projects/demos/tsconfig.spec.json",
+            "karmaConfig": "projects/demos/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/demos/tsconfig.lib.json",
+              "projects/demos/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "notiz"

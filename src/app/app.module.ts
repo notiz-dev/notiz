@@ -56,6 +56,13 @@ import { ApiModule } from 'src/api/api.module';
           ),
       },
       {
+        shortcode: 'author',
+        loadChildren: () =>
+          import('./shortcodes/author/author.module').then(
+            (m) => m.AuthorModule
+          ),
+      },
+      {
         shortcode: 'code',
         loadChildren: () =>
           import('./shortcodes/code/code.module').then((m) => m.CodeModule),
@@ -75,11 +82,23 @@ import { ApiModule } from 'src/api/api.module';
           ),
       },
       {
+        shortcode: 'scroll-to',
+        loadChildren: () =>
+          import('./shortcodes/scroll-to/scroll-to.module').then(
+            (m) => m.ScrollToModule
+          ),
+      },
+      {
         shortcode: 'annotate',
         loadChildren: () =>
           import('./shortcodes/annotate/annotate.module').then(
             (m) => m.AnnotateModule
           ),
+      },
+      {
+        shortcode: 'demos',
+        loadChildren: () =>
+          import('demos').then((m) => m.MediaObservableModule),
       },
     ]),
     HotToastModule.forRoot({

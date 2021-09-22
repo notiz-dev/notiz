@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
@@ -47,6 +47,7 @@ import { GitHubRepo } from './github-repo.types';
   styleUrls: ['github-repo.component.scss'],
 })
 export class GithubRepoComponent implements OnInit {
+  @HostBinding('class') class = "block relative";
   @Input() repo: string;
   repo$: Observable<GitHubRepo>;
   constructor(private http: HttpClient) {}

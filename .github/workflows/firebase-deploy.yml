@@ -19,6 +19,7 @@ jobs:
       - run: npm i
       - run: cd projects/banner-generator && npm i
       - run: npm run build:elements
+      - run: npm run build:demos
       - run: npm run build:prod
       - run: npm run scully:ci
       - run: npm run scully:ci

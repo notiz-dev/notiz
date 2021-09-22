@@ -16,7 +16,12 @@ function withOpacity(cssVariable) {
 module.exports = {
   purge: {
     layers: ['components', 'utilities'],
-    content: ['./src/**/*.{html,ts}', './projects/elements/**/*.{html,ts}'],
+    content: [
+      './src/**/*.{html,ts}',
+      './projects/elements/**/*.{html,ts}',
+      './projects/demos/**/*.{html,ts}',
+      './content/**/*.md',
+    ],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
