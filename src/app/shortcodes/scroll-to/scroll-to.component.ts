@@ -22,8 +22,6 @@ export class ScrollToComponent implements OnInit {
 
   @HostListener('click')
   scrollTo() {
-    console.log('click',this.fragment,this.document
-    .getElementById(this.fragment));
     this.document
       .getElementById(this.fragment)
       ?.scrollIntoView({ behavior: 'smooth' });

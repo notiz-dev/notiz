@@ -21,7 +21,7 @@ authors:
 It's super easy to handle Media Queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
 
 <div shortcode="scroll-to" fragment="media-queries-with-rxjs">
-<button class="btn btn-primary capitalize">Take me to the code!</a>
+<a>Take me to the code!</a>
 </div>
 
 <div shortcode="demos/breakpoints"></div>

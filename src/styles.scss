@@ -180,7 +180,7 @@ h3 {
 }
 
 a {
-  @apply text-primary no-underline hover:text-primary-light;
+  @apply text-primary no-underline cursor-pointer hover:text-primary-light;
 }
 
 h1  {
