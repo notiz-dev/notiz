@@ -16,9 +16,10 @@ import { HireUsComponent } from './hire-us/hire-us.component';
 import { AnnotateModule } from 'src/app/shortcodes/annotate/annotate.module';
 import { PopularPostsComponent } from './popular-posts/popular-posts.component';
 import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
+import { MostReadComponent } from './most-read/most-read.component';
 
 @NgModule({
-  declarations: [HomeComponent, HireUsComponent, PopularPostsComponent],
+  declarations: [HomeComponent, HireUsComponent, PopularPostsComponent, MostReadComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
