@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TagsViewComponent implements OnInit {
   @Input() tags: Observable<ScullyRoute[]>;
-  @Input() limit;
+  @Input() limit: number;
 
   ngOnInit(): void {}
 }

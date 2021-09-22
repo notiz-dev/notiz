@@ -3,13 +3,13 @@
   <dd>
     <a class="flex items-center space-x-4 group" [routerLink]="author.route">
       <img
-        class="h-10 w-10 rounded-full group-hover:opacity-80"
+        class="h-10 w-10 author rounded-full group-hover:opacity-80"
         [src]="author.img"
         [alt]="author.title"
         width="40"
         height="40"
       />
-      <span class="text-base font-medium leading-5 group-hover:text-primary">
+      <span *ngIf="title" class="text-base font-medium leading-5 group-hover:text-primary">
         {{ author.title }}
       </span>
     </a>

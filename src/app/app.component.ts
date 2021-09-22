@@ -58,17 +58,17 @@ export class AppComponent implements OnInit, OnDestroy {
       title: 'more',
       links: [
         {
-          title: 'all posts',
+          title: 'Posts',
           url: '/blog/',
           svg: 'assets/img/blog-white.svg',
         },
         {
-          title: 'authors',
+          title: 'Authors',
           url: '/authors/',
           svg: 'assets/img/author.svg',
         },
         {
-          title: 'tags',
+          title: 'Tags',
           url: '/tags/',
           svg: 'assets/img/tags-white.svg',
         },

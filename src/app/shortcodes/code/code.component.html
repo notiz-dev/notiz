@@ -1,26 +1,30 @@
-<nav class="flex justify-between py-2 px-3" aria-label="Tabs">
-  <div class="flex flex-wrap md:space-x-4">
-    <button
-      [ngClass]="{
-        'bg-canvas-light': index === i,
-        'text-primary': index === i,
-        'text-color-light': index !== i
-      }"
-      (click)="updateTab(i)"
-      *ngFor="let tab of _tabs; let i = index"
-      class="hover:text-primary px-3 py-2 font-medium text-sm rounded-md focus:outline-none"
-    >
-      {{ tab.name }}
-    </button>
-  </div>
-
-  <button #copyButton (click)="copy()"
-    class="self-start hover:text-primary px-3 py-2 font-medium text-sm rounded-xl border border-primary focus:outline-none"
+<nav aria-label="Tabs" class="flex pt-3 md:space-x-4">
+  <button
+    [ngClass]="{
+      'bg-canvas-shade': index === i,
+      'bg-canvas-light': index !== i,
+      'text-primary': index === i,
+      'text-color-light': index !== i
+    }"
+    (click)="updateTab(i)"
+    *ngFor="let tab of _tabs; let i = index"
+    class="hover:text-primary px-3 py-2 font-medium text-lg rounded-t-md focus:outline-none"
   >
-    {{copyText}}
+    {{ tab.name }}
   </button>
 </nav>
 <ng-template #codeblock *ngFor="let tab of _tabs; let i = index">
+  <div class="relative rounded-tr-md rounded-b-md overflow-hidden">
     <div class="code-block" [innerHTML]="tab.content | sanitize"></div>
-  </ng-template>
+
+    <button
+      (click)="copy()"
+      #copyButton
+      type="button"
+      class="inline-flex absolute top-2 right-2 items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+    >
+      <i class="material-icons-outlined font-5">{{ copyText }}</i>
+    </button>
+  </div>
+</ng-template>
 <ng-container *ngTemplateOutlet="content"></ng-container>

@@ -23,7 +23,8 @@
     "scully": "scully",
     "serve:scully": "scully serve",
     "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",
-    "optimize:images": "node optimize-images.js"
+    "optimize:images": "node optimize-images.js",
+    "codegen:api": "npx ng-openapi-gen -i https://notiz-dev-api.herokuapp.com/api-json -o src/api"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +46,7 @@
     "document-register-element": "1.14.10",
     "ngx-markdown": "12.0.1",
     "prismjs": "1.24.1",
+    "rough-notation": "^0.5.1",
     "rxjs": "7.3.0",
     "tslib": "2.3.1",
     "zone.js": "~0.11.4"

@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AuthorSmallComponent implements OnInit {
   @Input() author: ScullyRoute;
+  @Input() title = true;
 
   constructor() {}
 
