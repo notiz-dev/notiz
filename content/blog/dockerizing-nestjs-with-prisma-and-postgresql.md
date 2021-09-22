@@ -3,7 +3,7 @@ title: Dockerizing a NestJS app with Prisma and PostgreSQL
 description: How to dockerize a NestJS application with Prisma and PostgreSQL.
 published: true
 publishedAt: 2020-07-31T10:00:00.000Z
-updatedAt: 2020-07-31T10:00:00.000Z
+updatedAt: 2021-06-03T15:30:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -77,7 +77,7 @@ Open the `Dockerfile` and use the multi-stage build steps 🤙
 <div shortcode="code" tabs="Dockerfile">
 
 ```docker
-FROM node:12 AS builder
+FROM node:14 AS builder
 
 # Create app directory
 WORKDIR /app
@@ -88,14 +88,12 @@ COPY prisma ./prisma/
 
 # Install app dependencies
 RUN npm install
-# Generate prisma client, leave out if generating in `postinstall` script
-RUN npx prisma generate
 
 COPY . .
 
 RUN npm run build
 
-FROM node:12
+FROM node:14
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
@@ -139,12 +137,12 @@ Let's breakdown the `Dockerfile` step-by-step
 <div shortcode="code" tabs="Dockerfile">
 
 ```docker
-FROM node:12 AS builder
+FROM node:14 AS builder
 ```
 
 </div>
 
-The first line tells Docker to use the latest [LTS](https://nodejs.org/en/about/releases/) version `12` for `node` as the base image to build the container from. To optimize the container image size you are using the [multistage-build](https://docs.docker.com/develop/develop-images/multistage-build/) and assign a name to your base image `AS builder`.
+The first line tells Docker to use the latest [LTS](https://nodejs.org/en/about/releases/) version `14` for `node` as the base image to build the container from. To optimize the container image size you are using the [multistage-build](https://docs.docker.com/develop/develop-images/multistage-build/) and assign a name to your base image `AS builder`.
 
 <div shortcode="note">
 
@@ -176,8 +174,6 @@ COPY prisma ./prisma/
 
 # Install app dependencies
 RUN npm install
-# Generate prisma client, leave out if generating in `postinstall` script
-RUN npx prisma generate
 ```
 
 </div>
@@ -190,7 +186,7 @@ Only `package*.json` and `prisma` directory is copied in this step to take advan
 
 </div>
 
-Install all dependencies `RUN npm install` (dev too). This allows you to build the Nest application inside the Docker image. Now its also the time to generate the Prisma Client. **Leave** this step out if you are generating the client in the a `postinstall` script.
+Install all dependencies `RUN npm install` (dev too). This allows you to build the Nest application inside the Docker image. Prisma Client is generated directly after, as it defines its own [postinstall hook](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client#generating-prisma-client-in-the-postinstall-hook-of-prismaclient). 
 
 ⚙️ Build app
 
@@ -211,7 +207,7 @@ To build your Nest application copy all of your source files (exceptions in `.do
 <div shortcode="code" tabs="Dockerfile">
 
 ```docker
-FROM node:12
+FROM node:14
 ```
 
 </div>
@@ -262,12 +258,12 @@ After your Docker image is successfully build start it with this command
 <div shortcode="code" tabs="BASH">
 
 ```bash
-docker run -p 3000:3000 --env-file prisma/.env -d <your username>/nest-api 
+docker run -p 3000:3000 --env-file .env -d <your username>/nest-api 
 ```
 
 </div>
 
-Prisma Client requires the `DATABASE_URL` environment variable which you pass using the `--env-file prisma/.env` flag. Use this `.env` file for additional environment variables (Port, JWT Secret etc.) or copy it into your root folder.
+Prisma Client requires the `DATABASE_URL` environment variable which you pass using the `--env-file .env` flag. Use this `.env` file for additional environment variables (Port, JWT Secret etc.) in your root folder.
 
 Open up [localhost:3000](http://localhost:3000) to verify that your Nest app is running with Docker.
 
@@ -284,7 +280,7 @@ Create the Docker compose file
 touch docker-compose.yml
 ```
 ```yaml
-version: '3.7'
+version: '3.8'
 services:
   nest-api:
     container_name: nest-api
@@ -299,7 +295,7 @@ services:
       - .env
 
   postgres:
-    image: postgres:12
+    image: postgres:13
     container_name: postgres
     restart: always
     ports:
@@ -316,13 +312,13 @@ volumes:
 
 </div>
 
-The first service **nest-api** is building the Docker image based on your `Dockerfile` for your Nest app with Prisma. The second service is creating a **postgres** database using the `postgres` Docker image in version `12`. For the Postgres image set `POSTGRESQL_USER`, `POSTGRESQL_PASSWORD` and `POSTGRES_DB` environment variables in a `.env` file next to your `docker-compose.yml`
+The first service **nest-api** is building the Docker image based on your `Dockerfile` for your Nest app with Prisma. The second service is creating a **postgres** database using the `postgres` Docker image in version `13`. For the Postgres image set `POSTGRES_USER`, `POSTGRES_PASSWORD` and `POSTGRES_DB` environment variables in your root `.env` file.
 
 <div shortcode="code" tabs="BASH">
 
 ```bash
-POSTGRESQL_USER=prisma
-POSTGRESQL_PASSWORD=topsecret
+POSTGRES_USER=prisma
+POSTGRES_PASSWORD=topsecret
 POSTGRES_DB=food
 ```
 

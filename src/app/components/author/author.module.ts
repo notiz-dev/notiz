@@ -1,4 +1,4 @@
-import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
+import { NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgModule } from '@angular/core';

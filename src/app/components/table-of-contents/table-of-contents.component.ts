@@ -20,7 +20,7 @@ import { HotToastService } from '@ngneat/hot-toast';
   styleUrls: ['./table-of-contents.component.scss'],
 })
 export class TableOfContentsComponent implements OnInit, OnDestroy {
-  onDestroy$ = new Subject();
+  onDestroy$ = new Subject<void>();
   headers$: Observable<Element[]>;
   @HostBinding('class') class = 'flex flex-col space-y-2';
   collapsed = true;
@@ -148,5 +148,7 @@ export class TableOfContentsComponent implements OnInit, OnDestroy {
     } else if (header === 'h3') {
       return 'text-base ml-3';
     }
+
+    return '';
   }
 }

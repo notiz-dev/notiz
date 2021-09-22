@@ -3,7 +3,7 @@ const { copyStaticContentPlugin } = require('./copy-static-content');
 
 const validator = async () => [];
 registerPlugin(
-  'render',
+  'postProcessByHtml',
   'copyStaticContent',
   copyStaticContentPlugin,
   validator

@@ -17,7 +17,8 @@ import { takeUntil, tap } from 'rxjs/operators';
   styleUrls: ['code.component.scss'],
 })
 export class CodeComponent implements OnInit {
-  @HostBinding('class') class = 'block bg-canvas-shade rounded-xl overflow-x-hidden';
+  @HostBinding('class') class =
+    'block overflow-x-hidden';
   shortcodeEl: HTMLElement;
   tabs: string = '';
   _tabs: { name: string; content: string }[] = [];
@@ -26,7 +27,7 @@ export class CodeComponent implements OnInit {
 
   content: TemplateRef<any>;
   index: number = 0;
-  copyText = 'Copy';
+  copyText = 'content_copy';
   constructor(private el: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
@@ -50,10 +51,10 @@ export class CodeComponent implements OnInit {
     navigator.clipboard.writeText(
       this.el.nativeElement.querySelector('code')?.innerText
     );
-    this.copyText = 'Copied!';
+    this.copyText = '🎉';
     timer(4000)
       .pipe(
-        tap(() => (this.copyText = 'Copy')),
+        tap(() => (this.copyText = 'content_copy')),
         takeUntil(fromEvent(this.copyButton.nativeElement, 'click'))
       )
       .subscribe();

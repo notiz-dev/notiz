@@ -3,15 +3,18 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
+    "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
       "@components/*": ["src/app/components/*"],
@@ -19,6 +22,7 @@
       "@pipes/*": ["src/app/pipes/*"],
       "@services/*": ["src/app/services/*"],
       "@utils/*": ["src/app/utils/*"],
+
       "@environments/*": [
         "src/environments/*"
       ],

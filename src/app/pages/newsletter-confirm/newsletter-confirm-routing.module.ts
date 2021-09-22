@@ -6,6 +6,6 @@ const routes: Routes = [{ path: '', component: NewsletterConfirmComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class NewsletterConfirmRoutingModule {}

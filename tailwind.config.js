@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
-function cssVarRgbHelper(cssVariable) {
+function withOpacity(cssVariable) {
   return ({ opacityVariable, opacityValue }) => {
     if (opacityValue !== undefined) {
       return `rgba(var(--${cssVariable}), ${opacityValue})`;
@@ -29,9 +30,9 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         primary: {
-          light: cssVarRgbHelper('primary-light'),
-          DEFAULT: cssVarRgbHelper('primary'),
-          dark: cssVarRgbHelper('primary-dark'),
+          light: withOpacity('primary-light'),
+          DEFAULT: withOpacity('primary'),
+          dark: withOpacity('primary-dark'),
         },
         gray: {
           100: '#f7fafc',
@@ -58,7 +59,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Muli'],
+        sans: ['Muli', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: (theme) => ({
         'gradient-145': 'linear-gradient(145deg, var(--tw-gradient-stops))',
@@ -85,6 +86,7 @@ module.exports = {
         248: '248px',
         384: '384px',
         524: '524px',
+        669: '669px',
       },
       transformOrigin: {
         0: '0%',

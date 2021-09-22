@@ -17,7 +17,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
     ComponentsModule,
     NewsletterSignupModule,
     SeoModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
 })
 export class LegalModule {}

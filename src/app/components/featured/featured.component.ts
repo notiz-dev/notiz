@@ -17,15 +17,13 @@ export class FeaturedComponent implements OnInit {
   constructor(private content: ScullyContentService) {}
 
   ngOnInit(): void {
-    this.author$ = this.content
-      .authors()
-      .pipe(
-        map((authors) =>
-          authors.filter((author) =>
-            this.route.authors.some((a) => a === author.title)
-          )
-        ),
-        map(authors => authors[0])
-      );
+    this.author$ = this.content.authors().pipe(
+      map((authors) =>
+        authors.filter((author) =>
+          this.route.authors.some((a) => a === author.title)
+        )
+      ),
+      map((authors) => authors[0])
+    );
   }
 }

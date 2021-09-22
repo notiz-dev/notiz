@@ -19,7 +19,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
     NewsletterSignupModule,
     AuthorCardModule,
     SeoModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
 })
 export class AuthorsModule {}

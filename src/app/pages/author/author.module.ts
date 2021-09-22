@@ -11,7 +11,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
 import { FeaturedModule } from '@components/featured/featured.module';
-import {  NizInlineSvgModule } from '../../components/inline-svg/inline-svg.module';
+import { NizInlineSvgModule } from '../../components/inline-svg/inline-svg.module';
 
 @NgModule({
   declarations: [AuthorComponent],

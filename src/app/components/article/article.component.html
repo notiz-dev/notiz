@@ -1,8 +1,11 @@
 <a class="article-card space-y-2" [routerLink]="[route.route]">
   <div class="flex flex-row items-center text-sm space-x-2">
+    <niz-author-small
+      [title]="false"
+      [author]="author$ | async"
+    ></niz-author-small>
     <span>{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
-
   <h3 class="mt-1 text-2xl font-bold line-clamp-2 min leading-8">
     {{ route.title }}
   </h3>
@@ -17,11 +20,11 @@
   >
     {{ tag }}
   </a>
-  <span class="absolute bottom-4 flex flow-row space-x-2 items-center h-6">
-    <span class="font-bold text-color-light">Read More</span>
+  <span class="absolute bottom-4 flex space-x-2 items-center h-6">
     <niz-inline-svg
       class="icon h-4 w-4 text-primary"
       svgSource="assets/img/arrow-right.svg"
     ></niz-inline-svg>
+    <span class="font-bold text-color-light">Read More</span>
   </span>
 </a>

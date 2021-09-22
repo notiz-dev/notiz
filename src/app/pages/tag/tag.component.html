@@ -31,7 +31,7 @@
     <h2 class="text-2xl font-semibold">
       Latest posts for {{ (page$ | async)?.title }}
     </h2>
-    <div class="flex flex-wrap">
+    <div class="grid lg:grid-cols-2 gap-4">
       <app-article
         *ngFor="let blogPost of tagPosts$ | async | slice: 0:10"
         [route]="blogPost"

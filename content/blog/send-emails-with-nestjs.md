@@ -3,7 +3,7 @@ title: Send Emails with NestJS
 description: Create Email Templates and send them with nodemailer from your Nest application 
 published: true
 publishedAt: 2021-03-18T11:15:00.000Z
-updatedAt: 2021-03-18T11:15:00.000Z
+updatedAt: 2021-08-16T18:00:00.000Z
 tags:
   - NestJS
 keywords:
@@ -30,6 +30,7 @@ Add the `@nestjs-modules/mailer` and the peer dependency `nodemailer` to your Ne
 
 ```bash
 npm install --save @nestjs-modules/mailer nodemailer
+npm install --save-dev @types/nodemailer
 
 # pick one template adapter and install
 npm install --save handlebars
@@ -47,6 +48,7 @@ In this guide, you are creating email templates using handlebars.
 
 ```bash
 npm install --save @nestjs-modules/mailer nodemailer handlebars
+npm install --save-dev @types/nodemailer
 ```
 
 </div>
@@ -187,7 +189,7 @@ export class MailService {
       to: user.email,
       // from: '"Support Team" <support@example.com>', // override default from
       subject: 'Welcome to Nice App! Confirm your Email',
-      template: 'confirmation', // `.hbs` extension is appended automatically
+      template: './confirmation', // `.hbs` extension is appended automatically
       context: { // ✏️ filling curly brackets with content
         name: user.name,
         url,
@@ -339,7 +341,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           },
         },
         defaults: {
-          from: `"No Reply" <${config.get('MAIL_USER')}>`,
+          from: `"No Reply" <${config.get('MAIL_FROM')}>`,
         },
         template: {
           dir: join(__dirname, 'templates'),
@@ -361,3 +363,79 @@ export class MailModule {}
 </div>
 
 Time to add your own mail server configuration, start Nest and send your first mails 📧 to your users.
+
+## Global Mail Module
+
+You might need to send mails throughout the entire Nest application. Make the MailModule a [global](https://docs.nestjs.com/modules#global-modules) module by adding the `@Global()` decorator to `MailModule` and only import it **once** in your `AppModule`. All modules can now inject the `MailService` without forgetting to import the `MailModule`.
+
+
+<div shortcode="code" tabs="mail.module.ts">
+
+```ts
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
+import { Global, Module } from '@nestjs/common';
+import { MailService } from './mail.service';
+import { join } from 'path';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+
+@Global() // 👈 global module
+@Module({
+  imports: [
+    MailerModule.forRootAsync({
+      // imports: [ConfigModule], // import module if not enabled globally
+      useFactory: async (config: ConfigService) => ({
+        // transport: config.get("MAIL_TRANSPORT"),
+        // or
+        transport: {
+          host: config.get('MAIL_HOST'),
+          secure: false,
+          auth: {
+            user: config.get('MAIL_USER'),
+            pass: config.get('MAIL_PASSWORD'),
+          },
+        },
+        defaults: {
+          from: `"No Reply" <${config.get('MAIL_FROM')}>`,
+        },
+        template: {
+          dir: join(__dirname, 'templates'),
+          adapter: new HandlebarsAdapter(),
+          options: {
+            strict: true,
+          },
+        },
+      }),
+      inject: [ConfigService],
+    }),
+  ],
+  providers: [MailService],
+  exports: [MailService],
+})
+export class MailModule {}
+```
+
+</div>
+
+## Breaking Changes
+
+The latest version of nest-modules/mailer [v1.6.0](https://github.com/nest-modules/mailer/releases/tag/v1.6.0) contains a [breaking change how templates are looked up](https://github.com/nest-modules/mailer/issues/550#issuecomment-822249747). 
+
+You need to add `./` to your template names when using v1.6.0, see example below.
+
+<div shortcode="code" tabs="mail.service.ts">
+
+```diff
+await this.mailerService.sendMail({
+  to: user.email,
+  subject: 'Welcome to Nice App! Confirm your Email',
+- template: 'confirmation', // ❌ template not found in v1.6.0, works fine in v1.5.x
++ template: './confirmation', // ✅ template found again in v1.6.0
+  context: { 
+    name: user.name,
+    url,
+  },
+});
+```
+
+</div>

@@ -9,7 +9,7 @@ import { MarkdownModule } from 'ngx-markdown';
   imports: [
     CommonModule,
     ShortcodeModule.forChild([{ shortcode: '', component: NoteComponent }]),
-    MarkdownModule
+    MarkdownModule,
   ],
 })
 export class NoteModule {}

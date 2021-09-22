@@ -20,6 +20,7 @@ import { ShortcodeModule } from '@notiz/shortcodes';
 import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { MenuModule } from '@components/menu/menu.module';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ApiModule } from 'src/api/api.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -88,6 +89,13 @@ import { HotToastModule } from '@ngneat/hot-toast';
           ),
       },
       {
+        shortcode: 'annotate',
+        loadChildren: () =>
+          import('./shortcodes/annotate/annotate.module').then(
+            (m) => m.AnnotateModule
+          ),
+      },
+      {
         shortcode: 'demos',
         loadChildren: () =>
           import('demos').then((m) => m.MediaObservableModule),
@@ -100,6 +108,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
         secondary: '#F9FAFB',
       },
     }),
+    ApiModule.forRoot({ rootUrl: environment.api }),
   ],
   providers: [],
   bootstrap: [AppComponent],

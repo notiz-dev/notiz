@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-tags-view',
   templateUrl: './tags-view.component.html',
@@ -10,8 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TagsViewComponent implements OnInit {
   @Input() tags: Observable<ScullyRoute[]>;
-  @Input() limit;
+  @Input() limit: number;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

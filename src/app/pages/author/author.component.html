@@ -13,10 +13,11 @@
 ></niz-seo>
 
 <div class="container mt-8 space-y-6">
-  <app-breadcrumb *ngIf="author$ | async as author" [data]="author"></app-breadcrumb>
-  <h1 *ngIf="author$ | async as author">
-    More about the author
-  </h1>
+  <app-breadcrumb
+    *ngIf="author$ | async as author"
+    [data]="author"
+  ></app-breadcrumb>
+  <h1 *ngIf="author$ | async as author">More about the author</h1>
   <div
     class="max-w-sm bg-canvas-light rounded-lg overflow-hidden px-4 py-5 space-y-6 md:max-w-lg"
   >
@@ -70,28 +71,29 @@
     </div>
   </div>
 </div>
-  <app-card-stack class="mt-12"
-    *ngIf="author$ | async as author"
-    title="Latest Articles"
-    [subtitle]="'Latest posts by ' + author.title"
+<app-card-stack
+  class="mt-12"
+  *ngIf="author$ | async as author"
+  title="Latest Articles"
+  [subtitle]="'Latest posts by ' + author.title"
+>
+  <div
+    class="card"
+    *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
   >
-    <div
-      class="card"
-      *ngFor="let link of latestAuthorPosts$ | async | slice: 0:8"
-    >
-      <app-article class="stacked" [route]="link"></app-article>
-    </div>
-    <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
-      <app-coming-soon></app-coming-soon>
-    </div>
-  </app-card-stack>
+    <app-article class="stacked" [route]="link"></app-article>
+  </div>
+  <div class="card" *ngIf="(latestAuthorPosts$ | async).length < 7">
+    <app-coming-soon></app-coming-soon>
+  </div>
+</app-card-stack>
 
 <div
   class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-8 max-w-screen-xl mx-auto px-5"
 >
   <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
     <h2 class="text-2xl font-semibold">Recently Updated</h2>
-    <div class="flex flex-wrap">
+    <div class="grid lg:grid-cols-2 gap-4">
       <app-article
         *ngFor="let blogPost of updatedAuthorPosts$ | async | slice: 1:10"
         [route]="blogPost"
@@ -101,10 +103,8 @@
   </div>
   <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
     <a routerLink="/tags">
-    <h2 class="text-2xl font-semibold">
-      Tags
-    </h2>
-  </a>
+      <h2 class="text-2xl font-semibold">Tags</h2>
+    </a>
     <app-tags-view limit="18" [tags]="authorTags$"></app-tags-view>
   </div>
 </div>

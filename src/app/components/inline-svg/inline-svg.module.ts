@@ -6,6 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [NizInlineSvg],
   imports: [CommonModule, HttpClientModule],
-  exports: [NizInlineSvg]
+  exports: [NizInlineSvg],
 })
 export class NizInlineSvgModule {}

@@ -2,12 +2,12 @@
   @apply flex flex-col flex-wrap w-full h-72;
 }
 
-
 .article-card {
   @apply relative h-full bg-canvas-light hover:bg-canvas-shade rounded-lg py-5 px-4;
   .tags {
     @apply bg-canvas-shade;
   }
+
 }
 .article-card:hover {
   h3 {

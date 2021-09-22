@@ -17,7 +17,7 @@ import { BreadcrumbModule } from '@components/breadcrumb/breadcrumb.module';
     NewsletterSignupModule,
     NizInlineSvgModule,
     SeoModule,
-    BreadcrumbModule
+    BreadcrumbModule,
   ],
   exports: [NewsletterUnsubscribeComponent],
   providers: [],

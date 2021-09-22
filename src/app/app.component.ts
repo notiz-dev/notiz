@@ -1,20 +1,10 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { ThemeService } from '@services/theme.service';
-import {
-  delay,
-  filter,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
+import { delay, filter, takeUntil, tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
-import {
-  interval,
-  merge,
-  Observable,
-  Subject,
-} from 'rxjs';
+import { interval, merge, Observable, Subject } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
@@ -68,24 +58,24 @@ export class AppComponent implements OnInit, OnDestroy {
       title: 'more',
       links: [
         {
-          title: 'all posts',
+          title: 'Posts',
           url: '/blog/',
           svg: 'assets/img/blog-white.svg',
         },
         {
-          title: 'authors',
+          title: 'Authors',
           url: '/authors/',
           svg: 'assets/img/author.svg',
         },
         {
-          title: 'tags',
+          title: 'Tags',
           url: '/tags/',
           svg: 'assets/img/tags-white.svg',
         },
       ],
     },
   ];
-  destroy$ = new Subject();
+  destroy$ = new Subject<void>();
   stars: string;
   constructor(
     public themeService: ThemeService,

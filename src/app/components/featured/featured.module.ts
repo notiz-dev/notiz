@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FeaturedComponent } from './featured.component';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from '@pipes/pipes.module';
-import {  NizInlineSvgModule } from '../inline-svg/inline-svg.module';
+import { NizInlineSvgModule } from '../inline-svg/inline-svg.module';
 import { AuthorSmallModule } from '@components/author-small/author-small.module';
 
 @NgModule({
