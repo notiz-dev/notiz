@@ -1,6 +1,6 @@
 ---
-title: 'Media queries with RxJS'
-description: 'Media queries | Practical examples with RxJS'
+title: 'Media Queries with RxJS'
+description: 'Media Queries | Practical examples with RxJS'
 published: true
 publishedAt: 2021-09-23T00:00:00.000Z
 updatedAt: 2021-09-23T00:00:00.000Z
@@ -18,7 +18,7 @@ authors:
 
 ## TLDR
 
-It's super easy to handle media queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
+It's super easy to handle Media Queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
 
 <div shortcode="scroll-to" fragment="media-queries-with-rxjs">
 <button class="btn btn-primary capitalize">Take me to the code!</a>
@@ -27,11 +27,11 @@ It's super easy to handle media queries</span> programmatically with <span type=
 <div shortcode="demos/breakpoints"></div>
 
 ## Introduction
-### Media queries in CSS
+### Media Queries in CSS
 
-[Media queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tools when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
+[Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tools when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
 
-In CSS media queries are used like so.
+In CSS Media Queries are used like so.
 
 <div shortcode="code" tabs="styles.css">
 
@@ -45,7 +45,7 @@ In CSS media queries are used like so.
 
 Although this is already pretty great, we sometimes want to **handle the state of a media query programmatically**. For example, preventing the render of some components or dom elements on certain viewport sizes instead of just hiding things with `display: none` could lead to a better performance and less network requests to your server.
 
-### Media queries in Javascript
+### Media Queries in Javascript
 
 The vanilla javascript way of implementing such a functionality would be to use the window's `matchMedia` function. The function takes a string query and returns a `MediaQueryList` that can be used to get the current result of the query and listen to changes of the media query.
 
@@ -65,10 +65,10 @@ mediaQueryList.addEventListener('change', (event) =>
 
 </div>
 
-## Media queries with RxJS
+## Media Queries with RxJS
 
 
-As an Angular developer, I make heavy use of [RxJS](https://rxjs.dev/) in my applications. To neatly integrate media queries in my workflow I came up with the media Observable. 
+As an Angular developer, I make heavy use of [RxJS](https://rxjs.dev/) in my applications. To neatly integrate Media Queries in my workflow I came up with the media Observable. 
 
 <div shortcode="code" tabs="media.ts">
 
