@@ -24,7 +24,7 @@ import { AnalyticsService } from 'src/api/services';
 export class PopularPostsComponent implements OnInit {
   posts$: Observable<
     ScullyRoute[]
-  > = this.analytics.analyticsControllerTopPages({ period: '30d' }).pipe(
+  > = this.analytics.analyticsControllerTopPages({ period: '7d' }).pipe(
     shareReplay(),
     withLatestFrom(this.content.blogPosts()),
     map(([analytics, posts]) =>
