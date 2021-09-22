@@ -29,7 +29,7 @@ It's super easy to handle Media Queries</span> programmatically with <span type=
 ## Introduction
 ### Media Queries in CSS
 
-[Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tools when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
+[Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are essential tools when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
 
 In CSS Media Queries are used like so.
 
