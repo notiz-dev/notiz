@@ -2,8 +2,8 @@
 title: 'Media queries with RxJS'
 description: 'Media queries | Practical examples with RxJS'
 published: true
-publishedAt: 2021-04-27T08:55:00.000Z
-updatedAt: 2021-04-27T18:40:00.000Z
+publishedAt: 2021-09-23T00:00:00.000Z
+updatedAt: 2021-09-23T00:00:00.000Z
 tags:
     - RxJS
     - Angular
@@ -14,12 +14,11 @@ keywords:
     - Typescript
 authors:
     - 'Gary Großgarten'
-github: 'https://github.com/garygrossgarten/shortcodes'
 ---
 
 ## TLDR
 
-Observables are a great way of using media queries programmatically! 
+It's super easy to handle media queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
 
 <div shortcode="scroll-to" fragment="media-queries-with-rxjs">
 <button class="btn btn-primary capitalize">Take me to the code!</a>
@@ -30,7 +29,7 @@ Observables are a great way of using media queries programmatically!
 ## Introduction
 ### Media queries in CSS
 
-[Media queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tool when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
+[Media queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) are an essential tools when building responsive layouts on the web. They are commonly used to hide / show / alter parts of the UI depending on the viewport dimensions or to switch between themes based on user preferences (e.g. Darkmode 🌙).
 
 In CSS media queries are used like so.
 
@@ -48,7 +47,7 @@ Although this is already pretty great, we sometimes want to **handle the state o
 
 ### Media queries in Javascript
 
-The vanilla javascript way of implementing such a functionality would be to use the window's `matchMedia` function. The function takes a string query and returns a `MediaQueryList` that can be used to get the current result of the query and listen to changes to the media query.
+The vanilla javascript way of implementing such a functionality would be to use the window's `matchMedia` function. The function takes a string query and returns a `MediaQueryList` that can be used to get the current result of the query and listen to changes of the media query.
 
 <div shortcode="code" tabs="JS">
 
@@ -67,6 +66,7 @@ mediaQueryList.addEventListener('change', (event) =>
 </div>
 
 ## Media queries with RxJS
+
 
 As an Angular developer, I make heavy use of [RxJS](https://rxjs.dev/) in my applications. To neatly integrate media queries in my workflow I came up with the media Observable. 
 
