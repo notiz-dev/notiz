@@ -8,9 +8,9 @@ const prism = plugin(function ({ addBase, theme }) {
     },
     'pre[class*="language-"]': {
       padding: theme('spacing.6'),
-      borderRadius: theme('borderRadius.xl'),
       backgroundColor: theme('colors.canvas.shade'),
       overflow: 'auto',
+      'max-height': '669px'
     },
     [`.token.boolean,
       .token.function,

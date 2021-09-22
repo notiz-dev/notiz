@@ -1,44 +1,27 @@
 <niz-seo></niz-seo>
-
-<div class="container mt-8 space-y-6">
-  <app-featured
-    *ngIf="latestBlogPost$ | async as blogPost"
-    [route]="blogPost"
-  ></app-featured>
-</div>
-  <app-card-stack class="mt-12"
-    title="Latest Articles"
-    subtitle="Check out latest posts and featured content from notiz.dev"
-  >
-    <div class="card" *ngFor="let blogPost of blogPosts$ | async | slice: 1:8">
-      <app-article class="stacked" [route]="blogPost"></app-article>
-    </div>
-    <div
-      class="card"
-      #emptystack
-      *ngIf="(blogPosts$ | async | slice: 1:8)?.length < 7"
-    >
-      <app-coming-soon></app-coming-soon>
-    </div>
-  </app-card-stack>
-
-<div
-  class="container flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 mt-8"
->
-  <div class="w-full md:w-9/12 xl:w-10/12 flex flex-col space-y-4">
-    <h2 class="text-2xl font-semibold">Recently Updated</h2>
+<div class="container grid lg:grid-cols-7 grid-cols-1 gap-x-12">
+  <div class="lg:col-span-5 space-y-8">
+    <niz-hire-us class="md:hidden"></niz-hire-us>
     <div class="grid lg:grid-cols-2 gap-4">
       <app-article
-        *ngFor="let blogPost of updateBlogPosts$ | async | slice: 0:10"
+        *ngFor="let blogPost of blogPosts$ | async | slice: 0:pageSize"
         [route]="blogPost"
       >
       </app-article>
+      <div
+        *ngIf="blogPosts$ | async as posts"
+        intersection
+        (intersects)="loadMore(posts)"
+      ></div>
     </div>
   </div>
-  <div class="w-full md:w-3/12 xl:w-2/12 flex flex-col space-y-4 mt-5 md:mt-0">
-    <a routerLink="/tags">
-      <h2 class="text-2xl font-semibold">Tags</h2>
-    </a>
-    <app-tags-view limit="18" [tags]="tags$"></app-tags-view>
+  <div class="lg:col-span-2 space-y-8">
+    <niz-hire-us class="hidden md:block"></niz-hire-us>
+    <niz-popular-posts></niz-popular-posts>
+    <div class="flex flex-col space-y-4">
+      <h2>Most Used Tags</h2>
+      <app-tags-view limit="6" [tags]="tags$"></app-tags-view>
+
+    </div>
   </div>
 </div>

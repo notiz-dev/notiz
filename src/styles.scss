@@ -207,7 +207,7 @@ blockquote {
 
 .prose {
   h2 {
-    @apply mt-10 mb-6;
+    @apply mt-16 mb-10;
   }
 
   h3,
@@ -219,7 +219,7 @@ blockquote {
   niz-figure,
   img,
   blockquote {
-    @apply mt-8 mb-4;
+    @apply mt-12 mb-8;
   }
 
   h3:hover::before,
@@ -234,7 +234,12 @@ blockquote {
   }
 
   p {
-    @apply mt-4 mb-2;
+    @apply mt-5 mb-3;
+  }
+
+  .font-5 {
+    font-size: 1.125rem;
+    line-height: 1.125rem;
   }
 
   img {
@@ -269,10 +274,10 @@ blockquote {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-canvas-shade;
+  @apply bg-canvas;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-canvas-light;
+  @apply bg-color-shade;
   border-radius: 99px;
 }
 

@@ -11,9 +11,14 @@ import { NewsletterSignupModule } from '@components/newsletter-signup/newsletter
 import { TagsViewModule } from '@components/tags-view/tags-view.module';
 import { ArticleModule } from '@components/article/article.module';
 import { FeaturedModule } from '@components/featured/featured.module';
+import { IntersectionModule } from 'src/app/directives/intersection.module';
+import { HireUsComponent } from './hire-us/hire-us.component';
+import { AnnotateModule } from 'src/app/shortcodes/annotate/annotate.module';
+import { PopularPostsComponent } from './popular-posts/popular-posts.component';
+import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, HireUsComponent, PopularPostsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -26,6 +31,9 @@ import { FeaturedModule } from '@components/featured/featured.module';
     ComingSoonModule,
     FeaturedModule,
     SeoModule,
+    IntersectionModule,
+    AnnotateModule,
+    NizInlineSvgModule
   ],
 })
 export class HomeModule {}

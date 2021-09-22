@@ -81,6 +81,7 @@ module.exports = {
         248: '248px',
         384: '384px',
         524: '524px',
+        669: '669px',
       },
       transformOrigin: {
         0: '0%',

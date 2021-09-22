@@ -3,7 +3,7 @@
   class="star"
   [ngStyle]="{ 'box-shadow': stars }"
 ></div>
-<header class="container py-4">
+<header class="container pb-4 pt-8">
   <div class="flex justify-between">
     <div start class="flex flex-row space-x-8 items-center">
       <a class="flex items-center select-none space-x-2" [routerLink]="['/']">
@@ -13,26 +13,6 @@
         ></niz-inline-svg>
         <span class="text-2xl font-black text-primary">notiz.dev </span>
       </a>
-      <div class="hidden md:flex flex-row space-x-4">
-        <a
-          class="router-link"
-          [routerLink]="['/blog']"
-          [ngClass]="{
-            'router-link-active':
-              (current$ | async)?.route | startswith: '/links/'
-          }"
-          routerLinkActive="router-link-active"
-        >
-          Blog
-        </a>
-        <button
-          class="router-link"
-          [attr.aria-label]="'Scroll to Newsletter'"
-          (click)="scrollToNewsletter()"
-        >
-          Newsletter
-        </button>
-      </div>
     </div>
 
     <div end class="flex flex-row space-x-6 items-center">
@@ -50,7 +30,15 @@
         >
       </button>
       <button
-        class="hidden md:flex h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
+        class="flex md:hidden h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
+        [attr.aria-label]="'Toggle theme'"
+       
+        (click)="openSearch(search)"
+      >
+        <niz-inline-svg svgSource="assets/img/search.svg"></niz-inline-svg>
+      </button>
+      <button
+        class="flex h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
         [attr.aria-label]="'Toggle theme'"
         [ngClass]="{
           dark: themeService.theme === 'dark',
@@ -60,27 +48,12 @@
       >
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
       </button>
-      <button
-        (click)="menuOpen = !menuOpen; $event.stopPropagation()"
-        [attr.aria-label]="'Toggle menu'"
-        class="md:hidden h-8 w-8 focus:outline-none focus:select-none"
-      >
-        <niz-inline-svg
-          *ngIf="!menuOpen"
-          class="text-color"
-          svgSource="assets/img/menu.svg"
-        ></niz-inline-svg>
-        <niz-inline-svg
-          *ngIf="menuOpen"
-          class="text-color"
-          svgSource="assets/img/close.svg"
-        ></niz-inline-svg>
-      </button>
+      
     </div>
   </div>
 </header>
 
-<main class="mt-2">
+<main class="mt-12">
   <router-outlet></router-outlet>
 </main>
 
@@ -95,69 +68,3 @@
 <niz-search #search></niz-search>
 <niz-toast></niz-toast>
 
-<niz-menu [(open)]="menuOpen">
-  <div class="px-2 pt-2 flex items-center justify-between">
-    <a
-      class="flex items-center select-none space-x-2"
-      (click)="menuOpen = false"
-      [routerLink]="['/']"
-    >
-      <niz-inline-svg
-        class="h-16 w-16"
-        svgSource="assets/img/logo.svg"
-      ></niz-inline-svg>
-      <span class="text-2xl font-black text-primary">notiz.dev </span>
-    </a>
-    <div class="-mr-2">
-      <button
-        (click)="menuOpen = false"
-        type="button"
-        class="bg-canvas-shade rounded-md p-2 mr-2 inline-flex items-center justify-center text-color hover:text-color-shade hover:bg-canvas focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-      >
-        <span class="sr-only">Close menu</span>
-        <i class="material-icons-outlined">close</i>
-      </button>
-    </div>
-  </div>
-  <div class="px-2 py-6 pb-3">
-    <a
-      (click)="menuOpen = false"
-      [routerLink]="['/blog']"
-      class="block px-3 py-2 rounded-md text-lg font-medium text-color-light hover:text-color-shade hover:bg-canvas"
-      routerLinkActive="router-link-active"
-      >Blog</a
-    >
-
-    <button
-      (click)="scrollToNewsletter(); menuOpen = false"
-      [attr.aria-label]="'Scroll to Newsletter'"
-      class="block px-3 py-2 w-full text-lg text-left rounded-md font-medium text-color-light hover:text-color-shade hover:bg-canvas"
-    >
-      Newsletter
-    </button>
-    <div class="mt-4 space-y-3">
-      <button
-        (click)="openSearch(search); menuOpen = false"
-        [attr.aria-label]="'Open search'"
-        class="flex self-start bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
-      >
-        <niz-inline-svg
-          class="h-4 w-4 theme"
-          svgSource="assets/img/search.svg"
-        ></niz-inline-svg>
-        <span class="px-2 outline-none font-semibold"> Tap to focus</span>
-      </button>
-      <button
-        (click)="toggleTheme(); $event.stopPropagation()"
-        [attr.aria-label]="'Toggle theme'"
-        class="flex self-start bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus:outline-none rounded-xl p-1 flex-row space-x-1 items-center"
-      >
-        <niz-inline-svg
-          class="h-4 w-4 theme"
-          svgSource="assets/img/adjust.svg"
-        ></niz-inline-svg>
-        <span class="px-2 outline-none font-semibold"> Toggle theme</span>
-      </button>
-    </div>
-  </div>
-</niz-menu>

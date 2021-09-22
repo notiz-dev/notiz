@@ -6,7 +6,7 @@ import { BlogComponent } from './blog.component';
 import { IsAvailable } from 'src/app/guards/available.guard';
 
 const routes: Routes = [
-  { path: '', component: BlogComponent },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   {
     path: ':slug',
     component: BlogPostComponent,

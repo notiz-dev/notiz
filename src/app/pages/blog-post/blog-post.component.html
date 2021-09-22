@@ -14,7 +14,7 @@
 
 <article class="container mt-8 space-y-6" *ngIf="post$ | async as route">
   <app-breadcrumb [data]="route"></app-breadcrumb>
-  <div class="space-y-6 max-w-3xl">
+  <div class="space-y-6 w-full max-w-2xl">
     <h1>
       {{ route.title }}
     </h1>
@@ -38,7 +38,7 @@
   <div
     class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
   >
-    <div shortcodes class="max-w-3xl prose md:col-span-2 lg:col-span-3">
+    <div shortcodes class="max-w-2xl prose md:col-span-2 lg:col-span-3">
       <scully-content></scully-content>
 
       <app-comments [route]="post$ | async"></app-comments>
