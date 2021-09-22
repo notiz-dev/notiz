@@ -16,7 +16,7 @@ authors:
     - 'Gary Großgarten'
 ---
 
-## TLDR
+## tl;dr
 
 It's super easy to handle Media Queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
 
