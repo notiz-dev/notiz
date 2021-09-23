@@ -1,6 +1,6 @@
-import { SimpleAnalyticsService } from '@services/simple-analytics.service';
+import { PlausibleService } from 'ngx-plausible';
 import { Router } from '@angular/router';
-import { SearchItem } from './../../types/types';
+import { SearchItem, PlausibleEvent } from './../../types/types';
 import {
   Component,
   OnInit,
@@ -81,7 +81,7 @@ export class NizSearch implements OnInit {
     public scully: ScullyRoutesService,
     private searchPipe: SearchPipe,
     private router: Router,
-    private sa: SimpleAnalyticsService
+    private plausible: PlausibleService
   ) {}
 
   ngOnInit() {
@@ -92,9 +92,6 @@ export class NizSearch implements OnInit {
         debounceTime(250),
         distinctUntilChanged(),
         tap((search) => (this.search = search)),
-        tap((search) => {
-          this.sa.event(`search_query_${search}`);
-        }),
         tap(() => (this.activeIndex = 0)),
         switchMap((search) =>
           this.scully.available$.pipe(
@@ -118,8 +115,11 @@ export class NizSearch implements OnInit {
 
   private openActive(index: number) {
     this.closeSearch();
-    this.sa.event(`search_result_enter_url_${this.searchResult[index].url}`);
-    this.router.navigateByUrl(this.searchResult[index].url);
+    const url = this.searchResult[index].url;
+    this.plausible.event(PlausibleEvent.Search, {
+      props: { event: 'click_result', url: url, trigger: 'enter' },
+    });
+    this.router.navigateByUrl(url);
   }
 
   private registerSearchShortcuts() {
@@ -137,11 +137,8 @@ export class NizSearch implements OnInit {
     )
       .pipe(
         sequence(),
-        tap(() => {
-          this.sa.event('search_open_shortcut');
-        }),
         filter(() => !this.isOpen),
-        tap(() => this.openSearch())
+        tap(() => this.openSearch('shortcut'))
       )
       .subscribe();
   }
@@ -152,7 +149,10 @@ export class NizSearch implements OnInit {
       ?.nativeElement?.scrollIntoView({ block: 'nearest' });
   }
 
-  openSearch() {
+  openSearch(trigger: 'click' | 'shortcut' = 'click') {
+    this.plausible.event(PlausibleEvent.Search, {
+      props: { event: 'open', trigger: trigger },
+    });
     this.isOpen = true;
     setTimeout(() => this.searchInput.nativeElement.focus(), 0);
   }
@@ -160,8 +160,11 @@ export class NizSearch implements OnInit {
   closeSearch(url?: string) {
     this.isOpen = false;
     this.resetSearch();
+
     if (url) {
-      this.sa.event(`search_result_click_url_${url}`);
+      this.plausible.event(PlausibleEvent.Search, {
+        props: { event: 'click_result', url: url, trigger: 'click' },
+      });
     }
   }
 }

@@ -1,16 +1,14 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-
 import { ThemeService } from '@services/theme.service';
 import { delay, filter, takeUntil, tap } from 'rxjs/operators';
 import { shortcut } from '@utils/shortcuts';
 import { KeyCode } from '@utils/keycodes';
 import { interval, merge, Observable, Subject } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
-import { ScullyRoute, TransferStateService } from '@scullyio/ng-lib';
+import { ScullyRoute } from '@scullyio/ng-lib';
 import { NewsletterSignupComponent } from '@components/newsletter-signup/newsletter-signup.component';
 import { NizSearch } from '@components/search/search.component';
 import { FooterSection } from '@components/footer/footer.component';
-import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -77,10 +75,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
   destroy$ = new Subject<void>();
   stars: string;
+
   constructor(
     public themeService: ThemeService,
-    private content: ScullyContentService,
-    private sa: SimpleAnalyticsService
+    private content: ScullyContentService
   ) {
     let shadow = '';
     const w = window.screen.width;
@@ -158,36 +156,19 @@ export class AppComponent implements OnInit, OnDestroy {
       shortcut([KeyCode.ControlRight, KeyCode.KeyT])
     )
       .pipe(
-        tap(() => {
-          this.sa.event(
-            `theme_toggle_shortcut_from_${this.themeService.theme}_to_${
-              this.themeService.theme === 'dark' ? 'light' : 'dark'
-            }`
-          );
-        }),
-        tap(() => this.toggleTheme())
+        tap(() => {}),
+        tap(() => this.themeService.toggleTheme('shortcut'))
       )
       .subscribe();
 
     this.current$ = this.content.getCurrent();
   }
 
-  scrollToNewsletter() {
-    this.newsletter.input.nativeElement.focus();
-    this.sa.event('newsletter_focus_click');
-  }
-
   openSearch(search: NizSearch) {
     search.openSearch();
-    this.sa.event('search_open_click');
   }
 
   toggleTheme() {
-    this.sa.event(
-      `theme_toggle_click_from_${this.themeService.theme}_to_${
-        this.themeService.theme === 'dark' ? 'light' : 'dark'
-      }`
-    );
-    this.themeService.toggleTheme();
+    this.themeService.toggleTheme('click');
   }
 }

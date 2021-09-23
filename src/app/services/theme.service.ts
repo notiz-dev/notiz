@@ -1,3 +1,5 @@
+import { PlausibleEvent } from './../types/types';
+import { PlausibleService } from 'ngx-plausible';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -26,6 +28,8 @@ export class ThemeService {
     return this._theme;
   }
 
+  constructor(private plausible: PlausibleService) {}
+
   initTheme() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -49,11 +53,15 @@ export class ThemeService {
         : 'light';
   }
 
-  toggleTheme() {
+  toggleTheme(trigger: 'click' | 'shortcut' = 'click') {
     if (this._theme === 'dark') {
       this.theme = 'light';
     } else {
       this.theme = 'dark';
     }
+
+    this.plausible.event(PlausibleEvent.Theme, {
+      props: { theme: this.theme, trigger: trigger },
+    });
   }
 }

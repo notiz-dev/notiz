@@ -11,3 +11,9 @@ export interface SearchItem {
   url: string;
   tag: string;
 }
+
+export enum PlausibleEvent {
+  'Newsletter' = 'Newsletter',
+  'Theme' = 'Theme',
+  'Search' = 'Search',
+}

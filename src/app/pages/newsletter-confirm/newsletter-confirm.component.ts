@@ -1,7 +1,9 @@
+import { PlausibleService } from 'ngx-plausible';
 import { NewsletterService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { PlausibleEvent } from 'src/app/types/types';
 
 @Component({
   selector: 'app-newsletter-confirm',
@@ -14,7 +16,8 @@ export class NewsletterConfirmComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsletterService: NewsletterService
+    private newsletterService: NewsletterService,
+    private plausible: PlausibleService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +34,9 @@ export class NewsletterConfirmComponent implements OnInit {
           this.error = true;
         },
         complete: () => {
+          this.plausible.event(PlausibleEvent.Newsletter, {
+            props: { event: 'confirmed' },
+          });
           this.confirmed = true;
         },
       });

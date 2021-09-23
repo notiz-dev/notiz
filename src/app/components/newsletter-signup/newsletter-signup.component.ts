@@ -1,5 +1,4 @@
 import { NewsletterService } from '@api/services';
-import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import {
   Component,
   OnInit,
@@ -12,6 +11,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, takeUntil } from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Subject } from 'rxjs';
+import { PlausibleService } from 'ngx-plausible';
+import { PlausibleEvent } from 'src/app/types/types';
 
 @Component({
   selector: 'app-newsletter-signup',
@@ -29,9 +30,9 @@ export class NewsletterSignupComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     public element: ElementRef<HTMLElement>,
-    private sa: SimpleAnalyticsService,
     private toast: HotToastService,
-    private newsletterService: NewsletterService
+    private newsletterService: NewsletterService,
+    private plausible: PlausibleService
   ) {
     this.setupForm();
   }
@@ -51,7 +52,6 @@ export class NewsletterSignupComponent implements OnInit, OnDestroy {
 
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
-      this.sa.event('newsletter_submit_with_email');
       this.newsletterService
         .subscribe({ body: this.newsletterSignup.value })
         .pipe(
@@ -61,7 +61,9 @@ export class NewsletterSignupComponent implements OnInit, OnDestroy {
             error: 'Oh no, something went wrong! Please try again.',
           }),
           tap(() => {
-            this.sa.event('newsletter_subscribed');
+            this.plausible.event(PlausibleEvent.Newsletter, {
+              props: { event: 'subscribed', path: document.location.pathname },
+            });
           }),
           takeUntil(this.destroy$)
         )

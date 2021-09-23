@@ -1,5 +1,4 @@
-import { SimpleAnalyticsService } from '@services/simple-analytics.service';
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, Input, HostBinding } from '@angular/core';
 
 export interface FooterSection {
   title: string;
@@ -18,7 +17,7 @@ export interface FooterLink {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class NizFooter implements OnInit {
+export class NizFooter {
   now = Date.now();
 
   @Input() footerSections: FooterSection[];
@@ -29,7 +28,5 @@ export class NizFooter implements OnInit {
     return 'block';
   }
 
-  constructor(public sa: SimpleAnalyticsService) {}
-
-  ngOnInit(): void {}
+  constructor() {}
 }

@@ -2,6 +2,8 @@ import { NewsletterService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { PlausibleEvent } from 'src/app/types/types';
+import { PlausibleService } from 'ngx-plausible';
 
 @Component({
   selector: 'app-newsletter-unsubscribe',
@@ -14,7 +16,8 @@ export class NewsletterUnsubscribeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsletterService: NewsletterService
+    private newsletterService: NewsletterService,
+    private plausible: PlausibleService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +34,9 @@ export class NewsletterUnsubscribeComponent implements OnInit {
           this.error = true;
         },
         complete: () => {
+          this.plausible.event(PlausibleEvent.Newsletter, {
+            props: { event: 'unsubscribed' },
+          });
           this.unsubscribed = true;
         },
       });
