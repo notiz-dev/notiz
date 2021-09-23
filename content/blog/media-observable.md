@@ -5,20 +5,20 @@ published: true
 publishedAt: 2021-09-23T00:00:00.000Z
 updatedAt: 2021-09-23T00:00:00.000Z
 tags:
-    - RxJS
-    - Angular
+  - RxJS
+  - Angular
 keywords:
-    - RxJS
-    - Media Query
-    - Javascript
-    - Typescript
+  - RxJS
+  - Media Query
+  - Javascript
+  - Typescript
 authors:
-    - 'Gary Großgarten'
+  - 'Gary Großgarten'
 ---
 
 ## tl;dr
 
-It's super easy to handle Media Queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">rxjs</span>! 🤗
+It's super easy to handle Media Queries</span> programmatically with <span type="underline" delay="1200" shortcode="annotate">RxJS</span>! 🤗
 
 <div shortcode="scroll-to" fragment="media-queries-with-rxjs">
 <a>Take me to the code!</a>
