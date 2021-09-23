@@ -1,8 +1,7 @@
+import { NewsletterService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
-import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-newsletter-unsubscribe',
@@ -13,7 +12,10 @@ export class NewsletterUnsubscribeComponent implements OnInit {
   unsubscribed: boolean;
   error: boolean;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private newsletterService: NewsletterService
+  ) {}
 
   ngOnInit(): void {
     const uuid = this.route.snapshot.queryParamMap.get('uuid');
@@ -21,17 +23,16 @@ export class NewsletterUnsubscribeComponent implements OnInit {
   }
 
   unsubscribe(uuid: string) {
-    this.http
-      .put(`${environment.api}/unsubscribe`, { uuid })
+    this.newsletterService
+      .unsubscribe({ body: { uuid } })
       .pipe(first())
-      .subscribe(
-        () => {},
-        (error) => {
+      .subscribe({
+        error: () => {
           this.error = true;
         },
-        () => {
+        complete: () => {
           this.unsubscribed = true;
-        }
-      );
+        },
+      });
   }
 }

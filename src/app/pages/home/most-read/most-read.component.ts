@@ -2,14 +2,15 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ScullyContentService } from '@services/scully-content.service';
 import { map, Observable, shareReplay, withLatestFrom } from 'rxjs';
-import { AnalyticsService } from 'src/api/services';
+import { AnalyticsService } from '@api/services';
 
 @Component({
   selector: 'niz-most-read',
   template: `
     <h2>Most Read</h2>
-    <a [routerLink]="[post.route]"
-      *ngFor="let post of posts$ | async | slice : 0 : 6"
+    <a
+      [routerLink]="[post.route]"
+      *ngFor="let post of posts$ | async | slice: 0:6"
       class="flex text-color group cursor-pointer items-center space-x-6"
     >
       <niz-inline-svg
@@ -22,16 +23,16 @@ import { AnalyticsService } from 'src/api/services';
   styles: [],
 })
 export class MostReadComponent implements OnInit {
-  posts$: Observable<
-    ScullyRoute[]
-  > = this.analytics.analyticsControllerTopPages({ period: '12mo' }).pipe(
-    shareReplay(),
-    withLatestFrom(this.content.blogPosts()),
-    map(([analytics, posts]) =>
-      analytics.map((a) => posts.find((p) => p.route + '/' === a.page))
-    ),
-    map(res => res.filter(r => !!r))
-  );
+  posts$: Observable<ScullyRoute[]> = this.analytics
+    .topPages({ period: '12mo' })
+    .pipe(
+      shareReplay(),
+      withLatestFrom(this.content.blogPosts()),
+      map(([analytics, posts]) =>
+        analytics.map((a) => posts.find((p) => p.route + '/' === a.page))
+      ),
+      map((res) => res.filter((r) => !!r))
+    );
   @HostBinding() class = 'flex flex-col space-y-4';
 
   constructor(

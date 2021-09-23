@@ -1,8 +1,7 @@
+import { NewsletterService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { first } from 'rxjs/operators';
-import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-newsletter-confirm',
@@ -13,7 +12,10 @@ export class NewsletterConfirmComponent implements OnInit {
   confirmed: boolean;
   error: boolean;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private newsletterService: NewsletterService
+  ) {}
 
   ngOnInit(): void {
     const uuid = this.route.snapshot.queryParamMap.get('uuid');
@@ -21,17 +23,16 @@ export class NewsletterConfirmComponent implements OnInit {
   }
 
   confirmSubscription(uuid: string) {
-    this.http
-      .put(`${environment.api}/confirm`, { uuid })
+    this.newsletterService
+      .confirm({ body: { uuid } })
       .pipe(first())
-      .subscribe(
-        () => {},
-        (error) => {
+      .subscribe({
+        error: () => {
           this.error = true;
         },
-        () => {
+        complete: () => {
           this.confirmed = true;
-        }
-      );
+        },
+      });
   }
 }

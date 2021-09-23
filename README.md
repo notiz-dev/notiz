@@ -14,6 +14,7 @@ _\* notiz [noˈtiːt͡s] - (german) short, brief, written record_
 npm install
 
 npm run build:elements
+npm run build:demos
 npm run build:scully
 
 npm run serve:scully

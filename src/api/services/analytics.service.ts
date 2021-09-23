@@ -23,21 +23,21 @@ export class AnalyticsService extends BaseService {
   }
 
   /**
-   * Path part for operation analyticsControllerTopPages
+   * Path part for operation topPages
    */
-  static readonly AnalyticsControllerTopPagesPath = '/analytics';
+  static readonly TopPagesPath = '/analytics';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `analyticsControllerTopPages()` instead.
+   * To access only the response body, use `topPages()` instead.
    *
    * This method doesn't expect any request body.
    */
-  analyticsControllerTopPages$Response(params?: {
+  topPages$Response(params?: {
     period?: 'day' | '7d' | '30d' | 'month' | '6mo' | '12mo';
   }): Observable<StrictHttpResponse<Array<PageRequest>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AnalyticsService.AnalyticsControllerTopPagesPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AnalyticsService.TopPagesPath, 'get');
     if (params) {
       rb.query('period', params.period, {});
     }
@@ -55,15 +55,15 @@ export class AnalyticsService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `analyticsControllerTopPages$Response()` instead.
+   * To access the full response (for headers, for example), `topPages$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  analyticsControllerTopPages(params?: {
+  topPages(params?: {
     period?: 'day' | '7d' | '30d' | 'month' | '6mo' | '12mo';
   }): Observable<Array<PageRequest>> {
 
-    return this.analyticsControllerTopPages$Response(params).pipe(
+    return this.topPages$Response(params).pipe(
       map((r: StrictHttpResponse<Array<PageRequest>>) => r.body as Array<PageRequest>)
     );
   }

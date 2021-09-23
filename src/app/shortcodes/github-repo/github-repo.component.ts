@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { GitHubService } from '@api/services/git-hub.service';
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
-import { GitHubRepo } from './github-repo.types';
+import { GitHubRepo } from '@api/models';
 
 @Component({
   selector: 'niz-github-repo',
@@ -47,14 +46,20 @@ import { GitHubRepo } from './github-repo.types';
   styleUrls: ['github-repo.component.scss'],
 })
 export class GithubRepoComponent implements OnInit {
-  @HostBinding('class') class = "block relative";
+  @HostBinding('class') class = 'block relative';
   @Input() repo: string;
+
   repo$: Observable<GitHubRepo>;
-  constructor(private http: HttpClient) {}
+
+  constructor(private gitHubService: GitHubService) {}
 
   ngOnInit(): void {
-    this.repo$ = this.http
-      .get<GitHubRepo>(`${environment.api}/github/repos/${this.repo}`)
+    const [owner, repo] = this.repo.split('/');
+    this.repo$ = this.gitHubService
+      .repo({
+        owner,
+        repo,
+      })
       .pipe(shareReplay());
   }
 }

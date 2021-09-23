@@ -1,4 +1,4 @@
-import { environment } from '@environments/environment';
+import { NewsletterService } from '@api/services';
 import { SimpleAnalyticsService } from '@services/simple-analytics.service';
 import {
   Component,
@@ -6,34 +6,42 @@ import {
   ElementRef,
   HostBinding,
   ViewChild,
+  OnDestroy,
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, takeUntil } from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-newsletter-signup',
   templateUrl: './newsletter-signup.component.html',
   styleUrls: ['./newsletter-signup.component.scss'],
 })
-export class NewsletterSignupComponent implements OnInit {
+export class NewsletterSignupComponent implements OnInit, OnDestroy {
   @HostBinding('class') class =
     'max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8';
   @ViewChild('emailAddress') input: ElementRef<HTMLInputElement>;
   newsletterSignup: FormGroup;
 
+  private destroy$ = new Subject<void>();
+
   constructor(
-    private http: HttpClient,
     private formBuilder: FormBuilder,
     public element: ElementRef<HTMLElement>,
     private sa: SimpleAnalyticsService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private newsletterService: NewsletterService
   ) {
     this.setupForm();
   }
 
   ngOnInit(): void {}
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   private setupForm() {
     this.newsletterSignup = this.formBuilder.group({
@@ -44,8 +52,8 @@ export class NewsletterSignupComponent implements OnInit {
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
       this.sa.event('newsletter_submit_with_email');
-      this.http
-        .post(`${environment.api}/subscribe`, this.newsletterSignup.value)
+      this.newsletterService
+        .subscribe({ body: this.newsletterSignup.value })
         .pipe(
           this.toast.observe({
             loading: 'Signing you up...',
@@ -54,7 +62,8 @@ export class NewsletterSignupComponent implements OnInit {
           }),
           tap(() => {
             this.sa.event('newsletter_subscribed');
-          })
+          }),
+          takeUntil(this.destroy$)
         )
         .subscribe({ complete: () => this.newsletterSignup.reset() });
     }

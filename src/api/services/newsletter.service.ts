@@ -24,21 +24,21 @@ export class NewsletterService extends BaseService {
   }
 
   /**
-   * Path part for operation newsletterControllerSubscribe
+   * Path part for operation subscribe
    */
-  static readonly NewsletterControllerSubscribePath = '/subscribe';
+  static readonly SubscribePath = '/subscribe';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `newsletterControllerSubscribe()` instead.
+   * To access only the response body, use `subscribe()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerSubscribe$Response(params: {
+  subscribe$Response(params: {
     body: SubscribeDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.NewsletterControllerSubscribePath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, NewsletterService.SubscribePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -56,35 +56,35 @@ export class NewsletterService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `newsletterControllerSubscribe$Response()` instead.
+   * To access the full response (for headers, for example), `subscribe$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerSubscribe(params: {
+  subscribe(params: {
     body: SubscribeDto
   }): Observable<void> {
 
-    return this.newsletterControllerSubscribe$Response(params).pipe(
+    return this.subscribe$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation newsletterControllerConfirm
+   * Path part for operation confirm
    */
-  static readonly NewsletterControllerConfirmPath = '/confirm';
+  static readonly ConfirmPath = '/confirm';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `newsletterControllerConfirm()` instead.
+   * To access only the response body, use `confirm()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerConfirm$Response(params: {
+  confirm$Response(params: {
     body: ConfirmDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.NewsletterControllerConfirmPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, NewsletterService.ConfirmPath, 'put');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -102,35 +102,35 @@ export class NewsletterService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `newsletterControllerConfirm$Response()` instead.
+   * To access the full response (for headers, for example), `confirm$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerConfirm(params: {
+  confirm(params: {
     body: ConfirmDto
   }): Observable<void> {
 
-    return this.newsletterControllerConfirm$Response(params).pipe(
+    return this.confirm$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation newsletterControllerUnsubscribe
+   * Path part for operation unsubscribe
    */
-  static readonly NewsletterControllerUnsubscribePath = '/unsubscribe';
+  static readonly UnsubscribePath = '/unsubscribe';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `newsletterControllerUnsubscribe()` instead.
+   * To access only the response body, use `unsubscribe()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerUnsubscribe$Response(params: {
+  unsubscribe$Response(params: {
     body: ConfirmDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.NewsletterControllerUnsubscribePath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, NewsletterService.UnsubscribePath, 'put');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -148,15 +148,15 @@ export class NewsletterService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `newsletterControllerUnsubscribe$Response()` instead.
+   * To access the full response (for headers, for example), `unsubscribe$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  newsletterControllerUnsubscribe(params: {
+  unsubscribe(params: {
     body: ConfirmDto
   }): Observable<void> {
 
-    return this.newsletterControllerUnsubscribe$Response(params).pipe(
+    return this.unsubscribe$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }

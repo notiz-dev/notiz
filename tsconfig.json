@@ -22,14 +22,9 @@
       "@pipes/*": ["src/app/pipes/*"],
       "@services/*": ["src/app/services/*"],
       "@utils/*": ["src/app/utils/*"],
-
-      "@environments/*": [
-        "src/environments/*"
-      ],
-      "demos": [
-        "dist/demos/demos",
-        "dist/demos"
-      ],
+      "@api/*": ["src/api/*"],
+      "@environments/*": ["src/environments/*"],
+      "demos": ["dist/demos/demos", "dist/demos"]
     }
   },
   "angularCompilerOptions": {

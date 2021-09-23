@@ -23,22 +23,22 @@ export class GitHubService extends BaseService {
   }
 
   /**
-   * Path part for operation githubControllerRepo
+   * Path part for operation repo
    */
-  static readonly GithubControllerRepoPath = '/github/repos/{owner}/{repo}';
+  static readonly RepoPath = '/github/repos/{owner}/{repo}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `githubControllerRepo()` instead.
+   * To access only the response body, use `repo()` instead.
    *
    * This method doesn't expect any request body.
    */
-  githubControllerRepo$Response(params: {
+  repo$Response(params: {
     owner: string;
     repo: string;
   }): Observable<StrictHttpResponse<GitHubRepo>> {
 
-    const rb = new RequestBuilder(this.rootUrl, GitHubService.GithubControllerRepoPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, GitHubService.RepoPath, 'get');
     if (params) {
       rb.path('owner', params.owner, {});
       rb.path('repo', params.repo, {});
@@ -57,16 +57,16 @@ export class GitHubService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `githubControllerRepo$Response()` instead.
+   * To access the full response (for headers, for example), `repo$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  githubControllerRepo(params: {
+  repo(params: {
     owner: string;
     repo: string;
   }): Observable<GitHubRepo> {
 
-    return this.githubControllerRepo$Response(params).pipe(
+    return this.repo$Response(params).pipe(
       map((r: StrictHttpResponse<GitHubRepo>) => r.body as GitHubRepo)
     );
   }
