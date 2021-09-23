@@ -47,7 +47,7 @@
     "document-register-element": "1.14.10",
     "ngx-markdown": "12.0.1",
     "ngx-plausible": "0.0.5",
-    "prismjs": "1.24.1",
+    "prismjs": "1.25.0",
     "rough-notation": "^0.5.1",
     "rxjs": "7.3.0",
     "tslib": "2.3.1",
