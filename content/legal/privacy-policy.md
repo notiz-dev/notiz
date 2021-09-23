@@ -30,6 +30,6 @@ This site uses SSL encryption for security reasons and to protect the transmissi
 
 If SSL encryption is activated, the data you transmit to us cannot be read by third parties.
 
-## Simple Analytics
+## Plausible (Self-hosted)
 
-To get critical information about the behavior of our visitors, we use [Simple Analytics](https://simpleanalytics.com). This analytics software gives us insight about our visitors only in general, but not about individuals per say, as it does not track visitors and does not store any personal identifiable information. [Go to their documentation](https://docs.simpleanalytics.com/what-we-collect) to find out what Simple Analytics collects (and most importantly what they don't). 
+To measure our site traffic, we use [Plausible (Self-hosted)](https://plausible.io/privacy-focused-web-analytics). Plausible uses no cookies and is fully compliant with GDPR, CCPA and PECR.
