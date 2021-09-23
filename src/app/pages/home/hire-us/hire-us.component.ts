@@ -13,7 +13,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
         </p>
       </div>
       <div class="mt-5">
-        <a href="mailto:hi@notiz.dev" class="btn btn-primary">Get In Touch</a>
+        <a href="mailto:hi@notiz.dev" class="btn btn-primary hover:text-gray-900">Get In Touch</a>
       </div>
     </div>
   `,
