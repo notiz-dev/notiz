@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShortcodeModule } from '@notiz/shortcodes';
 import { AnnotateComponent } from './annotate.component';
-import { IntersectionModule } from 'src/app/directives/intersection.module';
+import { IntersectionModule } from '@notiz/toolbelt';
 
 
 

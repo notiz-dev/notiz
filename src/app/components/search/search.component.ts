@@ -10,8 +10,7 @@ import {
   ViewChildren,
   QueryList,
 } from '@angular/core';
-import { shortcut, sequence } from '@utils/shortcuts';
-import { KeyCode } from '@utils/keycodes';
+import { shortcut, sequence, KeyCode } from '@notiz/toolbelt';
 import {
   tap,
   filter,

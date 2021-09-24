@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ThemeService } from '@services/theme.service';
 import { delay, filter, takeUntil, tap } from 'rxjs/operators';
-import { shortcut } from '@utils/shortcuts';
-import { KeyCode } from '@utils/keycodes';
+import { shortcut, KeyCode } from '@notiz/toolbelt';
 import { interval, merge, Observable, Subject } from 'rxjs';
 import { ScullyContentService } from '@services/scully-content.service';
 import { ScullyRoute } from '@scullyio/ng-lib';
