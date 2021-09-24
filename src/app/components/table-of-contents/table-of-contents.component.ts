@@ -11,7 +11,7 @@ import { fromEvent, Subject, Observable, merge } from 'rxjs';
 import { tap, map, takeUntil, switchMap, filter } from 'rxjs/operators';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { ActivatedRoute } from '@angular/router';
-import { media$ } from '@utils/media';
+import { media$ } from '@notiz/toolbelt';
 import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
