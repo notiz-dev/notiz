@@ -3,7 +3,7 @@ title: Marc Stammerjohann
 github: marcjulian
 twitter: mrcjln
 website: https://marcjulian.de
-img: https://marcjulian.de/img/me.jpg
+img: https://github.com/marcjulian.png
 ---
 
 Hi my name is Marc Stammerjohann and I'm a full stack software developer specialized in creating cross-platform apps for Android, iOS, Desktop and Web.

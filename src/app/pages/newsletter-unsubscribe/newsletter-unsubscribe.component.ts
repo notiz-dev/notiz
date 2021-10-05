@@ -8,7 +8,6 @@ import { PlausibleService } from 'ngx-plausible';
 @Component({
   selector: 'app-newsletter-unsubscribe',
   templateUrl: './newsletter-unsubscribe.component.html',
-  styleUrls: ['./newsletter-unsubscribe.component.scss'],
 })
 export class NewsletterUnsubscribeComponent implements OnInit {
   unsubscribed: boolean;
