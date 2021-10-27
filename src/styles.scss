@@ -1,7 +1,4 @@
 @import 'tailwindcss/base';
-// /* purgecss start ignore */
-// @import 'prismjs/themes/prism-tomorrow';
-// /* purgecss end ignore */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
@@ -214,7 +211,6 @@ blockquote {
     @apply mt-14;
   }
   h2 {
-
     @apply mt-16 mb-10;
   }
 
@@ -227,7 +223,7 @@ blockquote {
   niz-author-shortcode,
   niz-figure,
   .demo,
-  img{
+  img {
     @apply mt-12 mb-8;
   }
 
@@ -242,8 +238,8 @@ blockquote {
     @apply cursor-pointer relative;
   }
 
-
-  p, niz-scroll-to {
+  p,
+  niz-scroll-to {
     @apply mt-5 mb-3;
   }
 
