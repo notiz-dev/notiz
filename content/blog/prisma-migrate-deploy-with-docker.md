@@ -16,7 +16,7 @@ authors:
 github: https://github.com/notiz-dev/nestjs-prisma-docker
 ---
 
-One question about the guide [Dockerizing a NestJS app with Prisma and PostgreSQL](/blog/dockerizing-nestjs-with-prisma-and-postgresql) was asked frequently: "How to run database migration on production?"
+One question about the guide [Dockerizing a NestJS app with Prisma and PostgreSQL](/blog/dockerizing-nestjs-with-prisma-and-postgresql) was asked frequently: "How to run database migrations in production?"
 
 Let's dive into this topic and find out how to use `prisma migrate deploy` with Docker for your production database.
 
@@ -24,7 +24,7 @@ Prisma recommends to perform migrations for production database in an [automated
 
 ## Prisma Migrate with Docker
 
-Let's look at how to integrate the command `prisma migrate deploy` into the following `Dockerfile`.
+Let's take a look at how to integrate the command `prisma migrate deploy` into the following `Dockerfile`.
 
 <div shortcode="code" tabs="Dockerfile">
 
@@ -65,7 +65,7 @@ First of all, one command is very important: `COPY prisma ./prisma/`. This makes
 ### Add a RUN command ❌
 
 What about adding `RUN npx prisma migrate dev` to the `Dockerfile`?  
-Two issues that come to mind are making this it not a good solution.
+Two issues that come to mind are making it not a good solution.
 
 1. Performs migration during build step, not before Docker container is started
 2. CI/CD needs access to your production database, requires `DATABASE_URL` environment
@@ -241,4 +241,4 @@ nest-api    | [Nest] 174  - 11/09/2021, 4:20:56 PM     LOG [NestApplication] Nes
 
 </div>
 
-Hurra 🎉 the database migration are executing successfully with Docker! Test it out on your test, staging and than production environment.
+Hurray 🎉 the database migrations are executing successfully with Docker! Test it out on your test, staging and then production environment.
