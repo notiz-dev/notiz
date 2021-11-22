@@ -64,7 +64,7 @@ First of all, one command is very important: `COPY prisma ./prisma/`. This makes
 
 ### Add a RUN command ❌
 
-What about adding `RUN npx prisma migrate dev` to the `Dockerfile`?  
+What about adding `RUN npx prisma migrate deploy` to the `Dockerfile`?  
 Two issues that come to mind are making it not a good solution.
 
 1. Performs migration during build step, not before Docker container is started
