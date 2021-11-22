@@ -2,8 +2,8 @@
 title: 'Prisma Migrate: Deploy Migration with Docker'
 description: 'Perform database migration with Prisma Migrate using Docker'
 published: true
-publishedAt: 2021-11-10T10:00:00.000Z
-updatedAt: 2021-11-10T10:00:00.000Z
+publishedAt: 2021-11-22T09:40:00.000Z
+updatedAt: 2021-11-22T09:40:00.000Z
 tags:
   - Prisma
   - Docker
