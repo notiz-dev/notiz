@@ -3,7 +3,7 @@ title: Dockerizing a NestJS app with Prisma and PostgreSQL
 description: How to dockerize a NestJS application with Prisma and PostgreSQL.
 published: true
 publishedAt: 2020-07-31T10:00:00.000Z
-updatedAt: 2021-06-03T15:30:00.000Z
+updatedAt: 2021-11-09T15:00:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -366,7 +366,7 @@ You should have the following two docker containers started
 
 Open again [localhost:3000](http://localhost:3000) to verify that your Nest app is running with Docker. Also verify that your endpoints using the Prisma Client have access to the Postgres DB.
 
-## Prisma Migrate Postgres Docker Container
+## Perform local migration
 
 Replace the host `postgres` with `localhost` if you want to perform [Prisma migrations](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-migrate) locally of your Postgres Docker container. Update the `DATABASE_URL` in `prisma/.env` to
 
@@ -378,6 +378,12 @@ DATABASE_URL=postgresql://prisma:topsecret@localhost:5432/food?schema=food&sslmo
 
 </div>
 
-Now you can run `npx prisma migrate save --experimental` and `npx prisma migrate save --experimental` or even seed the database if you like.
+Now you can run `npx prisma migrate dev` and seed the database if you like.
 
 Perfect, now sit back and relax 🏝 and let Docker do the work for you.
+
+## Perform migrations with Docker
+
+Checkout how to use `prisma migrate deploy` in the Dockerfile to perform migrations for your testing, staging and production environment.
+
+<div shortcode="article" routes="/blog/prisma-migrate-deploy-with-docker"></div>

@@ -3,7 +3,7 @@ title: 'Deploy NestJS with Prisma to Heroku'
 description: 'Deploy a NestJS application with Prisma 2.0 to Heroku and connect to a PostgreSQL database.'
 published: true
 publishedAt: 2020-03-12T09:11:00.000Z
-updatedAt: 2020-04-07T11:18:00.000Z
+updatedAt: 2021-11-09T15:00:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -208,9 +208,7 @@ Let's use [Prisma Migrate](https://www.prisma.io/docs/reference/tools-and-interf
 <div shortcode="code" tabs="BASH">
 
 ```bash
-npx prisma migrate save --experimental
-
-npx prisma migrate up --experimental
+npx prisma migrate dev
 ```
 
 </div>
@@ -220,7 +218,7 @@ We can use [Prisma Studio](https://github.com/prisma/studio) to view if our migr
 <div shortcode="code" tabs="BASH">
 
 ```bash
-npx prisma studio --experimental
+npx prisma studio
 ```
 
 </div>
