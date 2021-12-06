@@ -18,7 +18,7 @@
     "build:prod": "NODE_ENV=production ng build --configuration production --output-hashing none",
     "dev": "npm run build && npm run scully && npm run serve:scully",
     "build:scully": "npm run build:prod && npm run scully",
-    "build:elements": "NODE_ENV=production ng build --prod --project elements --single-bundle --output-hashing none",
+    "build:elements": "NODE_ENV=production ng build --configuration production --project elements --single-bundle --output-hashing none",
     "build:demos": "ng build --configuration production --project demos",
     "format": "prettier --write \"src/**/*.{ts,scss}\"",
     "scully": "scully",

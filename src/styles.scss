@@ -2,6 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import './prism.scss';
+
 @import './nightsky.scss';
 
 @layer base {
@@ -94,15 +96,12 @@ body.dark {
   --text-light: theme('colors.gray.300');
   --text-shade: theme('colors.gray.400');
 
-  --code-function: theme('colors.orange.300');
+  --code-tag: theme('colors.fuchsia.400');
+  --code-boolean: theme('colors.orange.300');
   --code-variable: theme('colors.green.300');
   --code-class: theme('colors.yellow.300');
   --code-comment: theme('colors.gray.600');
-
-  --markup-deleted-text: theme('colors.red.300');
-  --markup-deleted-canvas: theme('colors.red.800');
-  --markup-inserted-text: theme('colors.green.300');
-  --markup-inserted-canvas: theme('colors.green.800');
+  --code-keyword: theme('colors.primary.DEFAULT');
 
   --hot-toast-bg: theme('colors.canvas.shade');
 }
@@ -121,15 +120,12 @@ body:not(.dark) {
   --text-light: theme('colors.gray.700');
   --text-shade: theme('colors.gray.500');
 
-  --code-function: theme('colors.orange.600');
+  --code-tag: theme('colors.fuchsia.600');
+  --code-boolean: theme('colors.orange.600');
   --code-variable: theme('colors.green.600');
   --code-class: theme('colors.yellow.500');
   --code-comment: theme('colors.gray.600');
-
-  --markup-deleted-text: theme('colors.red.800');
-  --markup-deleted-canvas: theme('colors.red.300');
-  --markup-inserted-text: theme('colors.green.800');
-  --markup-inserted-canvas: theme('colors.green.300');
+  --code-keyword: theme('colors.primary.DEFAULT');
 
   --hot-toast-bg: theme('colors.canvas.light');
 }

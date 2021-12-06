@@ -48,6 +48,8 @@ module.exports = {
         },
         cyan: colors.cyan,
         orange: colors.orange,
+        teal: colors.teal,
+        fuchsia: colors.fuchsia,
         color: 'var(--text)',
         'color-light': 'var(--text-light)',
         'color-shade': 'var(--text-shade)',
@@ -146,6 +148,5 @@ module.exports = {
     require('./tailwind/min-w-container'),
     require('./tailwind/buttons'),
     require('./tailwind/chips'),
-    require('./tailwind/prism'),
   ],
 };
