@@ -11,14 +11,14 @@ keywords:
   - Schematics
 authors:
   - Marc Stammerjohann
-github: https://github.com/marcjulian/nestjs-prisma
+github: https://github.com/notiz-dev/nestjs-prisma
 ---
 
 Until now, adding [Prisma to a NestJS application](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) requires a few manual steps - installing [@prisma/cli](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-cli/command-reference) and [@prisma/client](https://github.com/prisma/prisma-client-js), creating a `PrismaService` and (eventually) adding a `Dockerfile`.
 
-I am excited to release [`nestjs-prisma`](https://github.com/marcjulian/nestjs-prisma) - a set of schematics to perform all steps necessary to add Prisma to your NestJS application **automatically**.
+We are excited to release [`nestjs-prisma`](https://github.com/notiz-dev/nestjs-prisma) - a set of schematics to perform all steps necessary to add Prisma to your NestJS application **automatically**.
 
-<div shortcode="repo" repo="marcjulian/nestjs-prisma"></div>
+<div shortcode="repo" repo="notiz-dev/nestjs-prisma"></div>
 
 ## Schematics
 
@@ -40,7 +40,7 @@ nest add nestjs-prisma
 
 ## Library
 
-Since version [0.6.0](https://github.com/marcjulian/nestjs-prisma/releases/tag/v0.6.0) the package `nestjs-prisma` is also a library providing `PrismaService`, `PrismaModule` and `PrismaClientExceptionFilter` ([0.13.0](https://github.com/marcjulian/nestjs-prisma/releases/tag/v0.13.0)).
+Since version [0.6.0](https://github.com/notiz-dev/nestjs-prisma/releases/tag/v0.6.0) the package `nestjs-prisma` is also a library providing `PrismaService`, `PrismaModule` and `PrismaClientExceptionFilter` ([0.13.0](https://github.com/notiz-dev/nestjs-prisma/releases/tag/v0.13.0)).
 
 ### PrismaModule and PrismaService
 
@@ -273,4 +273,4 @@ nest add nestjs-prisma --addDocker
 
 </div>
 
-[Check out all options](https://github.com/marcjulian/nestjs-prisma#additional-options) and give it a try with your Nest app.
+[Check out all options](https://github.com/notiz-dev/nestjs-prisma#additional-options) and give it a try with your Nest app.

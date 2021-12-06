@@ -11,7 +11,7 @@ keywords:
   - SQLite
 authors:
   - 'Marc Stammerjohann'
-github: 'https://github.com/notiz-dev/nestjs-prisma'
+github: 'https://github.com/notiz-dev/nestjs-prisma-demo'
 ---
 
 [Prisma](https://prisma.io) is a toolkit for modeling, querying and migrating a [database](https://www.prisma.io/docs/reference/database-reference/supported-databases). [Prisma 2.0](https://github.com/prisma/prisma) is rewritten with Rust, read more about the recent [release](https://www.prisma.io/blog/announcing-prisma-2-n0v98rzc8br1) 🎉.
