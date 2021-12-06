@@ -8,7 +8,15 @@
     }"
     (click)="updateTab(i)"
     *ngFor="let tab of _tabs; let i = index"
-    class="hover:text-primary px-3 py-2 font-medium text-lg rounded-t-md focus:outline-none"
+    class="
+      hover:text-primary
+      px-3
+      py-2
+      font-medium
+      text-lg
+      rounded-t-md
+      focus:outline-none
+    "
   >
     {{ tab.name }}
   </button>
@@ -21,7 +29,21 @@
       (click)="copy()"
       #copyButton
       type="button"
-      class="inline-flex absolute top-2 right-2 items-center p-1 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      class="
+        inline-flex
+        absolute
+        top-2
+        right-2
+        items-center
+        p-1
+        border border-transparent
+        rounded-full
+        shadow-sm
+        text-white
+        bg-gray-600
+        hover:bg-gray-700
+        focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500
+      "
     >
       <i class="material-icons-outlined font-5">{{ copyText }}</i>
     </button>

@@ -20,7 +20,7 @@
     "build:scully": "npm run build:prod && npm run scully",
     "build:elements": "NODE_ENV=production ng build --prod --project elements --single-bundle --output-hashing none",
     "build:demos": "ng build --configuration production --project demos",
-    "format": "prettier --write \"src/**/*.{ts,scss}\"",
+    "format": "prettier --write \"src/**/*.{ts,scss,html}\"",
     "scully": "scully",
     "serve:scully": "scully serve",
     "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",

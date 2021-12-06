@@ -19,7 +19,12 @@ import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { MostReadComponent } from './most-read/most-read.component';
 
 @NgModule({
-  declarations: [HomeComponent, HireUsComponent, PopularPostsComponent, MostReadComponent],
+  declarations: [
+    HomeComponent,
+    HireUsComponent,
+    PopularPostsComponent,
+    MostReadComponent,
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -34,7 +39,7 @@ import { MostReadComponent } from './most-read/most-read.component';
     SeoModule,
     IntersectionModule,
     AnnotateModule,
-    NizInlineSvgModule
+    NizInlineSvgModule,
   ],
 })
 export class HomeModule {}

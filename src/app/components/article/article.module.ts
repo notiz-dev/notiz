@@ -15,7 +15,7 @@ import { AuthorSmallModule } from '@components/author-small/author-small.module'
     PipesModule,
     MarkdownModule.forChild(),
     NizInlineSvgModule,
-    AuthorSmallModule
+    AuthorSmallModule,
   ],
   exports: [ArticleComponent],
   providers: [],

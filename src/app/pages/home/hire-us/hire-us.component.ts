@@ -9,11 +9,16 @@ import { Component, HostBinding, OnInit } from '@angular/core';
       </app-annotate>
       <div class="mt-2 max-w-xl text-base text-color-shade">
         <p>
-          We create intuitive mobile and web apps and successful websites. Come work with us!
+          We create intuitive mobile and web apps and successful websites. Come
+          work with us!
         </p>
       </div>
       <div class="mt-5">
-        <a href="mailto:hi@notiz.dev" class="btn btn-primary hover:text-gray-900">Get In Touch</a>
+        <a
+          href="mailto:hi@notiz.dev"
+          class="btn btn-primary hover:text-gray-900"
+          >Get In Touch</a
+        >
       </div>
     </div>
   `,

@@ -19,7 +19,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
   styleUrls: ['./note.component.scss'],
 })
 export class NoteComponent implements OnInit {
-  @HostBinding('class') class = "block relative";
+  @HostBinding('class') class = 'block relative';
   @Input() type: 'success' | 'info' | 'warn' = 'info';
   @Input() icon: string;
   constructor() {}

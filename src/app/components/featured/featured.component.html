@@ -23,8 +23,6 @@
   </div>
   <div class="flex justify-between items-center">
     <niz-author-small [author]="author$ | async"></niz-author-small>
-    <span class="text-base">{{
-      route.updatedAt | date: 'MMMM dd, yyyy'
-    }}</span>
+    <span class="text-base">{{ route.updatedAt | date: 'MMMM dd, yyyy' }}</span>
   </div>
 </div>

@@ -4,17 +4,13 @@ import { ShortcodeModule } from '@notiz/shortcodes';
 import { AnnotateComponent } from './annotate.component';
 import { IntersectionModule } from '@notiz/toolbelt';
 
-
-
 @NgModule({
   declarations: [AnnotateComponent],
   exports: [AnnotateComponent],
   imports: [
     CommonModule,
-    ShortcodeModule.forChild([
-      { shortcode: '', component: AnnotateComponent },
-    ]),
-    IntersectionModule
-  ]
+    ShortcodeModule.forChild([{ shortcode: '', component: AnnotateComponent }]),
+    IntersectionModule,
+  ],
 })
-export class AnnotateModule { }
+export class AnnotateModule {}

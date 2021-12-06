@@ -9,7 +9,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
   styles: [],
 })
 export class FigureComponent implements OnInit {
-  @HostBinding('class') class = "block relative";
+  @HostBinding('class') class = 'block relative';
   @Input() caption: string;
   constructor() {}
 

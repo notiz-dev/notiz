@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit {
     this.tags$ = this.scullyContentService
       .weightedTags(this.blogPosts$, this.scullyContentService.tags())
       .pipe(
-        map(tags => tags.sort((a,b) => b.weight - a.weight)),
-        map((tags) => tags.map((t) => t.tag)));
+        map((tags) => tags.sort((a, b) => b.weight - a.weight)),
+        map((tags) => tags.map((t) => t.tag))
+      );
   }
 
   loadMore(posts: ScullyRoute[]) {

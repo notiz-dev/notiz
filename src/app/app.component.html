@@ -19,7 +19,19 @@
       <button
         [attr.aria-label]="'Open search'"
         (click)="openSearch(search)"
-        class="hidden md:flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus-ring rounded-xl p-1 flex-row space-x-1 items-center"
+        class="
+          hidden
+          md:flex
+          bg-canvas-light
+          border-solid border-2 border-canvas-light
+          hover:border-primary
+          focus-ring
+          rounded-xl
+          p-1
+          flex-row
+          space-x-1
+          items-center
+        "
       >
         <niz-inline-svg
           class="h-4 w-4 theme"
@@ -30,15 +42,31 @@
         >
       </button>
       <button
-        class="flex md:hidden h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
+        class="
+          flex
+          md:hidden
+          h-6
+          w-6
+          theme
+          rounded-full
+          focus-ring focus:ring-offset-4 focus:ring-offset-canvas
+          select-none
+        "
         [attr.aria-label]="'Toggle theme'"
-       
         (click)="openSearch(search)"
       >
         <niz-inline-svg svgSource="assets/img/search.svg"></niz-inline-svg>
       </button>
       <button
-        class="flex h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none"
+        class="
+          flex
+          h-6
+          w-6
+          theme
+          rounded-full
+          focus-ring focus:ring-offset-4 focus:ring-offset-canvas
+          select-none
+        "
         [attr.aria-label]="'Toggle theme'"
         [ngClass]="{
           dark: themeService.theme === 'dark',
@@ -48,7 +76,6 @@
       >
         <niz-inline-svg svgSource="assets/img/adjust.svg"></niz-inline-svg>
       </button>
-      
     </div>
   </div>
 </header>
@@ -67,4 +94,3 @@
 
 <niz-search #search></niz-search>
 <niz-toast></niz-toast>
-

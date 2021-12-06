@@ -7,7 +7,8 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'niz-author-shortcode',
   template: `
-    <app-author class="w-full md:max-w-xl flex"
+    <app-author
+      class="w-full md:max-w-xl flex"
       *ngIf="author$ | async as author"
       [author]="author"
     ></app-author>
@@ -15,7 +16,7 @@ import { map } from 'rxjs/operators';
   styles: [],
 })
 export class AuthorComponent implements OnInit {
-  @HostBinding('class') class = "block relative";
+  @HostBinding('class') class = 'block relative';
   @Input() name: string;
   author$: Observable<ScullyRoute>;
   constructor(private content: ScullyContentService) {}
