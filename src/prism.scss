@@ -51,8 +51,9 @@ pre[class*='language-'] {
 }
 
 /* inline code */
-code {
+:not(pre) > code {
   @apply bg-canvas-shade py-0.5 px-1 mx-0.5 rounded-md;
+  color: var(--code-boolean);
 }
 
 body.dark {

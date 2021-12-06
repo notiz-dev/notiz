@@ -1,4 +1,7 @@
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
+/** this loads the default render plugin, remove when switching to something else. */
+import '@scullyio/scully-plugin-puppeteer';
+
 import '@notiz/scully-plugin-lazy-images';
 import '@notiz/scully-plugin-copy-static-content';
 import '@notiz/scully-plugin-fouc';
