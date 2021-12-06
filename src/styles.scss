@@ -99,7 +99,6 @@ body.dark {
   --code-tag: theme('colors.fuchsia.400');
   --code-boolean: theme('colors.orange.300');
   --code-variable: theme('colors.green.300');
-  --code-class: theme('colors.yellow.300');
   --code-comment: theme('colors.gray.600');
   --code-keyword: theme('colors.primary.DEFAULT');
 
@@ -123,7 +122,6 @@ body:not(.dark) {
   --code-tag: theme('colors.fuchsia.600');
   --code-boolean: theme('colors.orange.600');
   --code-variable: theme('colors.green.600');
-  --code-class: theme('colors.yellow.500');
   --code-comment: theme('colors.gray.600');
   --code-keyword: theme('colors.primary.DEFAULT');
 

@@ -38,7 +38,8 @@ pre[class*='language-'] {
   color: var(--code-variable);
 }
 
-.token.boolean {
+.token.boolean,
+.token.property {
   color: var(--code-boolean);
 }
 
