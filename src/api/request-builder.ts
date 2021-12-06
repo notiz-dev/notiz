@@ -88,6 +88,7 @@ class PathParameter extends Parameter {
     }
     let prefix = this.options.style === 'label' ? '.' : '';
     let separator = this.options.explode ? prefix === '' ? ',' : prefix : ',';
+    let alreadySerialized = false;
     if (this.options.style === 'matrix') {
       // The parameter name is just used as prefix, except in some cases...
       prefix = `;${this.name}=`;
@@ -96,18 +97,28 @@ class PathParameter extends Parameter {
         if (value instanceof Array) {
           // For arrays we have to repeat the name for each element
           value = value.map(v => `${this.name}=${this.serializeValue(v, ';')}`);
-          separator = ';';
+          value = value.join(';');
+          alreadySerialized = true;
         } else {
           // For objects we have to put each the key / value pairs
           value = this.serializeValue(value, ';');
+          alreadySerialized = true
         }
       }
     }
-    value = prefix + this.serializeValue(value, separator);
+    value = prefix + (alreadySerialized ? value : this.serializeValue(value, separator));
     // Replace both the plain variable and the corresponding variant taking in the prefix and explode into account
     path = path.replace(`{${this.name}}`, value);
     path = path.replace(`{${prefix}${this.name}${this.options.explode ? '*' : ''}}`, value);
     return path;
+  }
+
+  serializeValue(value: any, separator = ','): string {
+    var result = typeof value === 'string' ? encodeURIComponent(value) : super.serializeValue(value, separator);
+    result = result.replace('%3D', '=');
+    result = result.replace('%3B', ';');
+    result = result.replace('%2C', ',');
+    return result;
   }
 }
 
@@ -241,7 +252,7 @@ export class RequestBuilder {
     }
     if (this._bodyContentType === 'application/x-www-form-urlencoded' && value !== null && typeof value === 'object') {
       // Handle URL-encoded data
-      const pairs: string[][] = [];
+      const pairs: Array<[string, string]> = [];
       for (const key of Object.keys(value)) {
         let val = value[key];
         if (!(val instanceof Array)) {
@@ -350,4 +361,3 @@ export class RequestBuilder {
     });
   }
 }
-

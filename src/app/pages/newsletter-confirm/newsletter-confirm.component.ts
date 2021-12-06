@@ -1,5 +1,5 @@
 import { PlausibleService } from 'ngx-plausible';
-import { NewsletterService } from '@api/services';
+import { SubscriptionService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -16,7 +16,7 @@ export class NewsletterConfirmComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsletterService: NewsletterService,
+    private subscriptionService: SubscriptionService,
     private plausible: PlausibleService
   ) {}
 
@@ -26,7 +26,7 @@ export class NewsletterConfirmComponent implements OnInit {
   }
 
   confirmSubscription(uuid: string) {
-    this.newsletterService
+    this.subscriptionService
       .confirm({ body: { uuid } })
       .pipe(first())
       .subscribe({

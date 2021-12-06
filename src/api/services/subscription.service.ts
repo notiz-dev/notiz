@@ -15,7 +15,7 @@ import { SubscribeDto } from '../models/subscribe-dto';
 @Injectable({
   providedIn: 'root',
 })
-export class NewsletterService extends BaseService {
+export class SubscriptionService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -38,7 +38,7 @@ export class NewsletterService extends BaseService {
     body: SubscribeDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.SubscribePath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, SubscriptionService.SubscribePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -84,7 +84,7 @@ export class NewsletterService extends BaseService {
     body: ConfirmDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.ConfirmPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, SubscriptionService.ConfirmPath, 'put');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -130,7 +130,7 @@ export class NewsletterService extends BaseService {
     body: ConfirmDto
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, NewsletterService.UnsubscribePath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, SubscriptionService.UnsubscribePath, 'put');
     if (params) {
       rb.body(params.body, 'application/json');
     }

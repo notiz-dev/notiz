@@ -1,4 +1,4 @@
-import { NewsletterService } from '@api/services';
+import { SubscriptionService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -15,7 +15,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsletterService: NewsletterService,
+    private subscriptionService: SubscriptionService,
     private plausible: PlausibleService
   ) {}
 
@@ -25,7 +25,7 @@ export class NewsletterUnsubscribeComponent implements OnInit {
   }
 
   unsubscribe(uuid: string) {
-    this.newsletterService
+    this.subscriptionService
       .unsubscribe({ body: { uuid } })
       .pipe(first())
       .subscribe({

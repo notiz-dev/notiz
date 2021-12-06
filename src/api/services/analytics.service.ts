@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 import { PageRequest } from '../models/page-request';
+import { Post } from '../models/post';
 
 @Injectable({
   providedIn: 'root',
@@ -65,6 +66,49 @@ export class AnalyticsService extends BaseService {
 
     return this.topPages$Response(params).pipe(
       map((r: StrictHttpResponse<Array<PageRequest>>) => r.body as Array<PageRequest>)
+    );
+  }
+
+  /**
+   * Path part for operation latestPosts
+   */
+  static readonly LatestPostsPath = '/analytics/latest';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `latestPosts()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  latestPosts$Response(params?: {
+  }): Observable<StrictHttpResponse<Array<Post>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, AnalyticsService.LatestPostsPath, 'get');
+    if (params) {
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Post>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `latestPosts$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  latestPosts(params?: {
+  }): Observable<Array<Post>> {
+
+    return this.latestPosts$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Post>>) => r.body as Array<Post>)
     );
   }
 

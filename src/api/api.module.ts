@@ -4,7 +4,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { NewsletterService } from './services/newsletter.service';
+import { SubscriptionService } from './services/subscription.service';
 import { GitHubService } from './services/git-hub.service';
 import { AnalyticsService } from './services/analytics.service';
 
@@ -16,7 +16,7 @@ import { AnalyticsService } from './services/analytics.service';
   exports: [],
   declarations: [],
   providers: [
-    NewsletterService,
+    SubscriptionService,
     GitHubService,
     AnalyticsService,
     ApiConfiguration

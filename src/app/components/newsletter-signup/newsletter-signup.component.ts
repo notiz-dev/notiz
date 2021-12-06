@@ -1,4 +1,4 @@
-import { NewsletterService } from '@api/services';
+import { SubscriptionService } from '@api/services';
 import {
   Component,
   OnInit,
@@ -31,7 +31,7 @@ export class NewsletterSignupComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     public element: ElementRef<HTMLElement>,
     private toast: HotToastService,
-    private newsletterService: NewsletterService,
+    private subscriptionService: SubscriptionService,
     private plausible: PlausibleService
   ) {
     this.setupForm();
@@ -52,7 +52,7 @@ export class NewsletterSignupComponent implements OnInit, OnDestroy {
 
   signupNewsletter() {
     if (this.newsletterSignup.valid) {
-      this.newsletterService
+      this.subscriptionService
         .subscribe({ body: this.newsletterSignup.value })
         .pipe(
           this.toast.observe({
