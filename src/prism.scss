@@ -1,0 +1,96 @@
+/* code block */
+code[class*='language-'] {
+  @apply text-color whitespace-pre-wrap;
+}
+
+pre[class*='language-'] {
+  @apply p-6 bg-canvas-shade overflow-auto;
+  max-height: 669px;
+}
+
+.token.tag,
+.token.class-name,
+.token.selector,
+.token.selector .class,
+.token.key.atrule,
+.token.function {
+  color: var(--code-tag);
+}
+
+.token.attr-name,
+.token.keyword,
+.token.rule,
+.token.operator,
+.token.pseudo-class,
+.token.important {
+  color: var(--code-keyword);
+}
+
+.token.attr-value,
+.token.class,
+.token.string,
+.token.number,
+.token.unit,
+.token.color,
+.token.char,
+.token.regex,
+.token.variable {
+  color: var(--code-variable);
+}
+
+.token.boolean,
+.token.property {
+  color: var(--code-boolean);
+}
+
+.token.comment {
+  color: var(--code-comment);
+}
+
+.token.punctuation {
+  color: theme('colors.color');
+}
+
+/* inline code */
+:not(pre) > code {
+  @apply bg-canvas-shade py-0.5 px-1 mx-0.5 rounded-md;
+  color: var(--code-boolean);
+}
+
+body.dark {
+  /* diff */
+  .token.inserted:not(.prefix) {
+    @apply bg-teal-700 bg-opacity-50 block -mx-4 px-4;
+  }
+
+  .token.inserted.prefix {
+    @apply text-teal-400 text-opacity-75 select-none;
+  }
+
+  .token.deleted:not(.prefix) {
+    @apply bg-red-700 bg-opacity-50 block -mx-4 px-4;
+  }
+
+  .token.deleted.prefix {
+    @apply text-red-400 text-opacity-75 select-none;
+  }
+}
+
+body:not(.dark) {
+  /* diff */
+  .token.inserted:not(.prefix) {
+    @apply bg-teal-300 bg-opacity-50 block -mx-4 px-4;
+  }
+
+  .token.inserted.prefix {
+    @apply text-teal-600 select-none;
+  }
+
+  .token.deleted:not(.prefix) {
+    @apply bg-red-300 bg-opacity-50 block -mx-4 px-4;
+  }
+
+  .token.deleted.prefix {
+    @apply text-red-600 select-none;
+  }
+}
