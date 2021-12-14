@@ -1,4 +1,3 @@
-const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 function withOpacity(cssVariable) {
@@ -14,21 +13,16 @@ function withOpacity(cssVariable) {
 }
 
 module.exports = {
-  purge: {
-    layers: ['components', 'utilities'],
-    content: [
-      './src/**/*.{html,ts}',
-      './projects/elements/**/*.{html,ts}',
-      './projects/demos/**/*.{html,ts}',
-      './content/**/*.md',
-    ],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/**/*.{html,ts}',
+    './projects/elements/**/*.{html,ts}',
+    './projects/demos/**/*.{html,ts}',
+    './content/**/*.md',
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        transparent: 'transparent',
-        current: 'currentColor',
         primary: {
           light: withOpacity('primary-light'),
           DEFAULT: withOpacity('primary'),
@@ -46,10 +40,6 @@ module.exports = {
           900: '#1a202c',
           950: '#141922',
         },
-        cyan: colors.cyan,
-        orange: colors.orange,
-        teal: colors.teal,
-        fuchsia: colors.fuchsia,
         color: 'var(--text)',
         'color-light': 'var(--text-light)',
         'color-shade': 'var(--text-shade)',
@@ -131,12 +121,6 @@ module.exports = {
         '2xl': '42rem',
         '3xl': '48rem',
       },
-    },
-  },
-  variants: {
-    extend: {
-      backgroundImage: ['hover'],
-      borderWidth: ['hover'],
     },
   },
   corePlugins: {
