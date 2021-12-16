@@ -83,9 +83,9 @@
 }
 
 body.dark {
-  --primary-light: 85, 243, 222;
-  --primary: 85, 185, 243;
-  --primary-dark: 85, 106, 243;
+  --primary-light: 85 243 222;
+  --primary: 85 185 243;
+  --primary-dark: 85 106 243;
 
   --canvas: theme('colors.gray.950');
   --canvas-opac: #141922dd;
@@ -106,9 +106,9 @@ body.dark {
 }
 
 body:not(.dark) {
-  --primary-light: 85, 243, 222;
-  --primary: 85, 106, 243;
-  --primary-dark: 85, 185, 243;
+  --primary-light: 85, 243 222;
+  --primary: 85 106 243;
+  --primary-dark: 85 185 243;
 
   --canvas: theme('colors.gray.50');
   --canvas-opac: #edf2f7dd;

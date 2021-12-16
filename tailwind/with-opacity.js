@@ -1,12 +1,10 @@
 const withOpacity = (cssVariable) => {
-  return ({ opacityVariable, opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(--${cssVariable}), ${opacityValue})`;
+  return (t) => {
+    console.log(t);
+    if (t.opacityValue === undefined) {
+      return `rgb(var(--${cssVariable}))`;
     }
-    if (opacityVariable !== undefined) {
-      return `rgba(var(--${cssVariable}), var(${opacityVariable}, 1))`;
-    }
-    return `rgb(var(--${cssVariable}))`;
+    return `rgb(var(--${cssVariable}) / ${t.opacityValue})`;
   };
 };
 
