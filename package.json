@@ -25,7 +25,7 @@
     "serve:scully": "scully serve",
     "scully:ci": "npm run scully -- --host='0.0.0.0' --scanRoutes --serverTimeout=60000",
     "optimize:images": "node optimize-images.js",
-    "codegen:api": "npx ng-openapi-gen -i https://notiz-dev-api.herokuapp.com/api-json -o src/api"
+    "codegen:api": "ng-openapi-gen -i https://api.notiz.dev/api-json -o src/api"
   },
   "private": true,
   "dependencies": {
@@ -75,6 +75,7 @@
     "imagemin-jpegtran": "7.0.0",
     "imagemin-pngquant": "9.0.2",
     "imagemin-svgo": "8.0.0",
+    "ng-openapi-gen": "^0.20.0",
     "ng-packagr": "13.2.0",
     "ngx-build-plus": "13.0.1",
     "postcss": "8.4.5",
