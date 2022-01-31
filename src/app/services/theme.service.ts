@@ -1,5 +1,5 @@
 import { PlausibleEvent } from './../types/types';
-import { PlausibleService } from 'ngx-plausible';
+import { PlausibleService } from '@notiz/ngx-plausible';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 

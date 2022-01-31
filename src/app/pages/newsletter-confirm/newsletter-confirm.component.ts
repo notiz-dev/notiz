@@ -1,4 +1,4 @@
-import { PlausibleService } from 'ngx-plausible';
+import { PlausibleService } from '@notiz/ngx-plausible';
 import { SubscriptionService } from '@api/services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
