@@ -47,7 +47,7 @@
     "@scullyio/ng-lib": "2.0.2",
     "@scullyio/scully": "2.0.3",
     "document-register-element": "1.14.10",
-    "ngx-markdown": "12.0.1",
+    "ngx-markdown": "13.0.0",
     "ngx-plausible": "0.0.5",
     "prismjs": "1.24.1",
     "rough-notation": "^0.5.1",
