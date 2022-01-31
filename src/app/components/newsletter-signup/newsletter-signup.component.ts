@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, takeUntil } from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Subject } from 'rxjs';
-import { PlausibleService } from 'ngx-plausible';
+import { PlausibleService } from '@notiz/ngx-plausible';
 import { PlausibleEvent } from 'src/app/types/types';
 
 @Component({

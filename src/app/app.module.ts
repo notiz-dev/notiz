@@ -21,7 +21,7 @@ import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { MenuModule } from '@components/menu/menu.module';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ApiModule } from 'src/api/api.module';
-import { PlausibleErrorHandler } from 'ngx-plausible';
+import { PlausibleErrorHandler } from '@notiz/ngx-plausible';
 
 @NgModule({
   declarations: [AppComponent],

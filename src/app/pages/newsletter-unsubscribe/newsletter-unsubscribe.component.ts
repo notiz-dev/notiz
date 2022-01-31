@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { PlausibleEvent } from 'src/app/types/types';
-import { PlausibleService } from 'ngx-plausible';
+import { PlausibleService } from '@notiz/ngx-plausible';
 
 @Component({
   selector: 'app-newsletter-unsubscribe',

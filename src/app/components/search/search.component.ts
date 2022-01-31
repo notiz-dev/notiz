@@ -1,4 +1,4 @@
-import { PlausibleService } from 'ngx-plausible';
+import { PlausibleService } from '@notiz/ngx-plausible';
 import { Router } from '@angular/router';
 import { SearchItem, PlausibleEvent } from './../../types/types';
 import {
