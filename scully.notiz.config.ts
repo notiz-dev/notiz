@@ -8,7 +8,7 @@ import '@notiz/scully-plugin-fouc';
 import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
-import '@notiz/shortcodes/plugin/plugin';
+import './node_modules/@notiz/shortcodes/scully';
 
 import {
   getSitemapPlugin,
