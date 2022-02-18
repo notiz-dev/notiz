@@ -56,14 +56,14 @@ const bannerGeneratorPlugin = async (html, route) => {
         resolve(`${outDir}/${route.route}/styles.css`)
       );
       copyFileSync(
-        resolve('./dist/elements/main-es5.js'),
-        resolve(`${outDir}/${route.route}/main-es5.js`)
+        resolve('./dist/elements/main.js'),
+        resolve(`${outDir}/${route.route}/main.js`)
       );
       await generateImage(route, size);
     }
     unlinkSync(`${outDir}/${route.route}/index.html`);
     unlinkSync(`${outDir}/${route.route}/styles.css`);
-    unlinkSync(`${outDir}/${route.route}/main-es5.js`);
+    unlinkSync(`${outDir}/${route.route}/main.js`);
   } catch (err) {
     console.error(err.message);
   }

@@ -28,11 +28,11 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@scullyio/scully": "^1.1.0"
+    "@scullyio/scully": "^2.0.0"
   },
   "dependencies": {
-    "jsdom": "^17.0.0",
+    "jsdom": "^19.0.0",
     "moment": "^2.29.1",
-    "puppeteer": "^10.2.0"
+    "puppeteer": "^13.3.2"
   }
 }
