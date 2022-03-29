@@ -8,7 +8,7 @@ export interface FooterSection {
 export interface FooterLink {
   title: string;
   url: string;
-  svg: string;
+  svg?: string;
   external?: boolean;
 }
 
