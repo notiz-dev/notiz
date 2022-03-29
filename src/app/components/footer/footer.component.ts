@@ -18,7 +18,7 @@ export interface FooterLink {
   styleUrls: ['./footer.component.scss'],
 })
 export class NizFooter {
-  now = Date.now();
+  year = new Date().getFullYear();
 
   @Input() footerSections: FooterSection[];
   @Input() copyrightUrl: string;
