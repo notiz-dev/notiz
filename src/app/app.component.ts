@@ -29,24 +29,21 @@ export class AppComponent implements OnInit, OnDestroy {
 
   footerSections: FooterSection[] = [
     {
-      title: 'notiz.dev',
+      title: 'Links',
       links: [
         {
-          title: '@notiz_dev',
-          url: 'https://twitter.com/notiz_dev',
-          svg: 'assets/img/twitter-white.svg',
+          title: 'Portfolio',
+          url: 'https://portfolio.notiz.dev',
           external: true,
         },
         {
-          title: ' @notiz-dev',
+          title: 'GitHub',
           url: 'https://github.com/notiz-dev',
-          svg: 'assets/img/github-white.svg',
           external: true,
         },
         {
-          title: 'hi@notiz.dev',
-          url: 'mailto:hi@notiz.dev',
-          svg: 'assets/img/mail.svg',
+          title: 'Twitter',
+          url: 'https://twitter.com/notiz_dev',
           external: true,
         },
       ],
@@ -55,8 +52,8 @@ export class AppComponent implements OnInit, OnDestroy {
       title: 'more',
       links: [
         {
-          title: 'Posts',
-          url: '/blog/',
+          title: 'Blog',
+          url: '/',
           svg: 'assets/img/blog-white.svg',
         },
         {
