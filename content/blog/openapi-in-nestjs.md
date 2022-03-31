@@ -2,9 +2,8 @@
 title: OpenApi for your REST APIs in NestJS
 description: Setup Swagger to generate an OpenApi documentation for your REST endpoints. 
 published: true
-
 publishedAt: 2021-07-28T14:00:00.000Z
-updatedAt: 2021-08-26T09:45:00.000Z
+updatedAt: 2022-03-31T10:07:00.000Z
 tags:
   - NestJS
 keywords:
@@ -141,7 +140,7 @@ export class UsersController {
 
 ### Property
 
-Let's add the following properties `name`, `email`, `password` to the `CreateProductDto` and mark name as optional.
+Let's add the following properties `name`, `email`, `password` to the `CreateUserDto` and mark name as optional.
 
 <div shortcode="code" tabs="create-user.dto.ts">
 
@@ -174,15 +173,15 @@ export class CreateUserDto {
 
 </div>
 
-Refresh the Swagger API and you should see the properties for the `CreateProductDto`.
+Refresh the Swagger API and you should see the properties for the `CreateUserDto`.
 
-<div shortcode="figure" caption="CreateProductDto properties with name optional">
+<div shortcode="figure" caption="CreateUserDto properties with name optional">
 
-![CreateProductDto properties with name optional](assets/img/blog/openapi-in-nestjs/optimized/createuserdto-properties.png)
+![CreateUserDto properties with name optional](assets/img/blog/openapi-in-nestjs/optimized/createuserdto-properties.png)
 
 </div>
 
-Also have a look at the `UpdateProductDto` schema in Swagger. The same properties are shown but all of them are marked as optional. This is because of `PartialType` also called [Mapped types](https://docs.nestjs.com/openapi/mapped-types) provided by Nest. 
+Also have a look at the `UpdateUserDto` schema in Swagger. The same properties are shown but all of them are marked as optional. This is because of `PartialType` also called [Mapped types](https://docs.nestjs.com/openapi/mapped-types) provided by Nest. 
 
 <div shortcode="code" tabs="update-user.dto.ts">
 
@@ -293,9 +292,9 @@ When the response type is an `array`, you must indicate it using the array brack
 
 You'll see the endpoints with the new response type of `User`.
 
-<div shortcode="figure" caption="CreateProductDto properties with name optional">
+<div shortcode="figure" caption="CreateUserDto properties with name optional">
 
-![CreateProductDto properties with name optional](assets/img/blog/openapi-in-nestjs/optimized/users-crud-responses.png)
+![CreateUserDto properties with name optional](assets/img/blog/openapi-in-nestjs/optimized/users-crud-responses.png)
 
 </div>
 
