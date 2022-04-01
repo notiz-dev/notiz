@@ -109,9 +109,9 @@ Start again the Nest application and you should see the new `users` endpoints in
 
 </div>
 
-## Api decorators
+## API decorators
 
-Apply available [decorators prefixed with Api](https://docs.nestjs.com/openapi/decorators) to expose the properties for `.dto.ts` and `.entity.ts` files and the responses for your CRUD endpoints.
+Apply available [decorators prefixed with API](https://docs.nestjs.com/openapi/decorators) to expose the properties for `.dto.ts` and `.entity.ts` files and the responses for your CRUD endpoints.
 
 ### Tags
 

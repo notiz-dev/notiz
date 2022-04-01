@@ -10,8 +10,8 @@ tags:
 keywords:
   - RxJS
   - Media Query
-  - Javascript
-  - Typescript
+  - JavaScript
+  - TypeScript
 authors:
   - 'Gary Großgarten'
 ---
@@ -45,7 +45,7 @@ In CSS Media Queries are used like so.
 
 Although this is already pretty great, we sometimes want to **handle the state of a media query programmatically**. For example, preventing the render of some components or dom elements on certain viewport sizes instead of just hiding things with `display: none` could lead to a better performance and less network requests to your server.
 
-### Media Queries in Javascript
+### Media Queries in JavaScript
 
 The vanilla javascript way of implementing such a functionality would be to use the window's `matchMedia` function. The function takes a string query and returns a `MediaQueryList` that can be used to get the current result of the query and listen to changes of the media query.
 

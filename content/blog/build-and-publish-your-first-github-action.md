@@ -1,12 +1,12 @@
 ---
 title: 'Build and publish your first GitHub Action'
-description: 'Build your first GitHub Action and deploy it to the Marketplace - Using Typescript 💙'
+description: 'Build your first GitHub Action and deploy it to the Marketplace - Using TypeScript 💙'
 published: true
 publishedAt: 2020-03-17T10:12:00.000Z
 updatedAt: 2020-03-17T10:12:00.000Z
 tags:
   - GitHub
-  - Typescript
+  - TypeScript
 keywords:  
   - GitHub Action
 authors:
@@ -163,9 +163,9 @@ As you can see in the image above, the `log action output` step successfully ech
 
 Next, the fun part! 🙋 
 
-Implement your own Typescript code in `src/index.ts`. Just remember to update the `action.yml` and the test workflow `.github/workflows/test.yml` before pushing your changes. You can obviously do everything you want here. Feel free to install other libraries via npm.
+Implement your own TypeScript code in `src/index.ts`. Just remember to update the `action.yml` and the test workflow `.github/workflows/test.yml` before pushing your changes. You can obviously do everything you want here. Feel free to install other libraries via npm.
 
-To build changes to your Typescript code run:
+To build changes to your TypeScript code run:
 
 <div shortcode="code" tabs="BASH">
 
@@ -175,7 +175,7 @@ npm run build
 
 </div>
 
-This will compile your Typescript to a lib folder.
+This will compile your TypeScript to a lib folder.
 
 Next, run:
 

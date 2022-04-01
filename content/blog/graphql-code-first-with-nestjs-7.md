@@ -64,7 +64,7 @@ export class AppModule {}
 To configure the GraphQL endpoint we use `GqlModuleOptions` which are passed to the underlying GraphQL server. Here we are enabling the [**code first**](https://docs.nestjs.com/graphql/quick-start#code-first) approach.
 
 - `autoSchemaFile` enables the **code first** approach to use TypeScript classes and decorators to generate the GraphQL schema.
-- `playground` enables the [GraphQl Playground](https://github.com/prisma-labs/graphql-playground), an interactive IDE for your API documentation, available at [http://localhost:3000/graphql](http://localhost:3000/graphql).
+- `playground` enables the [GraphQL Playground](https://github.com/prisma-labs/graphql-playground), an interactive IDE for your API documentation, available at [http://localhost:3000/graphql](http://localhost:3000/graphql).
 - `debug` mode
 
 There are two options for `autoSchemaFile` providing a **path** for the schema generation or `true` for generating the schema in memory.
@@ -83,7 +83,7 @@ A GraphQL schema contains many [types](https://graphql.org/learn/schema/) and [Q
 - `@Mutation()` generate method as [Mutation](https://graphql.org/learn/schema/#the-query-and-mutation-types)
 - `@ResolveField` resolve relationship property
 
-### Graphql Type
+### GraphQL Type
 
 Start with creating your objects as a TypeScript `class`.
 
@@ -315,9 +315,9 @@ Start your Nest application and navigate to the [playground](http://localhost:30
 
 The playground shows us our GraphQL schema and the docs for our queries.
 
-<div shortcode="figure" caption="Graphql Playground schema view">
+<div shortcode="figure" caption="GraphQL Playground schema view">
 
-![Graphql Playground schema view](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/graphql-playground-schema.png)
+![GraphQL Playground schema view](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/graphql-playground-schema.png)
 
 </div>
 
@@ -346,9 +346,9 @@ query AllUsers {
 
 The response will look like this with a different data set. I prepared the database with a few dummy users and hobbies.
 
-<div shortcode="figure" caption="Users query in Graphql Playground">
+<div shortcode="figure" caption="Users query in GraphQL Playground">
 
-![Users query in Graphql Playground](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/users-query.png)
+![Users query in GraphQL Playground](assets/img/blog/graphql-code-first-with-nestjs-7/optimized/users-query.png)
 
 </div>
 

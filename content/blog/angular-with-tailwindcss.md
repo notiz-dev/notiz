@@ -102,7 +102,7 @@ Follow the instruction to manually configure Angular w/ Tailwind 🍬🍫🍪 or
 
 ## Setup
 
-Start by adding dependencies for Tailwind, Postcss and ngx-build-plus for angular.
+Start by adding dependencies for Tailwind, PostCSS and ngx-build-plus for angular.
 
 <div shortcode="code" tabs="BASH">
 
@@ -114,7 +114,7 @@ ng add ngx-build-plus
 
 </div>
 
-Create a **webpack.config.js** in your root folder to configure Postcss with Tailwind.
+Create a **webpack.config.js** in your root folder to configure PostCSS with Tailwind.
 
 <div shortcode="code" tabs="BASH,webpack.config.js">
 
@@ -412,7 +412,7 @@ Read the full [Upgrade Guide](https://tailwindcss.com/docs/upgrading-to-v2) to u
 
 ### Update postcss-loader from 3.x to 4.x
 
-[postcss-loader](https://github.com/webpack-contrib/postcss-loader) has new [breaking changes](https://github.com/webpack-contrib/postcss-loader/blob/master/CHANGELOG.md#-breaking-changes) when updating from version 3.x to 4.x. Huge thanks to [@phileagleson](https://github.com/notiz-dev/notiz/issues/111#issuecomment-689249664) :clap: who pointed out that options for Postcss have moved to the `postcssOptions`. Therefore, update your `webpack.config.js` as follows when updating to `postcss-loader@4.x`
+[postcss-loader](https://github.com/webpack-contrib/postcss-loader) has new [breaking changes](https://github.com/webpack-contrib/postcss-loader/blob/master/CHANGELOG.md#-breaking-changes) when updating from version 3.x to 4.x. Huge thanks to [@phileagleson](https://github.com/notiz-dev/notiz/issues/111#issuecomment-689249664) :clap: who pointed out that options for PostCSS have moved to the `postcssOptions`. Therefore, update your `webpack.config.js` as follows when updating to `postcss-loader@4.x`
 
 <div shortcode="code" tabs="webpack.config.js">
 

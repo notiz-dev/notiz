@@ -1,4 +1,4 @@
 ---
-title: Typescript
+title: TypeScript
 slug: typescript
 ---

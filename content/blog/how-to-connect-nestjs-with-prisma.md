@@ -250,7 +250,7 @@ export class PrismaService extends PrismaClient
 
 Now you can inject the `PrismaService` into any REST controller, GraphQL resolver or service to query our data model. Make sure you add `PrismaModule` to the `imports` list of the module. Inject it into a controller and create REST endpoints querying and creating `User` models.
 
-Note you are directly accessing the type-safe generated Api from the `PrismaClient` through `PrismaService`.
+Note you are directly accessing the type-safe generated API from the `PrismaClient` through `PrismaService`.
 
 <div shortcode="code" tabs="app.controller.ts">
 
