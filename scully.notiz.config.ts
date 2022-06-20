@@ -4,11 +4,12 @@ import '@scullyio/scully-plugin-puppeteer';
 
 import '@notiz/scully-plugin-lazy-images';
 import '@notiz/scully-plugin-copy-static-content';
-import '@notiz/scully-plugin-fouc';
+// import '@notiz/scully-plugin-fouc';
 import '@notiz/scully-plugin-rss';
 import '@notiz/scully-plugin-medium-zoom';
 import './projects/banner-generator';
 import './node_modules/@notiz/shortcodes/scully';
+import './scully/plugins/fouc';
 
 import {
   getSitemapPlugin,
@@ -16,6 +17,7 @@ import {
 } from '@gammastream/scully-plugin-sitemap';
 
 const defaultPostRenderers = [
+  'fouc',
   'seoHrefOptimise',
   'lazyImages',
   'mediumZoom',

@@ -57,3 +57,4 @@ scully.notiz.config.js
 
 scully.log
 .scully
+scully/**/*.js*
