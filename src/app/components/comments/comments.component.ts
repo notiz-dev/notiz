@@ -63,7 +63,9 @@ export class CommentsComponent implements OnChanges, OnDestroy {
     script.setAttribute('data-mapping', 'title');
     script.setAttribute('data-reactions-enabled', '1');
     script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
     script.setAttribute('data-theme', theme);
+    script.setAttribute('data-loading', 'lazy');
     script.setAttribute('crossorin', 'anonymous');
     script.async = true;
     this.renderer.appendChild(this.el.nativeElement, script);
