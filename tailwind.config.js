@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const withOpacity = require('./tailwind/with-opacity');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{html,ts}',
