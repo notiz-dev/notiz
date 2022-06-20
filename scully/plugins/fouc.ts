@@ -19,7 +19,6 @@ const createFoucScript = (doc: Document) => {
   script.innerHTML = `
       window.addEventListener('AngularReady', foucScript);
       function foucScript(){
-        console.warn('AngularReady triggered');
         document.body.classList.remove('fouc');
         window.removeEventListener('AngularReady', foucScript);
       }
