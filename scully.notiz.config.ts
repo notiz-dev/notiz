@@ -16,7 +16,6 @@ import {
 } from '@gammastream/scully-plugin-sitemap';
 
 const defaultPostRenderers = [
-  'fouc',
   'seoHrefOptimise',
   'lazyImages',
   'mediumZoom',
