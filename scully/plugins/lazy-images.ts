@@ -27,12 +27,10 @@ const lazyImagesPlugin = async (html: string): Promise<string> => {
             responseType: 'arraybuffer',
           });
           dimensions = sizeOf(image.data);
-          console.log('dimensions axios', dimensions);
           imageElements[i].setAttribute('height', `${dimensions.height}`);
           imageElements[i].setAttribute('width', `${dimensions.width}`);
         } else {
           dimensions = sizeOf(join(scullyConfig.outDir, src));
-          console.log('dimensions path', dimensions);
           imageElements[i].setAttribute('height', `${dimensions.height}`);
           imageElements[i].setAttribute('width', `${dimensions.width}`);
         }
