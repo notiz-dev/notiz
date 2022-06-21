@@ -61,7 +61,6 @@
     "@angular/compiler-cli": "13.3.11",
     "@gammastream/scully-plugin-sitemap": "1.0.7",
     "@notiz/scully-plugin-copy-static-content": "file:projects/copy-static-content",
-    "@notiz/scully-plugin-lazy-images": "0.5.0",
     "@notiz/scully-plugin-medium-zoom": "0.3.0",
     "@notiz/scully-plugin-rss": "1.2.0",
     "@scullyio/scully-plugin-puppeteer": "2.1.13",
