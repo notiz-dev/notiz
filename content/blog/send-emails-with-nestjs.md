@@ -22,6 +22,10 @@ This post gets you up and running with everything you need to know about sending
 
 <div shortcode="repo" repo="notiz-dev/nestjs-mailer"></div>
 
+If you want to craft beautiful email templates follow the new post
+
+<div shortcode="article" routes="/blog/send-beautiful-emails-crafted-with-maizzle"></div>
+
 ## Install Dependencies
 
 Add the `@nestjs-modules/mailer` and the peer dependency `nodemailer` to your Nest application. Choose one of the supported template engines for creating your email templates: [handlebars](https://handlebarsjs.com/), [pug](https://pugjs.org/api/getting-started.html) or [ejs](https://ejs.co/). 
