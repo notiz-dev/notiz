@@ -105,7 +105,7 @@ Open `src/templates/transactional.html` and add custom content through Handlebar
 
 </div>
 
-You'll notice that `{{name}}` is not displayed, instead you see `undefined` 😤.
+You'll notice that `{{name}}` is not displayed at all, instead you see `undefined` 😤.
 
 <div shortcode="figure" caption="Handlebars expression are missing in email template">
 
@@ -115,7 +115,7 @@ You'll notice that `{{name}}` is not displayed, instead you see `undefined` 😤
 
 Thats because Maizzle itself relies on [curly brace expressions](https://maizzle.com/docs/templates#expressions) to access variables or template front matter. 
 
-Luckily, Maizzle provides two ways to [prevent expression compilation](https://maizzle.com/docs/templates#ignoring-expressions) 😎. Use `@{{ }}` for single expression and `<raw> ... </raw>` tag for blocks with multiple expressions.
+Luckily, Maizzle provides two options to [prevent expression compilation](https://maizzle.com/docs/templates#ignoring-expressions) 😎. Use `@{{ }}` for single expression and `<raw> ... </raw>` tag for blocks with multiple expressions.
 
 Add the `@` prefix to the `name` and `url` expression and you should see `Hello {{name}},` in your compiled template.
 
@@ -223,8 +223,8 @@ export class MailService {
 
 Here you used `confirmation` as the template name. Either rename `transactional.html` to `confirmation.html` in `mail-templates/src/templates`, don't forget to compile again, or use `transactional` as the template name when using `this.mailerService.sendMail({...});`.
 
-Do want to dig through the source code? Checkout the repo for this post.
+Awesome 🤩 you are all set to build your own beautiful email templates. Comment below which templates you most often use in your applications. Checkout these [transactional templates](https://github.com/mailpace/templates) build with Maizzle (v3.7.2) for some inspiration.
+
+Do want to dig through the source code? Checkout the repository for this post.
 
 <div shortcode="repo" repo="notiz-dev/nestjs-mailer"></div>
-
-Awesome 🤩 you are all set to build your own beautiful email templates. Comment below which templates you most often use in your applications. Checkout these [transactional templates](https://github.com/mailpace/templates) build with Maizzle (v3.7.2) for some inspiration.
