@@ -223,4 +223,8 @@ export class MailService {
 
 Here you used `confirmation` as the template name. Either rename `transactional.html` to `confirmation.html` in `mail-templates/src/templates`, don't forget to compile again, or use `transactional` as the template name when using `this.mailerService.sendMail({...});`.
 
+Do want to dig through the source code? Checkout the repo for this post.
+
+<div shortcode="repo" repo="notiz-dev/nestjs-mailer"></div>
+
 Awesome 🤩 you are all set to build your own beautiful email templates. Comment below which templates you most often use in your applications. Checkout these [transactional templates](https://github.com/mailpace/templates) build with Maizzle (v3.7.2) for some inspiration.
