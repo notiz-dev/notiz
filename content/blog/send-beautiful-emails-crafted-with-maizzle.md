@@ -16,7 +16,7 @@ authors:
 github: https://github.com/notiz-dev/nestjs-mailer
 ---
 
-Building beautiful HTML emails with CSS is quite cumbersome 🙁, right?!
+Building beautiful HTML emails with CSS can be quite cumbersome 🙁, right?!
 
 Get ready to build beautiful email templates 🖼️ crafted with [Maizzle](https://maizzle.com) using [Tailwind CSS](https://tailwindcss.com) and send them with your NestJS application.
 
