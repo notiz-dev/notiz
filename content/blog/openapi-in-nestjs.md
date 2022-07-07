@@ -1,6 +1,6 @@
 ---
-title: OpenApi for your REST APIs in NestJS
-description: Setup Swagger to generate an OpenApi documentation for your REST endpoints. 
+title: OpenAPI for your REST APIs in NestJS
+description: Setup Swagger to generate an OpenAPI documentation for your REST endpoints. 
 published: true
 publishedAt: 2021-07-28T14:00:00.000Z
 updatedAt: 2022-03-31T10:07:00.000Z
@@ -9,13 +9,13 @@ tags:
 keywords:
   - REST
   - Swagger
-  - OpenApi
+  - OpenAPI
 authors:
   - Marc Stammerjohann
 github: https://github.com/notiz-dev/nestjs-swagger
 ---
 
-The [OpenApi](https://docs.nestjs.com/openapi/introduction) documentation is a useful API playground for you to test or to share with other developers and for client generation tools (e.g [ng-openapi-gen for Angular](https://github.com/cyclosproject/ng-openapi-gen)).
+The [OpenAPI](https://docs.nestjs.com/openapi/introduction) documentation is a useful API playground for you to test or to share with other developers and for client generation tools (e.g [ng-openapi-gen for Angular](https://github.com/cyclosproject/ng-openapi-gen)).
 
 You'll find the source code in this repo.
 

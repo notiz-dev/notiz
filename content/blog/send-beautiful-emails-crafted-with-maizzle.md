@@ -2,8 +2,8 @@
 title: "Maizzle: Craft beautiful HTML emails with Tailwind CSS"
 description: Send beautiful HTML emails via NestJS crafted with Maizzle and Tailwind CSS
 published: true
-publishedAt: 2022-07-07T10:00:00.000Z
-updatedAt: 2022-07-07T10:00:00.000Z
+publishedAt: 2022-07-08T10:00:00.000Z
+updatedAt: 2022-07-08T10:00:00.000Z
 tags:
   - Maizzle
   - Tailwind CSS
@@ -57,7 +57,7 @@ npm install
 
 </div>
 
-Start the development server with `npm run dev` and go to [localhost:3000](http://localhost:3000) in your browser to see your email templates. This is useful for your local development.
+Start the development server with `npm run dev` and go to [localhost:3000](http://localhost:3000) in your browser to see your email templates. This is useful for local development.
 
 When your templates are ready you want to build your email templates for production: 
 
@@ -77,7 +77,7 @@ Open the [transaction template](http://localhost:3000/transactional.html) in you
 
 Ideally, when sending an email you want to customize the email content based on the requesting user. This includes greeting the user 👋 (with name or email), links for interactions (confirming email, requesting new password) or personal links for managing mail preferences.
 
-Open `src/templates/transactional.html` and add custom content through Handlebar expressions for `name` and `url` to the template.
+Open `src/templates/transactional.html` and add custom content through Handlebars expressions for `name` and `url` to the template.
 
 <div shortcode="code" tabs="transactional.html">
 
@@ -107,9 +107,9 @@ Open `src/templates/transactional.html` and add custom content through Handlebar
 
 You'll notice that `{{name}}` is not displayed at all, instead you see `undefined` 😤.
 
-<div shortcode="figure" caption="Handlebars expression are missing in email template">
+<div shortcode="figure" caption="Handlebars expressions are missing in email template">
 
-![Handlebars expression are missing in email template](assets/img/blog/send-beautiful-emails-crafted-with-maizzle/optimized/missing-handlebar-expressions.png)
+![Handlebars expressions are missing in email template](assets/img/blog/send-beautiful-emails-crafted-with-maizzle/optimized/missing-handlebar-expressions.png)
 
 </div>
 
@@ -145,9 +145,9 @@ Add the `@` prefix to the `name` and `url` expression and you should see `Hello 
 
 </div>
 
-<div shortcode="figure" caption="Handlebars expression are ignored from compilation">
+<div shortcode="figure" caption="Handlebars expressions are ignored from compilation">
 
-![Handlebars expression are ignored from compilation](assets/img/blog/send-beautiful-emails-crafted-with-maizzle/optimized/ignored-handlebar-expressions.png)
+![Handlebars expressions are ignored from compilation](assets/img/blog/send-beautiful-emails-crafted-with-maizzle/optimized/ignored-handlebar-expressions.png)
 
 </div>
 
@@ -165,7 +165,7 @@ npm run build
 
 </div>
 
-This compiles your emails inside `mail-templates/build_production`, but wouldn't it be nice to output them into the template folders used by `@nestjs-modules/mailer` from the previous post (`src/mail/templates`) 🤩.
+This compiles your emails by default to `mail-templates/build_production`. Let's change the [destination](https://maizzle.com/docs/configuration/templates#destination) path to be located inside your NestJS - `src/mail/templates`.
 
 `config.production.js` contains settings used for the production build. Open it and change the destination path and change the extension to `hbs`.
 
@@ -184,9 +184,9 @@ module.exports = {
 }
 ```
 
-Now when you run `npm run build` your templates are compiled to `src/mail/templates/*.hbs`. 
+Now when you run `npm run build` your templates will be compiled to `src/mail/templates/*.hbs`. 
 
-Cool 💪 your templates are ready and compiled for production. Use them in your NestJs application with `@nestjs-modules/mailer`.
+Cool 💪 your templates are ready and compiled for production. Use them in your NestJS application with `@nestjs-modules/mailer`.
 
 ## Sending mail template
 
