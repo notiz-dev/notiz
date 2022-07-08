@@ -8,13 +8,13 @@ export const environment = {
   api: 'https://api.notiz.dev',
   title: 'notiz',
   description:
-    'Weeklyish articles about Angular, Nestjs, Web Components, and more things related to web development.',
+    'Weeklyish articles about Angular, NestJS, Web Components, and more things related to web development.',
   featureImage: 'assets/img/featured.png',
   keywords: [
     'notiz',
     'notiz.dev',
     'Angular',
-    'Nestjs',
+    'NestJS',
     'Web Components',
     'Scully',
   ],
