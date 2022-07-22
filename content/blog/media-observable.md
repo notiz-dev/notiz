@@ -14,6 +14,8 @@ keywords:
   - TypeScript
 authors:
   - 'Gary Großgarten'
+github: https://github.com/garygrossgarten/media-query
+
 ---
 
 ## tl;dr
@@ -23,6 +25,10 @@ It's super easy to handle Media Queries</span> programmatically with <span type=
 <div shortcode="scroll-to" fragment="media-queries-with-rxjs">
 <a>Take me to the code!</a>
 </div>
+
+<div shortcode="repo" repo="garygrossgarten/media-query"></div>
+
+
 
 <div shortcode="demos/breakpoints"></div>
 
