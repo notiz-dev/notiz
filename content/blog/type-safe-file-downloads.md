@@ -26,14 +26,14 @@ Want to jump directly to the code? Here is the repository.
 
 <div shortcode="repo" repo="notiz-dev/nestjs-swagger"></div>
 
-## File download 
+## File download
 
 Downloading a file with Nest depends on how you retrieve it from your file storage:
 
 - as `Buffer` use `response.send(fileBuffer)`
 - as `Stream` use `fileStream.pipe(response)`
 
-This will get the job done easily, but the response won't be available for [response interceptors](https://docs.nestjs.com/interceptors#response-mapping), only if that matters to you.
+This will get the job done easily but you'll loose access to the response during [response interceptors](https://docs.nestjs.com/interceptors#response-mapping). See the `LoggingInterceptor` as an example as interceptor.
 
 As an alternative, Nest provides `StreamableFile`, which solves the response interceptor problem, and supports both `Buffer` and `Stream` in one swoop. 🦾
 
@@ -129,7 +129,7 @@ export class LoggingInterceptor implements NestInterceptor {
     const now = Date.now();
     return next.handle().pipe(
       tap(() => console.log(`After... ${Date.now() - now}ms`)),
-      tap((response) => console.log(response)),
+      tap((response) => console.log(response)), // 👈 response is defined only when StreamableFile is used
     );
   }
 }
