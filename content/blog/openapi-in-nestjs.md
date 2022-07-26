@@ -3,7 +3,7 @@ title: OpenAPI for your REST APIs in NestJS
 description: Setup Swagger to generate an OpenAPI documentation for your REST endpoints. 
 published: true
 publishedAt: 2021-07-28T14:00:00.000Z
-updatedAt: 2022-07-26T09:41.000Z
+updatedAt: 2022-07-26T10:30:00.000Z
 tags:
   - NestJS
 keywords:
