@@ -3,7 +3,7 @@ title: OpenAPI for your REST APIs in NestJS
 description: Setup Swagger to generate an OpenAPI documentation for your REST endpoints. 
 published: true
 publishedAt: 2021-07-28T14:00:00.000Z
-updatedAt: 2022-03-31T10:07:00.000Z
+updatedAt: 2022-07-26T09:41.000Z
 tags:
   - NestJS
 keywords:
@@ -28,11 +28,15 @@ Start with installing the Swagger dependencies.
 <div shortcode="code" tabs="BASH">
 
 ```bash
+# nest v9
+npm install --save @nestjs/swagger class-transformer class-validator
+
+# nest v8
 # express
-npm install --save @nestjs/swagger swagger-ui-express class-transformer class-validator
+npm install --save @nestjs/swagger@5 swagger-ui-express class-transformer class-validator
 
 # fastify
-npm install --save @nestjs/swagger fastify-swagger class-transformer class-validator
+npm install --save @nestjs/swagger@5 fastify-swagger class-transformer class-validator
 ```
 
 </div>
