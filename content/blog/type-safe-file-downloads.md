@@ -223,7 +223,7 @@ buffer(@Res() response: Response) {
 
 You can easily replace the decorator `@ApiResponse` with predefined status codes like `@ApiOkResponse`, `@ApiCreatedResponse` and skip the `status` code option.
 
-Next up `@ApiProduces`, use it to tell Swagger the response content type. It supports multiple content types and also wildcards (these things `*/*`, `image/*`).
+Next, use `@ApiProduces` to inform Swagger about the response content type. It supports multiple content types and also wildcards (these things `*/*`, `image/*`).
 
 <div shortcode="code" tabs="download.controller.ts">
 
