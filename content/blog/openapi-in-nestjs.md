@@ -28,11 +28,15 @@ Start with installing the Swagger dependencies.
 <div shortcode="code" tabs="BASH">
 
 ```bash
+# nest v9
+npm install --save @nestjs/swagger class-transformer class-validator
+
+# nest v8
 # express
-npm install --save @nestjs/swagger swagger-ui-express class-transformer class-validator
+npm install --save @nestjs/swagger@5 swagger-ui-express class-transformer class-validator
 
 # fastify
-npm install --save @nestjs/swagger fastify-swagger class-transformer class-validator
+npm install --save @nestjs/swagger@5 fastify-swagger class-transformer class-validator
 ```
 
 </div>
