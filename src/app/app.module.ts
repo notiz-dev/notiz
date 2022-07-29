@@ -4,7 +4,6 @@ import {
   NgModule,
   CUSTOM_ELEMENTS_SCHEMA,
   SecurityContext,
-  ErrorHandler,
 } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +20,7 @@ import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { MenuModule } from '@components/menu/menu.module';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ApiModule } from 'src/api/api.module';
-import { PlausibleErrorHandler } from '@notiz/ngx-plausible';
+import { createPlausibleErrorHandlerProvider } from '@notiz/ngx-plausible';
 
 @NgModule({
   declarations: [AppComponent],
@@ -115,10 +114,7 @@ import { PlausibleErrorHandler } from '@notiz/ngx-plausible';
     ApiModule.forRoot({ rootUrl: environment.api }),
   ],
   providers: [
-    {
-      provide: ErrorHandler,
-      useClass: PlausibleErrorHandler,
-    },
+    createPlausibleErrorHandlerProvider({ logErrors: !environment.production }),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
