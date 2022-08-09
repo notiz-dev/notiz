@@ -15,7 +15,28 @@
       </a>
     </div>
 
-    <div end class="flex flex-row space-x-6 items-center">
+    <div class="flex flex-row space-x-6 items-center">
+      <a
+        class="focus-ring hidden items-center space-x-1 rounded-xl border-2 border-solid border-canvas-light bg-canvas-light p-1 hover:border-primary md:flex"
+        href="https://github.com/sponsors/notiz-dev"
+        target="_blank"
+        rel="noopener"
+      >
+        <niz-inline-svg
+          class="theme h-4 w-4"
+          svgSource="assets/img/heart.svg"
+        ></niz-inline-svg>
+        <span class="px-2 font-semibold">Sponsor us</span>
+      </a>
+      <a
+        class="theme focus-ring flex h-6 w-6 select-none rounded-full focus:ring-offset-4 focus:ring-offset-canvas md:hidden"
+        href="https://github.com/sponsors/notiz-dev"
+        target="_blank"
+        rel="noopener"
+      >
+        <niz-inline-svg svgSource="assets/img/heart.svg"></niz-inline-svg>
+        <span class="sr-only">Sponsor us</span>
+      </a>
       <button
         [attr.aria-label]="'Open search'"
         (click)="openSearch(search)"
