@@ -293,6 +293,6 @@ export class AppController {
 
 Now its time to continue updating your data model, generating `PrismaClient` and adding queries to your Nest application.
 
-Checkout [nestjs-prisma-starter](https://github.com/fivethree-team/nestjs-prisma-starter) to get started quickly with Nest and Prisma, if you like it leave a ⭐.
+Checkout [nestjs-prisma-starter](https://github.com/notiz-dev/nestjs-prisma-starter) to get started quickly with Nest and Prisma, if you like it leave a ⭐.
 
-<div shortcode="repo" repo="fivethree-team/nestjs-prisma-starter"></div>
+<div shortcode="repo" repo="notiz-dev/nestjs-prisma-starter"></div>
