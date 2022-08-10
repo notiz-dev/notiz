@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
   selector: 'niz-sponsor',
@@ -79,6 +79,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class SponsorComponent implements OnInit {
+  @HostBinding('class') class = 'block';
   constructor() {}
 
   ngOnInit(): void {}

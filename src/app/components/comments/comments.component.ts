@@ -19,7 +19,7 @@ import { Subject } from 'rxjs';
   styles: [``],
 })
 export class CommentsComponent implements OnChanges, OnDestroy {
-  @HostBinding('class') classes = 'block mt-4';
+  @HostBinding('class') classes = 'block';
 
   @Input() route: ScullyRoute;
 
