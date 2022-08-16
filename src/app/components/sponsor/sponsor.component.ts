@@ -20,7 +20,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
               <strong class="font-semibold"
                 >Did you find this post or any other useful?</strong
               >
-              Your sponsoring would mean a lot to us 🙏. Sponsor using Patreon
+              Your support would mean a lot to us 🙏. Sponsor using Patreon
               to receive a reward for your support.
             </p>
             <div
@@ -44,8 +44,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
                     clip-rule="evenodd"
                   />
                 </svg>
-                Sponsor us
-                <span class="sr-only">GitHub</span>
+                <span>GitHub Sponsors</span>
               </a>
               <a
                 class="flex rounded-md bg-canvas-shade py-1 px-2 text-color hover:text-color-light"
@@ -67,8 +66,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
                     d="M23.333 153.933V26.067H46.8v127.866z"
                   />
                 </svg>
-                Sponsor us
-                <span class="sr-only">Patreon</span>
+                <span>Patreon</span>
               </a>
             </div>
           </div>
