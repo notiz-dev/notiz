@@ -18,10 +18,20 @@ import { Component, HostBinding, OnInit } from '@angular/core';
             <h2>Sponsor us</h2>
             <p class="mt-2 text-lg font-medium">
               <strong class="font-semibold"
-                >Did you find this post or any other useful?</strong
+                >Did you find this post useful?</strong
               >
-              Your support would mean a lot to us 🙏. Sponsor using Patreon
-              to receive a reward for your support.
+              We at <strong>notiz.dev</strong> write about our experiences
+              developing Apps, Websites and APIs and develop
+              <a
+                href="https://github.com/notiz-dev"
+                target="_blank"
+                rel="noopener"
+              >
+                Open Source
+              </a>
+              tools. Your support would mean a lot to us 🙏. Receive a reward by
+              sponsoring us on Patreon or start with a one-time donation on
+              GitHub Sponsors.
             </p>
             <div
               class="mt-6 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0"
