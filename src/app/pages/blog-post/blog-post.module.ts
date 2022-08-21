@@ -16,6 +16,7 @@ import { ShortcodeModule } from '@notiz/shortcodes';
 import { AuthorSmallModule } from '@components/author-small/author-small.module';
 import { NizInlineSvgModule } from '@components/inline-svg/inline-svg.module';
 import { TableOfContentsModule } from '@components/table-of-contents/table-of-contents.module';
+import { SponsorModule } from '@components/sponsor/sponsor.module';
 
 @NgModule({
   declarations: [BlogPostComponent],
@@ -35,6 +36,7 @@ import { TableOfContentsModule } from '@components/table-of-contents/table-of-co
     SeoModule,
     ShortcodeModule,
     AuthorSmallModule,
+    SponsorModule
   ],
 })
 export class BlogPostModule {}

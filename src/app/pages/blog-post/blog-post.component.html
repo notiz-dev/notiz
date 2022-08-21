@@ -14,7 +14,7 @@
 
 <article class="container mt-8 space-y-6" *ngIf="post$ | async as route">
   <app-breadcrumb [data]="route"></app-breadcrumb>
-  <div class="space-y-6 w-full max-w-2xl">
+  <div class="w-full max-w-2xl space-y-6">
     <h1>
       {{ route.title }}
     </h1>
@@ -22,7 +22,7 @@
     <p class="text-lg md:text-2xl">
       {{ route.description }}
     </p>
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
       <niz-author-small [author]="(authors$ | async)[0]"></niz-author-small>
       <dl>
         <dt class="sr-only">Published at</dt>
@@ -38,20 +38,23 @@
   <div
     class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6"
   >
-    <div scullyShortcodes class="max-w-2xl prose md:col-span-2 lg:col-span-3">
-      <scully-content></scully-content>
+    <div class="max-w-2xl space-y-8 md:col-span-2 lg:col-span-3">
+      <div scullyShortcodes class="prose">
+        <scully-content></scully-content>
+      </div>
 
+      <niz-sponsor></niz-sponsor>
       <app-comments [route]="post$ | async"></app-comments>
     </div>
     <div class="order-first md:order-none">
-      <div class="sticky top-32 space-y-4 flex flex-col">
+      <div class="sticky top-32 flex flex-col space-y-4">
         <niz-toc></niz-toc>
-        <div class="space-y-4 flex flex-col">
+        <div class="flex flex-col space-y-4">
           <h2 class="text-xl font-semibold">Tags</h2>
           <div>
             <a
               [routerLink]="'/tags/' + (tag | dash | lowercase)"
-              class="chip mb-1 mr-1 gradient"
+              class="gradient chip mb-1 mr-1"
               *ngFor="let tag of route.tags | slice: 0:3"
             >
               {{ tag }}
