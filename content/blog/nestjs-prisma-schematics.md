@@ -3,7 +3,7 @@ title: Introducing NestJS Prisma Library and Schematics
 description: Library and schematics to add Prisma integration to a NestJS application  
 published: true
 publishedAt: 2020-08-07T09:30:00.000Z
-updatedAt: 2021-08-17T17:45:00.000Z
+updatedAt: 2022-09-12T14:25:00.000Z
 tags:
   - NestJS
   - Prisma
@@ -16,7 +16,7 @@ github: https://github.com/notiz-dev/nestjs-prisma
 
 Until now, adding [Prisma to a NestJS application](https://notiz.dev/blog/how-to-connect-nestjs-with-prisma) requires a few manual steps - installing [@prisma/cli](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-cli/command-reference) and [@prisma/client](https://github.com/prisma/prisma-client-js), creating a `PrismaService` and (eventually) adding a `Dockerfile`.
 
-We are excited to release [`nestjs-prisma`](https://github.com/notiz-dev/nestjs-prisma) - a set of schematics to perform all steps necessary to add Prisma to your NestJS application **automatically**.
+We are excited to release [nestjs-prisma](https://nestjs-prisma.notiz.dev/) - a library with build-in `PrismaService`, `PrismaClientExceptionFilter`, `loggingMiddleware` and a set of schematics to perform **automatically** all steps necessary to add Prisma to your NestJS application. 
 
 <div shortcode="repo" repo="notiz-dev/nestjs-prisma"></div>
 
