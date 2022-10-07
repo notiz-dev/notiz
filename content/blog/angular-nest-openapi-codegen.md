@@ -1,9 +1,9 @@
 ---
-title: "Codegen types and REST calls for Angular"
+title: "Codegen REST API types and requests for Angular"
 description: 'Automatic code generation from OpenAPI 3 for Angular'
 published: true
-publishedAt: 2022-10-07T10:00:00.000Z
-updatedAt: 2022-10-07T10:00:00.000Z
+publishedAt: 2022-10-10T10:00:00.000Z
+updatedAt: 2022-10-10T10:00:00.000Z
 tags:
     - Angular
     - NestJS
