@@ -17,7 +17,7 @@ authors:
 github: https://github.com/notiz-dev/codegen-angular-nest
 ---
 
-Are you using a REST API in your Angular app to fetch data from a server? Are manually adding model types, specifying each REST call with `HttpClient`? Stop right there! There is something to help you.
+Are you using a REST API in your Angular app to fetch data from a server? Are you manually adding model types, specifying each REST call with `HttpClient`? Stop right there!
 
 Use [ng-openapi-gen](https://github.com/cyclosproject/ng-openapi-gen) for a hassle free and automatic generation of models and services based on your OpenAPI 3 specification.
 
@@ -192,7 +192,7 @@ With `$schema` you get autocomplete in JSON for all possible configuration [opti
 
 The `input` requires a file or URL of a OpenAPI 3 specification. In your case the Swagger JSON is available at [localhost:3333/api-json](http://localhost:3333/api-json). You should see `openapi` as first value with version `3.0.0`.
 
-`output` is the directory for the generated files. The files are generated inside your Angular app. Change the directory if you choose a different app name `apps/your-name/src/api`.
+`output` is the directory for the generated files. The files are generated inside your Angular app. Change the directory if you choose a different app name (`apps/your-name/src/api`) or perhaps you want to generate into a shared library (`libs/api/src/lib`).
 
 Last step, add a new script to your `package.json` let's call it `"codegen": "ng-openapi-gen"`. Run the new script, also make sure the Nest app is serving.
 
@@ -250,7 +250,7 @@ export class AppModule {}
 
 </div>
 
-Because it will be different in production you need to add the `apiUrl` to the `environment(.prod).ts` files.
+Because your API endpoint will be different in production you need to add the `apiUrl` to the `environment(.prod).ts` files.
 
 <div shortcode="code" tabs="environment(.prod).ts">
 
