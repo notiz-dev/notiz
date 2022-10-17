@@ -2,8 +2,8 @@
 title: "Codegen REST API types and requests for Angular"
 description: 'Automatic code generation from OpenAPI 3 for Angular'
 published: true
-publishedAt: 2022-10-10T10:00:00.000Z
-updatedAt: 2022-10-10T10:00:00.000Z
+publishedAt: 2022-10-17T15:00:00.000Z
+updatedAt: 2022-10-17T15:00:00.000Z
 tags:
     - Angular
     - NestJS
@@ -17,7 +17,7 @@ authors:
 github: https://github.com/notiz-dev/codegen-angular-nest
 ---
 
-You are using a REST API in your Angular app to fetch data from a server. You are manually adding model types, specifying each REST call with `HttpClient`? Stop right there! There is something to help you.
+Are you using a REST API in your Angular app to fetch data from a server? Are manually adding model types, specifying each REST call with `HttpClient`? Stop right there! There is something to help you.
 
 Use [ng-openapi-gen](https://github.com/cyclosproject/ng-openapi-gen) for a hassle free and automatic generation of models and services based on your OpenAPI 3 specification.
 
@@ -45,7 +45,7 @@ Open `package.json` and replace the `start` script with:
 
 </div>
 
-This will start your Angular and NestJS app together in serve mode.
+This will start both your Angular and NestJS app in serve mode.
 
 <div shortcode="code" tabs="BASH">
 
@@ -61,7 +61,7 @@ Angular will be exposed on [localhost:4200](http://localhost:4200) and Nest on [
 
 Setup Swagger in NestJS for type-safe REST endpoints.
 
-First install the Nest swagger library.
+First, install the Nest swagger library.
 
 <div shortcode="code" tabs="BASH">
 
@@ -204,7 +204,7 @@ npm run codegen
 
 </div>
 
-Your output directory (`apps/your-name/src/api`) contains now a couple of new files. Next, you will start with configure the REST API endpoint using `apps/your-name/src/api/api.module.ts`.
+Your output directory (`apps/your-name/src/api`) now contains a couple of new files. Next, you will start with the configuration of the REST API endpoint.
 
 <div shortcode="figure" caption="Codegen CLI Output">
 
@@ -220,7 +220,7 @@ Your output directory (`apps/your-name/src/api`) contains now a couple of new fi
 
 ## Specify API url with ApiModule
 
-Add `ApiModule` to your Angular `AppModule` imports. Use `forRoot(...)` to specify the `rootUrl` pointing to [localhost:3333](http://localhost:3333) in development. 
+Add `ApiModule`, import from `apps/your-name/src/api/api.module.ts`, to your Angular `AppModule` imports. Use `forRoot(...)` to specify the `rootUrl` pointing to [localhost:3333](http://localhost:3333) in development. 
 
 <div shortcode="code" tabs="app.module.ts">
 
@@ -250,7 +250,7 @@ export class AppModule {}
 
 </div>
 
-Because it will be different in production will add the `apiUrl` to the `environment(.prod).ts` files.
+Because it will be different in production you need to add the `apiUrl` to the `environment(.prod).ts` files.
 
 <div shortcode="code" tabs="environment(.prod).ts">
 
@@ -272,7 +272,7 @@ export const environment = {
 
 ## First generated REST request
 
-Last step, making a REST request with the generated API. Look into the `api/services` directory. A service will be generated for each [tag](https://docs.nestjs.com/openapi/operations#tags) (e.g. `@ApiTags('users')`) in your Swagger API.
+Lastly, you'll be making a REST request with the generated API. Look into the `api/services` directory. A service will be generated for each [tag](https://docs.nestjs.com/openapi/operations#tags) (e.g. `@ApiTags('users')`) in your Swagger API.
 
 Use `ApiService` in `AppComponent` to replace the direct `HttpClient` call. Under the hood `ApiService` uses `HttpClient`.
 
@@ -299,9 +299,9 @@ export class AppComponent {
 
 </div>
 
-Perfect, you made it till the end. Keep in mind the codegen is only as good as your **Swagger documentation**. If you are missing type information for the request or response, you also miss out in codegen.
+Perfect, you made it till the end. Keep in mind that the codegen is only as good as your **Swagger documentation**. If you are missing type information for the request or response, you're also missing out in codegen.
 
-Checkout the following two posts as inspiration about better type-safe endpoints with Nest.
+Checkout the following two posts as inspiration about type-safe endpoints with Nest.
 
 <div shortcode="article" routes="/blog/type-safe-file-uploads"></div>
 
