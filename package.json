@@ -63,7 +63,7 @@
     "@notiz/scully-plugin-copy-static-content": "file:projects/copy-static-content",
     "@notiz/scully-plugin-medium-zoom": "0.3.0",
     "@notiz/scully-plugin-rss": "1.2.0",
-    "@scullyio/scully-plugin-puppeteer": "2.1.13",
+    "@scullyio/scully-plugin-puppeteer": "2.1.41",
     "@tailwindcss/line-clamp": "0.4.0",
     "@tailwindcss/typography": "0.5.4",
     "@types/jsdom": "^16.2.14",
