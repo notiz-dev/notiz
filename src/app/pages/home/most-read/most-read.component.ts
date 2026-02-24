@@ -1,8 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { ScullyContentService } from '@services/scully-content.service';
-import { map, Observable, shareReplay, withLatestFrom } from 'rxjs';
-import { AnalyticsService } from '@api/services';
+import { map, Observable, shareReplay } from 'rxjs';
+import { mostRead } from 'src/app/data/most-read';
 
 @Component({
   selector: 'niz-most-read',
@@ -11,10 +11,10 @@ import { AnalyticsService } from '@api/services';
     <a
       [routerLink]="[post.route]"
       *ngFor="let post of posts$ | async | slice: 0:6"
-      class="flex text-color group cursor-pointer items-center space-x-6"
+      class="group flex cursor-pointer items-center space-x-6 text-color"
     >
       <niz-inline-svg
-        class="icon h-4 flex-shrink-0 w-4 text-primary"
+        class="icon h-4 w-4 flex-shrink-0 text-primary"
         svgSource="assets/img/arrow-right.svg"
       ></niz-inline-svg>
       <span class="group-hover:text-primary">{{ post.title }}</span>
@@ -23,22 +23,16 @@ import { AnalyticsService } from '@api/services';
   styles: [],
 })
 export class MostReadComponent implements OnInit {
-  posts$: Observable<ScullyRoute[]> = this.analytics
-    .topPages({ period: '12mo' })
-    .pipe(
-      shareReplay(),
-      withLatestFrom(this.content.blogPosts()),
-      map(([analytics, posts]) =>
-        analytics.map((a) => posts.find((p) => p.route + '/' === a.page))
-      ),
-      map((res) => res.filter((r) => !!r))
-    );
+  posts$: Observable<ScullyRoute[]> = this.content.blogPosts().pipe(
+    map((posts) =>
+      mostRead.map((a) => posts.find((p) => p.route + '/' === a.page))
+    ),
+    map((res) => res.filter((r) => !!r)),
+    shareReplay(1)
+  );
   @HostBinding() class = 'flex flex-col space-y-4';
 
-  constructor(
-    private content: ScullyContentService,
-    private analytics: AnalyticsService
-  ) {}
+  constructor(private content: ScullyContentService) {}
 
   ngOnInit(): void {}
 }
