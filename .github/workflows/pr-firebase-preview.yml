@@ -1,0 +1,39 @@
+name: Deploy a preview to Firebase on PR
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Install banner generator dependencies
+        run: cd projects/banner-generator && npm i
+      - name: Build Elements
+        run: npm run build:elements
+      - name: Build Demos
+        run: npm run build:demos
+      - name: Build Angular prod
+        run: npm run build:prod
+      - name: Build Scully CI
+        run: |
+          npm run scully:ci
+          npm run scully:ci
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTIZ_DEV }}'
+          expires: 30d
+          projectId: notiz-dev
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels

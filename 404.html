@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>notiz</title>
+    <meta name="description" content="Weeklyish articles about Angular, NestJS, Web Components, and more things related to web development">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-192x192.png">
+    <meta name="theme-color" content="#55b9f3">
+
+    <script async="" defer data-domain="notiz.dev" src="https://analytics.notiz.dev/js/plausible.outbound-links.js"></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+  <style>*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#edf2f7}:before,:after{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:Muli,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}body{margin:0;line-height:inherit}@font-face{font-family:Muli;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/muli.woff) format("woff");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,:before,:after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.font-sans{font-family:Muli,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}:root{--gradient:linear-gradient( 145deg, rgb(var(--primary-light)), rgb(var(--primary)), rgb(var(--primary-dark)) )}body:not(.dark){--primary-light:85 243 222;--primary:85 106 243;--primary-dark:85 185 243;--canvas:#f9fafb;--canvas-opac:#edf2f7dd;--canvas-light:#fff;--canvas-shade:#e2e8f0;--text:#2d3748;--text-light:#4a5568;--text-shade:#a0aec0;--code-tag:#c026d3;--code-boolean:#ea580c;--code-variable:#16a34a;--code-comment:#718096;--code-keyword:rgb(var(--primary));--hot-toast-bg:var(--canvas-light)}body{overflow-x:hidden;background-color:var(--canvas);color:var(--text);--hot-toast-color:var(--text);--hot-toast-shadow:0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);--hot-toast-border-radius:.375rem;--code-keyword:rgb(var(--primary))}@media (min-width: 1200px){body{padding-left:0;padding-right:0}}</style><link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript></head>
+
+  <body class="font-sans antialiased">
+    <script>
+      // prevent theme flicker
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+      const storedTheme =
+        window.localStorage && window.localStorage.getItem('theme');
+
+      const theme =
+        storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : prefersDark
+          ? 'dark'
+          : 'light';
+      document.body.classList.toggle('dark', theme === 'dark');
+    </script>
+    <app-root></app-root>
+    <noscript>
+      Please enable JavaScript to continue using this application.
+    </noscript>
+  <script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="scripts.js" defer></script><script src="main.js" type="module"></script>
+
+</body></html>

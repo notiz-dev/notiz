@@ -1,0 +1,639 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Scully 0.0.0"><link id="giscus-css" rel="stylesheet" href="https://giscus.app/default.css">
+    <meta charset="utf-8">
+    <title>Floating Form Field with Tailwind CSS</title>
+    <meta name="description" content="Learn how to build a floating form field with Tailwind CSS">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icons/apple-icon-192x192.png">
+    <meta name="theme-color" content="#55b9f3">
+
+    <script async="" defer="" data-domain="notiz.dev" src="https://analytics.notiz.dev/js/plausible.outbound-links.js"></script>
+    <script>
+      window.plausible =
+        window.plausible ||
+        function () {
+          (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+    </script>
+  <style>*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#edf2f7}:before,:after{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:Muli,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}body{margin:0;line-height:inherit}@font-face{font-family:Muli;font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/muli.woff) format("woff");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,:before,:after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.font-sans{font-family:Muli,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}:root{--gradient:linear-gradient( 145deg, rgb(var(--primary-light)), rgb(var(--primary)), rgb(var(--primary-dark)) )}body:not(.dark){--primary-light:85 243 222;--primary:85 106 243;--primary-dark:85 185 243;--canvas:#f9fafb;--canvas-opac:#edf2f7dd;--canvas-light:#fff;--canvas-shade:#e2e8f0;--text:#2d3748;--text-light:#4a5568;--text-shade:#a0aec0;--code-tag:#c026d3;--code-boolean:#ea580c;--code-variable:#16a34a;--code-comment:#718096;--code-keyword:rgb(var(--primary));--hot-toast-bg:var(--canvas-light)}body{overflow-x:hidden;background-color:var(--canvas);color:var(--text);--hot-toast-color:var(--text);--hot-toast-shadow:0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);--hot-toast-border-radius:.375rem;--code-keyword:rgb(var(--primary))}@media (min-width: 1200px){body{padding-left:0;padding-right:0}}</style><link rel="stylesheet" href="styles.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.css"></noscript><style>.theme[_ngcontent-prj-c36]{transition:transform .18s ease}.router-link-active[_ngcontent-prj-c36]{--tw-text-opacity: 1;color:rgb(var(--primary) / var(--tw-text-opacity))}.router-link[_ngcontent-prj-c36]{font-size:1.25rem;line-height:1.75rem;font-weight:600}.router-link[_ngcontent-prj-c36]:focus{outline:2px solid transparent;outline-offset:2px}.router-link[_ngcontent-prj-c36]:hover{--tw-text-opacity: 1;color:rgb(var(--primary) / var(--tw-text-opacity))}</style><style>[_nghost-prj-c33]{display:flex}[_nghost-prj-c33]     svg{height:100%;width:100%}</style><style>[_nghost-prj-c31]{display:block}.signup[_ngcontent-prj-c31]{--canvas: var(--gradient)}.input-wrapper[_ngcontent-prj-c31]{display:flex;align-items:center}.newsletter[_ngcontent-prj-c31]{width:100%;--inner-padding-start: 24px;border:2px solid var(--canvas)}.newsletter.dirty[_ngcontent-prj-c31]{border:2px solid #ef4444}  body.dark .newsletter{border-radius:50px;--box-shadow: inset 9px 9px 17px #0b0b0b, inset -9px -9px 17px #191919}  body:not(.dark) .newsletter{--padding-start: 24px;border-radius:50px;--canvas: rgb(var(--primary-dark));--box-shadow: inset 11px 11px 22px #e6e6e6, inset -11px -11px 22px #ffffff}  .form-error,   .form-success{text-align:center;position:fixed}  .form-error{--canvas: #ef4444;--color: var(--text-color)}  .form-success{--canvas: #22c55e;--color: var(--text-color)}</style><style>.gradient[_ngcontent-prj-c34]:hover{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style><style>a[_ngcontent-prj-c35]{width:calc(100% - 24px);margin-left:12px}a[_ngcontent-prj-c35]:hover:not(.activeItem){border-radius:.5rem;background-color:var(--canvas-light)}a[_ngcontent-prj-c35]:hover:not(.activeItem)   #title[_ngcontent-prj-c35]{background-image:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.activeItem[_ngcontent-prj-c35]{border-radius:.5rem;background-color:var(--canvas-shade)}</style><style>[_ngcontent-prj-c55]::slotted(h1){color:#330625;background-color:#f8d3ec;padding:5px;border-radius:5px;width:-moz-fit-content;width:fit-content}.line[_ngcontent-prj-c55]{height:1px;width:100%;margin-top:12px;background-color:var(--canvas)}niz-toc[_ngcontent-prj-c55]{top:112px}</style><style>[_nghost-prj-c53]{display:flex;width:100%;flex-direction:column;border-top-left-radius:22px;border-bottom-right-radius:22px;background-color:var(--canvas-light);padding-top:1rem;padding-bottom:2rem}@media (min-width: 768px){[_nghost-prj-c53]{flex-direction:row;padding-left:5rem}.title-card[_ngcontent-prj-c53]{width:240px;flex:0 0 240px}.title-card[_ngcontent-prj-c53]   h3[_ngcontent-prj-c53]{transform:rotate(0);writing-mode:lr}}  app-card-stack .card:not(.title-card){margin-left:-130px;transition:transform .2s ease;box-shadow:-1rem 0 2.4rem var(--canvas);position:relative}  app-card-stack .card:not(.title-card) app-article{height:100%}  app-card-stack .card:not(.title-card) app-article .article-card{padding:1rem}  app-card-stack .card:not(.title-card) app-article h3{min-height:6rem}  app-card-stack .card:not(.title-card) app-article .description{min-height:4.5rem}  app-card-stack .card:not(.title-card):hover{transform:translateY(-12px)}  app-card-stack .card:not(.title-card):hover~.card{transform:translate(130px)}.horizontal-cards[_ngcontent-prj-c53]{padding-left:50%}@media (min-width: 576px){.horizontal-cards[_ngcontent-prj-c53]{padding-left:40%}}@media (min-width: 768px){.horizontal-cards[_ngcontent-prj-c53]{padding-left:174px}}</style><style>.author[_ngcontent-prj-c43]{margin-top:0;margin-bottom:0;width:2.5rem}</style><style>
+      :host {
+        display: none;
+      }
+      scully-content {
+        display: none;
+      }
+    </style><style></style><style>a[_ngcontent-prj-c52]:hover{cursor:pointer}a[_ngcontent-prj-c52]:hover:hover, .active[_ngcontent-prj-c52]{--tw-text-opacity: 1;color:rgb(var(--primary) / var(--tw-text-opacity))}</style><style>[_nghost-prj-c44]{display:flex;height:18rem;width:100%;flex-direction:column;flex-wrap:wrap}.article-card[_ngcontent-prj-c44]{position:relative;height:100%;border-radius:.5rem;background-color:var(--canvas-light);padding:1.25rem 1rem}.article-card[_ngcontent-prj-c44]:hover, .article-card[_ngcontent-prj-c44]   .tags[_ngcontent-prj-c44]{background-color:var(--canvas-shade)}.article-card[_ngcontent-prj-c44]:hover   h3[_ngcontent-prj-c44]{--tw-text-opacity: 1;color:rgb(var(--primary) / var(--tw-text-opacity))}.stacked[_nghost-prj-c44]   .article-card[_ngcontent-prj-c44]{margin:0}</style><style>[_nghost-prj-c54]{display:flex;height:100%;width:100%;flex-direction:column;align-items:center;justify-content:center}</style><meta name="robots" content="index, follow"><meta name="keywords" content="notiz, notiz.dev, Angular, NestJS, Web Components, Scully, Tailwind CSS, CSS, Material Design"><meta property="og:title" content="Floating Form Field with Tailwind CSS"><meta property="og:description" content="Learn how to build a floating form field with Tailwind CSS"><meta property="og:type" content="article"><meta property="og:url" content="https://notiz.dev/blog/floating-form-field-with-tailwindcss"><meta property="og:image" content="https://notiz.dev/assets/banners/blog/floating-form-field-with-tailwindcss/og.png"><meta property="og:image:alt" content="Learn how to build a floating form field with Tailwind CSS"><meta property="og:site_name" content="notiz"><meta property="og:locale" content="en_US"><meta property="og:article:published_time" content="2020-05-28T21:50:00.000Z"><meta property="og:article:modified_time" content="2020-05-28T21:50:00.000Z"><meta property="og:article:tag" content="Tailwind CSS, CSS"><meta property="og:article:author" content="https://notiz.dev/authors/marc-stammerjohann"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@notiz_dev"><meta name="twitter:creator" content="@notiz_dev"><meta name="twitter:title" content="Floating Form Field with Tailwind CSS"><meta name="twitter:description" content="Learn how to build a floating form field with Tailwind CSS"><meta name="twitter:image" content="https://notiz.dev/assets/banners/blog/floating-form-field-with-tailwindcss/twitter.png"><script>window['ScullyIO']='generated';</script><style>
+      .fouc {
+        visibility: hidden;
+      }
+    </style></head>
+
+  <body class="font-sans antialiased dark fouc" scully-version="0.0.0">
+    <script>
+      // prevent theme flicker
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+      const storedTheme =
+        window.localStorage && window.localStorage.getItem('theme');
+
+      const theme =
+        storedTheme === 'dark' || storedTheme === 'light'
+          ? storedTheme
+          : prefersDark
+          ? 'dark'
+          : 'light';
+      document.body.classList.toggle('dark', theme === 'dark');
+    </script>
+    <app-root _nghost-prj-c36="" ng-version="13.3.11"><div _ngcontent-prj-c36="" class="star" style="box-shadow: rgb(255, 255, 255) 686.494px 734.131px, rgb(255, 255, 255) 226.644px 204.549px, rgb(255, 255, 255) 3661.01px 934.166px, rgb(255, 255, 255) 1827.3px 1019.07px, rgb(255, 255, 255) 2139.72px 210.553px, rgb(255, 255, 255) 1313.96px 26.6241px, rgb(255, 255, 255) 2290.39px 120.688px, rgb(255, 255, 255) 2064.23px 398.561px, rgb(255, 255, 255) 178.332px 460.24px, rgb(255, 255, 255) 1992.06px 438.43px, rgb(255, 255, 255) 264.228px 1015.98px, rgb(255, 255, 255) 2188.39px 626.848px, rgb(255, 255, 255) 3420.8px 381.245px, rgb(255, 255, 255) 2552.8px 327.809px, rgb(255, 255, 255) 3769.96px 994.899px, rgb(255, 255, 255) 1725.06px 590.612px, rgb(255, 255, 255) 3781.75px 895.525px, rgb(255, 255, 255) 1640.84px 548.218px, rgb(255, 255, 255) 323.01px 295.402px, rgb(255, 255, 255) 501.93px 902.969px, rgb(255, 255, 255) 3731.78px 484.18px, rgb(255, 255, 255) 2980.13px 589.647px, rgb(255, 255, 255) 2733.1px 451.09px, rgb(255, 255, 255) 850.037px 156.148px, rgb(255, 255, 255) 1590.12px 903.428px, rgb(255, 255, 255) 258.564px 532.529px, rgb(255, 255, 255) 2412.44px 748.963px, rgb(255, 255, 255) 2766.16px 728.156px, rgb(255, 255, 255) 929.844px 659.583px, rgb(255, 255, 255) 1751.36px 652.073px, rgb(255, 255, 255) 3137.33px 100.999px, rgb(255, 255, 255) 749.921px 406.34px, rgb(255, 255, 255) 1448.24px 454.991px, rgb(255, 255, 255) 3351.82px 513.943px, rgb(255, 255, 255) 2939.15px 1066.87px, rgb(255, 255, 255) 3493.58px 753.951px, rgb(255, 255, 255) 2631.6px 676.389px, rgb(255, 255, 255) 963.853px 700.714px, rgb(255, 255, 255) 3629.3px 104.804px, rgb(255, 255, 255) 3201.16px 7.89893px, rgb(255, 255, 255) 2168.13px 55.2151px, rgb(255, 255, 255) 3059.88px 109.481px, rgb(255, 255, 255) 2406.75px 782.815px, rgb(255, 255, 255) 77.9577px 195.254px, rgb(255, 255, 255) 1762.82px 86.7808px, rgb(255, 255, 255) 192.062px 680.793px, rgb(255, 255, 255) 2231.79px 1008.16px, rgb(255, 255, 255) 1055.02px 309.028px, rgb(255, 255, 255) 1894.42px 187.708px, rgb(255, 255, 255) 3581.87px 565.879px, rgb(255, 255, 255) 865.179px 766.367px, rgb(255, 255, 255) 829.057px 426.161px, rgb(255, 255, 255) 1923.17px 333.763px, rgb(255, 255, 255) 656.015px 924.426px, rgb(255, 255, 255) 2372.63px 768.25px, rgb(255, 255, 255) 2734.67px 596.26px, rgb(255, 255, 255) 1512.84px 110.028px, rgb(255, 255, 255) 808.01px 1032.74px, rgb(255, 255, 255) 770.662px 394.798px, rgb(255, 255, 255) 3827.23px 68.0246px, rgb(255, 255, 255) 3231.08px 888.622px, rgb(255, 255, 255) 633.188px 951.001px, rgb(255, 255, 255) 2725.35px 403.221px, rgb(255, 255, 255) 1647.18px 911.945px, rgb(255, 255, 255) 426.348px 207.596px, rgb(255, 255, 255) 643.3px 873.841px, rgb(255, 255, 255) 1041.88px 866.799px, rgb(255, 255, 255) 3305.01px 211.222px, rgb(255, 255, 255) 2419.64px 377.906px, rgb(255, 255, 255) 2442.55px 403.394px, rgb(255, 255, 255) 3256.32px 159.751px, rgb(255, 255, 255) 3794.61px 627.097px, rgb(255, 255, 255) 2116.71px 134.944px, rgb(255, 255, 255) 1785.9px 704.433px, rgb(255, 255, 255) 2268.32px 184.335px, rgb(255, 255, 255) 1291.84px 1039.17px, rgb(255, 255, 255) 703.013px 649.89px, rgb(255, 255, 255) 3371.18px 383.385px, rgb(255, 255, 255) 956.743px 1056.41px, rgb(255, 255, 255) 2935.15px 725.752px, rgb(255, 255, 255) 1056.37px 16.2019px, rgb(255, 255, 255) 2534.34px 594.694px, rgb(255, 255, 255) 534.602px 176.275px, rgb(255, 255, 255) 2777.1px 714.759px, rgb(255, 255, 255) 3276.64px 160.931px, rgb(255, 255, 255) 373.127px 324.807px, rgb(255, 255, 255) 1498.16px 279.714px, rgb(255, 255, 255) 930.754px 448.443px, rgb(255, 255, 255) 1973.78px 902.863px, rgb(255, 255, 255) 1494.5px 489.862px, rgb(255, 255, 255) 711.68px 20.9365px, rgb(255, 255, 255) 74.7149px 323.247px, rgb(255, 255, 255) 3761.79px 757.521px, rgb(255, 255, 255) 571.874px 334.202px, rgb(255, 255, 255) 674.131px 478.85px, rgb(255, 255, 255) 1814.63px 82.7613px, rgb(255, 255, 255) 2857.47px 433.885px, rgb(255, 255, 255) 1591.47px 81.1851px, rgb(255, 255, 255) 251.356px 720.461px, rgb(255, 255, 255) 3436.36px 721.474px, rgb(255, 255, 255) 1223.07px 162.317px, rgb(255, 255, 255) 2956.87px 878.305px, rgb(255, 255, 255) 3495.26px 505.726px, rgb(255, 255, 255) 3550.46px 726.841px, rgb(255, 255, 255) 2329.52px 792.654px, rgb(255, 255, 255) 776.046px 87.6705px, rgb(255, 255, 255) 1905.86px 220.058px, rgb(255, 255, 255) 1439.74px 625.6px, rgb(255, 255, 255) 749.149px 801.331px, rgb(255, 255, 255) 2427.95px 25.291px, rgb(255, 255, 255) 1402.07px 348.731px, rgb(255, 255, 255) 954.134px 975.898px, rgb(255, 255, 255) 1875.47px 840.588px, rgb(255, 255, 255) 3584.67px 458.118px, rgb(255, 255, 255) 2437.76px 1046.39px, rgb(255, 255, 255) 1142px 719.276px, rgb(255, 255, 255) 1578.79px 436.204px, rgb(255, 255, 255) 827.356px 831.505px, rgb(255, 255, 255) 1066.85px 923.675px, rgb(255, 255, 255) 2990.7px 412.207px, rgb(255, 255, 255) 1949.64px 831.203px, rgb(255, 255, 255) 95.9373px 892.414px, rgb(255, 255, 255) 3599.02px 623.826px, rgb(255, 255, 255) 2975.85px 322.075px, rgb(255, 255, 255) 1195.27px 289.876px, rgb(255, 255, 255) 536.737px 811.101px, rgb(255, 255, 255) 992.125px 217.154px, rgb(255, 255, 255) 1856.6px 785.313px, rgb(255, 255, 255) 270.71px 969.366px, rgb(255, 255, 255) 1342.74px 688.134px, rgb(255, 255, 255) 1772.02px 235.122px, rgb(255, 255, 255) 2108.93px 787.116px, rgb(255, 255, 255) 3163.56px 125.174px, rgb(255, 255, 255) 15.8024px 2.45559px, rgb(255, 255, 255) 1990.04px 311.798px, rgb(255, 255, 255) 1436.76px 205.046px, rgb(255, 255, 255) 3290.58px 438.265px, rgb(255, 255, 255) 3279.12px 761.931px, rgb(255, 255, 255) 3129.47px 322.902px, rgb(255, 255, 255) 421.685px 932.772px, rgb(255, 255, 255) 2438.35px 225.042px, rgb(255, 255, 255) 1019.25px 0.979044px, rgb(255, 255, 255) 3642.22px 810.046px, rgb(255, 255, 255) 3657.52px 802.253px, rgb(255, 255, 255) 163.211px 341.675px;"></div><!----><header _ngcontent-prj-c36="" class="container pb-4 pt-8"><div _ngcontent-prj-c36="" class="flex justify-between"><div _ngcontent-prj-c36="" start="" class="flex flex-row space-x-8 items-center"><a _ngcontent-prj-c36="" class="flex items-center select-none space-x-2" href="/"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/logo.svg" class="h-16 w-16" _nghost-prj-c33=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient x1="-4.646%" y1="68.441%" x2="108.222%" y2="37.806%" id="a">
+      <stop stop-color="#55F3DE" offset="0%"></stop>
+      <stop stop-color="#55B9F3" offset="51.68%"></stop>
+      <stop stop-color="#556AF3" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="107.742%" y1="44.238%" x2="91.726%" y2="46.099%" id="b">
+      <stop stop-color="#55B9F3" offset="0%"></stop>
+      <stop stop-color="#55B9F3" stop-opacity="0" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="75.526%" y1="-.121%" x2="62.923%" y2="24.633%" id="c">
+      <stop stop-color="#55F3DE" offset="0%"></stop>
+      <stop stop-color="#55F3DE" stop-opacity="0" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="97.499%" y1=".941%" x2="49.147%" y2="56.084%" id="d">
+      <stop stop-color="#55B9F3" offset="0%"></stop>
+      <stop stop-color="#55B9F3" stop-opacity="0" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="103.894%" y1="-1.647%" x2="44.508%" y2="55.261%" id="e">
+      <stop stop-color="#55B9F3" offset="0%"></stop>
+      <stop stop-color="#55B9F3" stop-opacity="0" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <g fill-rule="nonzero" fill="none">
+    <path d="M148.806 181.007c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zm0 0c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zM341.73 95.262a96.816 96.816 0 00-26.78 2.99c-.121.033-.249.06-.37.094-.808-26.144-11.516-49.79-28.503-67.3a51.88 51.88 0 00-1.05-1.057c-.35-.35-.706-.707-1.063-1.044a32.038 32.038 0 00-.983-.929c-.357-.343-.733-.687-1.097-1.024a78.53 78.53 0 00-1.11-1.003c-.478-.424-.963-.842-1.44-1.26a107.49 107.49 0 00-5.183-4.155c-.343-.256-.693-.512-1.036-.76-.62-.459-1.245-.896-1.871-1.334-.081-.06-.169-.115-.25-.175a81.2 81.2 0 00-1.85-1.253 134.25 134.25 0 00-2.066-1.327c-.7-.437-1.394-.855-2.1-1.272-.35-.216-.714-.425-1.064-.62-11.354-6.607-24.1-10.998-37.69-12.681-.854-.101-1.702-.202-2.563-.29a89.664 89.664 0 00-2.706-.236c-.747-.06-1.494-.1-2.234-.148-.512-.027-1.017-.047-1.528-.067-.653-.02-1.306-.04-1.959-.054-.653-.014-1.319-.02-1.972-.02-49.44.148-90.508 35.815-99.117 82.83l-.861-.082c-3.237-.31-6.522-.471-9.846-.471C46.674 82.614.66 128.665.66 185.459c0 5.374.417 10.654 1.211 15.806 3.641 23.598 25.696 35.72 46.674 32.05a42.958 42.958 0 0012.23-4.081 9.189 9.189 0 01-2.323-6.634 9.2 9.2 0 013.05-6.357l8.957-7.974a2.282 2.282 0 011.65-.58c.127.007.262.028.39.061h.006c.444.101.855.337 1.185.707l22.176 24.764c.276.303.451.66.532 1.037a2.282 2.282 0 01-.707 2.202l-8.87 8.048c-3.682 3.3-9.719 2.963-13.003-.7l-1.824-2.041a28.855 28.855 0 00-4.866 10.149c-4.099 15.954 6.023 33.693 25.03 35.768.215.027.43.047.64.067-.041.344-.062.546-.062.546h246.255c53.6 0 96.99-43.728 96.485-97.478-.485-51.627-42.145-94.116-93.746-95.557zM102.509 230.298c-.451.417-1.05.626-1.663.592h-.006a2.247 2.247 0 01-1.582-.76l-7.989-8.917h-.006l-9.78-10.924-4.347-4.855a2.302 2.302 0 01.181-3.26l49.838-44.361c.027-.02.067-.027.094-.054.115-.094.25-.155.384-.229.047-.02.087-.047.141-.067.088-.047.182-.088.283-.115.034-.013.067-.04.108-.054l14.174-3.232 18.481-4.216a2.3 2.3 0 012.221.707c.559.62.734 1.508.464 2.296l-6.185 17.948-4.583 13.281-.168.478c-.122.35-.337.633-.586.876-.02.02-.02.06-.047.08l-49.427 44.786zm-42.037-30.656a3.054 3.054 0 01.68-3.65l9.065-8.13c7.666-6.882 16.866-8.835 23.024-3.023l-.444.39-17.357 15.578c-2.989-.505-7.66-.411-11.637.438-.148.027-.29.047-.437.053a3.055 3.055 0 01-2.894-1.656zm42.757 47.694c-.996-.633-1.514-1.818-1.353-2.976.007-.007.007-.007 0-.014a3.44 3.44 0 01.121-.505c1.266-3.859 1.865-8.492 1.69-11.523l17.35-15.564.451-.41c5.108 6.754 2.167 15.698-5.505 22.58l-9.06 8.13a3.036 3.036 0 01-3.694.282zm45.672-66.262l.276-.801c-.128.263-.256.512-.364.734.027.02.054.047.088.067zm-.095-.067c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zm0 0c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734z" fill="url(#a)" transform="translate(38 111)"></path>
+    <path d="M92.797 185.23L75.44 200.807c-2.989-.505-7.66-.411-11.637.438-.148.027-.29.047-.437.053.551.25 1.177.33 1.81.202 3.816-.8 8.292-.895 11.159-.417l17.075-15.315a9.223 9.223 0 00-.613-.538zm3.123 46.967l-21.275-23.746a2.172 2.172 0 00-2.153-.674c.444.101.855.337 1.184.707l22.177 24.764c.276.303.45.66.531 1.037a2.176 2.176 0 00-.464-2.088zm25.117-15.443c-.175-.262-.343-.518-.538-.767l-17.068 15.321c.168 2.903-.41 7.348-1.622 11.052a2.895 2.895 0 00.06 1.98 3.44 3.44 0 01.122-.506c1.265-3.858 1.864-8.492 1.689-11.523l17.357-15.557zm27.77-35.747c.026.02.053.047.087.067l.276-.801c-.128.263-.25.512-.364.734z" fill="url(#b)" transform="translate(38 111)"></path>
+    <path d="M148.806 181.007c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zm0 0c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zm-35.556-97.8c-3.21-.31-6.474-.465-9.772-.465C46.742 82.742.754 128.76.754 185.532l47.771 47.803a42.958 42.958 0 0012.23-4.081 9.189 9.189 0 01-2.323-6.634 9.2 9.2 0 013.05-6.357l8.957-7.974a2.282 2.282 0 011.649-.58c.128.008.262.028.39.061h.007c.444.101.855.337 1.185.708l22.176 24.763c.276.303.45.66.532 1.037a2.282 2.282 0 01-.707 2.202l-8.87 8.048c-3.682 3.3-9.72 2.963-13.004-.7l-1.823-2.04a28.855 28.855 0 00-4.866 10.148l36.357 36.38c50.557 0 92.581-36.541 101.135-84.667a103.715 103.715 0 001.589-18.123c.02-53.466-40.786-97.396-92.939-102.32zM60.472 199.642a3.054 3.054 0 01.68-3.65l9.065-8.13c7.666-6.882 16.866-8.835 23.024-3.023l-.444.39-17.357 15.578c-2.989-.505-7.66-.411-11.637.438-.148.027-.29.047-.437.053a3.055 3.055 0 01-2.894-1.656zm55.51 39.283l-9.058 8.129a3.057 3.057 0 01-3.702.282c-.996-.633-1.514-1.818-1.353-2.976.007-.007.007-.007 0-.014a3.44 3.44 0 01.122-.505c1.265-3.859 1.864-8.492 1.689-11.523l17.35-15.564.451-.41c5.115 6.761 2.174 15.698-5.498 22.58zm36.593-54.382c-.12.35-.336.633-.585.875-.02.02-.02.06-.047.081l-49.427 44.799c-.451.417-1.05.626-1.663.592h-.007a2.247 2.247 0 01-1.581-.76l-7.989-8.917h-.007l-9.779-10.924-4.348-4.855a2.302 2.302 0 01.182-3.26l49.838-44.361c.027-.02.067-.027.094-.054.114-.094.25-.155.384-.229.047-.02.087-.047.141-.067.088-.047.182-.088.283-.115.033-.013.067-.04.107-.054l14.174-3.232 18.482-4.216a2.3 2.3 0 012.221.707c.558.62.733 1.508.464 2.296l-6.185 17.948-4.583 13.281-.169.465zm-3.674-3.469l.276-.801c-.128.263-.256.512-.364.734.027.02.054.047.088.067zm-.095-.067c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734zm0 0c.027.02.054.047.088.067l.276-.801c-.128.263-.25.512-.364.734z" fill="url(#c)" transform="translate(38 111)"></path>
+    <path d="M149.177 180.273l-.276.801c-.034-.02-.06-.047-.088-.067.108-.222.229-.471.364-.734z" fill="url(#d)" transform="translate(38 111)"></path>
+    <path d="M315.024 102.185c0 56.24-45.564 101.834-101.775 101.834-2.908 0-5.788-.121-8.628-.357-19.343-1.623-37.138-8.66-51.884-19.59l4.583-13.281 6.185-17.948c.27-.788.095-1.67-.464-2.297a2.3 2.3 0 00-2.221-.707l-18.481 4.216-14.174 3.233c-.04.013-.074.04-.108.053a1.308 1.308 0 00-.283.115c-10.31-15.92-16.287-34.899-16.287-55.271 0-6.486.606-12.83 1.77-18.978.007-.034.007-.068.02-.102C122.195 35.983 163.573.357 213.256.357c.652 0 1.319.007 1.972.02.652.014 1.305.034 1.958.054.512.02 1.016.04 1.528.067.747.04 1.494.081 2.234.149.902.06 1.81.148 2.706.235.855.088 1.703.189 2.564.29a100.957 100.957 0 0137.69 12.681c.35.202.713.411 1.063.62.707.417 1.4.835 2.1 1.273.693.437 1.38.875 2.066 1.326.62.411 1.238.822 1.85 1.253.082.054.17.108.25.175a86.43 86.43 0 011.87 1.334c.344.249.694.505 1.037.76.646.492 1.3.99 1.939 1.496a105.372 105.372 0 013.244 2.66c.484.417.969.835 1.44 1.26.37.33.747.66 1.11 1.003.364.336.74.68 1.097 1.023.33.303.653.613.983.93.357.336.714.693 1.063 1.044.35.343.707.7 1.05 1.057 17.062 17.483 27.89 41.081 28.873 67.205.054 1.293.081 2.6.081 3.913z" fill="url(#e)" transform="translate(38 111)"></path>
+  </g>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c36="" class="text-2xl font-black text-primary">notiz.dev </span></a></div><div _ngcontent-prj-c36="" class="flex flex-row space-x-6 items-center"><a _ngcontent-prj-c36="" href="https://github.com/sponsors/notiz-dev" target="_blank" rel="noopener noreferrer" class="focus-ring hidden items-center space-x-1 rounded-xl border-2 border-solid border-canvas-light bg-canvas-light p-1 hover:border-primary md:flex"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/heart.svg" class="theme h-4 w-4" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"></path>
+</svg></niz-inline-svg><span _ngcontent-prj-c36="" class="px-2 font-semibold">Sponsor us</span></a><a _ngcontent-prj-c36="" href="https://github.com/sponsors/notiz-dev" target="_blank" rel="noopener noreferrer" class="theme focus-ring flex h-6 w-6 select-none rounded-full focus:ring-offset-4 focus:ring-offset-canvas md:hidden"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/heart.svg" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"></path>
+</svg></niz-inline-svg><span _ngcontent-prj-c36="" class="sr-only">Sponsor us</span></a><button _ngcontent-prj-c36="" class="hidden md:flex bg-canvas-light border-solid border-2 border-canvas-light hover:border-primary focus-ring rounded-xl p-1 flex-row space-x-1 items-center" aria-label="Open search"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/search.svg" class="h-4 w-4 theme" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M208 80a128 128 0 11-90.51 37.49A127.15 127.15 0 01208 80m0-80C93.12 0 0 93.12 0 208s93.12 208 208 208 208-93.12 208-208S322.88 0 208 0z" opacity=".4"></path>
+  <path d="M504.9 476.7L476.6 505a23.9 23.9 0 01-33.9 0L343 405.3a24 24 0 01-7-17V372l36-36h16.3a24 24 0 0117 7l99.7 99.7a24.11 24.11 0 01-.1 34z"></path>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c36="" class="px-2 outline-none font-semibold"> "<kbd _ngcontent-prj-c36="">/</kbd>" to focus</span></button><button _ngcontent-prj-c36="" class="flex md:hidden h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none" aria-label="Toggle theme"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/search.svg" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M208 80a128 128 0 11-90.51 37.49A127.15 127.15 0 01208 80m0-80C93.12 0 0 93.12 0 208s93.12 208 208 208 208-93.12 208-208S322.88 0 208 0z" opacity=".4"></path>
+  <path d="M504.9 476.7L476.6 505a23.9 23.9 0 01-33.9 0L343 405.3a24 24 0 01-7-17V372l36-36h16.3a24 24 0 0117 7l99.7 99.7a24.11 24.11 0 01-.1 34z"></path>
+</svg>
+</niz-inline-svg></button><button _ngcontent-prj-c36="" class="flex h-6 w-6 theme rounded-full focus-ring focus:ring-offset-4 focus:ring-offset-canvas select-none dark rotate" aria-label="Toggle theme"><niz-inline-svg _ngcontent-prj-c36="" svgsource="assets/img/adjust.svg" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M504 256c0 137-111 248-248 248V8c137 0 248 111 248 248z" opacity=".4"></path>
+  <path d="M256 8v496C119 504 8 393 8 256S119 8 256 8z"></path>
+</svg>
+</niz-inline-svg></button></div></div></header><main _ngcontent-prj-c36="" class="mt-12"><router-outlet _ngcontent-prj-c36=""></router-outlet><app-blog-post _nghost-prj-c55=""><niz-seo _ngcontent-prj-c55=""></niz-seo><!---->
+
+<article _ngcontent-prj-c55="" class="container mt-8 space-y-6">
+  <app-breadcrumb _ngcontent-prj-c55=""><nav aria-label="Breadcrumb" class="flex flex-wrap"><div class="flex items-center space-x-2"><a class="cursor-pointer text-primary hover:text-primary-shade text-2xl" href="/"><i aria-hidden="true" class="material-icons-outlined flex-shrink-0 text-2xl"> home </i><span class="sr-only">Start</span></a><div class="flex items-center"><i aria-hidden="true" class="material-icons-outlined flex-shrink-0 text-2xl text-gray-500"> keyboard_arrow_right </i><a class="ml-2 text-sm font-medium cursor-pointer text-primary hover:text-primary-shade" href="/blog"> Blog </a><!----><!----></div><div class="flex items-center"><i aria-hidden="true" class="material-icons-outlined flex-shrink-0 text-2xl text-gray-500"> keyboard_arrow_right </i><!----><span class="ml-2 text-sm font-medium text-color-light line-clamp-1"> Floating Form Field with Tailwind CSS </span><!----></div><!----></div></nav></app-breadcrumb>
+  <div _ngcontent-prj-c55="" class="w-full max-w-2xl space-y-6">
+    <h1 _ngcontent-prj-c55="">
+      Floating Form Field with Tailwind CSS
+    </h1>
+
+    <p _ngcontent-prj-c55="" class="text-lg md:text-2xl">
+      Learn how to build a floating form field with Tailwind CSS
+    </p>
+    <div _ngcontent-prj-c55="" class="flex items-center justify-between">
+      <niz-author-small _ngcontent-prj-c55="" _nghost-prj-c43=""><dl _ngcontent-prj-c43=""><dt _ngcontent-prj-c43="" class="sr-only">Authors</dt><dd _ngcontent-prj-c43=""><a _ngcontent-prj-c43="" class="flex items-center space-x-4 group" href="/authors/marc-stammerjohann/"><img _ngcontent-prj-c43="" width="460" height="460" class="h-10 w-10 author rounded-full group-hover:opacity-80" src="https://github.com/marcjulian.png" alt="Marc Stammerjohann" loading="lazy" data-zoomable="true"><span _ngcontent-prj-c43="" class="text-base font-medium leading-5 group-hover:text-primary"> Marc Stammerjohann </span><!----></a></dd></dl></niz-author-small>
+      <dl _ngcontent-prj-c55="">
+        <dt _ngcontent-prj-c55="" class="sr-only">Published at</dt>
+        <dd _ngcontent-prj-c55="" class="text-base font-medium text-color-light">
+          <time _ngcontent-prj-c55="" datetime="2020-05-28T21:50:00.000Z">
+            28 May 2020
+          </time>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div _ngcontent-prj-c55="" class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 lg:grid-cols-4 lg:gap-x-6">
+    <div _ngcontent-prj-c55="" class="max-w-2xl space-y-8 md:col-span-2 lg:col-span-3">
+      <div _ngcontent-prj-c55="" scullyshortcodes="" class="prose">
+        <!--scullyContent-begin--><p _ngcontent-prj-c55="">In the following lesson you will learn how to use <a href="https://tailwindcss.com" _ngcontent-prj-c55="" rel="noreferrer noopener">Tailwind CSS</a> utility-first approach to create a floating form field known from <a href="https://material.io/components/text-fields" _ngcontent-prj-c55="" rel="noreferrer noopener">Material Design</a>. This is inspired by the awesome video from <a href="https://www.youtube.com/watch?v=yrrw6KdGuxc" _ngcontent-prj-c55="" rel="noreferrer noopener">fireship.io</a>.</p>
+<div shortcode="figure" caption="Floating Form" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif" alt="Floating Form" _ngcontent-prj-c55="" loading="lazy" height="624" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">You can follow along in a new project or get the <a href="https://github.com/notiz-dev/floating-form-field-tailwindcss" _ngcontent-prj-c55="" rel="noreferrer noopener">source code</a> from GitHub.</p>
+<h2 id="setup" _ngcontent-prj-c55="">Setup</h2>
+<p _ngcontent-prj-c55="">Let's start in an empty directory and setup up a default <code _ngcontent-prj-c55="">package.json</code> file using <code _ngcontent-prj-c55="">npm init -y</code>.</p>
+<h3 id="setup-tailwind-css" _ngcontent-prj-c55="">Setup Tailwind CSS</h3>
+<p _ngcontent-prj-c55="">Setup <a href="https://tailwindcss.com/docs/installation/" _ngcontent-prj-c55="" rel="noreferrer noopener">Tailwind</a> by installing</p>
+<div shortcode="code" tabs="BASH" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-bash" _ngcontent-prj-c55="">npm i -D tailwindcss postcss-cli autoprefixer
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Generate a Tailwind config file as you will <a href="https://tailwindcss.com/docs/configuration/" _ngcontent-prj-c55="" rel="noreferrer noopener">customize</a> Tailwind for the floating form field later.</p>
+<div shortcode="code" tabs="BASH" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-bash" _ngcontent-prj-c55="">npx tailwindcss init
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Create <code _ngcontent-prj-c55="">postcss.config.js</code> file requiring <code _ngcontent-prj-c55="">tailwindcss</code> and <code _ngcontent-prj-c55="">autoprefixer</code> as a plugin:</p>
+<div shortcode="code" tabs="postcss.config.js" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-js" _ngcontent-prj-c55="">module.exports = {
+  plugins: [
+    require("tailwindcss"),
+    require("autoprefixer")
+  ]
+};
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Create your tailwind styles under <code _ngcontent-prj-c55="">css/tailwind.css</code></p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Add those scripts to your <code _ngcontent-prj-c55="">package.json</code> one to build and the other to watch changes made to the <code _ngcontent-prj-c55="">tailwind.css</code> file.</p>
+<div shortcode="code" tabs="package.json" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-json" _ngcontent-prj-c55="">"scripts": {
+  "build": "postcss css/tailwind.css -o public/build/tailwind.css",
+  "dev": "postcss css/tailwind.css -o public/build/tailwind.css -w"
+},
+</code></pre>
+</div>
+
+<h3 id="setup-html" _ngcontent-prj-c55="">Setup HTML</h3>
+<p _ngcontent-prj-c55="">Start with the following simple HTML layout - create an <code _ngcontent-prj-c55="">index.html</code> in the <strong _ngcontent-prj-c55="">public</strong> directory.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;FFFwT&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="build/tailwind.css" /&gt;
+  &lt;/head&gt;
+  &lt;body class="antialiased p-10"&gt;
+    &lt;form&gt;
+      &lt;div&gt;
+        &lt;input type="text" name="username" placeholder=" " /&gt;
+        &lt;label for="username"&gt;Username&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">You can use <a href="https://www.npmjs.com/package/live-server" _ngcontent-prj-c55="" rel="noreferrer noopener">live-server</a> to start a dev-server with live reload.</p>
+<div shortcode="code" tabs="BASH" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-bash" _ngcontent-prj-c55="">live-server public
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Here you have your starting point - an input and a label.</p>
+<div shortcode="figure" caption="Input and Label" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/1-input-and-label.png" alt="Input and Label" _ngcontent-prj-c55="" loading="lazy" height="250" width="884" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Let's add styles to create a floating form field.</p>
+<h2 id="floating-form-field" _ngcontent-prj-c55="">Floating Form Field</h2>
+<h3 id="focus-border" _ngcontent-prj-c55="">Focus Border</h3>
+<p _ngcontent-prj-c55="">Start by adding a bottom border to the <code _ngcontent-prj-c55="">div</code> using <code _ngcontent-prj-c55="">border-b-{width}</code></p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="border-b-2"&gt;
+  &lt;input type="text" name="username" placeholder=" " /&gt;
+  &lt;label for="username"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<div shortcode="figure" caption="Border bottom" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/2-border.png" alt="Border bottom" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">To change the border color when the input is focused use the pseudo-class <code _ngcontent-prj-c55="">focus-within</code>. Enable the <a href="https://tailwindcss.com/docs/pseudo-class-variants/#focus-within" _ngcontent-prj-c55="" rel="noreferrer noopener">focus-within variant</a> in Tailwind for <code _ngcontent-prj-c55="">borderColor</code> by adding it in the <code _ngcontent-prj-c55="">tailwind.config.js</code> under the variants section:</p>
+<div shortcode="code" tabs="tailwind.config.js" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-js" _ngcontent-prj-c55="">variants: {
+  borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
+},
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Now add <code _ngcontent-prj-c55="">focus-within:border-blue-500</code> to change the border color on focus</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="my-4 border-b-2 focus-within:border-blue-500"&gt;
+  &lt;input type="text" name="username" placeholder=" " /&gt;
+  &lt;label for="username"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<div shortcode="figure" caption="Change border color on focus" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/3-focus-border-color.png" alt="Change border color on focus" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<h3 id="floating-label" _ngcontent-prj-c55="">Floating Label</h3>
+<p _ngcontent-prj-c55="">Begin with changing the position of the <code _ngcontent-prj-c55="">div</code> to <code _ngcontent-prj-c55="">relative</code> so that you can use <code _ngcontent-prj-c55="">top</code> to control the position of the <code _ngcontent-prj-c55="">label</code>. Add <code _ngcontent-prj-c55="">class="absolute top-0"</code> to the <code _ngcontent-prj-c55="">label</code>.</p>
+<p _ngcontent-prj-c55=""><code _ngcontent-prj-c55="">input</code> is an inline element, add the Tailwind <code _ngcontent-prj-c55="">block</code> class to change it to a block element. Also set the input width to 100% with <code _ngcontent-prj-c55="">w-full</code> to tap the input on the whole form field. Additionally, add <code _ngcontent-prj-c55="">appearance-none</code> and <code _ngcontent-prj-c55="">focus:outline-none</code> to the input to remove browser specific styles.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="relative my-4 border-b-2 focus-within:border-blue-500"&gt;
+  &lt;input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none" /&gt;
+  &lt;label for="username" class="absolute top-0"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Currently the label is covering the input field and preventing you from focusing the input 🙈.</p>
+<div shortcode="figure" caption="Label is covering up the input" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/4-label-covers-input.png" alt="Label is covering up the input" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Let's change the <code _ngcontent-prj-c55="">z-index</code> of the label to be behind the input field by setting it to <code _ngcontent-prj-c55="">z-index: -1</code>. Extend the Tailwind theme to generate a negative z-index for you:</p>
+<div shortcode="code" tabs="tailwind.config.js" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-js" _ngcontent-prj-c55="">theme: {
+  extend: {
+    zIndex: {
+      "-1": "-1",
+    },
+  },
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Add <code _ngcontent-prj-c55="">-z-1</code> class to the label, now the label is not visible anymore. Add <code _ngcontent-prj-c55="">bg-transparent</code> to the <code _ngcontent-prj-c55="">input</code>. </p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="relative my-4 border-b-2 focus-within:border-blue-500"&gt;
+  &lt;input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" /&gt;
+  &lt;label for="username" class="absolute top-0 -z-1"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">The label is visible again and the input field can be focused by taping on the label too 🐵.</p>
+<p _ngcontent-prj-c55="">Next make the label float above the input, again, using the pseudo-class <code _ngcontent-prj-c55="">focus-within</code>. Open your <code _ngcontent-prj-c55="">tailwind.css</code> and add the following CSS selector:</p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">input:focus-within ~ label {
+ 
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Now use Tailwind's <a href="https://tailwindcss.com/docs/functions-and-directives/#apply" _ngcontent-prj-c55="" rel="noreferrer noopener">@apply</a> to transform, scale and change the label text color on input focus.</p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">input:focus-within ~ label {
+ @apply transform scale-75 -translate-y-6 text-blue-500;
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Also add <code _ngcontent-prj-c55="">duration-300</code> to your label class to control the labels transition duration.</p>
+<div shortcode="figure" caption="Floating label on focus" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/5-floating-label-on-focus.png" alt="Floating label on focus" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Awesome the label is floating 🎈, however, it stops floating when you remove the focus from the input 😞. The label should float if the input field has some content. Target the <code _ngcontent-prj-c55="">placeholder</code>, if its not shown <code _ngcontent-prj-c55="">input:not(:placeholder-shown) ~ label</code> thus the input has content and the label should float. </p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+  @apply text-blue-500;
+}
+</code></pre>
+</div>
+
+<div shortcode="figure" caption="Floating label without focus" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/6-floating-label-without-focus.png" alt="Floating label without focus" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Yeah 🤩, the label floats on focus and if the input has content. It seems the label is not aligned with the input field. Set <code _ngcontent-prj-c55="">transform-origin</code> on the label to 0%. Let Tailwind generate it for you, open <code _ngcontent-prj-c55="">tailwind.config.js</code> and add it to the theme section:</p>
+<div shortcode="code" tabs="tailwind.config.js" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-js" _ngcontent-prj-c55="">theme: {
+  extend: {
+    transformOrigin: {
+      "0": "0%",
+    },
+    zIndex: {
+      "-1": "-1",
+    },
+  },
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Now add <code _ngcontent-prj-c55="">origin-0</code> to the label and finally you have your own floating form field made with Tailwind CSS 😍🚀</p>
+<div shortcode="figure" caption="Floating label without focus" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/7-floating-form-field.png" alt="Floating Form Field" _ngcontent-prj-c55="" loading="lazy" height="294" width="884" data-zoomable="true"></p>
+</div>
+
+<h3 id="building-a-form" _ngcontent-prj-c55="">Building a form</h3>
+<p _ngcontent-prj-c55="">Let's build a form field by duplicating the floating form field or by extracting the styles with <a href="https://tailwindcss.com/docs/functions-and-directives/#apply" _ngcontent-prj-c55="" rel="noreferrer noopener">@apply</a>.</p>
+<p _ngcontent-prj-c55="">Add <code _ngcontent-prj-c55="">space-y-{size}</code> to the form to add margin between your input fields. You could also wrap it with a card.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55=""> &lt;form class="max-w-sm mx-auto rounded-lg shadow-xl overflow-hidden p-6 space-y-10"&gt;
+  &lt;h2 class="text-2xl font-bold text-center"&gt;Login&lt;/h2&gt;
+  &lt;div class="relative border-b-2 focus-within:border-blue-500"&gt;
+    &lt;input type="text" name="username" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="username" class="absolute top-0 -z-1 duration-300 origin-0"&gt;Username&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="relative border-b-2 focus-within:border-blue-500"&gt;
+    &lt;input type="text" name="email" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="email" class="absolute top-0 -z-1 duration-300 origin-0"&gt;Email&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="relative border-b-2 focus-within:border-blue-500"&gt;
+    &lt;input type="password" name="password" placeholder=" " class="block w-full appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="password" class="absolute top-0 -z-1 duration-300 origin-0"&gt;Password&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Here you have your first form using the floating form field</p>
+<div shortcode="figure" caption="Floating label without focus" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/floating-form.gif" alt="Floating form" _ngcontent-prj-c55="" loading="lazy" height="624" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Next, try out another style - Outline Form Field.</p>
+<h2 id="outline-form-field" _ngcontent-prj-c55="">Outline Form Field</h2>
+<p _ngcontent-prj-c55="">In this style the form field has an outline all around and the label floats into the outline. Reuse the floating form field and change <code _ngcontent-prj-c55="">border-b-2</code> to <code _ngcontent-prj-c55="">border-2</code> this gives you the outline. </p>
+<p _ngcontent-prj-c55="">Add padding <code _ngcontent-prj-c55="">p-4</code> to create space inside the outline and increase the font size <code _ngcontent-prj-c55="">text-lg</code> of the input and the label.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="relative border-2 focus-within:border-blue-500"&gt;
+  &lt;input type="text" name="username" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" /&gt;
+  &lt;label for="username" class="absolute top-0 p-4 text-lg -z-1 duration-300 origin-0"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Look at our outline form field</p>
+<div shortcode="figure" caption="Outline form field" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/8-outline-form-field.png" alt="Outline form field" _ngcontent-prj-c55="" loading="lazy" height="402" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">Focus the input and you notice the label is <strong _ngcontent-prj-c55="">not</strong> covering up the outline.</p>
+<div shortcode="figure" caption="Floating label not covering the outline" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/9-outline-floating-label-below.png" alt="Floating label not covering the outline" _ngcontent-prj-c55="" loading="lazy" height="402" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">To make the label cover up the outline customize the floating CSS applied to the outline form field. Duplicate the custom CSS in your <code _ngcontent-prj-c55="">tailwind.css</code> and add <code _ngcontent-prj-c55="">.outline</code> class to both selectors. Add <code _ngcontent-prj-c55="">outline</code> class to the <code _ngcontent-prj-c55="">div</code> around your input and label.</p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">.outline input:focus-within ~ label,
+.outline input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Update a few styles on the label to remove the top and bottom padding - <code _ngcontent-prj-c55="">py-0</code>. Also reduce the left and right padding to <code _ngcontent-prj-c55="">px-1</code>, add margin left <code _ngcontent-prj-c55="">ml-3</code> to align it with the input. Reset the z-index to <code _ngcontent-prj-c55="">z-0</code> that the label is above the outline. Finally, reduce the translate y value until the label is perfectly matching the outline.</p>
+<div shortcode="code" tabs="tailwind.css" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-css" _ngcontent-prj-c55="">.outline input:focus-within ~ label,
+.outline input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-4 z-0 ml-3 px-1 py-0;
+}
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Perfect the label is exactly on the outline, but the line is still visible.</p>
+<div shortcode="figure" caption="Floating label not covering the outline" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/optimized/10-outline-floating-label-with-line-through.png" alt="Floating label covers outline with line through" _ngcontent-prj-c55="" loading="lazy" height="402" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">To hide the outline set the background of the label to the same background of the container where you place the form field. Add <code _ngcontent-prj-c55="">bg-white</code> to the label, this should do the trick.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;div class="outline relative border-2 focus-within:border-blue-500"&gt;
+  &lt;input type="text" name="username" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" /&gt;
+  &lt;label for="username" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0"&gt;Username&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p _ngcontent-prj-c55="">Now you have the outline form field working too. 👍</p>
+<h3 id="building-a-form-1" _ngcontent-prj-c55="">Building a form</h3>
+<p _ngcontent-prj-c55="">Now create a form using the outline style.</p>
+<div shortcode="code" tabs="index.html" _ngcontent-prj-c55="">
+
+<pre _ngcontent-prj-c55=""><code class="language-html" _ngcontent-prj-c55="">&lt;form class="max-w-sm mx-auto rounded-lg shadow-xl overflow-hidden p-6 space-y-10"&gt;
+  &lt;h2 class="text-2xl font-bold text-center"&gt;Login&lt;/h2&gt;
+  &lt;div class="outline relative border-2 focus-within:border-blue-500"&gt;
+    &lt;input type="text" name="username" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="username" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0"&gt;Username&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="outline relative border-2 focus-within:border-blue-500"&gt;
+    &lt;input type="email" name="email" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="email" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0"&gt;Email&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="outline relative border-2 focus-within:border-blue-500"&gt;
+    &lt;input type="password" name="password" placeholder=" " class="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" /&gt;
+    &lt;label for="password" class="absolute top-0 text-lg bg-white p-4 -z-1 duration-300 origin-0"&gt;Password&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+
+<div shortcode="figure" caption="Outline Form" _ngcontent-prj-c55="">
+
+<p _ngcontent-prj-c55=""><img src="assets/img/blog/floating-form-field-with-tailwindcss/outline-form.gif" alt="Outline Form" _ngcontent-prj-c55="" loading="lazy" height="812" width="800" data-zoomable="true"></p>
+</div>
+
+<p _ngcontent-prj-c55="">If you followed along, create and customize your own floating form field w/ Tailwind CSS. Send me your own design on Twitter <a href="https://twitter.com/mrcjln" _ngcontent-prj-c55="" rel="noreferrer noopener">@mrcjln</a>.</p>
+<!--scullyContent-end--><scully-content _ngcontent-prj-c55=""></scully-content>
+      <script>try {window['scullyContent'] = {cssId:"_ngcontent-prj-c55",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div><!---->
+
+      <niz-sponsor _ngcontent-prj-c55="" class="block"><div class="relative"><div class="absolute -inset-1 rounded-lg bg-gradient-primary-inverse"></div><div class="relative rounded-lg bg-canvas p-4"><div class="flex flex-row items-baseline"><niz-inline-svg svgsource="assets/img/heart.svg" class="h-5 w-5 flex-shrink-0 text-primary" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"></path>
+</svg></niz-inline-svg><div class="ml-3"><h2>Sponsor us</h2><p class="mt-2 text-lg font-medium"><strong class="font-semibold">Did you find this post useful?</strong> We at <strong>notiz.dev</strong> write about our experiences developing Apps, Websites and APIs and develop <a href="https://github.com/notiz-dev" target="_blank" rel="noopener noreferrer"> Open Source </a> tools. Your support would mean a lot to us 🙏. Receive a reward by sponsoring us on Patreon or start with a one-time donation on GitHub Sponsors. </p><div class="mt-6 flex flex-col space-y-6 md:flex-row md:space-x-6 md:space-y-0"><a href="https://github.com/sponsors/notiz-dev" target="_blank" rel="noopener noreferrer" class="flex rounded-md bg-canvas-shade py-1 px-2 text-color hover:text-color-light"><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="mr-2 h-6 w-6"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg><span>GitHub Sponsors</span></a><a href="https://www.patreon.com/notiz_dev" target="_blank" rel="noopener noreferrer" class="flex rounded-md bg-canvas-shade py-1 px-2 text-color hover:text-color-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" class="mr-2 h-6 w-6"><path fill="#f96753" d="M108.814 26.067c-26.469 0-48.003 21.53-48.003 47.998 0 26.386 21.534 47.854 48.003 47.854 26.386 0 47.853-21.468 47.853-47.854 0-26.467-21.467-47.998-47.853-47.998"></path><path fill="#052a49" d="M23.333 153.933V26.067H46.8v127.866z"></path></svg><span>Patreon</span></a></div></div></div></div></div></niz-sponsor>
+      <app-comments _ngcontent-prj-c55="" _nghost-prj-c51="" class="block"><script _ngcontent-prj-c51="" src="https://giscus.app/client.js" data-repo="notiz-dev/notiz" data-repo-id="MDEwOlJlcG9zaXRvcnkyNDIwMDQ3NTU=" data-category="General" data-category-id="MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDY1OTYw" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-loading="lazy" crossorin="anonymous" async=""></script><div class="giscus"><iframe class="giscus-frame giscus-frame--loading" title="Comments" scrolling="no" allow="clipboard-write" src="https://giscus.app/widget?origin=http%3A%2F%2Flocalhost%3A1864%2Fblog%2Ffloating-form-field-with-tailwindcss&amp;session=&amp;theme=dark&amp;reactionsEnabled=1&amp;emitMetadata=0&amp;inputPosition=top&amp;repo=notiz-dev%2Fnotiz&amp;repoId=MDEwOlJlcG9zaXRvcnkyNDIwMDQ3NTU%3D&amp;category=General&amp;categoryId=MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyMDY1OTYw&amp;strict=0&amp;description=Learn+how+to+build+a+floating+form+field+with+Tailwind+CSS&amp;backLink=http%3A%2F%2Flocalhost%3A1864%2Fblog%2Ffloating-form-field-with-tailwindcss&amp;term=Floating+Form+Field+with+Tailwind+CSS" loading="lazy" style="opacity: 0;"></iframe></div></app-comments>
+    </div>
+    <div _ngcontent-prj-c55="" class="order-first md:order-none">
+      <div _ngcontent-prj-c55="" class="sticky top-32 flex flex-col space-y-4">
+        <niz-toc _ngcontent-prj-c55="" _nghost-prj-c52="" class="flex flex-col space-y-2"><h2 _ngcontent-prj-c52="" class="text-xl font-semibold text-primary flex space-x-2 items-center cursor-pointer md:cursor-default"><span _ngcontent-prj-c52="" class="text-primary">Table of Contents</span><!----></h2><div _ngcontent-prj-c52="" class="flex flex-col space-y-2 overflow-hidden"><span _ngcontent-prj-c52="" class="cursor-pointer hover:text-primary text-base ml-3"> Top of Page </span><!----><!----><span _ngcontent-prj-c52="" class="cursor-pointer hover:text-primary text-base ml-3"> Comments </span><span _ngcontent-prj-c52="" class="cursor-pointer hover:text-primary text-base ml-3"> Related Articles </span></div></niz-toc>
+        <div _ngcontent-prj-c55="" class="flex flex-col space-y-4">
+          <h2 _ngcontent-prj-c55="" class="text-xl font-semibold">Tags</h2>
+          <div _ngcontent-prj-c55="">
+            <a _ngcontent-prj-c55="" class="gradient chip mb-1 mr-1" href="/tags/tailwind-css/">
+              Tailwind CSS
+            </a><a _ngcontent-prj-c55="" class="gradient chip mb-1 mr-1" href="/tags/css/">
+              CSS
+            </a><!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article><!---->
+
+<app-card-stack _ngcontent-prj-c55="" title="Related Posts" subtitle="Find more posts like this one." class="mt-12" _nghost-prj-c53=""><div _ngcontent-prj-c53="" class="p-4 title-card flex-grow justify-center items-center md:flex-col md:justify-start md:items-start"><h2 _ngcontent-prj-c53="" class="md:mt-4 text-2xl font-semibold">Related Posts</h2><p _ngcontent-prj-c53="" class="mt-2 text-lg">Find more posts like this one.</p></div><div _ngcontent-prj-c53="" class="flex flex-row overflow-x-scroll w-full md:ml-6"><div _ngcontent-prj-c53="" class="flex flex-no-wrap pr-4 py-4 horizontal-cards">
+  <div _ngcontent-prj-c55="" class="card">
+    <app-article _ngcontent-prj-c55="" class="stacked" _nghost-prj-c44=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/send-beautiful-emails-crafted-with-maizzle/"></a><div _ngcontent-prj-c44="" class="flex flex-row items-center text-sm space-x-2"><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/send-beautiful-emails-crafted-with-maizzle/"><niz-author-small _ngcontent-prj-c44="" _nghost-prj-c43=""></niz-author-small></a><dl _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/send-beautiful-emails-crafted-with-maizzle/"><dt _ngcontent-prj-c43="" class="sr-only">Authors</dt></a><dd _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/send-beautiful-emails-crafted-with-maizzle/"></a><a _ngcontent-prj-c43="" class="flex items-center space-x-4 group" href="/authors/marc-stammerjohann/"><img _ngcontent-prj-c43="" width="460" height="460" class="h-10 w-10 author rounded-full group-hover:opacity-80" src="https://github.com/marcjulian.png" alt="Marc Stammerjohann" loading="lazy" data-zoomable="true"><!----></a></dd></dl><span _ngcontent-prj-c44="">July 08, 2022</span></div><h3 _ngcontent-prj-c44="" class="mt-1 text-2xl font-bold line-clamp-2 min leading-8"> Maizzle: Craft beautiful HTML emails with Tailwind CSS </h3><div _ngcontent-prj-c44="" class="text-base text-color-light description line-clamp-2 leading-6"> Send beautiful HTML emails via NestJS crafted with Maizzle and Tailwind CSS </div><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/maizzle/"> Maizzle </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/tailwind-css/"> Tailwind CSS </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/nestjs/"> NestJS </a><!----><span _ngcontent-prj-c44="" class="absolute bottom-4 flex space-x-2 items-center h-6"><niz-inline-svg _ngcontent-prj-c44="" svgsource="assets/img/arrow-right.svg" class="icon h-4 w-4 text-primary" _nghost-prj-c33=""><svg fill="currentColor" viewBox="0 0 20 20">
+  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c44="" class="font-bold text-color-light">Read More</span></span></app-article>
+  </div><div _ngcontent-prj-c55="" class="card">
+    <app-article _ngcontent-prj-c55="" class="stacked" _nghost-prj-c44=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/tailwindcss-purge-optimize-angular-for-production/"></a><div _ngcontent-prj-c44="" class="flex flex-row items-center text-sm space-x-2"><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/tailwindcss-purge-optimize-angular-for-production/"><niz-author-small _ngcontent-prj-c44="" _nghost-prj-c43=""></niz-author-small></a><dl _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/tailwindcss-purge-optimize-angular-for-production/"><dt _ngcontent-prj-c43="" class="sr-only">Authors</dt></a><dd _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/tailwindcss-purge-optimize-angular-for-production/"></a><a _ngcontent-prj-c43="" class="flex items-center space-x-4 group" href="/authors/marc-stammerjohann/"><img _ngcontent-prj-c43="" width="460" height="460" class="h-10 w-10 author rounded-full group-hover:opacity-80" src="https://github.com/marcjulian.png" alt="Marc Stammerjohann" loading="lazy" data-zoomable="true"><!----></a></dd></dl><span _ngcontent-prj-c44="">December 15, 2020</span></div><h3 _ngcontent-prj-c44="" class="mt-1 text-2xl font-bold line-clamp-2 min leading-8"> Tailwind CSS Purge: Optimize Angular for Production </h3><div _ngcontent-prj-c44="" class="text-base text-color-light description line-clamp-2 leading-6"> Remove unused Tailwind CSS utilities from your Angular production build for best performance </div><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/tailwind-css/"> Tailwind CSS </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/angular/"> Angular </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/scully/"> Scully </a><!----><span _ngcontent-prj-c44="" class="absolute bottom-4 flex space-x-2 items-center h-6"><niz-inline-svg _ngcontent-prj-c44="" svgsource="assets/img/arrow-right.svg" class="icon h-4 w-4 text-primary" _nghost-prj-c33=""><svg fill="currentColor" viewBox="0 0 20 20">
+  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c44="" class="font-bold text-color-light">Read More</span></span></app-article>
+  </div><div _ngcontent-prj-c55="" class="card">
+    <app-article _ngcontent-prj-c55="" class="stacked" _nghost-prj-c44=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/jamstack-angular-scully-tailwind-css/"></a><div _ngcontent-prj-c44="" class="flex flex-row items-center text-sm space-x-2"><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/jamstack-angular-scully-tailwind-css/"><niz-author-small _ngcontent-prj-c44="" _nghost-prj-c43=""></niz-author-small></a><dl _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/jamstack-angular-scully-tailwind-css/"><dt _ngcontent-prj-c43="" class="sr-only">Authors</dt></a><dd _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/jamstack-angular-scully-tailwind-css/"></a><a _ngcontent-prj-c43="" class="flex items-center space-x-4 group" href="/authors/marc-stammerjohann/"><img _ngcontent-prj-c43="" width="460" height="460" class="h-10 w-10 author rounded-full group-hover:opacity-80" src="https://github.com/marcjulian.png" alt="Marc Stammerjohann" loading="lazy" data-zoomable="true"><!----></a></dd></dl><span _ngcontent-prj-c44="">October 29, 2020</span></div><h3 _ngcontent-prj-c44="" class="mt-1 text-2xl font-bold line-clamp-2 min leading-8"> Jamstack: Angular + Scully + Tailwind CSS </h3><div _ngcontent-prj-c44="" class="text-base text-color-light description line-clamp-2 leading-6"> Use Angular's static site generator Scully and style it with Tailwind CSS </div><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/scully/"> Scully </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/angular/"> Angular </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/tailwind-css/"> Tailwind CSS </a><!----><span _ngcontent-prj-c44="" class="absolute bottom-4 flex space-x-2 items-center h-6"><niz-inline-svg _ngcontent-prj-c44="" svgsource="assets/img/arrow-right.svg" class="icon h-4 w-4 text-primary" _nghost-prj-c33=""><svg fill="currentColor" viewBox="0 0 20 20">
+  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c44="" class="font-bold text-color-light">Read More</span></span></app-article>
+  </div><div _ngcontent-prj-c55="" class="card">
+    <app-article _ngcontent-prj-c55="" class="stacked" _nghost-prj-c44=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/angular-with-tailwindcss/"></a><div _ngcontent-prj-c44="" class="flex flex-row items-center text-sm space-x-2"><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/angular-with-tailwindcss/"><niz-author-small _ngcontent-prj-c44="" _nghost-prj-c43=""></niz-author-small></a><dl _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/angular-with-tailwindcss/"><dt _ngcontent-prj-c43="" class="sr-only">Authors</dt></a><dd _ngcontent-prj-c43=""><a _ngcontent-prj-c44="" class="article-card space-y-2" href="/blog/angular-with-tailwindcss/"></a><a _ngcontent-prj-c43="" class="flex items-center space-x-4 group" href="/authors/marc-stammerjohann/"><img _ngcontent-prj-c43="" width="460" height="460" class="h-10 w-10 author rounded-full group-hover:opacity-80" src="https://github.com/marcjulian.png" alt="Marc Stammerjohann" loading="lazy" data-zoomable="true"><!----></a></dd></dl><span _ngcontent-prj-c44="">June 03, 2021</span></div><h3 _ngcontent-prj-c44="" class="mt-1 text-2xl font-bold line-clamp-2 min leading-8"> Angular with Tailwind CSS </h3><div _ngcontent-prj-c44="" class="text-base text-color-light description line-clamp-2 leading-6"> Learn how to style Angular applications with Tailwind CSS </div><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/angular/"> Angular </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/tailwind-css/"> Tailwind CSS </a><a _ngcontent-prj-c44="" class="chip chip-small mb-1 mr-1" href="/tags/css/"> CSS </a><!----><span _ngcontent-prj-c44="" class="absolute bottom-4 flex space-x-2 items-center h-6"><niz-inline-svg _ngcontent-prj-c44="" svgsource="assets/img/arrow-right.svg" class="icon h-4 w-4 text-primary" _nghost-prj-c33=""><svg fill="currentColor" viewBox="0 0 20 20">
+  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+</svg>
+</niz-inline-svg><span _ngcontent-prj-c44="" class="font-bold text-color-light">Read More</span></span></app-article>
+  </div><!---->
+  <div _ngcontent-prj-c55="" class="card">
+    <app-coming-soon _ngcontent-prj-c55="" _nghost-prj-c54=""><niz-inline-svg _ngcontent-prj-c54="" svgsource="assets/img/tools.svg" class="h-8 w-8 text-color" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M502.6 389.5L378.2 265c-15.6-15.6-36.1-23.4-56.6-23.4-15.4 0-30.8 4.4-44.1 13.3L192 169.4V96L64 0 0 64l96 128h73.4l85.5 85.5c-20.6 31.1-17.2 73.3 10.2 100.7l124.5 124.5c6.2 6.2 14.4 9.4 22.6 9.4 8.2 0 16.4-3.1 22.6-9.4l67.9-67.9c12.4-12.6 12.4-32.8-.1-45.3zM160 158.1v1.9h-48L42.3 67 67 42.3l93 69.7v46.1zM412.1 480L287.7 355.5c-9.1-9.1-14.1-21.1-14.1-33.9 0-12.8 5-24.9 14.1-33.9 9.1-9.1 21.1-14.1 33.9-14.1 12.8 0 24.9 5 33.9 14.1L480 412.1 412.1 480zM64 432c0 8.8 7.2 16 16 16s16-7.2 16-16-7.2-16-16-16-16 7.2-16 16zM276.8 66.9C299.5 44.2 329.4 32 360.6 32c6.9 0 13.8.6 20.7 1.8L312 103.2l13.8 83 83.1 13.8 69.3-69.3c6.7 38.2-5.3 76.8-33.1 104.5-8.9 8.9-19.1 16-30 21.5l23.6 23.6c10.4-6.2 20.2-13.6 29-22.5 37.8-37.8 52.7-91.4 39.7-143.3-2.3-9.5-9.7-17-19.1-19.6-9.5-2.6-19.7 0-26.7 7l-63.9 63.9-44.2-7.4-7.4-44.2L410 50.3c6.9-6.9 9.6-17.1 7-26.5-2.6-9.5-10.2-16.8-19.7-19.2C345.6-8.3 292 6.5 254.1 44.3c-12.9 12.9-22.9 27.9-30.1 44v67.8l22.1 22.1c-9.6-40.4 1.6-82.2 30.7-111.3zM107 467.1c-16.6 16.6-45.6 16.6-62.2 0-17.1-17.1-17.1-45.1 0-62.2l146.1-146.1-22.6-22.6L22.2 382.3c-29.6 29.6-29.6 77.8 0 107.5C36.5 504.1 55.6 512 75.9 512c20.3 0 39.4-7.9 53.7-22.3L231.4 388c-6.7-9.2-11.8-19.3-15.5-29.8L107 467.1z"></path>
+</svg>
+</niz-inline-svg><h2 _ngcontent-prj-c54="">more coming soon</h2><a _ngcontent-prj-c54="" href="https://twitter.com/notiz_dev" class="text-primary hover:text-primary-dark" rel="noreferrer noopener"> Get in Touch!
+</a></app-coming-soon>
+  </div><!---->
+</div></div></app-card-stack>
+</app-blog-post><!----></main><app-newsletter-signup _ngcontent-prj-c36="" class="mt-8 lg:px-8 lg:py-16 max-w-7xl mx-auto px-4 py-12 sm:px-6" _nghost-prj-c31=""><div _ngcontent-prj-c31="" class="rounded-md bg-gradient-primary-inverse px-6 py-6 md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center"><div _ngcontent-prj-c31="" class="xl:w-0 xl:flex-1"><h2 _ngcontent-prj-c31="" class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl"> Sign up for our newsletter </h2><p _ngcontent-prj-c31="" class="mt-3 max-w-3xl text-lg leading-6 text-gray-50"> Sign up for our newsletter to stay up to date. Sent every other week. </p></div><div _ngcontent-prj-c31="" class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8"><form _ngcontent-prj-c31="" novalidate="" class="sm:flex ng-untouched ng-pristine ng-invalid"><label _ngcontent-prj-c31="" for="emailAddress" class="sr-only">Email address</label><input _ngcontent-prj-c31="" id="emailAddress" name="emailAddress" type="email" autocomplete="email" formcontrolname="email" placeholder="Enter your email" class="w-full rounded-md border-white px-5 py-3 text-gray-950 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary ng-untouched ng-pristine ng-invalid"><button _ngcontent-prj-c31="" type="submit" class="mt-3 flex w-full items-center justify-center rounded-md border border-transparent bg-primary-dark px-5 py-3 text-base font-medium text-white shadow focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary hover:enabled:opacity-90 disabled:cursor-not-allowed disabled:opacity-75 sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0" disabled=""> Notify me </button></form><p _ngcontent-prj-c31="" class="mt-3 text-sm text-white"> We care about the protection of your data. Read our <a _ngcontent-prj-c31="" routerlink="/legal/privacy-policy" class="font-medium underline" href="/legal/privacy-policy/"> Privacy Policy. </a></p></div></div></app-newsletter-signup><niz-footer _ngcontent-prj-c36="" class="my-10 block" _nghost-prj-c34=""><footer _ngcontent-prj-c34="" class="container"><div _ngcontent-prj-c34="" class="md:grid md:grid-cols-2 md:gap-x-2"><div _ngcontent-prj-c34=""><p _ngcontent-prj-c34="" class="text-sm font-semibold uppercase tracking-wider text-color-shade"> about </p><div _ngcontent-prj-c34="" class="prose my-4"><p _ngcontent-prj-c34=""><strong _ngcontent-prj-c34="">*notiz.dev</strong> is created by <a _ngcontent-prj-c34="" class="focus-ring rounded-md" href="/authors/gary-grossgarten/"> Gary Großgarten </a> and <a _ngcontent-prj-c34="" class="focus-ring rounded-md" href="/authors/marc-stammerjohann/"> Marc Stammerjohann</a>. We love to share our experiences and findings working with Angular, NestJS, Prisma, Web Components and more. 👀 We are excited about the upcoming years of web development and hope to make some friends along the way. </p><p _ngcontent-prj-c34=""><em _ngcontent-prj-c34="">* notiz [noˈtiːt͡s] - (german) short, brief, written record</em></p></div></div><div _ngcontent-prj-c34="" class="mt-8 grid grid-cols-2 px-4 md:mt-0"><div _ngcontent-prj-c34=""><p _ngcontent-prj-c34="" class="text-center text-sm font-semibold uppercase tracking-wider text-color-shade"> Links </p><div _ngcontent-prj-c34="" class="mt-4 space-y-2"><a _ngcontent-prj-c34="" target="_blank" rel="noreferrer noopener" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="https://portfolio.notiz.dev"><!----> Portfolio <!----></a><!----><!----><!----><!----><a _ngcontent-prj-c34="" target="_blank" rel="noreferrer noopener" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="https://github.com/notiz-dev"><!----> GitHub <!----></a><!----><!----><!----><!----><a _ngcontent-prj-c34="" target="_blank" rel="noreferrer noopener" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="https://twitter.com/notiz_dev"><!----> Twitter <!----></a><!----><!----><!----><!----><!----></div></div><div _ngcontent-prj-c34=""><p _ngcontent-prj-c34="" class="text-center text-sm font-semibold uppercase tracking-wider text-color-shade"> more </p><div _ngcontent-prj-c34="" class="mt-4 space-y-2"><!----><a _ngcontent-prj-c34="" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="/"><niz-inline-svg _ngcontent-prj-c34="" class="mr-1 h-4 w-4" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <path d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"></path>
+</svg>
+</niz-inline-svg><!----> Blog <!----></a><!----><!----><!----><!----><a _ngcontent-prj-c34="" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="/authors/"><niz-inline-svg _ngcontent-prj-c34="" class="mr-1 h-4 w-4" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path>
+</svg>
+</niz-inline-svg><!----> Authors <!----></a><!----><!----><!----><!----><a _ngcontent-prj-c34="" class="focus-ring mx-1 flex items-center justify-center rounded-full p-1 text-justify text-color hover:bg-primary hover:bg-opacity-10 hover:text-primary" href="/tags/"><niz-inline-svg _ngcontent-prj-c34="" class="mr-1 h-4 w-4" _nghost-prj-c33=""><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"></path>
+</svg>
+</niz-inline-svg><!----> Tags <!----></a><!----><!----><!----><!----></div></div><!----></div></div><div _ngcontent-prj-c34="" class="mt-8 border-t border-canvas-light md:flex md:items-center md:justify-between"><div _ngcontent-prj-c34="" class="flex space-x-6 md:order-2"><a _ngcontent-prj-c34="" href="mailto:hi@notiz.dev" class="text-color hover:text-color-light"><span _ngcontent-prj-c34="" class="sr-only">Email</span><span _ngcontent-prj-c34="" class="material-icons"> mail </span></a><a _ngcontent-prj-c34="" href="https://twitter.com/notiz_dev" target="_blank" rel="noopener noreferrer" class="text-color hover:text-color-light"><span _ngcontent-prj-c34="" class="sr-only">Twitter</span><svg _ngcontent-prj-c34="" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6"><path _ngcontent-prj-c34="" d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a><a _ngcontent-prj-c34="" href="https://github.com/notiz-dev" target="_blank" rel="noopener noreferrer" class="text-color hover:text-color-light"><span _ngcontent-prj-c34="" class="sr-only">GitHub</span><svg _ngcontent-prj-c34="" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6"><path _ngcontent-prj-c34="" fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg></a></div><div _ngcontent-prj-c34="" class="mt-8 md:order-1 md:mt-0"><p _ngcontent-prj-c34="" class="text-base text-color"> © 2026, <a _ngcontent-prj-c34="" class="focus-ring rounded-md" href="/legal/privacy-policy/">notiz.dev</a>. All rights reserved. </p><div _ngcontent-prj-c34="" class="mt-1 flex"><p _ngcontent-prj-c34="" class="text-base text-color">Created with</p><div _ngcontent-prj-c34="" class="ml-1 flex items-center"><niz-inline-svg _ngcontent-prj-c34="" class="h-5 w-5" _nghost-prj-c33=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+  <path fill="#dd0031" d="M125 30L31.9 63.2l14.2 123.1L125 230l78.9-43.7 14.2-123.1z"></path>
+  <path fill="#c3002f" d="M125 30v22.2-.1V230l78.9-43.7 14.2-123.1L125 30z"></path>
+  <path d="M125 52.1L66.8 182.6h21.7l11.7-29.2h49.4l11.7 29.2H183L125 52.1zm17 83.3h-34l17-40.9 17 40.9z" fill="#fff"></path>
+</svg>
+</niz-inline-svg><niz-inline-svg _ngcontent-prj-c34="" class="h-5 w-5" _nghost-prj-c33=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+  <defs>
+    <linearGradient id="scully" x1="20" y1="170" x2="320" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#007c42"></stop>
+      <stop offset="1" stop-color="#6cce7a"></stop>
+    </linearGradient>
+  </defs>
+  <path d="M252.9 318.4a21.5 21.5 0 01-11 1.4 285.8 285.8 0 01-129.5-51.7 282.7 282.7 0 01-90.5-111 21.5 21.5 0 012.2-21.5 282.5 282.5 0 01258.1-114 21.5 21.5 0 0117.5 13.3 283 283 0 0117.4 145.6 284.6 284.6 0 01-55.4 131.1 21.4 21.4 0 01-8.8 6.8z" fill="url(#scully)"></path>
+  <path d="M252.9 219.4l-2.2-.5a11.6 11.6 0 01-7.1-14.8c3.6-10.3.2-15-.9-16.5-8.9-12.6-39.3-13.7-51.9-13.6-30.9.2-51.6-7.4-61.6-22.6s-6.1-31.4-2.6-39.2a11.6 11.6 0 0121.2 9.3c-.1.3-4 10.1.8 17.3s20.2 12.2 42 12c35.9-.2 59.7 7.6 71 23.3 7.5 10.5 8.8 23.5 3.8 37.7a11.5 11.5 0 01-12.5 7.6z" fill="#fff"></path>
+  <path d="M160.6 98.1a92 92 0 0131.8-4.8c24 .7 38.2 8.8 53.2 28.4a10.8 10.8 0 006.2 4 10.8 10.8 0 0011.1-17.2c-23.9-31.2-48.6-36.2-69.8-36.9a111.7 111.7 0 00-40.5 6.3 10.9 10.9 0 108 20.2zM231 226.2a90.1 90.1 0 01-31.9 4.8c-24-.7-43.7-11-58.7-30.6a10.9 10.9 0 10-17.3 13.1c17.2 22.6 37.8 32.6 55.9 36.7a102.2 102.2 0 0019.5 2.5 109 109 0 0040.4-6.3 10.8 10.8 0 00-7.9-20.2z" fill="#fff" opacity=".7"></path>
+</svg>
+</niz-inline-svg><niz-inline-svg _ngcontent-prj-c34="" class="h-5 w-5" _nghost-prj-c33=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient x1="0" y1="-21.333" y2="85.333" id="tailwind" x2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2383ae" offset="0%"></stop>
+      <stop stop-color="#6dd7b9" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <path d="M16 25.6c2.133-8.533 7.467-12.8 16-12.8 12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8C61.867 27.733 56.533 32 48 32c-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8zM0 44.8C2.133 36.267 7.467 32 16 32c12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8-2.133 8.533-7.467 12.8-16 12.8-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8z" fill="url(#tailwind)" fill-rule="evenodd"></path>
+</svg>
+</niz-inline-svg><niz-inline-svg _ngcontent-prj-c34="" class="h-5 w-5" _nghost-prj-c33=""><svg viewBox="0 0 111 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient x1="-3.48177083%" y1="17.0266727%" x2="100.833333%" y2="92.8868033%" id="linearGradient-1">
+      <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="0%"></stop>
+      <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+    </linearGradient>
+    <path d="M95.7984919,33.6246194 C95.5859256,32.3610745 94.6848395,31.3206592 93.4615125,30.9262876 C92.2381855,30.5319161 90.8962602,30.8492378 89.9812105,31.7492661 L72.2727216,49.5651223 L58.2428077,23.0544463 C57.6801918,21.9189555 56.5194912,21.2001264 55.2486188,21.2001264 C53.9777463,21.2001264 52.8170458,21.9189555 52.2544298,23.0544463 L44.6406351,37.5458126 L25.3922776,1.91410025 C23.852409,-0.984173003 19.489448,-0.216983024 18.9761585,3.02226355 L0.497735304,121.16952 L50.0301752,148.873603 C53.1471684,150.578603 56.9223279,150.578603 60.0393211,148.873603 L109.999502,121.16952 L95.7984919,33.6246194 Z" id="path-2"></path>
+  </defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="styleguide" transform="translate(-664.000000, -1272.000000)">
+      <g id="Group-16" transform="translate(40.000000, 1187.000000)">
+        <g id="Group-9" transform="translate(114.000000, 0.000000)">
+          <g id="Group-26" transform="translate(405.000000, 1.000000)">
+            <g id="logo_lockup_firebase_vertical" transform="translate(105.193370, 83.977901)">
+              <g id="_Group_">
+                <mask id="mask-3" fill="white">
+                  <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="_Path_5" fill="url(#linearGradient-1)" fill-rule="nonzero" xlink:href="#path-2"></use>
+                <g id="_Group_2" mask="url(#mask-3)">
+                  <g transform="translate(-6.346125, -0.160154)">
+                    <g id="_Group_3" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <path d="M6.84386044,121.329674 L25.4078319,3.18241769 C25.9211214,-0.0568288873 30.2840824,-0.824018866 31.823951,2.07425439 L50.9867602,37.7059667 L58.600555,23.2146005 C59.189165,22.0849984 60.360174,21.3760986 61.637518,21.3760986 C62.9148621,21.3760986 64.0858711,22.0849984 64.6744811,23.2146005 L116.345627,121.329674 L6.84386044,121.329674 Z" id="_Path_" fill="#FFA000" fill-rule="nonzero"></path>
+                      <g id="_Group_4" transform="translate(0.000000, 30.119310)">
+                        <polygon id="Shape" fill="#F57C00" fill-rule="nonzero" points="70.8339555 45.1789654 50.901212 7.58665646 6.84386044 91.2103641"></polygon>
+                      </g>
+                    </g>
+                    <g id="_Group_5" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(3.421930, 23.299844)">
+                      <g id="_Group_6" transform="translate(3.421930, 7.387755)" fill-rule="nonzero" fill="#FFCA28">
+                        <path d="M109.501767,90.6420753 L95.3007566,3.09717436 C95.0881903,1.8336295 94.1871042,0.793214154 92.9637772,0.398842606 C91.7404502,0.00447105695 90.3985249,0.321792836 89.4834752,1.22182108 L0,90.6420753 L49.5324399,118.346158 C52.6494331,120.051158 56.4245926,120.051158 59.5415858,118.346158 L109.501767,90.6420753 Z" id="_Path_2"></path>
+                      </g>
+                    </g>
+                    <path d="M102.144617,33.7847735 C101.932051,32.5212286 101.030965,31.4808133 99.8076376,31.0864418 C98.5843106,30.6920702 97.2423854,31.009392 96.3273356,31.9094202 L78.6188467,49.7252764 L64.5889329,23.2146005 C64.0263169,22.0791096 62.8656164,21.3602806 61.5947439,21.3602806 C60.3238715,21.3602806 59.1631709,22.0791096 58.600555,23.2146005 L50.9867602,37.7059667 L31.7384028,2.07425439 C30.1985342,-0.824018866 25.8355731,-0.0568288873 25.3222836,3.18241769 L6.84386044,121.329674 L6.75831218,121.329674 L6.84386044,121.414918 L7.35714997,121.670648 L78.5332985,50.5777097 L96.3273356,32.8470969 C97.2423854,31.9470686 98.5843106,31.6297468 99.8076376,32.0241184 C101.030965,32.4184899 101.932051,33.4589053 102.144617,34.7224501 L116.174531,121.414918 L116.345627,121.329674 L102.144617,33.7847735 Z M7.01495695,121.159188 L25.4078319,4.034851 C25.9211214,0.795604422 30.2840824,0.0284144437 31.823951,2.9266877 L50.9867602,38.5584 L58.600555,24.0670338 C59.189165,22.9374317 60.360174,22.2285319 61.637518,22.2285319 C62.9148621,22.2285319 64.0858711,22.9374317 64.6744811,24.0670338 L78.362202,49.9810064 L7.01495695,121.159188 Z" id="_Compound_Path_" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <path d="M66.3854462,148.181324 C63.2684531,149.886324 59.4932935,149.886324 56.3763003,148.181324 L6.92940869,120.562484 L6.84386044,121.329674 L56.3763003,149.033757 C59.4932935,150.738757 63.2684531,150.738757 66.3854462,149.033757 L116.345627,121.329674 L116.260079,120.562484 L66.3854462,148.181324 Z" id="_Path_3" fill="#A52714" fill-rule="nonzero" opacity="0.2"></path>
+                  </g>
+                </g>
+                <polygon id="_Path_4" mask="url(#mask-3)" points="-26.8777064 -6.69547618 137.374944 -6.69547618 137.374944 156.971719 -26.8777064 156.971719"></polygon>
+                <path d="M95.7984919,33.6246194 C95.5859256,32.3610745 94.6848395,31.3206592 93.4615125,30.9262876 C92.2381855,30.5319161 90.8962602,30.8492378 89.9812105,31.7492661 L72.2727216,49.5651223 L58.2428077,23.0544463 C57.6801918,21.9189555 56.5194912,21.2001264 55.2486188,21.2001264 C53.9777463,21.2001264 52.8170458,21.9189555 52.2544298,23.0544463 L44.6406351,37.5458126 L25.3922776,1.91410025 C23.852409,-0.984173003 19.489448,-0.216983024 18.9761585,3.02226355 L0.497735304,121.16952 L50.0301752,148.873603 C53.1471684,150.578603 56.9223279,150.578603 60.0393211,148.873603 L109.999502,121.16952 L95.7984919,33.6246194 Z" id="_Path_5" fill="url(#linearGradient-1)" fill-rule="nonzero" mask="url(#mask-3)"></path>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+</niz-inline-svg><!----></div></div></div></div></footer></niz-footer><niz-search _ngcontent-prj-c36="" _nghost-prj-c35=""><div _ngcontent-prj-c35="" class="flex fixed items-start justify-center z-50 px-4 pt-40 inset-0 hidden"><div _ngcontent-prj-c35="" class="absolute inset-0 bg-canvas-shade opacity-50"></div><div _ngcontent-prj-c35="" class="max-w-2xl w-full relative bg-canvas rounded-lg overflow-hidden shadow-xl"><div _ngcontent-prj-c35="" class="flex items-center justify-between px-4"><i _ngcontent-prj-c35="" class="material-icons-outlined text-primary">search</i><input _ngcontent-prj-c35="" type="text" placeholder="Type to Search" class="appearance-none w-full bg-transparent text-lg font-semibold px-2 py-4 placeholder-color-light focus:outline-none ng-untouched ng-pristine ng-valid"><button _ngcontent-prj-c35="" class="bg-canvas-shade px-2 py-1 rounded-md"> esc </button></div><div _ngcontent-prj-c35="" class="hidden"><ul _ngcontent-prj-c35="" class="max-h-384 overflow-y-auto space-y-2 py-4"><!----></ul></div></div></div></niz-search><niz-toast _ngcontent-prj-c36=""></niz-toast></app-root>
+    <noscript>
+      Please enable JavaScript to continue using this application.
+    </noscript>
+  <script id="ScullyIO-transfer-state"></script><script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
+
+<script>
+      window.addEventListener('AngularReady', foucScript);
+      function foucScript(){
+        document.body.classList.remove('fouc');
+        window.removeEventListener('AngularReady', foucScript);
+      }
+      </script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>
+    window.addEventListener('AngularReady', mediumZoomScript);
+    function mediumZoomScript(){
+      mediumZoom('[data-zoomable]',{});
+    }
+    </script></body></html>
