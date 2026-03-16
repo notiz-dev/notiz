@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "jsdom": "^19.0.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "puppeteer": "^13.3.2"
   }
 }
